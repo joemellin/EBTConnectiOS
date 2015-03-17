@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3C885C1B-9001-4C08-BA86-1A5D38F5FD10</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EBT</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F733E4AF3E155D251BBAA6FC76A7CE8D3346953A</key>
+		<string>github.com:joemellin/ebt2iphone.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>EBT.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F733E4AF3E155D251BBAA6FC76A7CE8D3346953A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:joemellin/ebt2iphone.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F733E4AF3E155D251BBAA6FC76A7CE8D3346953A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F733E4AF3E155D251BBAA6FC76A7CE8D3346953A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ebt2iphone</string>
+		</dict>
+	</array>
+</dict>
+</plist>
