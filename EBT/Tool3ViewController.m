@@ -46,16 +46,16 @@
     label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 145, 320, 34)];
     label.numberOfLines = 0;
     label.textColor = kDarkGrayTextColor;
-    label.text =  displayList[self.currentIndex];
+    label.text =  self.displayList[self.currentIndex];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:20];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [Utils applyiPhone4YDelta:-delta forView:label];
     [self.view addSubview:label];
 }
 
 -(void)next{
-    if (self.currentIndex == displayList.count - 1) {
+    if (self.currentIndex == self.displayList.count - 1) {
         SelectStateViewController* vc = [[SelectStateViewController alloc] initWithNibName:@"SelectStateViewController" bundle:nil];
         vc.isRestartMode = YES;
         [self.navigationController pushViewController:vc animated:YES];

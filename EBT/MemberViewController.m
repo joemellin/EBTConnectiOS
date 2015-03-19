@@ -42,7 +42,7 @@
     if (contentView) {
         [contentView removeFromSuperview];
     }
-    contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, kIphoneHeight-20)];
+    contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)];
     contentView.scrollEnabled = YES;
     
     self.navigationItem.hidesBackButton = YES;
@@ -60,13 +60,13 @@
     
     [self.view insertSubview:contentView atIndex:0];
     
-    UIView* whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 90, 320, 130)];
+    UIView* whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 90, kScreenBounds.size.width, 130)];
     whiteView.backgroundColor = [UIColor whiteColor];
     [contentView addSubview:whiteView];
 
     
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 15, 0, 0)];
-    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"k%@",self.currentItem[kCouseID]] ];
+    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"k%@",self.currentItem[kCourseID]] ];
     [self setViewFrame:imageView];
     imageView.tag = 0 + kBaseTag;
     
@@ -74,7 +74,7 @@
     
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(103, 23.5, 113, 113)];
     imageView.tag = 100;
-    imageView.image = [self getImageFromUrlString:currentItem[kImageURL] tag:imageView.tag];
+    imageView.image = [self getImageFromUrlString:self.currentItem[kImageURL] tag:imageView.tag];
     imageView.layer.cornerRadius = imageView.frame.size.width/2;
     imageView.clipsToBounds = YES;
     
@@ -103,10 +103,10 @@
     label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 145, 320, 30)];
     label.numberOfLines = 1;
     label.textColor = kDarkGrayTextColor;
-    label.text =  currentItem[kName];
+    label.text =  self.currentItem[kName];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:18];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
     
     float lastY = 180;
@@ -139,7 +139,7 @@
         //[self setViewFrame:imageView];
         [contentView addSubview:imageView];
         
-        int messageCount = [currentItem[k_new_message_count] intValue];
+        int messageCount = [self.currentItem[k_new_message_count] intValue];
         //messageCount = 3;
         if (messageCount > 0 && !messageRead) {
             UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(175,lastY+8, 0, 0)];
@@ -153,7 +153,7 @@
             label.text =  [NSString stringWithFormat:@"%d",messageCount];
             label.backgroundColor= [UIColor clearColor];
             label.font = [UIFont systemFontOfSize:14];
-            label.textAlignment = UITextAlignmentCenter;
+            label.textAlignment = NSTextAlignmentCenter;
             [contentView addSubview:label];
 
 
@@ -239,11 +239,11 @@
 }
 
 -(void)showSupporter:(UIButton*)button{
-    NSDictionary* item = displayList[button.tag];
+    NSDictionary* item = self.displayList[button.tag];
     MemberViewController* vc = [[MemberViewController alloc] initWithNibName:@"MemberViewController" bundle:nil];
     NSDictionary* dict = [Utils setting:kUserInfoDict];
     vc.isMe = [dict[kID] isEqualToNumber:item[kID]] ;
-    vc.imageCacheDict = imageCacheDict;
+    vc.imageCacheDict = self.imageCacheDict;
     vc.currentItem = item;
     
     [self.navigationController pushViewController:vc animated:YES];
@@ -299,7 +299,7 @@
     float ovalHeight = 110;
     float badgeHeight = 68;
     //NSArray* xValues = @[@"",@"",@"",@"",@""];
-    float timelineWidth = 320;
+    float timelineWidth = kScreenBounds.size.width;
     float itemWidth = 45;
     //float distance = 290/col;
     float lastContentY = 0;
@@ -418,7 +418,7 @@
                 label.text =  [NSString stringWithFormat:@"%@",item[kInitialState]];
                 label.backgroundColor= [UIColor clearColor ];
                 label.font = [UIFont boldSystemFontOfSize:25];
-                label.textAlignment = UITextAlignmentCenter;
+                label.textAlignment = NSTextAlignmentCenter;
                 [imageView addSubview:label];
 
                 if (imageView.frame.origin.x > lastLabelX) {
@@ -428,7 +428,7 @@
                     label.text =  [self timelineXValueForCheckin:item];
                     label.backgroundColor= [UIColor clearColor ];
                     label.font = [UIFont systemFontOfSize:14];
-                    label.textAlignment = UITextAlignmentCenter;
+                    label.textAlignment = NSTextAlignmentCenter;
                     [contentView addSubview:label];
                     lastLabelX = label.frame.origin.x + label.frame.size.width+5;
                 }
@@ -524,8 +524,8 @@
 
 -(void)showNotifications{
     NotificationViewController* vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
-    vc.displayList = [currentItem objectForKey:kSupporters];
-    vc.imageCacheDict = imageCacheDict;
+    vc.displayList = [self.currentItem objectForKey:kSupporters];
+    vc.imageCacheDict = self.imageCacheDict;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -561,7 +561,7 @@
     //[self requestSucceededResultHandler:@"1" result:@""];return;
     
     NSDictionary* dict = [Utils setting:kUserInfoDict];
-	NSString* urlStr = [NSString stringWithFormat:@"%@users/%@",kBaseURL, currentItem[kID] ];
+	NSString* urlStr = [NSString stringWithFormat:@"%@users/%@",kBaseURL, self.currentItem[kID] ];
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"%@",urlStr);
     

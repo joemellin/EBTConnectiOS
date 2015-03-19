@@ -4,7 +4,8 @@
 #define kBlueTextColor [Utils colorWithRed:157 green:207 blue:218]
 #define kDarkGrayTextColor [Utils colorWithRed:89 green:89 blue:89]
 #define kSessionToken @"kSessionToken"
-#define kBaseURL @"https://secure.ebtgroups.com/api/v1/"
+#define kBaseURL @"https://www.ebtconnect.net/api/v1/"
+#define kWebsiteURL @"http://www.ebtconnect.net/"
 #define kUserInfoDict @"kUserInfoDict"
 #define kGroup @"group"
 #define kID @"id"
@@ -33,7 +34,7 @@
 #define kInitialState @"initial_state"
 #define kFinalState @"final_state"
 #define kDate @"date"
-#define kCouseID @"course_id"
+#define kCourseID @"course_id"
 #define kSupporters @"supporters"
 #define kSupporterID @"supporter_id"
 #define kLoginBackTapped @"kLoginBackTapped"
@@ -41,4 +42,4 @@
 #define k_new_message_count @"new_message_count"
 #define k_new_checkin_count @"new_checkin_count"
 #define kLoggedOut @"kLoggedOut"
-
+#define kScreenBounds [[UIScreen mainScreen] bounds]

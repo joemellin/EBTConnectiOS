@@ -1,83 +1,33 @@
 //
-//  NotificationViewController.m
+//  CoursesViewController.m
 //  EBT
 //
-//  Created by ross chen on 8/28/13.
-//  Copyright (c) 2013 ross chen. All rights reserved.
+//  Created by Adi on 3/18/15.
+//  Copyright (c) 2015 Adrian Coroian. All rights reserved.
 //
 
-#import "NotificationViewController.h"
-#import "MemberViewController.h"
-@interface NotificationViewController ()
+#import "CoursesViewController.h"
+
+@interface CoursesViewController ()
 
 @end
 
-@implementation NotificationViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@implementation CoursesViewController
 
 - (void)viewDidLoad
 {
     needsNavBar = YES;
     [self setupTableView];
     [super viewDidLoad];
-    [self setNavTitle:@"Notifications"];
+    [self setNavTitle:@"Courses"];
     
     // Do any additional setup after loading the view from its nib.
 }
 
--(NSString*)timelineXValueForItem:(NSDictionary*)item{
-
-    NSDate* date =   date = [Utils dateFromISOString:item[@"supported_at"]];
-   
-    int delta = abs((int)[date timeIntervalSinceNow]);
-    int hour = delta / 3600;
-    int min = (((int)delta) % 3600) / 60;
-    if (hour > 0) {
-        int day = hour / 24;
-        if (day > 0) {
-             if (day == 1) {
-                 return [NSString stringWithFormat:@"%d day",day];
-             }
-             else{
-                 return [NSString stringWithFormat:@"%d days",day];
-
-             }
-        }
-        if (hour == 1) {
-            return [NSString stringWithFormat:@"%d hour",hour];
-        }
-        else{
-            return [NSString stringWithFormat:@"%d hours",hour];
-            
-        }
-    }
-    else if (min > 0) {
-        if (min == 1) {
-            return [NSString stringWithFormat:@"%d minute",min];
-        }
-        else{
-            return [NSString stringWithFormat:@"%d minutes",min];
-            
-        }
-        
-    }
-    else{
-        return @"Now";
-    }
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	static NSString *MyIdentifier = @"MyIdentifier";
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-	cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] ;
+    static NSString *MyIdentifier = @"MyIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] ;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     float x = 13;
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, 15, 40, 40)];
@@ -89,14 +39,14 @@
     imageView.layer.borderWidth = 0.5;
     imageView.clipsToBounds = YES;
     [cell.contentView addSubview:imageView];
-
+    
     
     x += 50;
     UILabel* label;
     label = [[UILabel alloc] initWithFrame:CGRectMake(x , 10, 230, 25)];
     label.numberOfLines = 1;
     label.textColor = kGrayTextColor;
-    label.text =  [self timelineXValueForItem:item];
+    label.text = @"";
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:14];
     //label.textAlignment = UITextAlignmentCenter;
@@ -110,24 +60,17 @@
     label.font = [UIFont boldSystemFontOfSize:14];
     //label.textAlignment = UITextAlignmentCenter;
     [cell.contentView addSubview:label];
-
+    
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 68, 0, 0)];
     imageView.image = [UIImage imageNamed:@"splitline.png"];
     [self setViewFrame:imageView];
     [cell.contentView addSubview:imageView];
     
-	return cell;
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary* item = self.displayList[[indexPath row]];
-
-    MemberViewController* vc = [[MemberViewController alloc] initWithNibName:@"MemberViewController" bundle:nil];
-    vc.isMe = NO ;
-    vc.imageCacheDict = self.imageCacheDict;
-    vc.currentItem = item;
-      
-    [self.navigationController pushViewController:vc animated:YES];
    	
 }
 

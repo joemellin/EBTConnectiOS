@@ -490,13 +490,18 @@ static NSString * const FORM_FLE_INPUT = @"uploadedfile";
     // inform the user
     NSLog(@"Connection failed! Error - %@ %@",
           [error localizedDescription],
-          [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
+          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
 	//[delegate requestDidFailWithError:error];
 	//[target failedCallback:error myURLConnection:self];
 	[target performSelector:failedCallback withObject:error withObject:self];
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
+}
+
+//Used for self trusted certificate untill certificate situation gets fixed.
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
+    return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{

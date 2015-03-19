@@ -60,7 +60,7 @@
     
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(104, 18, 113, 113)];
     imageView.tag = 100;
-    imageView.image = [self getImageFromUrlString:currentItem[kImageURL] tag:imageView.tag];
+    imageView.image = [self getImageFromUrlString:self.currentItem[kImageURL] tag:imageView.tag];
     imageView.layer.cornerRadius = imageView.frame.size.width/2;
     imageView.clipsToBounds = YES;
     
@@ -74,7 +74,7 @@
     label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 155, 320, 30)];
     label.numberOfLines = 1;
     label.textColor = kDarkGrayTextColor;
-    label.text =  currentItem[kName];
+    label.text =  self.currentItem[kName];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:18];
     label.textAlignment = UITextAlignmentCenter;
@@ -123,16 +123,16 @@
     label.text =  [@"Purchased coaching" uppercaseString];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:12];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
     
     label = [[UILabel alloc] initWithFrame:CGRectMake(0 , lastY+30, 320, 45)];
     label.numberOfLines = 1;
     label.textColor = kBlueTextColor;
-    label.text =  [NSString stringWithFormat:@"%@",currentItem[@"num_coachings"]]; 
+    label.text =  [NSString stringWithFormat:@"%@",self.currentItem[@"num_coachings"]];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:50];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
     
     label = [[UILabel alloc] initWithFrame:CGRectMake(0 , lastY+75, 320, 30)];
@@ -141,7 +141,7 @@
     label.text =  [@"25 min sessions" uppercaseString];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:12];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
 
 
@@ -153,7 +153,7 @@
 
 -(IBAction)requestUserInfo{
     NSDictionary* dict = [Utils setting:kUserInfoDict];
-	NSString* urlStr = [NSString stringWithFormat:@"%@users/%@",kBaseURL, currentItem[kID] ];
+	NSString* urlStr = [NSString stringWithFormat:@"%@users/%@",kBaseURL, self.currentItem[kID] ];
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"%@",urlStr);
     

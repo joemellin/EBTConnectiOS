@@ -99,7 +99,7 @@
     label = [[UILabel alloc] initWithFrame:CGRectMake(45 , 0, 110, 33)];
     label.numberOfLines = 0;
     //label.textColor = [UIColor whiteColor];
-    label.text = displayList[[indexPath row] * 2 + 0];
+    label.text = self.displayList[[indexPath row] * 2 + 0];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:14];
     //label.textAlignment = UITextAlignmentCenter;
@@ -108,7 +108,7 @@
     label = [[UILabel alloc] initWithFrame:CGRectMake(203 , 0, 110, 33)];
     label.numberOfLines = 0;
     //label.textColor = [UIColor whiteColor];
-    label.text = displayList[[indexPath row] * 2 + 1];
+    label.text = self.displayList[[indexPath row] * 2 + 1];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:14];
     //label.textAlignment = UITextAlignmentCenter;
@@ -129,7 +129,7 @@
     int row = button.tag / 10;
     int col = button.tag % 10;
     int index = row*2 + col;
-    NSString* value = displayList[index];
+    NSString* value = self.displayList[index];
     if (!button.selected && [selectedFeelings count] == 3 && [selectedFeelings indexOfObject:value] == NSNotFound) {
         return;
     }

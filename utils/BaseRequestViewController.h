@@ -30,67 +30,46 @@
 
 @interface BaseRequestViewController : UIViewController {
 	UITableView* myTableView;
-	NSMutableArray* displayList;
 	UIActivityIndicatorView*  spinner;
 	UIView* spinnerView;
 	UILabel* loadingLabel;	
 	UILabel* loadingLabel2;
-	NSDictionary* selectedItem;
 	UILabel* noContentLabel;
-	NSMutableDictionary* currentItem;
 	UIActivityIndicatorView* spinner2;
 	
-	NSMutableDictionary* imageCacheDict;
-	bool shouldRefresh;
-	bool isBookmarkMode;
 	bool shouldStopLoadingImage;
-	bool isModeView;
 	bool isModeEdit;
-	NSMutableDictionary* argDict;
 	
 	UIBarButtonItem* dismissItem;
 	UIBarButtonItem *saveItem;
 	UIBarButtonItem *editItem;
 	
-	NSMutableArray* displayLetters;
 	bool showCancelChangesButton;
-	bool isEmailCSVMode;
-	NSMutableArray* storeKeyList;
 	
 	UILabel* placeHintLabel;
 	CGRect originalLoadingRect;
 	int testCount;
 	
 	UIImageView* bgView;
-	NSMutableArray* mySegmentList;
 	UIButton* infoButton;
 	UIToolbar* bottomBar;
     
-    UIWebView* webView;
     UIImageView* playerImageView;
     
-    NSMutableArray* videoList;
     int videoIndex;
     
     UIView* videoLoadingView;
     UILabel* videoLoadingLabel;
     UIProgressView* videoProgressView;
-   MyURLConnection* downloadConn;
-    UIBackgroundTaskIdentifier backgroundTaskID;
+    MyURLConnection* downloadConn;
     BOOL hasWiFi;
     
     UIButton* videoCancelButton;
     UILabel* hintBarLabel;
-    UIPopoverController* popoverSettingController;
     UIView* noInternetView;
     
     UIButton* settingButton;
     BOOL needsNavBar;
-
-
-
-
-	
 }
 @property(nonatomic,strong) UIPopoverController* popoverSettingController;
 

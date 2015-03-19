@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 
 @end
 
@@ -119,12 +119,12 @@
 }
 
 -(void)newToEBT{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.ebtgroups.com/"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kWebsiteURL]];
 }
 
 
 -(void)setupLogoutUI{
-    UIView* contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, kIphoneHeight)];
+    UIView* contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)];
     contentView.backgroundColor = kBackgroundColor;
     logoutContentView = contentView;
     
@@ -135,7 +135,7 @@
     label.text =  @"You do not currently\nhave an active\nMembership.";
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:20];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -218,25 +218,22 @@
             [Utils setSettingForKey:kLoginInfoDict withValue:loginDict];
             
 
-            if (![dict[@"active_subscription"] boolValue]) {
-                //[Utils alertMessage:@"Visit ebtgroups.com to enroll by tapping \"NEW TO EBT\"."];
-                //[self back];
-                [self setupLogoutUI];
-                return;
-            }
+//            if (![dict[@"active_subscription"] boolValue]) {
+//                //[Utils alertMessage:@"Visit ebtgroups.com to enroll by tapping \"NEW TO EBT\"."];
+//                //[self back];
+//                [self setupLogoutUI];
+//                return;
+//            }
+//            
+//            if (![[dict objectForKey:kGroup] objectForKey:kID]) {
+//                [self setupLogoutUI];
+//                return;
+//            }
             
-            if (![[dict objectForKey:kGroup] objectForKey:kID]) {
-                [self setupLogoutUI];
-                return;
-            }
-            
-                       if (![[Utils setting:kWelcomeShowed] boolValue]) {
+            if (![[Utils setting:kWelcomeShowed] boolValue]) {
                 [Utils showSubViewWithName:@"WelcomeViewController" withDelegate:self];
-
-            }
-            else{
-                [Utils showSubViewWithName:@"GroupViewController" withDelegate:self];
-
+            } else {
+                [Utils showSubViewWithName:@"TabBarViewController" withDelegate:self];
             }
 
         }

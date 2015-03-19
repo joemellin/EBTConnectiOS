@@ -225,7 +225,7 @@
     if (button.tag >= 0 && button.tag < 10) {
         NSDictionary* item;
         if (button.tag == 0) {
-            item = [currentItem objectForKey:kProvider];
+            item = [self.currentItem objectForKey:kProvider];
             view.layer.borderColor = [kBlueTextColor CGColor];
             
             view.layer.borderWidth = 2;
@@ -274,7 +274,7 @@
             label.text =  [NSString stringWithFormat:@"%d",messageCount];
             label.backgroundColor= [UIColor clearColor];
             label.font = [UIFont systemFontOfSize:14];
-            label.textAlignment = UITextAlignmentCenter;
+            label.textAlignment = NSTextAlignmentCenter;
             [imageView addSubview:label];
         }
 
@@ -293,9 +293,9 @@
     NSMutableDictionary* dict;
     if (button.tag == 0) {
         ProviderViewController* vc = [[ProviderViewController alloc] initWithNibName:@"ProviderViewController" bundle:nil];
-        dict = [currentItem objectForKey:kProvider];
+        dict = [self.currentItem objectForKey:kProvider];
         vc.currentItem = dict;
-        vc.imageCacheDict = imageCacheDict;
+        vc.imageCacheDict = self.imageCacheDict;
         view.layer.borderColor = [kBlueTextColor CGColor];
 
         [self.navigationController pushViewController:vc animated:YES];
@@ -305,13 +305,13 @@
     else if (button.tag == 10) {
         MemberViewController* vc = [[MemberViewController alloc] initWithNibName:@"MemberViewController" bundle:nil];
         vc.isMe = YES ;
-        vc.imageCacheDict = imageCacheDict;
+        vc.imageCacheDict = self.imageCacheDict;
         if (isCoachingGroup) {
-            dict = [currentItem objectForKey:kUser];
+            dict = [self.currentItem objectForKey:kUser];
             vc.currentItem = dict;
         }
         else{
-            NSArray* members = [currentItem objectForKey:kMembers];
+            NSArray* members = [self.currentItem objectForKey:kMembers];
             for(NSMutableDictionary* member in members){
                 NSString* name = [member objectForKey:kName];
                 if ([name isEqualToString:@"You"]) {
@@ -332,7 +332,7 @@
         
         MemberViewController* vc = [[MemberViewController alloc] initWithNibName:@"MemberViewController" bundle:nil];
         vc.isMe = NO ;
-        vc.imageCacheDict = imageCacheDict;
+        vc.imageCacheDict = self.imageCacheDict;
         dict = otherMembers[button.tag-1];
         vc.currentItem = dict;
         [self.navigationController pushViewController:vc animated:YES];
@@ -341,7 +341,7 @@
 }
 
 -(NSArray*)otherMembers{
-    NSArray* members = [currentItem objectForKey:kMembers];
+    NSArray* members = [self.currentItem objectForKey:kMembers];
 
     NSMutableArray* otherMembers = [NSMutableArray arrayWithCapacity:10];
     for(NSDictionary* member in members){
@@ -362,21 +362,21 @@
 }
 
 -(void)loadImages{
-    if (!currentItem) {
+    if (!self.currentItem) {
         return;
     }
-    NSString* url = [[currentItem objectForKey:kProvider] objectForKey:kImageURL];
+    NSString* url = [[self.currentItem objectForKey:kProvider] objectForKey:kImageURL];
     UIImageView* iView = [self.view viewWithTag:0 + kBaseTag];
     iView.image = [self getImageFromUrlString:url tag:iView.tag];
 
     
     if (isCoachingGroup) {
-        NSString* url = [[currentItem objectForKey:kUser] objectForKey:kImageURL];
+        NSString* url = [[self.currentItem objectForKey:kUser] objectForKey:kImageURL];
         UIImageView* iView = [self.view viewWithTag:10 + kBaseTag];
         iView.image = [self getImageFromUrlString:url tag:iView.tag];
         return;
     }
-    NSArray* members = [currentItem objectForKey:kMembers];
+    NSArray* members = [self.currentItem objectForKey:kMembers];
     
     NSMutableArray* otherMembers = [NSMutableArray arrayWithCapacity:10];
     for(NSDictionary* member in members){

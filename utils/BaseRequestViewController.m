@@ -10,24 +10,6 @@
 #import "Utils.h"
 
 @implementation BaseRequestViewController
-@synthesize storeKeyList;
-@synthesize displayList;
-@synthesize selectedItem;
-@synthesize currentItem;
-
-@synthesize imageCacheDict;
-@synthesize shouldRefresh;
-@synthesize isBookmarkMode;
-@synthesize isModeView;
-@synthesize argDict;
-@synthesize displayLetters;
-@synthesize isEmailCSVMode;
-@synthesize mySegmentList;
-@synthesize webView;
-@synthesize videoList;
-@synthesize backgroundTaskID;
-@synthesize popoverSettingController;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -52,10 +34,10 @@
     if (needsNavBar) {
         delta += 44;
     }
-	loadingLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 320,  kIphoneHeight-delta)];
+	loadingLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, kScreenBounds.size.width,  kScreenBounds.size.height-delta)];
     
 	loadingLabel.text =  _(@"Loading...");
-	loadingLabel.textAlignment = UITextAlignmentCenter;
+	loadingLabel.textAlignment = NSTextAlignmentCenter;
 	loadingLabel.textColor = kGrayTextColor;
 	loadingLabel.backgroundColor = kBackgroundColor;
 
@@ -64,10 +46,10 @@
 	loadingLabel.hidden = YES;
 	
 	
-	noContentLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 320,  305)];		
+	noContentLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, kScreenBounds.size.width,  305)];
 	noContentLabel.numberOfLines = 0;
 	noContentLabel.text =  kLoadingMessage;
-	noContentLabel.textAlignment = UITextAlignmentCenter;
+	noContentLabel.textAlignment = NSTextAlignmentCenter;
 	noContentLabel.textColor = [UIColor grayColor];
 	noContentLabel.backgroundColor= [UIColor clearColor];	
 	noContentLabel.alpha = 1.0;
@@ -94,16 +76,10 @@
 									action:nil];
 	self.navigationItem.backBarButtonItem = backButton;
     
-    
-
 	[super viewDidLoad];
     
     self.view.backgroundColor = kBackgroundColor;
     [self addLeftBackButton];
-    
-
-	
-	
 }
 -(void)setNavTitle:(NSString*)title{
     UILabel* label;
@@ -118,7 +94,7 @@
     label.layer.shadowOffset = CGSizeMake(1.0f, 0.0f);
     //label.layer.shadowOpacity = 1.0f;
     //label.layer.shadowRadius = 1.0f;
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
 }
 -(void)addLeftBackButton{
@@ -239,7 +215,7 @@
     label.text =  text;
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:20];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [toolbar addSubview:label];
     //[label release]; 
     [self.view addSubview:toolbar];
@@ -321,7 +297,7 @@
 -(void)showVideoLoadingView{
     [self.view bringSubviewToFront:videoLoadingView];
     videoLoadingView.hidden = NO;
-    videoLoadingLabel.text = [NSString stringWithFormat:@"Downloading resource %d/%d", videoIndex + 1, [videoList count]];
+    videoLoadingLabel.text = [NSString stringWithFormat:@"Downloading resource %d/%d", videoIndex + 1, [self.videoList count]];
 }
 
 -(void)hideVideoLoadingView{
@@ -511,8 +487,8 @@
 	//NSString* key = [[urlStr componentsSeparatedByString:@"/"] lastObject];
 	NSString* key = urlStr;
 
-	if ( [imageCacheDict objectForKey:key ]) {
-		return  [imageCacheDict objectForKey:key ];
+	if ( [self.imageCacheDict objectForKey:key ]) {
+		return  [self.imageCacheDict objectForKey:key ];
 	}
 	else {
 		/*UIImage* image = [self loadLocalImageForKey:key];
@@ -556,7 +532,7 @@
 	}	
 	int tag = [connection.context intValue];
 	
-	if(!imageCacheDict){
+	if(!self.imageCacheDict){
 		self.imageCacheDict = [[NSMutableDictionary alloc] init];
 	}
 	UIImage* image = nil;
@@ -566,7 +542,7 @@
 	if(image && [image isKindOfClass:[UIImage class]]){		
 		//NSString* key = [[connection.requestURL componentsSeparatedByString:@"/"] lastObject];
 		NSString* key = connection.requestURL;
-		[imageCacheDict setObject:image forKey:key ];
+		[self.imageCacheDict setObject:image forKey:key ];
 		//[self localCacheImage:image forKey:key];
 		if (tag > 0) {
 			UIImageView* imageView = (UIImageView*)[self.view viewWithTag:tag];
@@ -896,7 +872,7 @@
 }
 
 -(void)dismissSettings{
-    [popoverSettingController dismissPopoverAnimated:YES];
+    [self.popoverSettingController dismissPopoverAnimated:YES];
     
 }
 

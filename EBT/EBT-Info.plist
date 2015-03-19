@@ -20,7 +20,7 @@
 		<string>EBT Logo 94.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>org.ebt</string>
+	<string>org.ebt.conect</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

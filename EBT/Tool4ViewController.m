@@ -50,7 +50,7 @@
     label = [[UILabel alloc] initWithFrame:CGRectMake(15 , 0, 300, 50)];
     label.numberOfLines = 0;
     label.textColor = kGrayTextColor;
-    label.text =  displayList[self.currentIndex]; ;
+    label.text =  self.displayList[self.currentIndex]; ;
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:14];
     //label.textAlignment = UITextAlignmentCenter;
@@ -67,8 +67,8 @@
     
     NSDictionary* dict;
     //NSDictionary* dict = [Utils setting:kCycleToolNoteDict];
-    if (dict[ displayList[self.currentIndex]]) {
-         textView.text = dict[ displayList[self.currentIndex]];
+    if (dict[ self.displayList[self.currentIndex]]) {
+         textView.text = dict[ self.displayList[self.currentIndex]];
     }
     textView.font = [UIFont systemFontOfSize:15];
     textView.textColor = [UIColor lightGrayColor]; //optional
@@ -84,10 +84,10 @@
     if (!dict) {
         dict = [NSMutableDictionary dictionaryWithCapacity:10];
     }
-    dict[ displayList[self.currentIndex]] = myTextView.text;
+    dict[ self.displayList[self.currentIndex]] = myTextView.text;
     //[Utils setSettingForKey:kCycleToolNoteDict withValue:dict];
     
-    if (self.currentIndex == displayList.count - 1) {
+    if (self.currentIndex == self.displayList.count - 1) {
         SelectStateViewController* vc = [[SelectStateViewController alloc] initWithNibName:@"SelectStateViewController" bundle:nil];
         vc.isRestartMode = YES;
         [self.navigationController pushViewController:vc animated:YES];

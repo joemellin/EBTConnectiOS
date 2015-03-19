@@ -22,13 +22,8 @@
 	SEL succeededCallback;
 	SEL failedCallback;
 	NSString *url;
-	NSDictionary* responseHeaderDictionary;
-	NSInteger statusCode;
 	bool usesData;
 	NSURLConnection *theConnection;
-	id context;
-	NSString* requestURL;
-	SEL callerSelector;
     long long contentLength;
 }
 

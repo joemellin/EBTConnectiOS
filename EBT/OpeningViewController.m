@@ -71,7 +71,7 @@
 }
 
 -(void)newToEBT{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.ebtgroups.com/"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kWebsiteURL]];
 }
 
 

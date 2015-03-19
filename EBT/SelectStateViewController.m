@@ -8,8 +8,9 @@
 
 #import "SelectStateViewController.h"
 #import "StateDetailViewController.h"
-@interface SelectStateViewController ()
-
+@interface SelectStateViewController () {
+    NSArray *_states;
+}
 @end
 
 @implementation SelectStateViewController
@@ -18,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _states = @[@"1 Feeling Great", @"2 Feeling Good", @"3 A Little Stressed", @"4 Definitely Stressed", @"5 Stressed Out"];
     }
     return self;
 }
@@ -50,9 +51,8 @@
 
 
 -(void)setupTableView{
-	CGRect screen = [[UIScreen mainScreen] bounds];
 	float offsetY = 0;
-	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, offsetY, 320, kIphoneHeight-20)
+	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, offsetY, kScreenBounds.size.width, kScreenBounds.size.height)
 											  style:UITableViewStylePlain];
     myTableView.dataSource = self;
 	myTableView.delegate = self;
@@ -87,16 +87,18 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] ;
 	//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	cell.textLabel.text = [NSString stringWithFormat:@"%d", [indexPath row]+1];
     cell.textLabel.font = [UIFont boldSystemFontOfSize:25];
-    cell.textLabel.textAlignment = UITextAlignmentCenter;
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = kDarkGrayTextColor;
+    cell.textLabel.text = [_states objectAtIndex:indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 68, 0, 0)];
     imageView.image = [UIImage imageNamed:@"splitline.png"];
     [self setViewFrame:imageView];
     [cell.contentView addSubview:imageView];
-
+    
+    
+    
 	return cell;
 }
 

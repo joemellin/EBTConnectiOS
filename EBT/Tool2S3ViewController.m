@@ -54,9 +54,9 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
 	//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	cell.textLabel.text = displayList[[indexPath row]];
+	cell.textLabel.text = self.displayList[[indexPath row]];
     cell.textLabel.font = [UIFont boldSystemFontOfSize:18];
-    cell.textLabel.textAlignment = UITextAlignmentCenter;
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = kDarkGrayTextColor;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 68, 0, 0)];
@@ -68,7 +68,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString* feeling = displayList[[indexPath row]];
+    NSString* feeling = self.displayList[[indexPath row]];
     [Utils setSettingForKey:kSelectedFeeling withValue:feeling];
     [Utils showSubViewWithName:@"Tool2S4ViewController" withDelegate:self];
 

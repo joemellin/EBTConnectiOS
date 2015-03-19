@@ -46,7 +46,7 @@
     label.text =  results[self.state];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:16];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     
     NSString* text = details[self.state];
@@ -58,7 +58,7 @@
     label.text =  text;
     label.backgroundColor= [UIColor clearColor];
     label.font = font;
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     
     float yDelta = -80;

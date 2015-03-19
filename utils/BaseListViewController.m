@@ -38,9 +38,7 @@
 
 
 -(void)setupTableView{
-	CGRect screen = [[UIScreen mainScreen] bounds];
-	float offsetY = 0;
-	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, offsetY, 320, kIphoneHeight-20-44)
+	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)
 											  style:UITableViewStylePlain];
    
 	[self.view addSubview:myTableView];
@@ -55,7 +53,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return [displayList count];
+	return [self.displayList count];
 }
 
 
@@ -75,7 +73,7 @@
 	//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	cell.textLabel.text = [NSString stringWithFormat:@"%d", [indexPath row]+1];
     cell.textLabel.font = [UIFont boldSystemFontOfSize:25];
-    cell.textLabel.textAlignment = UITextAlignmentCenter;
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = kDarkGrayTextColor;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 68, 0, 0)];

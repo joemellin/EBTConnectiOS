@@ -104,7 +104,7 @@
 -(void)next{
     if (currentIndex == imageCount-1) {
         [Utils setSettingForKey:kWelcomeShowed withValue:@"1"];
-        [Utils showSubViewWithName:@"GroupViewController" withDelegate:self];
+        [Utils showSubViewWithName:@"TabBarViewController" withDelegate:self];
         return;
     }
     [myScrollView scrollRectToVisible:CGRectMake((currentIndex+1)*320, 0, 320, 10) animated:YES];

@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A85CF971ABA52B200932A1A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF961ABA52B200932A1A /* TabBarViewController.m */; };
+		3A85CF9D1ABA543900932A1A /* ConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */; };
+		3A85CFA01ABA56C200932A1A /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */; };
+		3A85CFA31ABA579200932A1A /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CFA21ABA579200932A1A /* MessagesViewController.m */; };
+		3A85CFAF1ABA666C00932A1A /* tab_connections.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFA71ABA666C00932A1A /* tab_connections.png */; };
+		3A85CFB01ABA666C00932A1A /* tab_connections@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFA81ABA666C00932A1A /* tab_connections@2x.png */; };
+		3A85CFB11ABA666C00932A1A /* tab_courses.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFA91ABA666C00932A1A /* tab_courses.png */; };
+		3A85CFB21ABA666C00932A1A /* tab_courses@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFAA1ABA666C00932A1A /* tab_courses@2x.png */; };
+		3A85CFB31ABA666C00932A1A /* tab_messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFAB1ABA666C00932A1A /* tab_messages.png */; };
+		3A85CFB41ABA666C00932A1A /* tab_messages@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFAC1ABA666C00932A1A /* tab_messages@2x.png */; };
+		3A85CFB51ABA666C00932A1A /* tab_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFAD1ABA666C00932A1A /* tab_profile.png */; };
+		3A85CFB61ABA666C00932A1A /* tab_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFAE1ABA666C00932A1A /* tab_profile@2x.png */; };
+		3A85CFBD1ABA688600932A1A /* tab_state.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFBB1ABA688600932A1A /* tab_state.png */; };
+		3A85CFBE1ABA688600932A1A /* tab_state@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFBC1ABA688600932A1A /* tab_state@2x.png */; };
 		9120BD6817ABD34C005CF602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6717ABD34C005CF602 /* UIKit.framework */; };
 		9120BD6A17ABD34C005CF602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6917ABD34C005CF602 /* Foundation.framework */; };
 		9120BD6C17ABD34C005CF602 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6B17ABD34C005CF602 /* CoreGraphics.framework */; };
@@ -91,7 +105,6 @@
 		9143609817E540B0004C18A3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9143608D17E540B0004C18A3 /* StoreKit.framework */; };
 		9143609917E540B0004C18A3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9143608E17E540B0004C18A3 /* Security.framework */; };
 		9143609A17E540B0004C18A3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9143608F17E540B0004C18A3 /* CoreTelephony.framework */; };
-		9143609B17E540B0004C18A3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9143609017E540B0004C18A3 /* AudioToolbox.framework */; };
 		9143609C17E540B0004C18A3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9143609117E540B0004C18A3 /* MessageUI.framework */; };
 		9149780217C5DB1D00407FC2 /* member.json in Resources */ = {isa = PBXBuildFile; fileRef = 9149780017C5DB1D00407FC2 /* member.json */; };
 		9149780317C5DB1D00407FC2 /* message.json in Resources */ = {isa = PBXBuildFile; fileRef = 9149780117C5DB1D00407FC2 /* message.json */; };
@@ -239,7 +252,6 @@
 		91D1BAE217B0A024008A9CAF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D1BAE117B0A024008A9CAF /* SystemConfiguration.framework */; };
 		91D1BAE717B0A12D008A9CAF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D1BAE517B0A12D008A9CAF /* LoginViewController.m */; };
 		91D1BAE817B0A12D008A9CAF /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D1BAE617B0A12D008A9CAF /* LoginViewController.xib */; };
-		91D1BAFD17B0A721008A9CAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D1BAFC17B0A721008A9CAF /* CoreGraphics.framework */; };
 		91DBDCD017BA5C2E0030EDF5 /* SelectStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBDCCE17BA5C2E0030EDF5 /* SelectStateViewController.m */; };
 		91DBDCD117BA5C2E0030EDF5 /* SelectStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBDCCF17BA5C2E0030EDF5 /* SelectStateViewController.xib */; };
 		91DBDD1117BA63000030EDF5 /* StateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBDD0F17BA62FF0030EDF5 /* StateDetailViewController.m */; };
@@ -266,6 +278,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A85CF951ABA52B200932A1A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		3A85CF961ABA52B200932A1A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		3A85CF9B1ABA543900932A1A /* ConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionsViewController.h; path = EBT/ConnectionsViewController.h; sourceTree = "<group>"; };
+		3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectionsViewController.m; path = EBT/ConnectionsViewController.m; sourceTree = "<group>"; };
+		3A85CF9E1ABA56C200932A1A /* CoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoursesViewController.h; path = EBT/CoursesViewController.h; sourceTree = "<group>"; };
+		3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoursesViewController.m; path = EBT/CoursesViewController.m; sourceTree = "<group>"; };
+		3A85CFA11ABA579200932A1A /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesViewController.h; path = EBT/MessagesViewController.h; sourceTree = "<group>"; };
+		3A85CFA21ABA579200932A1A /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesViewController.m; path = EBT/MessagesViewController.m; sourceTree = "<group>"; };
+		3A85CFA71ABA666C00932A1A /* tab_connections.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_connections.png; sourceTree = "<group>"; };
+		3A85CFA81ABA666C00932A1A /* tab_connections@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_connections@2x.png"; sourceTree = "<group>"; };
+		3A85CFA91ABA666C00932A1A /* tab_courses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_courses.png; sourceTree = "<group>"; };
+		3A85CFAA1ABA666C00932A1A /* tab_courses@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_courses@2x.png"; sourceTree = "<group>"; };
+		3A85CFAB1ABA666C00932A1A /* tab_messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_messages.png; sourceTree = "<group>"; };
+		3A85CFAC1ABA666C00932A1A /* tab_messages@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_messages@2x.png"; sourceTree = "<group>"; };
+		3A85CFAD1ABA666C00932A1A /* tab_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_profile.png; sourceTree = "<group>"; };
+		3A85CFAE1ABA666C00932A1A /* tab_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_profile@2x.png"; sourceTree = "<group>"; };
+		3A85CFBB1ABA688600932A1A /* tab_state.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_state.png; sourceTree = "<group>"; };
+		3A85CFBC1ABA688600932A1A /* tab_state@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_state@2x.png"; sourceTree = "<group>"; };
 		9120BD6417ABD34C005CF602 /* EBT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9120BD6717ABD34C005CF602 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9120BD6917ABD34C005CF602 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -650,7 +680,6 @@
 				9120BD6A17ABD34C005CF602 /* Foundation.framework in Frameworks */,
 				9120BD6C17ABD34C005CF602 /* CoreGraphics.framework in Frameworks */,
 				91D1BAE217B0A024008A9CAF /* SystemConfiguration.framework in Frameworks */,
-				91D1BAFD17B0A721008A9CAF /* CoreGraphics.framework in Frameworks */,
 				9168F00D17C256E10002786E /* AudioToolbox.framework in Frameworks */,
 				9149789917C7027800407FC2 /* QuartzCore.framework in Frameworks */,
 				9143604D17E54017004C18A3 /* libUAirship-2.0.4.a in Frameworks */,
@@ -663,7 +692,6 @@
 				9143609817E540B0004C18A3 /* StoreKit.framework in Frameworks */,
 				9143609917E540B0004C18A3 /* Security.framework in Frameworks */,
 				9143609A17E540B0004C18A3 /* CoreTelephony.framework in Frameworks */,
-				9143609B17E540B0004C18A3 /* AudioToolbox.framework in Frameworks */,
 				9143609C17E540B0004C18A3 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,6 +699,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A85CFA61ABA666C00932A1A /* tabs */ = {
+			isa = PBXGroup;
+			children = (
+				3A85CFBB1ABA688600932A1A /* tab_state.png */,
+				3A85CFBC1ABA688600932A1A /* tab_state@2x.png */,
+				3A85CFA71ABA666C00932A1A /* tab_connections.png */,
+				3A85CFA81ABA666C00932A1A /* tab_connections@2x.png */,
+				3A85CFA91ABA666C00932A1A /* tab_courses.png */,
+				3A85CFAA1ABA666C00932A1A /* tab_courses@2x.png */,
+				3A85CFAB1ABA666C00932A1A /* tab_messages.png */,
+				3A85CFAC1ABA666C00932A1A /* tab_messages@2x.png */,
+				3A85CFAD1ABA666C00932A1A /* tab_profile.png */,
+				3A85CFAE1ABA666C00932A1A /* tab_profile@2x.png */,
+			);
+			path = tabs;
+			sourceTree = "<group>";
+		};
 		9120BD5B17ABD34C005CF602 = {
 			isa = PBXGroup;
 			children = (
@@ -724,6 +769,8 @@
 				9120BD7F17ABD34C005CF602 /* EBTViewController.h */,
 				9120BD8017ABD34C005CF602 /* EBTViewController.m */,
 				9120BD8217ABD34C005CF602 /* EBTViewController.xib */,
+				3A85CF951ABA52B200932A1A /* TabBarViewController.h */,
+				3A85CF961ABA52B200932A1A /* TabBarViewController.m */,
 				91DBDCCC17BA5C040030EDF5 /* States */,
 				91DBDCCB17BA5BFD0030EDF5 /* Group */,
 				91D1BAE317B0A03D008A9CAF /* Opening */,
@@ -1183,6 +1230,7 @@
 		91AF5CF517CE0C10009FE460 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A85CFA61ABA666C00932A1A /* tabs */,
 				9131B15317D63CA3003E0F58 /* logoutbutton.png */,
 				91AF5CF617CE0C10009FE460 /* 2fields.png */,
 				91AF5CF717CE0C10009FE460 /* bell.png */,
@@ -1331,6 +1379,12 @@
 				916422DA17B3CEB90084C4E8 /* GroupViewController.h */,
 				916422DB17B3CEBC0084C4E8 /* GroupViewController.m */,
 				916422DC17B3CEBD0084C4E8 /* GroupViewController.xib */,
+				3A85CF9B1ABA543900932A1A /* ConnectionsViewController.h */,
+				3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */,
+				3A85CF9E1ABA56C200932A1A /* CoursesViewController.h */,
+				3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */,
+				3A85CFA11ABA579200932A1A /* MessagesViewController.h */,
+				3A85CFA21ABA579200932A1A /* MessagesViewController.m */,
 			);
 			name = Group;
 			path = ..;
@@ -1434,8 +1488,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = EBT;
-				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "ross chen";
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Adrian Coroian";
 				TargetAttributes = {
 					9120BD6317ABD34C005CF602 = {
 						DevelopmentTeam = 5KLQ3JXV24;
@@ -1469,6 +1523,7 @@
 				9120BE0617B09A75005CF602 /* OpeningViewController.xib in Resources */,
 				91D1BAE817B0A12D008A9CAF /* LoginViewController.xib in Resources */,
 				9164228217B1F0A80084C4E8 /* WelcomeViewController.xib in Resources */,
+				3A85CFB21ABA666C00932A1A /* tab_courses@2x.png in Resources */,
 				916422DE17B3CEBD0084C4E8 /* GroupViewController.xib in Resources */,
 				91DBDCD117BA5C2E0030EDF5 /* SelectStateViewController.xib in Resources */,
 				91DBDD1217BA63000030EDF5 /* StateDetailViewController.xib in Resources */,
@@ -1477,6 +1532,7 @@
 				91DBDE3617BB75F50030EDF5 /* Tool2S3ViewController.xib in Resources */,
 				91DBDE3B17BB787D0030EDF5 /* Tool2S4ViewController.xib in Resources */,
 				91DBDE4117BB7C670030EDF5 /* Tool3ViewController.xib in Resources */,
+				3A85CFB41ABA666C00932A1A /* tab_messages@2x.png in Resources */,
 				91DBDE4617BB929E0030EDF5 /* Tool4ViewController.xib in Resources */,
 				91DBDE4B17BB984A0030EDF5 /* Tool5ViewController.xib in Resources */,
 				91DBDFF717BD101A0030EDF5 /* ProviderViewController.xib in Resources */,
@@ -1484,6 +1540,7 @@
 				9168EFE817C256BD0002786E /* bubble-default-incoming-green.png in Resources */,
 				9168EFE917C256BD0002786E /* bubble-default-incoming-green@2x.png in Resources */,
 				9168EFEA17C256BD0002786E /* bubble-default-incoming-selected.png in Resources */,
+				3A85CFB31ABA666C00932A1A /* tab_messages.png in Resources */,
 				9168EFEB17C256BD0002786E /* bubble-default-incoming-selected@2x.png in Resources */,
 				9168EFEC17C256BD0002786E /* bubble-default-incoming.png in Resources */,
 				9168EFED17C256BD0002786E /* bubble-default-incoming@2x.png in Resources */,
@@ -1522,11 +1579,13 @@
 				91AF5D5417CE0C10009FE460 /* bg.png in Resources */,
 				91AF5D5517CE0C10009FE460 /* blueaccept.png in Resources */,
 				91AF5D5617CE0C10009FE460 /* blueaccept2.png in Resources */,
+				3A85CFB51ABA666C00932A1A /* tab_profile.png in Resources */,
 				91AF5D5717CE0C10009FE460 /* bluebutton.png in Resources */,
 				91AF5D5817CE0C10009FE460 /* bluecontinue.png in Resources */,
 				91AF5D5917CE0C10009FE460 /* blueoval.png in Resources */,
 				91AF5D5A17CE0C10009FE460 /* bluestick.png in Resources */,
 				91AF5D5B17CE0C10009FE460 /* checked.png in Resources */,
+				3A85CFB11ABA666C00932A1A /* tab_courses.png in Resources */,
 				91AF5D5C17CE0C10009FE460 /* checkincircle.png in Resources */,
 				91AF5D5D17CE0C10009FE460 /* continuebutton.png in Resources */,
 				91AF5D5E17CE0C10009FE460 /* k1.png in Resources */,
@@ -1535,11 +1594,13 @@
 				91AF5D6117CE0C10009FE460 /* k3.png in Resources */,
 				91AF5D6217CE0C10009FE460 /* k4.png in Resources */,
 				91AF5D6317CE0C10009FE460 /* k5.png in Resources */,
+				3A85CFBE1ABA688600932A1A /* tab_state@2x.png in Resources */,
 				91AF5D6417CE0C10009FE460 /* k6.png in Resources */,
 				91AF5D6517CE0C10009FE460 /* k7.png in Resources */,
 				91AF5D6617CE0C10009FE460 /* k9.png in Resources */,
 				91AF5D6717CE0C10009FE460 /* describebar.png in Resources */,
 				91AF5D6817CE0C10009FE460 /* graybackbutton.png in Resources */,
+				3A85CFB01ABA666C00932A1A /* tab_connections@2x.png in Resources */,
 				91AF5D6917CE0C10009FE460 /* graybutton.png in Resources */,
 				91AF5D6A17CE0C10009FE460 /* greyaccept.png in Resources */,
 				91AF5D6B17CE0C10009FE460 /* greycircle.png in Resources */,
@@ -1570,6 +1631,7 @@
 				91AF5D8417CE0C10009FE460 /* logo.png in Resources */,
 				91AF5D8517CE0C10009FE460 /* memberface.png in Resources */,
 				91AF5D8617CE0C10009FE460 /* messageicon.png in Resources */,
+				3A85CFAF1ABA666C00932A1A /* tab_connections.png in Resources */,
 				91AF5D8717CE0C10009FE460 /* messageicon@2x.png in Resources */,
 				91AF5D8817CE0C10009FE460 /* navbar.png in Resources */,
 				91AF5D8917CE0C10009FE460 /* navbar@2x.png in Resources */,
@@ -1587,6 +1649,7 @@
 				91AF5D9517CE0C10009FE460 /* splitline.png in Resources */,
 				91AF5D9617CE0C10009FE460 /* timeline.png in Resources */,
 				91AF5D9717CE0C10009FE460 /* unchecked.png in Resources */,
+				3A85CFB61ABA666C00932A1A /* tab_profile@2x.png in Resources */,
 				91AF5D9817CE0C10009FE460 /* verticalarrow.png in Resources */,
 				91AF5D9917CE0C10009FE460 /* 1.jpg in Resources */,
 				91AF5D9A17CE0C10009FE460 /* 2.jpg in Resources */,
@@ -1627,6 +1690,7 @@
 				9143607817E54017004C18A3 /* top-detail.png in Resources */,
 				9143607917E54017004C18A3 /* top-detail@2x.png in Resources */,
 				9143607A17E54017004C18A3 /* UALocationSettingsViewController.xib in Resources */,
+				3A85CFBD1ABA688600932A1A /* tab_state.png in Resources */,
 				9143607B17E54017004C18A3 /* UAMapPresentationViewController.xib in Resources */,
 				9143607C17E54017004C18A3 /* UAPushLocalization.bundle in Resources */,
 				9143607D17E54017004C18A3 /* UAPushMoreSettingsView.xib in Resources */,
@@ -1655,6 +1719,7 @@
 				9120BDFC17B09958005CF602 /* MyURLConnection.m in Sources */,
 				9120BDFD17B09958005CF602 /* Reachability.m in Sources */,
 				9120BDFE17B09958005CF602 /* UIImageTool.m in Sources */,
+				3A85CFA31ABA579200932A1A /* MessagesViewController.m in Sources */,
 				9120BDFF17B09958005CF602 /* UIView+FirstResponder.m in Sources */,
 				9120BE0017B09958005CF602 /* Utils.m in Sources */,
 				9120BE0117B09958005CF602 /* WimAdditions.m in Sources */,
@@ -1664,6 +1729,7 @@
 				916422DD17B3CEBD0084C4E8 /* GroupViewController.m in Sources */,
 				91DBDCD017BA5C2E0030EDF5 /* SelectStateViewController.m in Sources */,
 				91DBDD1117BA63000030EDF5 /* StateDetailViewController.m in Sources */,
+				3A85CF9D1ABA543900932A1A /* ConnectionsViewController.m in Sources */,
 				91DBDD9317BB56620030EDF5 /* AcceptStateViewController.m in Sources */,
 				91DBDDDD17BB6C0F0030EDF5 /* BaseListViewController.m in Sources */,
 				91DBDDE117BB6C920030EDF5 /* Tool2S2ViewController.m in Sources */,
@@ -1672,10 +1738,12 @@
 				91DBDE4017BB7C670030EDF5 /* Tool3ViewController.m in Sources */,
 				91DBDE4517BB929E0030EDF5 /* Tool4ViewController.m in Sources */,
 				91DBDE4A17BB984A0030EDF5 /* Tool5ViewController.m in Sources */,
+				3A85CFA01ABA56C200932A1A /* CoursesViewController.m in Sources */,
 				91DBDFF617BD101A0030EDF5 /* ProviderViewController.m in Sources */,
 				91DBDFFB17BD102E0030EDF5 /* MemberViewController.m in Sources */,
 				9168EFE117C256BD0002786E /* JSBubbleMessageCell.m in Sources */,
 				9168EFE217C256BD0002786E /* JSBubbleView.m in Sources */,
+				3A85CF971ABA52B200932A1A /* TabBarViewController.m in Sources */,
 				9168EFE317C256BD0002786E /* JSDismissiveTextView.m in Sources */,
 				9168EFE417C256BD0002786E /* JSMessageInputView.m in Sources */,
 				9168EFE517C256BD0002786E /* JSMessageSoundEffect.m in Sources */,
