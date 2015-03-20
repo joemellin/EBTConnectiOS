@@ -45,7 +45,7 @@
     
     NSString* text = @"Ask yourself: \nWhat do you need?";
     UIFont* font = [UIFont systemFontOfSize:17];
-    float h = [Utils calculateHeightOfMultipleLineText:text withFont:font withWidth:300];
+    float h = [Utils heightWithText:text andFont:font andMaxWidth:kScreenBounds.size.width-20];
     label = [[UILabel alloc] initWithFrame:CGRectMake(10 , 270, 300, h)];
     label.numberOfLines = 0;
     label.textColor = kDarkGrayTextColor;
