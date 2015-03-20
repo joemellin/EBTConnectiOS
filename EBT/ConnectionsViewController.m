@@ -25,6 +25,11 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self requestGroup];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"MyIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
@@ -81,6 +86,41 @@
     [self.navigationController pushViewController:vc animated:YES];
    	
 }
+
+-(IBAction)requestGroup{
+    NSDictionary* dict = [Utils setting:kUserInfoDict];
+    NSString* urlStr = [NSString stringWithFormat:@"%@groups/%@?auth_token=%@",kBaseURL, [[dict objectForKey:kGroup] objectForKey:kID], [Utils setting:kSessionToken]];
+    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"%@",urlStr);
+    
+    
+    MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
+                                                 succeededCallback:@selector(requestSucceeded:myURLConnection:)
+                                                    failedCallback:@selector(requestFailed:myURLConnection:)
+                                                           context:[NSNumber numberWithInt:1]];
+    [myconn get];
+    [self showLoadingView];
+    
+}
+
+
+
+-(void)requestSucceededResultHandler:(id)context result:(NSString*)result{
+    NSLog(@"result:%@",result);
+    
+    
+    
+    if ([context intValue] == 1) {
+        NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        if (dict) {
+            self.currentItem = [dict mutableCopy];
+        }
+        
+    }
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {

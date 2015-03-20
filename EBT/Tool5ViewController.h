@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Utils.h"
-@interface Tool5ViewController : BaseRequestViewController
-@property int currentIndex;
+#import "Utils.h" 
+#import "BaseToolViewController.h"
+@interface Tool5ViewController : BaseToolViewController
 
 @end

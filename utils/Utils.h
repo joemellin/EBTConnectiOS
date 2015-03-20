@@ -70,7 +70,6 @@
 +(void)showSubViewWithNameNoAnimation:(NSString*)name withDelegate:(id)delegate;
 +(void)showSubViewWithName:(NSString*)name withDelegate:(id)delegate;
 +(UIColor*)colorFromDict:(NSDictionary*)dict;
-+(float)calculateHeightOfMultipleLineText:(NSString*)text withFont:(UIFont*)font withWidth:(float)width;
 +(void)alertMessage:(NSString*)msg;
 +(void)alertMessage:(NSString*)msg withSecondButtonTitle:(NSString*)title delegate:(id)delegate;
 +(void)alertMessage:(NSString*)msg withTitle:(NSString*)title  withSecondButtonTitle:(NSString*)title2 delegate:(id)delegate;
@@ -111,4 +110,5 @@
 +(void)applyYDelta:(float)yDelta forView:(UIView*)view;
 
 +(NSString*)formatString:(NSString*)digits withChar:(NSString*)concat withGroupCount:(int)count withMaxGroup:(int)maxGroup;
++(float)heightWithText:(NSString*)text andFont:(UIFont*)font andMaxWidth:(float)maxWidth;
 @end

@@ -185,17 +185,6 @@
 	return color;
 }
 
-+(float)calculateHeightOfMultipleLineText:(NSString*)text withFont:(UIFont*)font withWidth:(float)width{
-	CGSize boundingSize = CGSizeMake(width, CGFLOAT_MAX);
-	CGSize requiredSize = [text sizeWithFont:font
-						   constrainedToSize:boundingSize
-							   lineBreakMode:UILineBreakModeWordWrap];
-	float height = requiredSize.height ;
-	
-	return height;
-}
-
-
 +(void)alertMessage:(NSString*)msg{
 	if([msg isEqualToString:@"no internet connection"]){
 		msg = @"No Internet Connection";
@@ -619,6 +608,13 @@
         return YES;
     else
         return NO;
+}
+
++(float)heightWithText:(NSString*)text andFont:(UIFont*)font andMaxWidth:(float)maxWidth {
+    return [text boundingRectWithSize:CGSizeMake(maxWidth, kScreenBounds.size.height)
+                              options:NSLineBreakByWordWrapping | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                           attributes:@{NSFontAttributeName:font}
+                              context:nil].size.height;
 }
 
 

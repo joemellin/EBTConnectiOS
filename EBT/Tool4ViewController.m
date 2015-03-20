@@ -8,8 +8,11 @@
 
 #import "Tool4ViewController.h"
 #import "SelectStateViewController.h"
-@interface Tool4ViewController ()
-
+@interface Tool4ViewController () <UITextViewDelegate> {
+    NSArray *_titles;
+    NSArray *_details;
+    NSArray *_placeHolders;
+}
 @end
 
 @implementation Tool4ViewController
@@ -27,84 +30,119 @@
 - (void)viewDidLoad
 {
     needsNavBar = YES;
-    [super viewDidLoad];
     [self setNavTitle:@"Cycle Tool"];
-    [self addRightArrowButton];
     
+    _titles = @[
+                 @"Just The Facts...",
+                 @"I feel angry that...",
+                 @"I feel sad that...",
+                 @"I feel afraid that...",
+                 @"I feel guilty that...",
+                 @"What is my unreasonable expectation?",
+                 @"What is my reasonable expectation?",
+                 @"Grind In the New Expectatin"
+                 ];
+    _details = @[
+                 @"The situation is...\nWhat I'm most stressed about is...",
+                 @"Unlock the circuit with A+ anger.\nI feel angry that... I can't stand that... I hate it that...",
+                 @"Switch the circuit by taking a deep breath.\nConnect with yourself and feel your sadness.\nI feel sad that...",
+                 @"Connect with yourself and feel your fear.\nI feel afraid that...",
+                 @"Connect with yourself and describe your part of it.\nKeep this in mind as you identify your unreasonable expectation.",
+                 @"Of course I would do what I feel guilty for doing,\n because the wire in my brain (my unreasonable expectation) is...",
+                 @"State the reasonable expectation,\n(the opposite of the unreasonable one).\nExamples:\nI DO have power!\n(rather than I do not have power).\nI CANNOT get my safety from sugar\n(rather than I get my safety from sugar).",
+                 @"Use the Spiral up Grind In to lock in the new circuit.\n * Slow Statements \n * 3+ Ramped Up Statements \n * 3+ Joy Statements"
+                 ];
     
-    self.displayList = @[
-                         @"Describe what is going on:",
-                         @"Express Anger:",
-                         @"Express Sadness:",
-                         @"Express Fear:",
-                         @"Express Guilt:",
-                         @"Unreasonable Expectation:",
-                         @"Reasonable Expectation:"
-                         ];
-
-    
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    imageView.image = [UIImage imageNamed:@"describebar"];
+    _placeHolders = @[@"The situation is... What I'm most stressed about is...",
+                      @"I feel angry that... I can't stand that... I hate it that...",
+                      @"I feel sad that...",
+                      @"I feel afraid that...",
+                      @"I feel guilty that...",
+                      @"My unreasonable expectation is...",
+                      @"My reasonable expectation is...",
+                      
+                      ];
+    UIImageView* imageView = [[UIImageView alloc] init];
+    imageView.image = [[UIImage imageNamed:@"describebar"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self setViewFrame:imageView];
-    UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(15 , 0, 300, 50)];
-    label.numberOfLines = 0;
-    label.textColor = kGrayTextColor;
-    label.text =  self.displayList[self.currentIndex]; ;
-    label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont systemFontOfSize:14];
-    //label.textAlignment = UITextAlignmentCenter;
-    [imageView addSubview:label];
+    
+    //setting title
+    UILabel* title;
+    title = [[UILabel alloc] init];
+    title.numberOfLines = 0;
+    title.textColor = kBlueTextColor;
+    title.text =  _titles[self.currentIndex]; ;
+    title.backgroundColor= [UIColor clearColor];
+    title.font = [UIFont systemFontOfSize:16];
+    title.textAlignment = NSTextAlignmentCenter;
+    [imageView addSubview:title];
     [self.view addSubview:imageView];
     
-    float height = 200;
-    if (!kIsiPhone5) {
-        height = height - kiPhone5HeightDelta + 10;
-    }
-    UITextView* textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 60, 300, height)];
-    textView.delegate = self;
-    textView.text = kCyclePlaceholderText;
+    UILabel *description = [[UILabel alloc] init];
+    description.numberOfLines = 0;
+    description.textColor = kDarkGrayTextColor;
+    description.textAlignment = NSTextAlignmentCenter;
+    description.text = _details[self.currentIndex];
+    [imageView addSubview:description];
     
-    NSDictionary* dict;
-    //NSDictionary* dict = [Utils setting:kCycleToolNoteDict];
-    if (dict[ self.displayList[self.currentIndex]]) {
-         textView.text = dict[ self.displayList[self.currentIndex]];
-    }
-    textView.font = [UIFont systemFontOfSize:15];
-    textView.textColor = [UIColor lightGrayColor]; //optional
-    textView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:textView];
-    [textView becomeFirstResponder];
-    myTextView = textView;
+    float titleHeight = [Utils heightWithText:title.text andFont:title.font andMaxWidth:kScreenBounds.size.width-20];
+    float descriptionHeight = [Utils heightWithText:description.text andFont:description.font andMaxWidth:kScreenBounds.size.width-20];
+    
+    title.frame = CGRectMake(10, 10, kScreenBounds.size.width-20, titleHeight);
+    description.frame = CGRectMake(10, 10+titleHeight, kScreenBounds.size.width-20, descriptionHeight);
+    float textViewStart = description.frame.origin.y+description.frame.size.height+10;
+    imageView.frame = CGRectMake(0, 0, kScreenBounds.size.width, textViewStart);
 
+    if(self.currentIndex < _titles.count -1) {
+        UITextView* textView = [[UITextView alloc] initWithFrame:CGRectMake(10, textViewStart,
+                                                                            kScreenBounds.size.width-20,
+                                                                            kScreenBounds.size.height-textViewStart-150)];
+        textView.delegate = self;
+        textView.text = kCyclePlaceholderText;
+        
+        NSDictionary* dict;
+        //NSDictionary* dict = [Utils setting:kCycleToolNoteDict];
+        if (dict[ _titles[self.currentIndex]]) {
+             textView.text = dict[ _titles[self.currentIndex]];
+        } else {
+            textView.text = _placeHolders[self.currentIndex];
+        }
+        textView.font = [UIFont systemFontOfSize:15];
+        textView.textColor = [UIColor lightGrayColor]; //optional
+        textView.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:textView];
+        [textView becomeFirstResponder];
+        myTextView = textView;
+    }
+    
+    [super viewDidLoad];
 }
 
 -(void)next{
-    NSMutableDictionary* dict = [[Utils setting:kCycleToolNoteDict] mutableCopy];
-    if (!dict) {
-        dict = [NSMutableDictionary dictionaryWithCapacity:10];
-    }
-    dict[ self.displayList[self.currentIndex]] = myTextView.text;
-    //[Utils setSettingForKey:kCycleToolNoteDict withValue:dict];
-    
-    if (self.currentIndex == self.displayList.count - 1) {
+    if (self.currentIndex == self.titles.count - 1) {
         SelectStateViewController* vc = [[SelectStateViewController alloc] initWithNibName:@"SelectStateViewController" bundle:nil];
         vc.isRestartMode = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else{
+        NSMutableDictionary* dict = [[Utils setting:kCycleToolNoteDict] mutableCopy];
+        if (!dict) {
+            dict = [NSMutableDictionary dictionaryWithCapacity:10];
+        }
+        dict[ _titles[self.currentIndex]] = myTextView.text;
+        //[Utils setSettingForKey:kCycleToolNoteDict withValue:dict];
+        
         Tool4ViewController* vc = [[Tool4ViewController alloc] initWithNibName:@"Tool4ViewController" bundle:nil];
         vc.currentIndex = self.currentIndex + 1;
         [self.navigationController pushViewController:vc animated:YES];
     }
-        
-    
 }
 
+#pragma mark - Text View delegates
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    if ([textView.text isEqualToString:kCyclePlaceholderText]) {
+    if ([textView.text isEqualToString:_placeHolders[self.currentIndex]]) {
         textView.text = @"";
         textView.textColor = kDarkGrayTextColor; //optional
     }
@@ -114,7 +152,7 @@
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@""]) {
-        textView.text = kCyclePlaceholderText;
+        textView.text = _placeHolders[self.currentIndex];
         textView.textColor = [UIColor lightGrayColor]; //optional
     }
     [textView resignFirstResponder];

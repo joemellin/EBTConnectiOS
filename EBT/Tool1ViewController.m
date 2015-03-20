@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 ross chen. All rights reserved.
 //
 
-#import "Tool5ViewController.h"
+#import "Tool1ViewController.h"
 #import "SelectStateViewController.h"
-@interface Tool5ViewController ()
+@interface Tool1ViewController ()
 
 @end
 
-@implementation Tool5ViewController
+@implementation Tool1ViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,12 +26,17 @@
 - (void)viewDidLoad
 {
     needsNavBar = YES;
-    [self setNavTitle:@"Damage Control"];
+    [self setNavTitle:@"Sanctuary"];
     
     self.titles = @[
-                         @"Do Not Judge",
-                         @"Minimize Harm",
-                         @"Know it Will Pass"
+                         @"Take a deep breath...",
+                         @"Shoulders back... Assume Body at 1.",
+                         @"Lovingly observe yourself.",
+                         @"Connect with your sanctuary, the safe place within.",
+                         @"Feel a wave of compassion for yourself.",
+                         @"Feel a wave of compassion for others.",
+                         @"Feel a wave of compassion for all living beings.",
+                         @"Feel a surge of joy!",
                          ];
     
     // Do any additional setup after loading the view from its nib.
@@ -57,7 +62,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
     else{
-        Tool5ViewController* vc = [[Tool5ViewController alloc] initWithNibName:@"Tool5ViewController" bundle:nil];
+        Tool1ViewController* vc = [[Tool1ViewController alloc] initWithNibName:@"Tool1ViewController" bundle:nil];
         vc.currentIndex = self.currentIndex + 1;
         [self.navigationController pushViewController:vc animated:YES];
     }

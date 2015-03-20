@@ -1,5 +1,5 @@
 //
-//  Tool4ViewController.h
+//  Tool5ViewController.h
 //  EBT
 //
 //  Created by ross chen on 8/14/13.
@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Utils.h"
+#import "Utils.h" 
 #import "BaseToolViewController.h"
-
-@interface Tool4ViewController : BaseToolViewController {
-    UITextView* myTextView;
-}
+@interface Tool1ViewController : BaseToolViewController
 
 @end

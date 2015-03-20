@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Utils.h"
-#import "BaseToolViewController.h"
-
-@interface Tool3ViewController : BaseToolViewController
+@interface BaseToolViewController : BaseRequestViewController
+@property int currentIndex;
+@property (nonatomic,strong) NSArray *titles;
+@property (nonatomic,strong) NSArray *details;
 @end

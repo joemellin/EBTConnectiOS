@@ -7,6 +7,7 @@
 //
 
 #import "Tool2S2ViewController.h"
+#import "CheckMarkButton.h"
 
 @interface Tool2S2ViewController ()
 
@@ -74,47 +75,19 @@
 	//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    CheckMarkButton* button = [CheckMarkButton buttonWithType:UIButtonTypeCustom];
     button.tag = [indexPath row] * 10 + 0;
-    button.frame = CGRectMake(14, 9, 0, 0);
-	[button setBackgroundImage:[UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:@"checked"] forState:UIControlStateSelected];
-
+    button.frame = CGRectMake(kScreenBounds.size.width/2 - 100 -20, 9, 100, 15);
+    [button setupButtonWithTitle:self.displayList[[indexPath row] * 2 + 0]];
     [button addTarget:self action:@selector(checkState:) forControlEvents:UIControlEventTouchUpInside];
-	[self setViewFrame:button];
     [cell.contentView addSubview:button];
     
-    button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button = [CheckMarkButton buttonWithType:UIButtonTypeCustom];
     button.tag = [indexPath row] * 10 + 1;
-    button.frame = CGRectMake(175, 9, 0, 0);
-	[button setBackgroundImage:[UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:@"checked"] forState:UIControlStateSelected];
-    
+    button.frame = CGRectMake(kScreenBounds.size.width/2 + 20, 9, 100, 15);
+    [button setupButtonWithTitle:self.displayList[[indexPath row] * 2 + 1]];
     [button addTarget:self action:@selector(checkState:) forControlEvents:UIControlEventTouchUpInside];
-	[self setViewFrame:button];
     [cell.contentView addSubview:button];
-
-    
-    UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(45 , 0, 110, 33)];
-    label.numberOfLines = 0;
-    //label.textColor = [UIColor whiteColor];
-    label.text = self.displayList[[indexPath row] * 2 + 0];
-    label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:14];
-    //label.textAlignment = UITextAlignmentCenter;
-    [cell.contentView addSubview:label];
-    
-    label = [[UILabel alloc] initWithFrame:CGRectMake(203 , 0, 110, 33)];
-    label.numberOfLines = 0;
-    //label.textColor = [UIColor whiteColor];
-    label.text = self.displayList[[indexPath row] * 2 + 1];
-    label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:14];
-    //label.textAlignment = UITextAlignmentCenter;
-    [cell.contentView addSubview:label];
-
-
 	   
 	return cell;
 }

@@ -218,17 +218,17 @@
             [Utils setSettingForKey:kLoginInfoDict withValue:loginDict];
             
 
-//            if (![dict[@"active_subscription"] boolValue]) {
-//                //[Utils alertMessage:@"Visit ebtgroups.com to enroll by tapping \"NEW TO EBT\"."];
-//                //[self back];
-//                [self setupLogoutUI];
-//                return;
-//            }
-//            
-//            if (![[dict objectForKey:kGroup] objectForKey:kID]) {
-//                [self setupLogoutUI];
-//                return;
-//            }
+            if (![dict[@"active_subscription"] boolValue]) {
+                //[Utils alertMessage:@"Visit ebtgroups.com to enroll by tapping \"NEW TO EBT\"."];
+                //[self back];
+                [self setupLogoutUI];
+                return;
+            }
+            
+            if (![[dict objectForKey:kGroup] objectForKey:kID]) {
+                [self setupLogoutUI];
+                return;
+            }
             
             if (![[Utils setting:kWelcomeShowed] boolValue]) {
                 [Utils showSubViewWithName:@"WelcomeViewController" withDelegate:self];

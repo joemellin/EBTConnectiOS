@@ -28,10 +28,16 @@
     needsNavBar = YES;
     [super viewDidLoad];
     titles = @[@"Joy Point!",@"Feelings Check",@"Emotional Housecleaning",@"Cycle Tool",@"Damage Control"];
-    results = @[@"You are going great!",@"You are doing fine.",@"You are a little stressed.",@"Your brain is in stress",@"You are in a full\nblown stress response."];
-    details = @[@"",@"Following the following\npromps to connect with yourself\nand get to one!",@"Following the following\npromps and finish the sentences\nwith whatever feels right.",
-                @"This is a great oppurtunity\nto process your emotions and\nrewire your brain.",
-                @"Say the following words over\nand over to yourself until\nyou feel the stress fade."];
+//    results = @[@"You are in Brain State 1.",
+//                @"You are in Brain State 2.",
+//                @"You are in Brain State 3.",
+//                @"You are in Brain State 4",
+//                @"You are in Brain State 5"];
+    details = @[@"Your brain is very connected. You are present, aware and feel great.\nAccept your state or, better yet, strengthen that connection and move up your set point by using this tool.",
+                @"Your brain is connected and you feel good.\nAccept your state. Better yet, use this tool to spiral up.\nSpiraling up helps you move up your set point.",
+                @"You feel a little stressed. Use this tool to spiral up, feel better and move up your set point.",
+                @"This is a moment of opportunity.\nBy uing the cycle tool now, you can connect, rewire and spiral up!",
+                @"You feel stressed out! Let's quiet that disconnect wire!\nTake a deep breath and say these words over and over until you feel better. This will pass!"];
 
     [self setupUI];
     // Do any additional setup after loading the view from its nib.
@@ -43,7 +49,7 @@
     label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 100, 320, 44)];
     label.numberOfLines = 0;
     label.textColor = kDarkGrayTextColor;
-    label.text =  results[self.state];
+    label.text = [NSString stringWithFormat:@"You are in Brain State %i", self.state+1];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:16];
     label.textAlignment = NSTextAlignmentCenter;
@@ -51,7 +57,7 @@
     
     NSString* text = details[self.state];
     UIFont* font = [UIFont systemFontOfSize:17];
-    float h = [Utils calculateHeightOfMultipleLineText:text withFont:font withWidth:300];
+    float h = [Utils heightWithText:text andFont:font andMaxWidth:kScreenBounds.size.width-20];
     label = [[UILabel alloc] initWithFrame:CGRectMake(10 , 150, 300, h)];
     label.numberOfLines = 0;
     label.textColor = kDarkGrayTextColor;
@@ -62,8 +68,8 @@
     [self.view addSubview:label];
     
     float yDelta = -80;
-    if (self.state != 0) {
-        
+//    if (self.state != 0) {
+    
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(40, 430, 0, 0);
         [button setTitle:@"ACCEPT STATE" forState:UIControlStateNormal];
@@ -87,23 +93,6 @@
         [self setViewFrame:button];
         [Utils applyiPhone4YDelta:yDelta forView:button];
         [self.view addSubview:button];
-
-    }
-    else{
-        UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(160-106/2, 430, 0, 0);
-        [button setTitle:@"ACCEPT STATE" forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont boldSystemFontOfSize:11];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"blueaccept"] forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(acceptState) forControlEvents:UIControlEventTouchUpInside];
-        [self setViewFrame:button];
-        [Utils applyiPhone4YDelta:yDelta forView:button];
-        [self.view addSubview:button];
-    }
-    
-
-    
 }
 
 -(void)acceptState{
@@ -116,8 +105,11 @@
 }
 
 -(void)useTool{
-    if (_state == 1) {
-        [Utils showSubViewWithName:@"Tool2S2ViewController" withDelegate:self];
+    if (_state == 0) {
+        [Utils showSubViewWithName:@"Tool1ViewController" withDelegate:self];
+    }
+    else if (_state == 1) {
+        [Utils showSubViewWithName:@"Tool2ViewController" withDelegate:self];
     }
     else if (_state == 2) {
         [Utils showSubViewWithName:@"Tool3ViewController" withDelegate:self];

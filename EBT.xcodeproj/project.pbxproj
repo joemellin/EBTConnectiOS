@@ -21,6 +21,15 @@
 		3A85CFB61ABA666C00932A1A /* tab_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFAE1ABA666C00932A1A /* tab_profile@2x.png */; };
 		3A85CFBD1ABA688600932A1A /* tab_state.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFBB1ABA688600932A1A /* tab_state.png */; };
 		3A85CFBE1ABA688600932A1A /* tab_state@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A85CFBC1ABA688600932A1A /* tab_state@2x.png */; };
+		3A86EDCD1ABBC3A8007C1B77 /* unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86EDCC1ABBC3A8007C1B77 /* unchecked@2x.png */; };
+		3A86EDD11ABBC3B7007C1B77 /* checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86EDD01ABBC3B7007C1B77 /* checked@2x.png */; };
+		3A86EDD31ABBC3C2007C1B77 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86EDD21ABBC3C2007C1B77 /* checked.png */; };
+		3A86EDD61ABBC7F7007C1B77 /* CheckMarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86EDD51ABBC7F7007C1B77 /* CheckMarkButton.m */; };
+		3A86EDDA1ABBCA6A007C1B77 /* Tool2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86EDD81ABBCA6A007C1B77 /* Tool2ViewController.m */; };
+		3A86EDDB1ABBCA6A007C1B77 /* Tool2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86EDD91ABBCA6A007C1B77 /* Tool2ViewController.xib */; };
+		3A86EDDE1ABBDEF0007C1B77 /* BaseToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86EDDD1ABBDEF0007C1B77 /* BaseToolViewController.m */; };
+		3A86EDE21ABBE4F1007C1B77 /* Tool1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86EDE01ABBE4F1007C1B77 /* Tool1ViewController.m */; };
+		3A86EDE31ABBE4F1007C1B77 /* Tool1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86EDE11ABBE4F1007C1B77 /* Tool1ViewController.xib */; };
 		9120BD6817ABD34C005CF602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6717ABD34C005CF602 /* UIKit.framework */; };
 		9120BD6A17ABD34C005CF602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6917ABD34C005CF602 /* Foundation.framework */; };
 		9120BD6C17ABD34C005CF602 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6B17ABD34C005CF602 /* CoreGraphics.framework */; };
@@ -170,7 +179,6 @@
 		91AF5D5817CE0C10009FE460 /* bluecontinue.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5CFC17CE0C10009FE460 /* bluecontinue.png */; };
 		91AF5D5917CE0C10009FE460 /* blueoval.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5CFD17CE0C10009FE460 /* blueoval.png */; };
 		91AF5D5A17CE0C10009FE460 /* bluestick.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5CFE17CE0C10009FE460 /* bluestick.png */; };
-		91AF5D5B17CE0C10009FE460 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5CFF17CE0C10009FE460 /* checked.png */; };
 		91AF5D5C17CE0C10009FE460 /* checkincircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D0017CE0C10009FE460 /* checkincircle.png */; };
 		91AF5D5D17CE0C10009FE460 /* continuebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D0117CE0C10009FE460 /* continuebutton.png */; };
 		91AF5D5E17CE0C10009FE460 /* k1.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D0317CE0C10009FE460 /* k1.png */; };
@@ -296,6 +304,19 @@
 		3A85CFAE1ABA666C00932A1A /* tab_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_profile@2x.png"; sourceTree = "<group>"; };
 		3A85CFBB1ABA688600932A1A /* tab_state.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_state.png; sourceTree = "<group>"; };
 		3A85CFBC1ABA688600932A1A /* tab_state@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_state@2x.png"; sourceTree = "<group>"; };
+		3A86EDCC1ABBC3A8007C1B77 /* unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked@2x.png"; sourceTree = "<group>"; };
+		3A86EDD01ABBC3B7007C1B77 /* checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checked@2x.png"; sourceTree = "<group>"; };
+		3A86EDD21ABBC3C2007C1B77 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
+		3A86EDD41ABBC7F7007C1B77 /* CheckMarkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckMarkButton.h; sourceTree = "<group>"; };
+		3A86EDD51ABBC7F7007C1B77 /* CheckMarkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckMarkButton.m; sourceTree = "<group>"; };
+		3A86EDD71ABBCA6A007C1B77 /* Tool2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tool2ViewController.h; path = EBT/Tool2ViewController.h; sourceTree = "<group>"; };
+		3A86EDD81ABBCA6A007C1B77 /* Tool2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tool2ViewController.m; path = EBT/Tool2ViewController.m; sourceTree = "<group>"; };
+		3A86EDD91ABBCA6A007C1B77 /* Tool2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Tool2ViewController.xib; path = EBT/Tool2ViewController.xib; sourceTree = "<group>"; };
+		3A86EDDC1ABBDEF0007C1B77 /* BaseToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseToolViewController.h; path = EBT/BaseToolViewController.h; sourceTree = "<group>"; };
+		3A86EDDD1ABBDEF0007C1B77 /* BaseToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseToolViewController.m; path = EBT/BaseToolViewController.m; sourceTree = "<group>"; };
+		3A86EDDF1ABBE4F1007C1B77 /* Tool1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tool1ViewController.h; path = EBT/Tool1ViewController.h; sourceTree = "<group>"; };
+		3A86EDE01ABBE4F1007C1B77 /* Tool1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tool1ViewController.m; path = EBT/Tool1ViewController.m; sourceTree = "<group>"; };
+		3A86EDE11ABBE4F1007C1B77 /* Tool1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Tool1ViewController.xib; path = EBT/Tool1ViewController.xib; sourceTree = "<group>"; };
 		9120BD6417ABD34C005CF602 /* EBT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9120BD6717ABD34C005CF602 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9120BD6917ABD34C005CF602 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -549,7 +570,6 @@
 		91AF5CFC17CE0C10009FE460 /* bluecontinue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluecontinue.png; sourceTree = "<group>"; };
 		91AF5CFD17CE0C10009FE460 /* blueoval.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueoval.png; sourceTree = "<group>"; };
 		91AF5CFE17CE0C10009FE460 /* bluestick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluestick.png; sourceTree = "<group>"; };
-		91AF5CFF17CE0C10009FE460 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		91AF5D0017CE0C10009FE460 /* checkincircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkincircle.png; sourceTree = "<group>"; };
 		91AF5D0117CE0C10009FE460 /* continuebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = continuebutton.png; sourceTree = "<group>"; };
 		91AF5D0317CE0C10009FE460 /* k1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = k1.png; sourceTree = "<group>"; };
@@ -812,6 +832,8 @@
 				9120BDFA17B09958005CF602 /* WimAdditions.m */,
 				91DBDDDB17BB6C0F0030EDF5 /* BaseListViewController.h */,
 				91DBDDDC17BB6C0F0030EDF5 /* BaseListViewController.m */,
+				3A86EDD41ABBC7F7007C1B77 /* CheckMarkButton.h */,
+				3A86EDD51ABBC7F7007C1B77 /* CheckMarkButton.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -1230,6 +1252,9 @@
 		91AF5CF517CE0C10009FE460 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A86EDD21ABBC3C2007C1B77 /* checked.png */,
+				3A86EDD01ABBC3B7007C1B77 /* checked@2x.png */,
+				3A86EDCC1ABBC3A8007C1B77 /* unchecked@2x.png */,
 				3A85CFA61ABA666C00932A1A /* tabs */,
 				9131B15317D63CA3003E0F58 /* logoutbutton.png */,
 				91AF5CF617CE0C10009FE460 /* 2fields.png */,
@@ -1241,7 +1266,6 @@
 				91AF5CFC17CE0C10009FE460 /* bluecontinue.png */,
 				91AF5CFD17CE0C10009FE460 /* blueoval.png */,
 				91AF5CFE17CE0C10009FE460 /* bluestick.png */,
-				91AF5CFF17CE0C10009FE460 /* checked.png */,
 				91AF5D0017CE0C10009FE460 /* checkincircle.png */,
 				91AF5D0117CE0C10009FE460 /* continuebutton.png */,
 				91AF5D0217CE0C10009FE460 /* Course w Words */,
@@ -1411,6 +1435,11 @@
 		91DBDDE317BB6C9C0030EDF5 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				3A86EDDC1ABBDEF0007C1B77 /* BaseToolViewController.h */,
+				3A86EDDD1ABBDEF0007C1B77 /* BaseToolViewController.m */,
+				3A86EDD71ABBCA6A007C1B77 /* Tool2ViewController.h */,
+				3A86EDD81ABBCA6A007C1B77 /* Tool2ViewController.m */,
+				3A86EDD91ABBCA6A007C1B77 /* Tool2ViewController.xib */,
 				91DBDE3C17BB7BFB0030EDF5 /* Tool 2 */,
 				91DBDE3D17BB7C670030EDF5 /* Tool3ViewController.h */,
 				91DBDE3E17BB7C670030EDF5 /* Tool3ViewController.m */,
@@ -1421,6 +1450,9 @@
 				91DBDE4717BB98490030EDF5 /* Tool5ViewController.h */,
 				91DBDE4817BB98490030EDF5 /* Tool5ViewController.m */,
 				91DBDE4917BB984A0030EDF5 /* Tool5ViewController.xib */,
+				3A86EDDF1ABBE4F1007C1B77 /* Tool1ViewController.h */,
+				3A86EDE01ABBE4F1007C1B77 /* Tool1ViewController.m */,
+				3A86EDE11ABBE4F1007C1B77 /* Tool1ViewController.xib */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -1520,6 +1552,7 @@
 			files = (
 				9120BD7217ABD34C005CF602 /* InfoPlist.strings in Resources */,
 				9120BD8417ABD34C005CF602 /* EBTViewController.xib in Resources */,
+				3A86EDE31ABBE4F1007C1B77 /* Tool1ViewController.xib in Resources */,
 				9120BE0617B09A75005CF602 /* OpeningViewController.xib in Resources */,
 				91D1BAE817B0A12D008A9CAF /* LoginViewController.xib in Resources */,
 				9164228217B1F0A80084C4E8 /* WelcomeViewController.xib in Resources */,
@@ -1580,16 +1613,17 @@
 				91AF5D5517CE0C10009FE460 /* blueaccept.png in Resources */,
 				91AF5D5617CE0C10009FE460 /* blueaccept2.png in Resources */,
 				3A85CFB51ABA666C00932A1A /* tab_profile.png in Resources */,
+				3A86EDD11ABBC3B7007C1B77 /* checked@2x.png in Resources */,
 				91AF5D5717CE0C10009FE460 /* bluebutton.png in Resources */,
 				91AF5D5817CE0C10009FE460 /* bluecontinue.png in Resources */,
 				91AF5D5917CE0C10009FE460 /* blueoval.png in Resources */,
 				91AF5D5A17CE0C10009FE460 /* bluestick.png in Resources */,
-				91AF5D5B17CE0C10009FE460 /* checked.png in Resources */,
 				3A85CFB11ABA666C00932A1A /* tab_courses.png in Resources */,
 				91AF5D5C17CE0C10009FE460 /* checkincircle.png in Resources */,
 				91AF5D5D17CE0C10009FE460 /* continuebutton.png in Resources */,
 				91AF5D5E17CE0C10009FE460 /* k1.png in Resources */,
 				91AF5D5F17CE0C10009FE460 /* k10.png in Resources */,
+				3A86EDCD1ABBC3A8007C1B77 /* unchecked@2x.png in Resources */,
 				91AF5D6017CE0C10009FE460 /* k2.png in Resources */,
 				91AF5D6117CE0C10009FE460 /* k3.png in Resources */,
 				91AF5D6217CE0C10009FE460 /* k4.png in Resources */,
@@ -1621,6 +1655,7 @@
 				91AF5D7A17CE0C10009FE460 /* EBT Logo 48.png in Resources */,
 				91AF5D7B17CE0C10009FE460 /* EBT Logo 57.png in Resources */,
 				91AF5D7C17CE0C10009FE460 /* EBT Logo 58.png in Resources */,
+				3A86EDDB1ABBCA6A007C1B77 /* Tool2ViewController.xib in Resources */,
 				91AF5D7D17CE0C10009FE460 /* EBT Logo 72.png in Resources */,
 				91AF5D7E17CE0C10009FE460 /* EBT Logo 94.png in Resources */,
 				91AF5D7F17CE0C10009FE460 /* iTunesArtwork in Resources */,
@@ -1694,6 +1729,7 @@
 				9143607B17E54017004C18A3 /* UAMapPresentationViewController.xib in Resources */,
 				9143607C17E54017004C18A3 /* UAPushLocalization.bundle in Resources */,
 				9143607D17E54017004C18A3 /* UAPushMoreSettingsView.xib in Resources */,
+				3A86EDD31ABBC3C2007C1B77 /* checked.png in Resources */,
 				9143607E17E54017004C18A3 /* UAPushSettingsAddTagViewController.xib in Resources */,
 				9143607F17E54017004C18A3 /* UAPushSettingsAliasView.xib in Resources */,
 				9143608017E54017004C18A3 /* UAPushSettingsSoundsViewController.xib in Resources */,
@@ -1715,6 +1751,7 @@
 				9120BD7417ABD34C005CF602 /* main.m in Sources */,
 				9120BD7817ABD34C005CF602 /* EBTAppDelegate.m in Sources */,
 				9120BD8117ABD34C005CF602 /* EBTViewController.m in Sources */,
+				3A86EDDE1ABBDEF0007C1B77 /* BaseToolViewController.m in Sources */,
 				9120BDFB17B09958005CF602 /* BaseRequestViewController.m in Sources */,
 				9120BDFC17B09958005CF602 /* MyURLConnection.m in Sources */,
 				9120BDFD17B09958005CF602 /* Reachability.m in Sources */,
@@ -1731,6 +1768,7 @@
 				91DBDD1117BA63000030EDF5 /* StateDetailViewController.m in Sources */,
 				3A85CF9D1ABA543900932A1A /* ConnectionsViewController.m in Sources */,
 				91DBDD9317BB56620030EDF5 /* AcceptStateViewController.m in Sources */,
+				3A86EDDA1ABBCA6A007C1B77 /* Tool2ViewController.m in Sources */,
 				91DBDDDD17BB6C0F0030EDF5 /* BaseListViewController.m in Sources */,
 				91DBDDE117BB6C920030EDF5 /* Tool2S2ViewController.m in Sources */,
 				91DBDE3517BB75F50030EDF5 /* Tool2S3ViewController.m in Sources */,
@@ -1757,6 +1795,7 @@
 				91AF5CF317CDF0D8009FE460 /* NotificationViewController.m in Sources */,
 				9143604E17E54017004C18A3 /* UABarButtonSegmentedControl.m in Sources */,
 				9143604F17E54017004C18A3 /* UABeveledLoadingIndicator.m in Sources */,
+				3A86EDD61ABBC7F7007C1B77 /* CheckMarkButton.m in Sources */,
 				9143605017E54017004C18A3 /* UADateUtils.m in Sources */,
 				9143605117E54017004C18A3 /* UAInboxAlertHandler.m in Sources */,
 				9143605217E54017004C18A3 /* UAInboxMessageListCell.m in Sources */,
@@ -1774,6 +1813,7 @@
 				9143606C17E54017004C18A3 /* UAPushSettingsAddTagViewController.m in Sources */,
 				9143606D17E54017004C18A3 /* UAPushSettingsAliasViewController.m in Sources */,
 				9143606E17E54017004C18A3 /* UAPushSettingsSoundsViewController.m in Sources */,
+				3A86EDE21ABBE4F1007C1B77 /* Tool1ViewController.m in Sources */,
 				9143606F17E54017004C18A3 /* UAPushSettingsTagsViewController.m in Sources */,
 				9143607017E54017004C18A3 /* UAPushSettingsTokenViewController.m in Sources */,
 				9143607117E54017004C18A3 /* UAPushSettingsUserInfoViewController.m in Sources */,
