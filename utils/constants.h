@@ -3,6 +3,7 @@
 #define kGrayTextColor [Utils colorWithRed:172 green:172 blue:172]
 #define kBlueTextColor [Utils colorWithRed:157 green:207 blue:218]
 #define kDarkGrayTextColor [Utils colorWithRed:89 green:89 blue:89]
+#define kBlueTextColor [Utils colorWithRed:39 green:137 blue:255]
 #define kSessionToken @"kSessionToken"
 #define kBaseURL @"https://www.ebtconnect.net/api/v1/"
 #define kWebsiteURL @"http://www.ebtconnect.net/"
