@@ -1,0 +1,18 @@
+PODS:
+  - UrbanAirship-iOS-SDK/All (5.1.1):
+    - UrbanAirship-iOS-SDK/Core
+    - UrbanAirship-iOS-SDK/PushUI
+    - UrbanAirship-iOS-SDK/RichPushUI
+  - UrbanAirship-iOS-SDK/Core (5.1.1)
+  - UrbanAirship-iOS-SDK/PushUI (5.1.1):
+    - UrbanAirship-iOS-SDK/Core
+  - UrbanAirship-iOS-SDK/RichPushUI (5.1.1):
+    - UrbanAirship-iOS-SDK/Core
+
+DEPENDENCIES:
+  - UrbanAirship-iOS-SDK/All
+
+SPEC CHECKSUMS:
+  UrbanAirship-iOS-SDK: 46a5fd5109c911a2d33c5a01b1bd141a3f5d3d34
+
+COCOAPODS: 0.36.0

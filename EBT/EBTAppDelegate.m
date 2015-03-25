@@ -14,11 +14,9 @@
 #import "Tool2S2ViewController.h"
 #import "LoginViewController.h"
 
-#import "UAConfig.h"
 #import "UAirship.h"
+#import "UAConfig.h"
 #import "UAPush.h"
-#import "UAAnalytics.h"
-
 
 @implementation EBTAppDelegate
 
