@@ -47,7 +47,7 @@
     //[self addLogoutButtonToView:self.view];
 
 
-    UIView* contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, kIphoneHeight)];
+    UIView* contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kIphoneHeight)];
     [self.view insertSubview:contentView atIndex:0];
 
     
@@ -66,12 +66,12 @@
     
     [contentView addSubview:imageView];
     
-    UIView* whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 142, 320, 265-142)];
+    UIView* whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 142, kScreenBounds.size.width, 265-142)];
     whiteView.backgroundColor = [UIColor whiteColor];
     [contentView addSubview:whiteView];
     
     UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 155, 320, 30)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 155, kScreenBounds.size.width, 30)];
     label.numberOfLines = 1;
     label.textColor = kDarkGrayTextColor;
     label.text =  self.currentItem[kName];
@@ -80,7 +80,7 @@
     label.textAlignment = UITextAlignmentCenter;
     [contentView addSubview:label];
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 185, 320, 30)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 185, kScreenBounds.size.width, 30)];
     label.numberOfLines = 1;
     label.textColor = kDarkGrayTextColor;
     label.text =  @"Certified EBT Provider";
@@ -117,7 +117,7 @@
     
     lastY = 300;
    
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , lastY, 320, 30)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , lastY, kScreenBounds.size.width, 30)];
     label.numberOfLines = 1;
     label.textColor = kDarkGrayTextColor;
     label.text =  [@"Purchased coaching" uppercaseString];
@@ -126,7 +126,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , lastY+30, 320, 45)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , lastY+30, kScreenBounds.size.width, 45)];
     label.numberOfLines = 1;
     label.textColor = kBlueTextColor;
     label.text =  [NSString stringWithFormat:@"%@",self.currentItem[@"num_coachings"]];
@@ -135,7 +135,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , lastY+75, 320, 30)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , lastY+75, kScreenBounds.size.width, 30)];
     label.numberOfLines = 1;
     label.textColor = kDarkGrayTextColor;
     label.text =  [@"25 min sessions" uppercaseString];

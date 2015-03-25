@@ -48,7 +48,7 @@
                  @"Express it. Notice a surge of release and joy."];
     
     UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 100, 320, 44)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 100, kScreenBounds.size.width, 44)];
     label.numberOfLines = 0;
     label.textColor = kDarkGrayTextColor;
     label.text =  self.titles[self.currentIndex];

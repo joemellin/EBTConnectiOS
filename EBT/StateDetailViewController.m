@@ -46,7 +46,7 @@
 -(void)setupUI{
     [self setNavTitle:titles[self.state]];
     UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 100, 320, 44)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 100, kScreenBounds.size.width, 44)];
     label.numberOfLines = 0;
     label.textColor = kDarkGrayTextColor;
     label.text = [NSString stringWithFormat:@"You are in Brain State %i", self.state+1];
@@ -58,7 +58,7 @@
     NSString* text = details[self.state];
     UIFont* font = [UIFont systemFontOfSize:17];
     float h = [Utils heightWithText:text andFont:font andMaxWidth:kScreenBounds.size.width-20];
-    label = [[UILabel alloc] initWithFrame:CGRectMake(10 , 150, 300, h)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(10 , 150, kScreenBounds.size.width-20, h)];
     label.numberOfLines = 0;
     label.textColor = kDarkGrayTextColor;
     label.text =  text;

@@ -139,7 +139,7 @@
     [contentView addSubview:label];
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake((320-205)/2, 200, 0, 0);
+    button.frame = CGRectMake((kScreenBounds.size.width-205)/2, 200, 0, 0);
 	[button setBackgroundImage:[UIImage imageNamed:@"graybutton.png"] forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(newToEBT) forControlEvents:UIControlEventTouchUpInside];
 	[self setViewFrame:button];
@@ -148,7 +148,7 @@
     [contentView addSubview:button];
     
     button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake((320-205)/2, 260, 0, 0);
+    button.frame = CGRectMake((kScreenBounds.size.width-205)/2, 260, 0, 0);
 	[button setBackgroundImage:[UIImage imageNamed:@"graybutton.png"] forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
 	[self setViewFrame:button];

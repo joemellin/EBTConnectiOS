@@ -28,7 +28,7 @@
 - (void)viewDidLoad {	
 		
     downloadConn = nil;
-    self.contentSizeForViewInPopover = CGSizeMake(320, 480);
+    self.contentSizeForViewInPopover = kScreenBounds.size;
 
     float delta = 20;
     if (needsNavBar) {
@@ -57,7 +57,7 @@
 	noContentLabel.hidden = YES;
 	
 	spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-	spinner.frame =CGRectMake(320/2-10, loadingLabel.frame.size.height/2-35, 20, 20);
+	spinner.frame =CGRectMake(kScreenBounds.size.width/2-10, loadingLabel.frame.size.height/2-35, 20, 20);
 	
 	spinner.hidesWhenStopped = YES;	
 	//[spinner startAnimating];
@@ -115,7 +115,7 @@
     
     self.navigationItem.hidesBackButton = YES;
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(320-57-10, 10, 0, 0);
+    button.frame = CGRectMake(kScreenBounds.size.width-57-10, 10, 0, 0);
 	[button setBackgroundImage:[UIImage imageNamed:@"logoutbutton"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
 	[self setViewFrame:button];
@@ -174,7 +174,7 @@
     imageView.image = [UIImage imageNamed:@"describebar"];
     [self setViewFrame:imageView];
     UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(15 , 0, 300, 50)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(15 , 0, kScreenBounds.size.width-30, 50)];
     label.numberOfLines = 0;
     label.textColor = kGrayTextColor;
     label.text =  description;
@@ -288,7 +288,7 @@
 
 
 -(void)setupBgView{
-    bgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    bgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, 480)];
     bgView.image = [UIImage imageNamed:@"bg_without_logo.png"];
     [self.view insertSubview:bgView atIndex:0];
 }
@@ -824,7 +824,7 @@
 
 
 -(void)addSelectedBackgroundForCell:(UITableViewCell*)cell{
-    UIImageView* cellbgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    UIImageView* cellbgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, 44)];
     cellbgView.image = [UIImage imageNamed:@"bg_item_ipad@2x.png"];
     cell.selectedBackgroundView = cellbgView;
 }
@@ -879,7 +879,7 @@
 -(void)setupNoInternetUIWithMessage:(NSString*)message{
     noInternetView = [[UIView alloc] initWithFrame:CGRectMake(0, 120, 768, 1000)];
     if (!kIsIpad) {
-        noInternetView.frame = CGRectMake(0, 60, 320, 460);
+        noInternetView.frame = CGRectMake(0, 60, kScreenBounds.size.width, 460);
     }
     noInternetView.backgroundColor = self.view.backgroundColor;
     

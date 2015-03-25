@@ -17,6 +17,8 @@
 #import "UAirship.h"
 #import "UAConfig.h"
 #import "UAPush.h"
+#import "TabBarViewController.h"
+
 
 @implementation EBTAppDelegate
 
@@ -34,7 +36,7 @@
     [UAirship takeOff:config];
     
     // Request a custom set of notification types
-    [UAPush shared].notificationTypes = (UIRemoteNotificationTypeBadge |
+    [UAPush shared].userNotificationTypes = (UIRemoteNotificationTypeBadge |
                                          UIRemoteNotificationTypeSound |
                                          UIRemoteNotificationTypeAlert 
                                     );
@@ -52,19 +54,8 @@
     
     [Utils removeSettingForKey:kLoginBackTapped];
     
-    UIViewController* vc;
-    /*if ([Utils setting:kLoginInfoDict]) {
-        vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-
-    }
-    else{*/
-        vc = [[OpeningViewController alloc] initWithNibName:@"OpeningViewController" bundle:nil];
-
-    //}
-    //GroupViewController* vc = [[GroupViewController alloc] initWithNibName:@"GroupViewController" bundle:nil];
-    //Tool2S2ViewController* vc = [[Tool2S2ViewController alloc] initWithNibName:@"Tool2S2ViewController" bundle:nil];
-
-
+    UIViewController* vc = [[OpeningViewController alloc] initWithNibName:@"OpeningViewController" bundle:nil];
+//    vc = [[TabBarViewController alloc] init];
     UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     nvc.navigationBarHidden = YES;
 

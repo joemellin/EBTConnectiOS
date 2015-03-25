@@ -291,7 +291,7 @@
     float delta = 20;
     delta += 44;
     
-    loadingLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 320,  kIphoneHeight-delta)];
+    loadingLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, kScreenBounds.size.width,  kIphoneHeight-delta)];
     
 	loadingLabel.text =  _(@"Loading...");
 	loadingLabel.textAlignment = UITextAlignmentCenter;
@@ -305,7 +305,7 @@
 	
 		
 	spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-	spinner.frame =CGRectMake(320/2-10, loadingLabel.frame.size.height/2-35, 20, 20);
+	spinner.frame =CGRectMake(kScreenBounds.size.width/2-10, loadingLabel.frame.size.height/2-35, 20, 20);
 	
 	spinner.hidesWhenStopped = YES;
 	//[spinner startAnimating];

@@ -45,20 +45,20 @@
     if (!kIsiPhone5) {
         yOffset = -30;
     }
-    UIView* contentView = [[UIView alloc] initWithFrame:CGRectMake(0,yOffset, 320, kIphoneHeight)];
+    UIView* contentView = [[UIView alloc] initWithFrame:CGRectMake(0,yOffset, kScreenBounds.size.width, kIphoneHeight)];
     groupView = contentView;
     [self.view addSubview:contentView];
     UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 0, 320, 30)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 0, kScreenBounds.size.width, 30)];
     label.numberOfLines = 1;
     label.textColor = kBlueTextColor;
     label.text =  @"Your Provider";
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:16];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 200, 320, 30)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 200, kScreenBounds.size.width, 30)];
     label.numberOfLines = 1;
     label.textColor = kBlueTextColor;
     label.text =  @"Your Group";
@@ -67,7 +67,7 @@
     label.textAlignment = UITextAlignmentCenter;
     [contentView addSubview:label];
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 418, 320, 30)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 418, kScreenBounds.size.width, 30)];
     [Utils applyiPhone4YDelta:-kiPhone5HeightDelta/2 forView:label];
 
     label.numberOfLines = 1;

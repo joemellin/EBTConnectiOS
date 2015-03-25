@@ -28,13 +28,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake((320-143)/2, 135, 0, 0)];
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake((kScreenBounds.size.width-143)/2, 135, 0, 0)];
     imageView.image = [UIImage imageNamed:@"logo.png"];
     [self setViewFrame:imageView];
     [self.view addSubview:imageView];
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake((320-205)/2, 400, 0, 0);
+    button.frame = CGRectMake((kScreenBounds.size.width-205)/2, 400, 0, 0);
 	[button setBackgroundImage:[UIImage imageNamed:@"bluebutton.png"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(newToEBT) forControlEvents:UIControlEventTouchUpInside];
 	[self setViewFrame:button];
@@ -43,7 +43,7 @@
     [self.view addSubview:button];
     
     button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake((320-205)/2, 447, 0, 0);
+    button.frame = CGRectMake((kScreenBounds.size.width-205)/2, 447, 0, 0);
 	[button setBackgroundImage:[UIImage imageNamed:@"graybutton.png"] forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
 	[self setViewFrame:button];

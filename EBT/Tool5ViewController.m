@@ -37,7 +37,7 @@
     // Do any additional setup after loading the view from its nib.
     float delta = kiPhone5HeightDelta/2;
     UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 142, 320, 150)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 142, kScreenBounds.size.width, 150)];
     label.numberOfLines = 0;
     label.textColor = kDarkGrayTextColor;
     label.text =  self.titles[self.currentIndex];

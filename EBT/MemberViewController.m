@@ -100,7 +100,7 @@
 
 
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 145, 320, 30)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 145, kScreenBounds.size.width, 30)];
     label.numberOfLines = 1;
     label.textColor = kDarkGrayTextColor;
     label.text =  self.currentItem[kName];
@@ -286,7 +286,7 @@
         days -= 1;
     }
     NSDate* startDate = [[NSDate date] dateByAddingTimeInterval:- days * 24*3600 +2*3600];
-    float widthPerSecond = 320.0f/(24*3600);
+    float widthPerSecond = kScreenBounds.size.width/(24*3600);
     
     /* int col = 5;
      int row = list.count / col + 1;
@@ -305,14 +305,14 @@
     float lastContentY = 0;
     float firstY = lastY;
     
-    UIScrollView* contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, lastY, 320, 250)];
+    UIScrollView* contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, lastY, kScreenBounds.size.width, 250)];
     contentView.scrollEnabled = YES;
     contentView.pagingEnabled = YES;
 
     [contentViewBig addSubview:contentView];
     lastY = 10;
     
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,  lastY+yDistance-10, days * 320-3 , 21)];
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,  lastY+yDistance-10, days * kScreenBounds.size.width-3 , 21)];
     lastContentY = firstY + 20 + 30 ;
     imageView.backgroundColor = [UIColor whiteColor];
     imageView.layer.cornerRadius = 10;
@@ -514,12 +514,12 @@
         }
         
     }
-    contentView.contentSize = CGSizeMake(days*320, 250);
+    contentView.contentSize = CGSizeMake(days*kScreenBounds.size.width, 250);
     
    
-    contentViewBig.contentSize = CGSizeMake(320, lastContentY+50);
+    contentViewBig.contentSize = CGSizeMake(kScreenBounds.size.width, lastContentY+50);
     
-    [contentView scrollRectToVisible:CGRectMake(days*320-10, 10, 10, 10) animated:NO ];
+    [contentView scrollRectToVisible:CGRectMake(days*kScreenBounds.size.width-10, 10, 10, 10) animated:NO ];
 }
 
 -(void)showNotifications{

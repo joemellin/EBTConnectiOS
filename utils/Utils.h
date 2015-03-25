@@ -108,7 +108,5 @@
 +(void)applyiPhone4YDelta:(float)yDelta forView:(UIView*)view;
 +(void)applyiPhone4Frame:(CGRect)frame forView:(UIView*)view;
 +(void)applyYDelta:(float)yDelta forView:(UIView*)view;
-
-+(NSString*)formatString:(NSString*)digits withChar:(NSString*)concat withGroupCount:(int)count withMaxGroup:(int)maxGroup;
 +(float)heightWithText:(NSString*)text andFont:(UIFont*)font andMaxWidth:(float)maxWidth;
 @end

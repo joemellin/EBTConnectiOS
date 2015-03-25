@@ -8,8 +8,10 @@
 
 #import "Tool1ViewController.h"
 #import "SelectStateViewController.h"
-@interface Tool1ViewController ()
-
+@interface Tool1ViewController () {
+    IBOutlet UILabel *_message;
+    IBOutlet UIImageView *_imageView;
+}
 @end
 
 @implementation Tool1ViewController
@@ -29,28 +31,33 @@
     [self setNavTitle:@"Sanctuary"];
     
     self.titles = @[
-                         @"Take a deep breath...",
-                         @"Shoulders back... Assume Body at 1.",
-                         @"Lovingly observe yourself.",
-                         @"Connect with your sanctuary, the safe place within.",
-                         @"Feel a wave of compassion for yourself.",
-                         @"Feel a wave of compassion for others.",
-                         @"Feel a wave of compassion for all living beings.",
-                         @"Feel a surge of joy!",
-                         ];
+                     @"Take a deep breath...",
+                     @"Shoulders back... Assume Body at 1.",
+                     @"Lovingly observe yourself.",
+                     @"Connect with your sanctuary, the safe place within.",
+                     @"Feel a wave of compassion for yourself.",
+                     @"Feel a wave of compassion for others.",
+                     @"Feel a wave of compassion for all living beings.",
+                     @"Feel a surge of joy!",
+                     ];
     
     // Do any additional setup after loading the view from its nib.
     float delta = kiPhone5HeightDelta/2;
-    UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 142, 320, 150)];
-    label.numberOfLines = 0;
-    label.textColor = kDarkGrayTextColor;
-    label.text =  self.titles[self.currentIndex];
-    label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:22];
-    label.textAlignment = NSTextAlignmentCenter;
-    [Utils applyiPhone4YDelta:-delta forView:label];
-    [self.view addSubview:label];
+    
+    _message = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, 100)];
+    _message.numberOfLines = 0;
+    _message.textColor = kDarkGrayTextColor;
+    _message.text =  self.titles[self.currentIndex];
+    _message.backgroundColor= [UIColor clearColor];
+    _message.font = [UIFont boldSystemFontOfSize:22];
+    _message.textAlignment = NSTextAlignmentCenter;
+    [Utils applyiPhone4YDelta:-delta forView:_message];
+    [self.view addSubview:_message];
+    
+    _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"Tool1-%i", self.currentIndex]]];
+    _imageView.contentMode = UIViewContentModeScaleAspectFill;
+    _imageView.frame = CGRectMake(0, 150, kScreenBounds.size.width, kScreenBounds.size.height-150);
+    [self.view addSubview:_imageView];
     
     [super viewDidLoad];
 }

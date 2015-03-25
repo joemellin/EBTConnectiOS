@@ -104,15 +104,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.state = [indexPath row];
-    if (!self.isRestartMode) {
-        [self requestCheckIn];
-
-    }
-    else{
+//    if (!self.isRestartMode) {
+//        [self requestCheckIn];
+//
+//    }
+//    else{
         StateDetailViewController* vc = [[StateDetailViewController alloc] initWithNibName:@"StateDetailViewController" bundle:nil];
         vc.state = self.state;
         [self.navigationController pushViewController:vc animated:YES];
-    }
+//    }
 
   
    	

@@ -48,7 +48,7 @@
     [self.view addSubview:button];
     
     UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 150-22, 320, 44)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 150-22, kScreenBounds.size.width, 44)];
     label.numberOfLines = 0;
     label.textColor = [UIColor whiteColor];
     label.text =  @"Checkin +1";
@@ -58,7 +58,7 @@
     }
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:16];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     //[self.view addSubview:label];
     // Do any additional setup after loading the view from its nib.
     

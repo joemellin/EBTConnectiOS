@@ -42,7 +42,7 @@
 
 - (void)setupHorizontalScrollView{
     
-    UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, kIphoneHeight)];
+    UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)];
     myScrollView = scrollView;
     scrollView.delegate = self;
     
@@ -65,24 +65,24 @@
         UIImage *image = [UIImage imageNamed:imageName];
         float x = 0;
         
-        float lastX = x + 320 * nimages;
+        float lastX = x + kScreenBounds.size.width * nimages;
         float h = 548;
         if (!kIsiPhone5) {
             h = 460;
         }
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(lastX, 0, 320, h)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(lastX, 0, kScreenBounds.size.width, h)];
         imageView.image = image;
         
         [scrollView addSubview:imageView];
         
     }
     
-    pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 440, 320, 40)];
+    pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 440, kScreenBounds.size.width, 40)];
     
     pageControl.numberOfPages = nimages;
     pageControl.autoresizingMask = UIViewAutoresizingNone;
     
-    [scrollView setContentSize:CGSizeMake(imageCount*320, [scrollView bounds].size.height)];
+    [scrollView setContentSize:CGSizeMake(imageCount*kScreenBounds.size.width, [scrollView bounds].size.height)];
     [self.view addSubview:scrollView];
     [Utils applyiPhone4YDelta:-kiPhone5HeightDelta forView:pageControl];
     
@@ -90,7 +90,7 @@
     
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-	button.frame = CGRectMake(10, 486, 300, 50);
+	button.frame = CGRectMake(10, 486, kScreenBounds.size.width-20, 50);
 	[button setBackgroundImage:[UIImage imageNamed:@"continuebutton"] forState:UIControlStateNormal];
     [button setTitle:@"Continue" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -107,7 +107,7 @@
         [Utils showSubViewWithName:@"TabBarViewController" withDelegate:self];
         return;
     }
-    [myScrollView scrollRectToVisible:CGRectMake((currentIndex+1)*320, 0, 320, 10) animated:YES];
+    [myScrollView scrollRectToVisible:CGRectMake((currentIndex+1)*kScreenBounds.size.width, 0, kScreenBounds.size.width, 10) animated:YES];
     int page = currentIndex+1;
     currentIndex = page;
 
@@ -130,9 +130,8 @@
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)sender {
-    float pageWidth = 320;
     
-    int page = sender.contentOffset.x / pageWidth;
+    int page = sender.contentOffset.x / kScreenBounds.size.width;
     currentIndex = page;
     [pageControl setCurrentPage:page];
     if (page == imageCount-1) {
