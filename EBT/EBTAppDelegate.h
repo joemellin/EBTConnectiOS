@@ -11,6 +11,8 @@
 @class EBTViewController;
 @class GroupViewController;
 @class LoginViewController;
+@class TabBarViewController;
+
 @interface EBTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -19,4 +21,5 @@
 @property (strong, nonatomic) EBTViewController *viewController;
 @property (strong, nonatomic) GroupViewController *groupController;
 @property (strong, nonatomic) GroupViewController *loginViewController;
+@property (strong, nonatomic) TabBarViewController *tabBarViewController;
 @end

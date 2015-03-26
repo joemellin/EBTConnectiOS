@@ -18,7 +18,6 @@
 
 +(void)flog:(NSString*)msg{
     NSString* path = [[Utils appDocDir] stringByAppendingPathComponent:@"log.txt"];
-    NSFileManager* fm = [NSFileManager defaultManager];
    
     NSString* content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     if (!content) {
@@ -158,6 +157,9 @@
 +(void)showSubViewWithName:(NSString*)name withDelegate:(id)delegate{
 	Class klass = NSClassFromString(name);
 	id vc = [[klass alloc] initWithNibName:name bundle:nil];
+    if([name isEqualToString:@"TabBarViewController"]) {
+        [[Utils appDelegate] setTabBarViewController:vc];
+    }
 	[[delegate navigationController] pushViewController:vc animated:YES];
 }
 
@@ -592,13 +594,7 @@
 	}
 }
 +(float)iphoneHeight {
-    if (kIsiPhone5) {
-        return 568;
-    }
-    else{
-        return 480;
-    }
-    
+    return kScreenBounds.size.height;
 }
 
 +(BOOL)hasRetinaDisplay

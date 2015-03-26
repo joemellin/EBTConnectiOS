@@ -64,7 +64,6 @@
     NSDictionary* item = self.displayList[[indexPath row]];
     
     MemberViewController* vc = [[MemberViewController alloc] initWithNibName:@"MemberViewController" bundle:nil];
-    vc.isMe = NO ;
     vc.imageCacheDict = self.imageCacheDict;
     vc.currentItem = item;
     
@@ -123,7 +122,7 @@
     
     if ([context intValue] == 1) {
         NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-        if (dict) {
+        if (dict && self.currentItem[@"members"]) {
             self.currentItem = [dict mutableCopy];
             self.displayList = self.currentItem[@"members"];
             [myTableView reloadData];

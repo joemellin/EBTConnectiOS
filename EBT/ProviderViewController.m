@@ -47,11 +47,11 @@
     //[self addLogoutButtonToView:self.view];
 
 
-    UIView* contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kIphoneHeight)];
+    UIView* contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)];
     [self.view insertSubview:contentView atIndex:0];
 
     
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, 0, 0)];
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     imageView.image = [UIImage imageNamed:@"providerface"];
     [self setViewFrame:imageView];
     imageView.tag = 0 + kBaseTag;
@@ -77,7 +77,7 @@
     label.text =  self.currentItem[kName];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:18];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
     
     label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 185, kScreenBounds.size.width, 30)];
@@ -86,7 +86,7 @@
     label.text =  @"Certified EBT Provider";
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:12];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
     
     float lastY = 225;

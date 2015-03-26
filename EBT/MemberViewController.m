@@ -27,8 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -46,12 +44,12 @@
     contentView.scrollEnabled = YES;
     
     self.navigationItem.hidesBackButton = YES;
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(20, 10, 0, 0);
-	[button setBackgroundImage:[UIImage imageNamed:@"groupback"] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(backToGroup) forControlEvents:UIControlEventTouchUpInside];
-	[self setViewFrame:button];
-    [contentView addSubview:button];
+    UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = CGRectMake(20, 10, 0, 0);
+	[backButton setBackgroundImage:[UIImage imageNamed:@"groupback"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(backToGroup) forControlEvents:UIControlEventTouchUpInside];
+	[self setViewFrame:backButton];
+    [contentView addSubview:backButton];
     
     if (self.isMe) {
         [self addLogoutButtonToView:contentView];
@@ -81,24 +79,6 @@
     [contentView addSubview:imageView];
     
     UILabel* label;
-    /*
-    label = [[UILabel alloc] initWithFrame:CGRectMake(35 , 73, 60, 17)];
-    label.numberOfLines = 1;
-    label.textColor = [UIColor whiteColor];
-    label.text =  @"Kit4";
-    label.backgroundColor= [UIColor clearColor ];
-    label.font = [UIFont systemFontOfSize:14];
-    [contentView addSubview:label];
-    
-    label = [[UILabel alloc] initWithFrame:CGRectMake(240 , 73, 60, 17)];
-    label.numberOfLines = 1;
-    label.textColor = [UIColor whiteColor];
-    label.text =  @"Integrity";
-    label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont systemFontOfSize:14];
-    [contentView addSubview:label];*/
-
-
     
     label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 145, kScreenBounds.size.width, 30)];
     label.numberOfLines = 1;
@@ -129,11 +109,7 @@
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [button addTarget:self action:@selector(showNotifications) forControlEvents:UIControlEventTouchUpInside];
         [contentView addSubview:button];
-        
-
-    }
-    else{
-        
+    } else {
         imageView = [[UIImageView alloc] initWithFrame:CGRectMake(160, lastY, 0.5, 40)];
         imageView.image = [UIImage imageNamed:@"profileline2"];
         //[self setViewFrame:imageView];
@@ -272,10 +248,7 @@
     [list sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:kDate ascending:YES]]];
     self.displayList = list;
     
-    NSDictionary* lastItem = [list lastObject];
     NSDictionary* firstItem = [list objectAtIndex:0];
-    NSDate* date = [self dateFromItem:lastItem];
-
     
     NSDate* date0 = [self dateFromItem:firstItem];
 
@@ -298,18 +271,16 @@
     float circleHeight = 45;
     float ovalHeight = 110;
     float badgeHeight = 68;
-    //NSArray* xValues = @[@"",@"",@"",@"",@""];
-    float timelineWidth = kScreenBounds.size.width;
     float itemWidth = 45;
     //float distance = 290/col;
     float lastContentY = 0;
     float firstY = lastY;
     
-    UIScrollView* contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, lastY, kScreenBounds.size.width, 250)];
-    contentView.scrollEnabled = YES;
-    contentView.pagingEnabled = YES;
+    UIScrollView* contentViewMember = [[UIScrollView alloc] initWithFrame:CGRectMake(0, lastY, kScreenBounds.size.width, 250)];
+    contentViewMember.scrollEnabled = YES;
+    contentViewMember.pagingEnabled = YES;
 
-    [contentViewBig addSubview:contentView];
+    [contentViewBig addSubview:contentViewMember];
     lastY = 10;
     
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,  lastY+yDistance-10, days * kScreenBounds.size.width-3 , 21)];
@@ -320,17 +291,13 @@
     
     //imageView.image = [UIImage imageNamed:@"timeline"];
     //[self setViewFrame:imageView];
-    [contentView addSubview:imageView];
+    [contentViewMember addSubview:imageView];
     UIImageView* timelineView = imageView;
     
     float lastLabelX = 0;
     
     for(int i=0; i < [list count]; i++){
-        
-        
-        
-       
-        
+
         float lastX = 0;
         
         NSDictionary* item = list[i];
@@ -343,7 +310,7 @@
             
             [self setViewFrame:imageView];
             imageView.center = CGPointMake(lastX , lastY+yDistance - badgeHeight );
-            [contentView addSubview:imageView];
+            [contentViewMember addSubview:imageView];
             
             float lastY2 = imageView.frame.origin.y + imageView.frame.size.height + 3 ;
             
@@ -364,7 +331,7 @@
             button.frame = imageView.frame;
             button.tag = i;
             [button addTarget:self action:@selector(showSupporter:) forControlEvents:UIControlEventTouchUpInside];
-            [contentView addSubview:button];
+            [contentViewMember addSubview:button];
 
             
             
@@ -378,8 +345,8 @@
                 label.text =  [self timelineXValueForCheckin:item];
                 label.backgroundColor= [UIColor clearColor ];
                 label.font = [UIFont systemFontOfSize:14];
-                label.textAlignment = UITextAlignmentCenter;
-                [contentView addSubview:label];
+                label.textAlignment = NSTextAlignmentCenter;
+                [contentViewMember addSubview:label];
                 lastLabelX = label.frame.origin.x + label.frame.size.width+5;
             }
             
@@ -387,7 +354,7 @@
             imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@stick",@"yellow"] ];
             [self setViewFrame:imageView];
             //[contentView insertSubview:imageView atIndex:0];
-            [contentView insertSubview:imageView belowSubview:timelineView];
+            [contentViewMember insertSubview:imageView belowSubview:timelineView];
         }
         else{
             
@@ -405,7 +372,7 @@
                 
                 [self setViewFrame:imageView];
                 imageView.center = CGPointMake(lastX , lastY+yDistance - circleHeight );
-                [contentView addSubview:imageView];
+                [contentViewMember addSubview:imageView];
                 
                 float lastY2 = imageView.frame.origin.y + imageView.frame.size.height + 3 ;
                 
@@ -429,7 +396,7 @@
                     label.backgroundColor= [UIColor clearColor ];
                     label.font = [UIFont systemFontOfSize:14];
                     label.textAlignment = NSTextAlignmentCenter;
-                    [contentView addSubview:label];
+                    [contentViewMember addSubview:label];
                     lastLabelX = label.frame.origin.x + label.frame.size.width+5;
                 }
                 
@@ -439,7 +406,7 @@
                 imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@stick",color] ];
                 [self setViewFrame:imageView];
                 //[contentView insertSubview:imageView atIndex:0];
-                [contentView insertSubview:imageView belowSubview:timelineView];
+                [contentViewMember insertSubview:imageView belowSubview:timelineView];
 
                 
                 
@@ -459,7 +426,7 @@
                 
                 [self setViewFrame:imageView];
                 imageView.center = CGPointMake(lastX , lastY+yDistance - ovalHeight );
-                [contentView addSubview:imageView];
+                [contentViewMember addSubview:imageView];
                 float lastY2 = imageView.frame.origin.y + imageView.frame.size.height;
                 float itemX = imageView.frame.origin.x;
                 
@@ -471,7 +438,7 @@
                 label.text =  [NSString stringWithFormat:@"%@",item[kFinalState]];
                 label.backgroundColor= [UIColor clearColor ];
                 label.font = [UIFont boldSystemFontOfSize:25];
-                label.textAlignment = UITextAlignmentCenter;
+                label.textAlignment = NSTextAlignmentCenter;
                 [imageView addSubview:label];
                 
                 label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, imageView.frame.size.width, 20)];
@@ -480,7 +447,7 @@
                 label.text =  [NSString stringWithFormat:@"%@",item[kInitialState]];
                 label.backgroundColor= [UIColor clearColor ];
                 label.font = [UIFont boldSystemFontOfSize:25];
-                label.textAlignment = UITextAlignmentCenter;
+                label.textAlignment = NSTextAlignmentCenter;
                 [imageView addSubview:label];
                 
                 UIImageView* imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(16, 45, 0, 0)];
@@ -496,8 +463,8 @@
                     label.text =  [self timelineXValueForCheckin:item];
                     label.backgroundColor= [UIColor clearColor ];
                     label.font = [UIFont systemFontOfSize:14];
-                    label.textAlignment = UITextAlignmentCenter;
-                    [contentView addSubview:label];
+                    label.textAlignment = NSTextAlignmentCenter;
+                    [contentViewMember addSubview:label];
                     lastLabelX = label.frame.origin.x + label.frame.size.width+5;
                 }
 
@@ -506,7 +473,7 @@
                 imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@stick",color] ];
                 [self setViewFrame:imageView];
                 //[contentView insertSubview:imageView atIndex:0];
-                [contentView insertSubview:imageView belowSubview:timelineView];
+                [contentViewMember insertSubview:imageView belowSubview:timelineView];
 
                 
             }
@@ -514,12 +481,12 @@
         }
         
     }
-    contentView.contentSize = CGSizeMake(days*kScreenBounds.size.width, 250);
+    contentViewMember.contentSize = CGSizeMake(days*kScreenBounds.size.width, 250);
     
    
     contentViewBig.contentSize = CGSizeMake(kScreenBounds.size.width, lastContentY+50);
     
-    [contentView scrollRectToVisible:CGRectMake(days*kScreenBounds.size.width-10, 10, 10, 10) animated:NO ];
+    [contentViewMember scrollRectToVisible:CGRectMake(days*kScreenBounds.size.width-10, 10, 10, 10) animated:NO ];
 }
 
 -(void)showNotifications{

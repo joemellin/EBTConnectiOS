@@ -120,7 +120,6 @@
 -(NSMutableArray*)mutableArrayFromArray:(NSArray*)list;
 -(NSString*)soundFileNameFromDescription:(NSString*)desc;
 -(NSString*)formatDatetime:(NSString*)timestamp;
--(NSString*)formatDatetime2:(NSString*)timestamp;
 -(UIImage*)loadLocalImageForKey:(NSString*)imageURL;
 -(void)saveLocalImage:(UIImage*)image forKey:(NSString*)imageURL;
 -(void)addTopLogo;

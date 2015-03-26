@@ -38,7 +38,6 @@
 +(float)iphoneHeight;
 
 +(BOOL)isIpad;
-+(float)lastFontSize;
 +(void)applyiPhone5Y:(float)y forView:(UIView*)view;
 +(void)applyiPhone5Height:(float)height forView:(UIView*)view;
 +(void)applyiPhone5Frame:(CGRect)frame forView:(UIView*)view;

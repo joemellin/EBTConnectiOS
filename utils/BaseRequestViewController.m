@@ -8,6 +8,7 @@
 
 #import "BaseRequestViewController.h"
 #import "Utils.h"
+#import "TabBarViewController.h"
 
 @implementation BaseRequestViewController
 
@@ -28,7 +29,7 @@
 - (void)viewDidLoad {	
 		
     downloadConn = nil;
-    self.contentSizeForViewInPopover = kScreenBounds.size;
+    self.preferredContentSize = kScreenBounds.size;
 
     float delta = 20;
     if (needsNavBar) {
@@ -133,16 +134,17 @@
         [Utils removeSettingForKey:kSessionToken];
         [Utils removeSettingForKey:kLoginInfoDict];
         [Utils setSettingForKey:kLoggedOut withValue:@"1"];
-        int count = self.navigationController.viewControllers.count;
-        //[self.navigationController popToViewController:self.navigationController.viewControllers[count-3] animated:YES];
         [self.navigationController popToViewController:[Utils appDelegate].loginViewController animated:YES];
         
     }
 }
 
 -(void)backToGroup{
-    
-    [self.navigationController popToViewController:(UIViewController*)[Utils appDelegate].groupController animated:YES];
+    if([[[Utils appDelegate] tabBarViewController] selectedIndex] == 1) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [[[Utils appDelegate] tabBarViewController] setSelectedIndex:1];
+    }
 }
 
 -(void)addGroupBackButton{
@@ -193,13 +195,13 @@
 }
 
 -(void)addFullBackground{
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -64, 1024, 768)];
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
     imageView.image = [UIImage imageNamed:@"bg_full.png"];
     [self.view insertSubview:imageView atIndex:0];
 }
 
 -(void)addDetailBackground{
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -64, 704, 768)];
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 704, 768)];
     imageView.image = [UIImage imageNamed:@"bg.png"];
     [self.view insertSubview:imageView atIndex:0];
 }
@@ -288,7 +290,7 @@
 
 
 -(void)setupBgView{
-    bgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, 480)];
+    bgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)];
     bgView.image = [UIImage imageNamed:@"bg_without_logo.png"];
     [self.view insertSubview:bgView atIndex:0];
 }
@@ -632,12 +634,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     if (needsNavBar) {
         [self.navigationController setNavigationBarHidden:NO animated:YES];
-
     }
     else{
         [self.navigationController setNavigationBarHidden:YES animated:YES];
 
     }
+    [super viewWillAppear:animated];
 }
 
 -(void)loadingViewHanlder:(int)context{
@@ -708,57 +710,6 @@
 	}
 	return l;
 }
-
-
-
-/*
--(UIImage*)loadLocalImageForKey:(NSString*)imageURL{
-	if (!imageURL) {
-		return nil;
-	}
-	//NSString* md5 = [Utils md5HexDigest:imageURL];
-	//NSString* path = [[Utils appDocDir] stringByAppendingPathComponent:@"cached_images"];
-	//NSString* path = [Utils appDocDir] ;
-
-	//path = [path stringByAppendingPathComponent:md5];
-    NSString* path = [Utils pathFromVideoURL:imageURL];
-	NSData* data = [NSData dataWithContentsOfFile:path];
-	UIImage* image = [UIImage imageWithData:data];
-	return image;
-}
-
-
-
--(void)saveLocalImage:(UIImage*)image forKey:(NSString*)imageURL{
-	if (!imageURL) {
-		return;
-	}
-	NSString* md5 = [Utils md5HexDigest:imageURL];
-	//NSString* path = [[Utils appDocDir] stringByAppendingPathComponent:@"cached_images"];
-	NSString* path = [Utils appDocDir] ;
-
-	if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-		[[NSFileManager defaultManager] createDirectoryAtPath:path
-								  withIntermediateDirectories:NO
-												   attributes:nil
-														error:nil];
-	}
-	path = [path stringByAppendingPathComponent:md5];
-	
-	if(!image)
-		return;
-	NSFileManager     *NSFm;		
-	NSFm = [NSFileManager defaultManager];	
-	
-	NSData *fileData = UIImagePNGRepresentation(image);		
-	
-	//write image data to file
-	if ([NSFm createFileAtPath: path contents: fileData
-					attributes: nil] == NO) {
-		NSLog (@"Couldn't create the copy!\n");
-		return;
-	}	
-}*/
 
 -(float)formatDistance:(float)rawValue{
 	float v = rawValue;
@@ -920,32 +871,6 @@
     
     
 }
-
-/*-(void)checkInternet{
-    NetworkStatus status = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
-    if (status == NotReachable) {
-        ;
-    }
-    else{
-        noInternetView.hidden = YES;
-        [self internetRecovered];
-    }
-    
-}*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-*/
-
 
 - (void)viewDidUnload
 {

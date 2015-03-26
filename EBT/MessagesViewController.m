@@ -87,4 +87,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) requestUserMessages:(int) calledId {
+    NSString* urlStr = [NSString stringWithFormat:@"%@user_messages/?auth_token=%@",kBaseURL, [Utils setting:kSessionToken]];
+    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"%@",urlStr);
+    
+    
+    MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
+                                                 succeededCallback:@selector(requestSucceeded:myURLConnection:)
+                                                    failedCallback:@selector(requestFailed:myURLConnection:)
+                                                           context:[NSNumber numberWithInt:1]];
+    [myconn get];
+    [self showLoadingView];
+}
+
+-(void)requestSucceededResultHandler:(id)context result:(NSString*)result{
+    NSLog(@"result:%@",result);
+    
+    
+    
+    if ([context intValue] == 1) {
+        NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        if (dict && self.currentItem[@"members"]) {
+            self.currentItem = [dict mutableCopy];
+            self.displayList = self.currentItem[@"members"];
+            [myTableView reloadData];
+        }
+        
+    }
+    
+    
+}
 @end
