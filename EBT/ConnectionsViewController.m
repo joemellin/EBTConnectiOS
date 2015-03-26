@@ -102,7 +102,11 @@
 }
 
 -(void) requestCommunityCall:(int) calledId {
-    NSString* urlStr = [NSString stringWithFormat:@"%@community_connections/?called_id=%i&auth_token=%@",kBaseURL, calledId, [Utils setting:kSessionToken]];
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 [Utils setting:kSessionToken ],@"auth_token",
+                                 [NSNumber numberWithInteger:calledId], @"called_id",
+                                 nil];
+    NSString* urlStr = [NSString stringWithFormat:@"%@community_connections",kBaseURL];
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"%@",urlStr);
     
@@ -111,7 +115,7 @@
                                                  succeededCallback:@selector(requestSucceeded:myURLConnection:)
                                                     failedCallback:@selector(requestFailed:myURLConnection:)
                                                            context:[NSNumber numberWithInt:1]];
-    [myconn get];
+    [myconn post:dict];
     [self showLoadingView];
 }
 
@@ -122,7 +126,7 @@
     
     if ([context intValue] == 1) {
         NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-        if (dict && self.currentItem[@"members"]) {
+        if (dict && dict[@"members"]) {
             self.currentItem = [dict mutableCopy];
             self.displayList = self.currentItem[@"members"];
             [myTableView reloadData];
