@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-UrbanAirship-iOS-SDK.xcscheme</key>
+		<key>Pods-Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>079E50AB5C03847BE4F59F93</key>
+		<key>38346E4476367FB43A5BDD92</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B1094A09CC1DEADAB4E5FA2</key>
+		<key>E6CAA045183C98D9A3CF12FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

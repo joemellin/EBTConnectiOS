@@ -8,6 +8,7 @@
 
 #import "ConnectionsViewController.h"
 #import "MemberViewController.h"
+#import "MessageViewController.h"
 
 @interface ConnectionsViewController ()
 
@@ -20,8 +21,8 @@
     needsNavBar = YES;
     [self setupTableView];
     [super viewDidLoad];
+    myTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self setNavTitle:@"Your Connections"];
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -33,44 +34,28 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"MyIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] ;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    float x = 13;
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, 15, 40, 40)];
-    imageView.tag = kBaseTag + [indexPath row];
+    if(!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] ;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        UIButton * message = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButton * call = [UIButton buttonWithType:UIButtonTypeCustom];
+        [message setImage:[UIImage imageNamed:@"messageuser"] forState:UIControlStateNormal];
+        [call setImage:[UIImage imageNamed:@"phoneuser"] forState:UIControlStateNormal];
+        
+        call.frame = CGRectMake(kScreenBounds.size.width - 40, 5, 30, 30);
+        call.tag = indexPath.row;
+        message.frame = CGRectMake(call.frame.origin.x - 40, 5, 30, 30);
+        message.tag = indexPath.row;
+        [call addTarget:self action:@selector(callSelected:) forControlEvents:UIControlEventTouchUpInside];
+        [message addTarget:self action:@selector(messageSelected:) forControlEvents:UIControlEventTouchUpInside];
+        [cell addSubview:message];
+        [cell addSubview:call];
+    }
+    
     NSDictionary* item = self.displayList[[indexPath row]];
-    imageView.image = [self getImageFromUrlString:item[@"supporter_image_url"] tag:imageView.tag];
-    imageView.layer.cornerRadius = imageView.frame.size.width/2;
-    imageView.layer.borderColor = [kDarkGrayTextColor CGColor];
-    imageView.layer.borderWidth = 0.5;
-    imageView.clipsToBounds = YES;
-    [cell.contentView addSubview:imageView];
-    
-    
-    x += 50;
-    UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(x , 10, 230, 25)];
-    label.numberOfLines = 1;
-    label.textColor = kGrayTextColor;
-    label.text = @"";
-    label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:14];
-    //label.textAlignment = UITextAlignmentCenter;
-    [cell.contentView addSubview:label];
-    
-    label = [[UILabel alloc] initWithFrame:CGRectMake(x , 35, 230, 25)];
-    label.numberOfLines = 1;
-    label.textColor = kDarkGrayTextColor;
-    label.text =  [NSString stringWithFormat:@"%@ supported your checkin.",item[kName]] ;
-    label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:14];
-    //label.textAlignment = UITextAlignmentCenter;
-    [cell.contentView addSubview:label];
-    
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 68, 0, 0)];
-    imageView.image = [UIImage imageNamed:@"splitline.png"];
-    [self setViewFrame:imageView];
-    [cell.contentView addSubview:imageView];
+
+    cell.textLabel.text = item[kName];
+    [cell.imageView setImage:[UIImage imageNamed:@"tab_state"]];
     
     return cell;
 }
@@ -86,6 +71,20 @@
     [self.navigationController pushViewController:vc animated:YES];
    	
 }
+
+#pragma mark - functions for buttons on cell
+-(void) callSelected:(UIButton*) sender {
+    NSDictionary *item = self.displayList[sender.tag];
+    [self requestCommunityCall:[item[kID] intValue]];
+}
+
+-(void) messageSelected:(UIButton*) sender {
+    MessageViewController *messageVC = [[MessageViewController alloc] init];
+    messageVC.currentItem = self.displayList[sender.tag];
+    [self.navigationController pushViewController:messageVC animated:YES];
+}
+
+#pragma mark - network requests
 
 -(IBAction)requestGroup{
     NSDictionary* dict = [Utils setting:kUserInfoDict];
@@ -103,7 +102,19 @@
     
 }
 
-
+-(void) requestCommunityCall:(int) calledId {
+    NSString* urlStr = [NSString stringWithFormat:@"%@community_connections/?called_id=%i&auth_token=%@",kBaseURL, calledId, [Utils setting:kSessionToken]];
+    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"%@",urlStr);
+    
+    
+    MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
+                                                 succeededCallback:@selector(requestSucceeded:myURLConnection:)
+                                                    failedCallback:@selector(requestFailed:myURLConnection:)
+                                                           context:[NSNumber numberWithInt:1]];
+    [myconn get];
+    [self showLoadingView];
+}
 
 -(void)requestSucceededResultHandler:(id)context result:(NSString*)result{
     NSLog(@"result:%@",result);
@@ -114,6 +125,8 @@
         NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         if (dict) {
             self.currentItem = [dict mutableCopy];
+            self.displayList = self.currentItem[@"members"];
+            [myTableView reloadData];
         }
         
     }

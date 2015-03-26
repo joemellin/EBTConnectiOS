@@ -14,11 +14,8 @@
 #import "Tool2S2ViewController.h"
 #import "LoginViewController.h"
 
-#import "UAirship.h"
-#import "UAConfig.h"
-#import "UAPush.h"
 #import "TabBarViewController.h"
-
+#import <Parse/Parse.h>
 
 @implementation EBTAppDelegate
 
@@ -26,21 +23,23 @@
 {
     // Populate AirshipConfig.plist with your app's info from https://go.urbanairship.com
     // or set runtime properties here.
-    UAConfig *config = [UAConfig defaultConfig];
-    config.detectProvisioningMode = true;
-    // You can also programatically override the plist values:
-    // config.developmentAppKey = @"YourKey";
-    // etc.
-    
-    // Call takeOff (which creates the UAirship singleton)
-    [UAirship takeOff:config];
-    
-    // Request a custom set of notification types
-    [UAPush shared].userNotificationTypes = (UIRemoteNotificationTypeBadge |
-                                         UIRemoteNotificationTypeSound |
-                                         UIRemoteNotificationTypeAlert 
-                                    );
-    
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                             categories:nil];
+    if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)])
+    {
+        // iOS 8 Notifications
+        [application registerUserNotificationSettings:settings];
+        
+        [application registerForRemoteNotifications];
+    }
+    else
+    {
+        // iOS < 8 Notifications
+        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
+    }
     
     UIImage* myImage = [UIImage imageNamed:@"navbar.png"];
     [[UINavigationBar appearance] setBackgroundImage:myImage forBarMetrics:UIBarMetricsDefault];
@@ -74,6 +73,10 @@
 	token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
 	token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
 	self.deviceTokenFromApple = token;
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+    
     [self registerPushNotificationOnSTServer];
 }
 

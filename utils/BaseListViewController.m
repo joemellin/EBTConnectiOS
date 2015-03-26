@@ -30,7 +30,7 @@
     myTableView.dataSource = self;
 	myTableView.delegate = self;
 	myTableView.backgroundColor = [UIColor clearColor];
-	myTableView.separatorColor = [UIColor clearColor];
+//	myTableView.separatorColor = [UIColor clearColor]
     myTableView.scrollEnabled = NO;
 	// Do any additional setup after loading the view.
 }
@@ -40,7 +40,6 @@
 -(void)setupTableView{
 	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)
 											  style:UITableViewStylePlain];
-   
 	[self.view addSubview:myTableView];
 }
 
@@ -58,8 +57,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-	
-	return 70;
+	return 44;
 }
 
 

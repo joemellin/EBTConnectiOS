@@ -31,6 +31,8 @@
 		3A86EDE21ABBE4F1007C1B77 /* Tool1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86EDE01ABBE4F1007C1B77 /* Tool1ViewController.m */; };
 		3A86EDE31ABBE4F1007C1B77 /* Tool1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86EDE11ABBE4F1007C1B77 /* Tool1ViewController.xib */; };
 		3A86EE0F1AC256A7007C1B77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A86EE0E1AC256A7007C1B77 /* Images.xcassets */; };
+		3AAA30591AC3D51B00FE7C28 /* phoneuser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AAA30571AC3D51B00FE7C28 /* phoneuser@2x.png */; };
+		3AAA305A1AC3D51B00FE7C28 /* messageuser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AAA30581AC3D51B00FE7C28 /* messageuser@2x.png */; };
 		821AFE4D9C17B5B4F45305D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5439B961E8262151094AA15 /* libPods.a */; };
 		9120BD6817ABD34C005CF602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6717ABD34C005CF602 /* UIKit.framework */; };
 		9120BD6A17ABD34C005CF602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6917ABD34C005CF602 /* Foundation.framework */; };
@@ -245,6 +247,8 @@
 		3A86EDE01ABBE4F1007C1B77 /* Tool1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tool1ViewController.m; path = EBT/Tool1ViewController.m; sourceTree = "<group>"; };
 		3A86EDE11ABBE4F1007C1B77 /* Tool1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Tool1ViewController.xib; path = EBT/Tool1ViewController.xib; sourceTree = "<group>"; };
 		3A86EE0E1AC256A7007C1B77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = images/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		3AAA30571AC3D51B00FE7C28 /* phoneuser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phoneuser@2x.png"; sourceTree = "<group>"; };
+		3AAA30581AC3D51B00FE7C28 /* messageuser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageuser@2x.png"; sourceTree = "<group>"; };
 		4BDA184B260E8D0CAF648352 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6F519FE3CB459CACE2DCA141 /* Pods.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.appstore.xcconfig; path = "Pods/Target Support Files/Pods/Pods.appstore.xcconfig"; sourceTree = "<group>"; };
 		9120BD6417ABD34C005CF602 /* EBT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -746,6 +750,8 @@
 		91AF5CF517CE0C10009FE460 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3AAA30571AC3D51B00FE7C28 /* phoneuser@2x.png */,
+				3AAA30581AC3D51B00FE7C28 /* messageuser@2x.png */,
 				3A86EDD21ABBC3C2007C1B77 /* checked.png */,
 				3A86EDD01ABBC3B7007C1B77 /* checked@2x.png */,
 				3A86EDCC1ABBC3A8007C1B77 /* unchecked@2x.png */,
@@ -1086,9 +1092,11 @@
 				91AF5D5D17CE0C10009FE460 /* continuebutton.png in Resources */,
 				91AF5D5E17CE0C10009FE460 /* k1.png in Resources */,
 				91AF5D5F17CE0C10009FE460 /* k10.png in Resources */,
+				3AAA305A1AC3D51B00FE7C28 /* messageuser@2x.png in Resources */,
 				3A86EDCD1ABBC3A8007C1B77 /* unchecked@2x.png in Resources */,
 				91AF5D6017CE0C10009FE460 /* k2.png in Resources */,
 				91AF5D6117CE0C10009FE460 /* k3.png in Resources */,
+				3AAA30591AC3D51B00FE7C28 /* phoneuser@2x.png in Resources */,
 				91AF5D6217CE0C10009FE460 /* k4.png in Resources */,
 				91AF5D6317CE0C10009FE460 /* k5.png in Resources */,
 				3A85CFBE1ABA688600932A1A /* tab_state@2x.png in Resources */,
@@ -1339,7 +1347,7 @@
 				GCC_PREFIX_HEADER = "EBT/EBT-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "EBT/EBT-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_LIBTOOLFLAGS = "$(inherited)";
@@ -1362,7 +1370,7 @@
 				GCC_PREFIX_HEADER = "EBT/EBT-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "EBT/EBT-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_LIBTOOLFLAGS = "$(inherited)";
@@ -1411,7 +1419,7 @@
 				GCC_PREFIX_HEADER = "EBT/EBT-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "EBT/EBT-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_LIBTOOLFLAGS = "$(inherited)";
@@ -1459,7 +1467,7 @@
 				GCC_PREFIX_HEADER = "EBT/EBT-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "EBT/EBT-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_LIBTOOLFLAGS = "$(inherited)";

@@ -1,18 +1,13 @@
 PODS:
-  - UrbanAirship-iOS-SDK/All (5.1.1):
-    - UrbanAirship-iOS-SDK/Core
-    - UrbanAirship-iOS-SDK/PushUI
-    - UrbanAirship-iOS-SDK/RichPushUI
-  - UrbanAirship-iOS-SDK/Core (5.1.1)
-  - UrbanAirship-iOS-SDK/PushUI (5.1.1):
-    - UrbanAirship-iOS-SDK/Core
-  - UrbanAirship-iOS-SDK/RichPushUI (5.1.1):
-    - UrbanAirship-iOS-SDK/Core
+  - Bolts (1.1.4)
+  - Parse (1.7.0):
+    - Bolts (~> 1.1)
 
 DEPENDENCIES:
-  - UrbanAirship-iOS-SDK/All
+  - Parse
 
 SPEC CHECKSUMS:
-  UrbanAirship-iOS-SDK: 46a5fd5109c911a2d33c5a01b1bd141a3f5d3d34
+  Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
+  Parse: 3c2d4e6ade7b59d31c0bc8106340c6b81b31bc0f
 
 COCOAPODS: 0.36.0

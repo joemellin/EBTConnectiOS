@@ -560,8 +560,9 @@
     //test data
     //[self requestSucceededResultHandler:@"1" result:@""];return;
     
+    
     NSDictionary* dict = [Utils setting:kUserInfoDict];
-	NSString* urlStr = [NSString stringWithFormat:@"%@users/%@",kBaseURL, self.currentItem[kID] ];
+    NSString* urlStr = [NSString stringWithFormat:@"%@users/%@?auth_token=%@",kBaseURL, self.currentItem[kID], [Utils setting:kSessionToken]];
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"%@",urlStr);
     
