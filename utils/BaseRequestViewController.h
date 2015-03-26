@@ -13,8 +13,6 @@
 #define kErrorMessage   _(@"Error while loading")
 #import "MyURLConnection.h"
 
-
-
 #import <MediaPlayer/MediaPlayer.h>
 
 @class CLLocation;

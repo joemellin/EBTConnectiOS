@@ -166,6 +166,12 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    UIViewController *vc = [UIApplication sharedApplication].keyWindow.rootViewController;
+    if([vc isKindOfClass:[UINavigationController class]]) {
+        if ([[(UINavigationController*)vc topViewController] respondsToSelector:@selector(hideCallingView)]) {
+            [[(UINavigationController*)vc topViewController] performSelector:@selector(hideCallingView) withObject:nil];
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

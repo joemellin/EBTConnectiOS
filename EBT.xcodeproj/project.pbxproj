@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F370A1AC4946800438F6A /* CallingViewController.m */; };
 		3A85CF971ABA52B200932A1A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF961ABA52B200932A1A /* TabBarViewController.m */; };
 		3A85CF9D1ABA543900932A1A /* ConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */; };
 		3A85CFA01ABA56C200932A1A /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */; };
@@ -215,6 +216,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A1F37091AC4946800438F6A /* CallingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallingViewController.h; sourceTree = "<group>"; };
+		3A1F370A1AC4946800438F6A /* CallingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallingViewController.m; sourceTree = "<group>"; };
 		3A85CF951ABA52B200932A1A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		3A85CF961ABA52B200932A1A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		3A85CF9B1ABA543900932A1A /* ConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionsViewController.h; path = EBT/ConnectionsViewController.h; sourceTree = "<group>"; };
@@ -888,6 +891,8 @@
 				3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */,
 				3A85CFA11ABA579200932A1A /* MessagesViewController.h */,
 				3A85CFA21ABA579200932A1A /* MessagesViewController.m */,
+				3A1F37091AC4946800438F6A /* CallingViewController.h */,
+				3A1F370A1AC4946800438F6A /* CallingViewController.m */,
 			);
 			name = Group;
 			path = ..;
@@ -1222,6 +1227,7 @@
 				9120BE0017B09958005CF602 /* Utils.m in Sources */,
 				9120BE0117B09958005CF602 /* WimAdditions.m in Sources */,
 				9120BE0517B09A75005CF602 /* OpeningViewController.m in Sources */,
+				3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */,
 				91D1BAE717B0A12D008A9CAF /* LoginViewController.m in Sources */,
 				9164228117B1F0A80084C4E8 /* WelcomeViewController.m in Sources */,
 				916422DD17B3CEBD0084C4E8 /* GroupViewController.m in Sources */,

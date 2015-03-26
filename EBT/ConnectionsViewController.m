@@ -9,6 +9,7 @@
 #import "ConnectionsViewController.h"
 #import "MemberViewController.h"
 #import "MessageViewController.h"
+#import "CallingViewController.h"
 
 @interface ConnectionsViewController ()
 
@@ -74,7 +75,10 @@
 #pragma mark - functions for buttons on cell
 -(void) callSelected:(UIButton*) sender {
     NSDictionary *item = self.displayList[sender.tag];
-    [self requestCommunityCall:[item[kID] intValue]];
+//    [self requestCommunityCall:[item[kID] intValue]];
+    CallingViewController *callingVC = [[CallingViewController alloc] init];
+    callingVC.name = item[kName];
+    [self.navigationController pushViewController:callingVC animated:YES];
 }
 
 -(void) messageSelected:(UIButton*) sender {
@@ -116,7 +120,6 @@
                                                     failedCallback:@selector(requestFailed:myURLConnection:)
                                                            context:[NSNumber numberWithInt:1]];
     [myconn post:dict];
-    [self showLoadingView];
 }
 
 -(void)requestSucceededResultHandler:(id)context result:(NSString*)result{
