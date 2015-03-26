@@ -75,7 +75,7 @@
 #pragma mark - functions for buttons on cell
 -(void) callSelected:(UIButton*) sender {
     NSDictionary *item = self.displayList[sender.tag];
-//    [self requestCommunityCall:[item[kID] intValue]];
+    [self requestCommunityCall:[item[kID] intValue]];
     CallingViewController *callingVC = [[CallingViewController alloc] init];
     callingVC.name = item[kName];
     [self.navigationController pushViewController:callingVC animated:YES];
