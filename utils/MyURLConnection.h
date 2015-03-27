@@ -37,8 +37,9 @@
 		usesData:(BOOL)_usesData  context:(id)_context;
 -(void)get;
 -(void)cancel;
-- (void)postRawJSONString:(NSString*) jsonString;
-- (void)post:(NSMutableDictionary*) fields;
+-(void)postRawJSONString:(NSString*) jsonString;
+-(void)post:(NSMutableDictionary*) fields;
+-(void) patch:(NSMutableDictionary*) fields;
 - (void)upload:(NSMutableDictionary*) fields fileData:(NSData*)data;
 - (NSURLRequest *)uploadRequestWithURL: (NSURL *)theUrl  
 							   boundry: (NSString *)boundry 

@@ -187,6 +187,23 @@ static NSString * const FORM_FLE_INPUT = @"uploadedfile";
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
+- (void)patch:(NSMutableDictionary*) fields
+{
+    
+    NSURLRequest *theRequest = [self patchRequestWithURL:[NSURL URLWithString:url]
+                                                boundry:BOUNDRY
+                                                 fields:fields];
+    
+    // create the connection with the request and start loading the data
+    NSURLConnection *_theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    if (_theConnection) {
+        receivedData=[NSMutableData data];
+    } else {
+        // inform the user that the download could not be made
+    }
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
 - (void)postRawJSONString:(NSString*) jsonString
 {
 	
@@ -270,9 +287,6 @@ static NSString * const FORM_FLE_INPUT = @"uploadedfile";
 }
 
 
-
-
-
 - (NSURLRequest *)postRequestWithURL: (NSURL *)_url       
                              boundry: (NSString *)boundry
 							  fields:(NSMutableDictionary*) fields
@@ -302,6 +316,39 @@ static NSString * const FORM_FLE_INPUT = @"uploadedfile";
 	
     [urlRequest setHTTPBody:postData];
 	
+    return urlRequest;
+}
+
+- (NSURLRequest *)patchRequestWithURL: (NSURL *)_url
+                              boundry: (NSString *)boundry
+                               fields:(NSMutableDictionary*) fields {
+    // from http://www.cocoadev.com/index.pl?HTTPFileUpload
+    NSMutableURLRequest *urlRequest =
+    [NSMutableURLRequest requestWithURL:_url
+                            cachePolicy:NSURLRequestUseProtocolCachePolicy
+                        timeoutInterval:60.0*5];
+    [urlRequest setHTTPMethod:@"PATCH"];
+    [urlRequest setValue:
+     [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundry]
+      forHTTPHeaderField:@"Content-Type"];
+    
+    NSMutableData *postData =[[NSMutableData alloc] init]; //=   [NSMutableData dataWithCapacity:[data length] + 512];
+    
+    //add fields data
+    NSArray* keys = [fields allKeys];
+    for(NSString* key in keys){
+        [postData appendData:[[NSString stringWithFormat:@"--%@\r\n", boundry] dataUsingEncoding:NSUTF8StringEncoding]];
+        [postData appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", key] dataUsingEncoding:NSUTF8StringEncoding]];
+        [postData appendData:[[NSString stringWithFormat:@"%@\r\n", [fields objectForKey:key]] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
+    
+    [postData appendData: [[NSString stringWithFormat:@"--%@\r\n", boundry] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [urlRequest setHTTPBody:postData];
+    
+    
+    
     return urlRequest;
 }
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F370A1AC4946800438F6A /* CallingViewController.m */; };
 		3A1F371E1AC502CB00438F6A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */; };
+		3A1F37221AC50F2C00438F6A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F37211AC50F2C00438F6A /* Accounts.framework */; };
 		3A85CF971ABA52B200932A1A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF961ABA52B200932A1A /* TabBarViewController.m */; };
 		3A85CF9D1ABA543900932A1A /* ConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */; };
 		3A85CFA01ABA56C200932A1A /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */; };
@@ -38,7 +39,6 @@
 		821AFE4D9C17B5B4F45305D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5439B961E8262151094AA15 /* libPods.a */; };
 		9120BD6817ABD34C005CF602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6717ABD34C005CF602 /* UIKit.framework */; };
 		9120BD6A17ABD34C005CF602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6917ABD34C005CF602 /* Foundation.framework */; };
-		9120BD6C17ABD34C005CF602 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6B17ABD34C005CF602 /* CoreGraphics.framework */; };
 		9120BD7217ABD34C005CF602 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9120BD7017ABD34C005CF602 /* InfoPlist.strings */; };
 		9120BD7417ABD34C005CF602 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BD7317ABD34C005CF602 /* main.m */; };
 		9120BD7817ABD34C005CF602 /* EBTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BD7717ABD34C005CF602 /* EBTAppDelegate.m */; };
@@ -220,6 +220,7 @@
 		3A1F37091AC4946800438F6A /* CallingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallingViewController.h; sourceTree = "<group>"; };
 		3A1F370A1AC4946800438F6A /* CallingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallingViewController.m; sourceTree = "<group>"; };
 		3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		3A1F37211AC50F2C00438F6A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accounts.framework; sourceTree = DEVELOPER_DIR; };
 		3A85CF951ABA52B200932A1A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		3A85CF961ABA52B200932A1A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		3A85CF9B1ABA543900932A1A /* ConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionsViewController.h; path = EBT/ConnectionsViewController.h; sourceTree = "<group>"; };
@@ -259,7 +260,6 @@
 		9120BD6417ABD34C005CF602 /* EBT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9120BD6717ABD34C005CF602 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9120BD6917ABD34C005CF602 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		9120BD6B17ABD34C005CF602 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9120BD6F17ABD34C005CF602 /* EBT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EBT-Info.plist"; sourceTree = "<group>"; };
 		9120BD7117ABD34C005CF602 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9120BD7317ABD34C005CF602 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -297,7 +297,6 @@
 		9143608D17E540B0004C18A3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		9143608E17E540B0004C18A3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9143608F17E540B0004C18A3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		9143609017E540B0004C18A3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9143609117E540B0004C18A3 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9149780017C5DB1D00407FC2 /* member.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = member.json; sourceTree = "<group>"; };
 		9149780117C5DB1D00407FC2 /* message.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = message.json; sourceTree = "<group>"; };
@@ -487,7 +486,6 @@
 			files = (
 				9120BD6817ABD34C005CF602 /* UIKit.framework in Frameworks */,
 				9120BD6A17ABD34C005CF602 /* Foundation.framework in Frameworks */,
-				9120BD6C17ABD34C005CF602 /* CoreGraphics.framework in Frameworks */,
 				91D1BAE217B0A024008A9CAF /* SystemConfiguration.framework in Frameworks */,
 				9168F00D17C256E10002786E /* AudioToolbox.framework in Frameworks */,
 				9149789917C7027800407FC2 /* QuartzCore.framework in Frameworks */,
@@ -499,6 +497,7 @@
 				9143609717E540B0004C18A3 /* CFNetwork.framework in Frameworks */,
 				9143609817E540B0004C18A3 /* StoreKit.framework in Frameworks */,
 				9143609917E540B0004C18A3 /* Security.framework in Frameworks */,
+				3A1F37221AC50F2C00438F6A /* Accounts.framework in Frameworks */,
 				9143609A17E540B0004C18A3 /* CoreTelephony.framework in Frameworks */,
 				9143609C17E540B0004C18A3 /* MessageUI.framework in Frameworks */,
 				3A1F371E1AC502CB00438F6A /* MediaPlayer.framework in Frameworks */,
@@ -560,6 +559,7 @@
 		9120BD6617ABD34C005CF602 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A1F37211AC50F2C00438F6A /* Accounts.framework */,
 				3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */,
 				9143608717E540B0004C18A3 /* MapKit.framework */,
 				9143608817E540B0004C18A3 /* CoreLocation.framework */,
@@ -570,7 +570,6 @@
 				9143608D17E540B0004C18A3 /* StoreKit.framework */,
 				9143608E17E540B0004C18A3 /* Security.framework */,
 				9143608F17E540B0004C18A3 /* CoreTelephony.framework */,
-				9143609017E540B0004C18A3 /* AudioToolbox.framework */,
 				9143609117E540B0004C18A3 /* MessageUI.framework */,
 				9149789817C7027800407FC2 /* QuartzCore.framework */,
 				9168F00C17C256E10002786E /* AudioToolbox.framework */,
@@ -578,7 +577,6 @@
 				91D1BAE117B0A024008A9CAF /* SystemConfiguration.framework */,
 				9120BD6717ABD34C005CF602 /* UIKit.framework */,
 				9120BD6917ABD34C005CF602 /* Foundation.framework */,
-				9120BD6B17ABD34C005CF602 /* CoreGraphics.framework */,
 				E5439B961E8262151094AA15 /* libPods.a */,
 			);
 			name = Frameworks;

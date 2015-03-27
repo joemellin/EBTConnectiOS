@@ -10,6 +10,7 @@
 #import "MemberViewController.h"
 #import "MessageViewController.h"
 #import "CallingViewController.h"
+#import <UIImageView+AFNetworking.h>
 
 @interface ConnectionsViewController ()
 
@@ -56,7 +57,7 @@
     NSDictionary* item = self.displayList[[indexPath row]];
 
     cell.textLabel.text = item[kName];
-    [cell.imageView setImage:[UIImage imageNamed:@"tab_state"]];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:item[kImageURL]] placeholderImage:[UIImage imageNamed:@"tab_state"]];
     
     return cell;
 }

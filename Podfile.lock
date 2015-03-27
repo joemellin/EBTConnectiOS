@@ -1,16 +1,51 @@
 PODS:
+  - AFNetworking (2.5.2):
+    - AFNetworking/NSURLConnection (= 2.5.2)
+    - AFNetworking/NSURLSession (= 2.5.2)
+    - AFNetworking/Reachability (= 2.5.2)
+    - AFNetworking/Security (= 2.5.2)
+    - AFNetworking/Serialization (= 2.5.2)
+    - AFNetworking/UIKit (= 2.5.2)
+  - AFNetworking/NSURLConnection (2.5.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.2)
+  - AFNetworking/Security (2.5.2)
+  - AFNetworking/Serialization (2.5.2)
+  - AFNetworking/UIKit (2.5.2):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - Bolts (1.1.4)
   - Parse (1.7.0):
     - Bolts (~> 1.1)
+  - UIActionSheet+Blocks (0.8.1)
   - YTVimeoExtractor (0.1.0)
 
 DEPENDENCIES:
+  - AFNetworking
   - Parse
+  - UIActionSheet+Blocks (from `https://github.com/ryanmaxwell/UIActionSheet-Blocks`)
   - YTVimeoExtractor
 
+EXTERNAL SOURCES:
+  UIActionSheet+Blocks:
+    :git: https://github.com/ryanmaxwell/UIActionSheet-Blocks
+
+CHECKOUT OPTIONS:
+  UIActionSheet+Blocks:
+    :commit: 14612f62688949be43e293b961b9cdc3a15f7d54
+    :git: https://github.com/ryanmaxwell/UIActionSheet-Blocks
+
 SPEC CHECKSUMS:
+  AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
   Parse: 3c2d4e6ade7b59d31c0bc8106340c6b81b31bc0f
+  UIActionSheet+Blocks: 00a3d034b755f1f8e41cdfcf1b33adc1d8b0d9a4
   YTVimeoExtractor: 19fca16bcd798c56fbecead59f7e73c21bb94a83
 
 COCOAPODS: 0.36.0

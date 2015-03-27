@@ -8,9 +8,14 @@
 
 #import "MemberViewController.h"
 #import "NotificationViewController.h"
+#import <UIActionSheet+Blocks.h>
+#import <UIImageView+AFNetworking.h>
+#import <UIButton+AFNetworking.h>
 
-@interface MemberViewController ()
-
+@interface MemberViewController () {
+    UIImagePickerController *_imagePickerController;
+    UIButton *_profileImage;
+}
 @end
 
 @implementation MemberViewController
@@ -28,6 +33,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _imagePickerController = [[UIImagePickerController alloc] init];
+    _imagePickerController.delegate = self;
 }
 
 -(void)showMessage{
@@ -70,13 +77,18 @@
     
     [contentView addSubview:imageView];
     
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(103, 23.5, 113, 113)];
-    imageView.tag = 100;
-    imageView.image = [self getImageFromUrlString:self.currentItem[kImageURL] tag:imageView.tag];
-    imageView.layer.cornerRadius = imageView.frame.size.width/2;
-    imageView.clipsToBounds = YES;
+    _profileImage = [UIButton buttonWithType:UIButtonTypeCustom];
+    _profileImage.frame = CGRectMake(103, 23.5, 113, 113);
+    _profileImage.tag = 100;
+    _profileImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [_profileImage setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:self.currentItem[kImageURL]]];
+    _profileImage.layer.cornerRadius = imageView.frame.size.width/2;
+    _profileImage.clipsToBounds = YES;
+    if(_isMe) {
+        [_profileImage addTarget:self action:@selector(updateImage) forControlEvents:UIControlEventTouchUpInside];
+    }
     
-    [contentView addSubview:imageView];
+    [contentView addSubview:_profileImage];
     
     UILabel* label;
     
@@ -112,7 +124,6 @@
     } else {
         imageView = [[UIImageView alloc] initWithFrame:CGRectMake(160, lastY, 0.5, 40)];
         imageView.image = [UIImage imageNamed:@"profileline2"];
-        //[self setViewFrame:imageView];
         [contentView addSubview:imageView];
         
         int messageCount = [self.currentItem[k_new_message_count] intValue];
@@ -318,7 +329,7 @@
             imageView2.layer.cornerRadius = imageView2.frame.size.width/2;
             imageView2.clipsToBounds = YES;
             imageView2.tag = 999;
-            imageView2.image = [self getImageFromUrlString:item[@"supporter_image_url"] tag:imageView2.tag];
+            [imageView2 setImageWithURL:[NSURL URLWithString:item[@"supporter_image_url"]]];
             [imageView addSubview:imageView2];
             
             
@@ -581,6 +592,86 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - camera controller
+-(void) updateImage {
+    [UIActionSheet showInView:self.view
+                    withTitle:@"Select an Image"
+            cancelButtonTitle:@"Cancel"
+       destructiveButtonTitle:nil
+            otherButtonTitles:@[@"Take Photo", @"Choose Existing Photo"]
+                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+                         if(buttonIndex == 0) {
+                             [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera];
+                         } else {
+                             [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+                         }
+                         NSLog(@"Chose %@", [actionSheet buttonTitleAtIndex:buttonIndex]);
+                     }];
+    
+}
+
+- (void)showImagePickerForSourceType:(UIImagePickerControllerSourceType)sourceType
+{
+    if(sourceType == UIImagePickerControllerSourceTypeCamera && !isCameraAvailable ) {
+        NSLog(@"Camera not available");
+    } else {
+        _imagePickerController.sourceType = sourceType;
+        
+        [self presentViewController:_imagePickerController animated:YES completion:nil];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    UIImage *scaled = [self imageWithImage:image scaledToFillSize:CGSizeMake(1000, 1000)];
+    [_profileImage setImage:scaled forState:UIControlStateNormal];
+    NSData *imageData = UIImagePNGRepresentation(scaled);
+    NSString *imageDataEncodedString = [imageData base64EncodedStringWithOptions:0];
+    [self uploadImage:imageDataEncodedString];
+}
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToFillSize:(CGSize)size
+{
+    CGFloat scale = MAX(size.width/image.size.width, size.height/image.size.height);
+    CGFloat width = image.size.width * scale;
+    CGFloat height = image.size.height * scale;
+    CGRect imageRect = CGRectMake((size.width - width)/2.0f,
+                                  (size.height - height)/2.0f,
+                                  width,
+                                  height);
+    
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    [image drawInRect:imageRect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+-(void) uploadImage:(NSString*) image {
+    NSString* urlStr = [NSString stringWithFormat:@"%@users/%@?auth_token=%@",kBaseURL, self.currentItem[kID], [Utils setting:kSessionToken]];
+    
+    
+    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"%@",urlStr);
+    
+    
+    MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
+                                                 succeededCallback:@selector(requestSucceeded:myURLConnection:)
+                                                    failedCallback:@selector(requestFailed:myURLConnection:)
+                                                           context:[NSNumber numberWithInt:2]];
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          [NSString stringWithFormat:@"%@",self.currentItem[kID]],@"supported_user_id",
+                          [Utils setting:kSessionToken ],@"auth_token",
+                          image, @"image_data",
+                          nil];
+    
+    [myconn patch:dict];
+    
+    [self showLoadingView];
 }
 
 @end

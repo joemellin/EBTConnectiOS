@@ -39,7 +39,6 @@
     NSDictionary* item = self.displayList[[indexPath row]];
     
     cell.textLabel.text = item[kName];
-    [cell.imageView setImage:[UIImage imageNamed:@"tab_state"]];
     
     return cell;
 

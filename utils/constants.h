@@ -47,3 +47,4 @@
 #define k_new_checkin_count @"new_checkin_count"
 #define kLoggedOut @"kLoggedOut"
 #define kScreenBounds [[UIScreen mainScreen] bounds]
+#define isCameraAvailable [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]
