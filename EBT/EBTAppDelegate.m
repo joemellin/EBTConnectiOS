@@ -21,8 +21,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Populate AirshipConfig.plist with your app's info from https://go.urbanairship.com
-    // or set runtime properties here.
+    [Parse setApplicationId:@"zeL64do78roAYYMmsOA7HRWzb8eSXNHDV0txV0Kh" clientKey:@"0G2x6pQFjNd32HXCJl793jAp7gNgyGyKBYi90sQt"];
+    
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |
                                                     UIUserNotificationTypeSound);
@@ -67,7 +67,6 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
 	NSLog(@"My token is: %@", deviceToken);
-    [Utils alertMessage:[NSString stringWithFormat:@"My token is: %@", deviceToken]];
 	NSString* token = [NSString stringWithFormat:@"%@",deviceToken];
 	token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
 	token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
@@ -77,7 +76,7 @@
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackground];
     
-    [self registerPushNotificationOnSTServer];
+//    [self registerPushNotificationOnSTServer];
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error

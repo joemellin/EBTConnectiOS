@@ -33,6 +33,8 @@
     [self requestGroup];
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"MyIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
@@ -44,9 +46,9 @@
         [message setImage:[UIImage imageNamed:@"messageuser"] forState:UIControlStateNormal];
         [call setImage:[UIImage imageNamed:@"phoneuser"] forState:UIControlStateNormal];
         
-        call.frame = CGRectMake(kScreenBounds.size.width - 40, 5, 30, 30);
+        call.frame = CGRectMake(kScreenBounds.size.width - 40, 29, 30, 30);
         call.tag = indexPath.row;
-        message.frame = CGRectMake(call.frame.origin.x - 40, 5, 30, 30);
+        message.frame = CGRectMake(call.frame.origin.x - 40, 29, 30, 30);
         message.tag = indexPath.row;
         [call addTarget:self action:@selector(callSelected:) forControlEvents:UIControlEventTouchUpInside];
         [message addTarget:self action:@selector(messageSelected:) forControlEvents:UIControlEventTouchUpInside];
@@ -58,6 +60,8 @@
 
     cell.textLabel.text = item[kName];
     [cell.imageView setImageWithURL:[NSURL URLWithString:item[kImageURL]] placeholderImage:[UIImage imageNamed:@"tab_state"]];
+    cell.imageView.layer.cornerRadius = 35;
+    [cell.imageView setClipsToBounds:YES];
     
     return cell;
 }
