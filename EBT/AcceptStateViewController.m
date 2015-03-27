@@ -137,7 +137,8 @@
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     transition.type = kCATransitionFade;
     [self.navigationController.view.layer addAnimation:transition forKey:nil];
-    [self.navigationController popToViewController:(UIViewController*)[Utils appDelegate].groupController animated:YES];
+    [self.navigationController popToViewController:[[Utils appDelegate] tabBarViewController] animated:YES];
+    [self backToGroup];
     /*[ CATransition* transition = [CATransition animation];
     transition.duration = 1.0;
     transition.type = kCATransitionFade;

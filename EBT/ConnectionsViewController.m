@@ -26,13 +26,13 @@
     myTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self setNavTitle:@"Your Connections"];
     // Do any additional setup after loading the view from its nib.
+    [Utils appDelegate].connectionsController = self;
 }
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self requestGroup];
 }
-
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -77,7 +77,8 @@
 
 #pragma mark - network requests
 
--(IBAction)requestGroup{
+-(void)requestGroup{
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     NSDictionary* dict = [Utils setting:kUserInfoDict];
     NSString* urlStr = [NSString stringWithFormat:@"%@groups/%@?auth_token=%@",kBaseURL, [[dict objectForKey:kGroup] objectForKey:kID], [Utils setting:kSessionToken]];
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

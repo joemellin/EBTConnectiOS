@@ -10,5 +10,5 @@
 #import "BaseListViewController.h"
 
 @interface ConnectionsViewController : BaseListViewController
-
+-(void) requestGroup;
 @end

@@ -9,6 +9,7 @@
 #import "BaseRequestViewController.h"
 #import "Utils.h"
 #import "TabBarViewController.h"
+#import "ConnectionsViewController.h"
 
 @implementation BaseRequestViewController
 
@@ -137,10 +138,12 @@
 }
 
 -(void)backToGroup{
+    [[Utils appDelegate].connectionsController requestGroup];
     if([[[Utils appDelegate] tabBarViewController] selectedIndex] == 1) {
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         [[[Utils appDelegate] tabBarViewController] setSelectedIndex:1];
+        [self.navigationController popToViewController:[Utils appDelegate].tabBarViewController animated:YES];
     }
 }
 

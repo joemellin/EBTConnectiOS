@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class EBTViewController;
-@class GroupViewController;
+@class ConnectionsViewController;
 @class LoginViewController;
 @class TabBarViewController;
+@class GroupViewController;
 
 @interface EBTAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,7 +20,7 @@
 @property (strong, nonatomic) NSString* deviceTokenFromApple;
 @property (strong, nonatomic)NSString* sessionID;
 @property (strong, nonatomic) EBTViewController *viewController;
-@property (strong, nonatomic) GroupViewController *groupController;
+@property (strong, nonatomic) ConnectionsViewController *connectionsController;
 @property (strong, nonatomic) GroupViewController *loginViewController;
 @property (strong, nonatomic) TabBarViewController *tabBarViewController;
 @end

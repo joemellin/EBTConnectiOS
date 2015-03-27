@@ -32,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [Utils appDelegate].groupController = self;
+//    [Utils appDelegate].groupController = self;
     // Do any additional setup after loading the view from its nib.
     [self requestGroup];
     
