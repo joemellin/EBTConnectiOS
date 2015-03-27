@@ -78,6 +78,11 @@
     self.view.backgroundColor = kBackgroundColor;
     [self addLeftBackButton];
 }
+
+-(BOOL) shouldAutorotate {
+    return NO;
+}
+
 -(void)setNavTitle:(NSString*)title{
     UILabel* label;
     label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 0, 250, 42)];
@@ -877,14 +882,6 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return NO;
-   
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview

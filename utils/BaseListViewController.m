@@ -35,7 +35,9 @@
 	// Do any additional setup after loading the view.
 }
 
-
+-(BOOL) shouldAutorotate {
+    return  [super shouldAutorotate];
+}
 
 -(void)setupTableView{
 	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)

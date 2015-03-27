@@ -44,6 +44,10 @@
 
 }
 
+-(BOOL) shouldAutorotate {
+    return NO;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary* item = self.displayList[[indexPath row]];
     [YTVimeoExtractor fetchVideoURLFromURL:item[kUrl]

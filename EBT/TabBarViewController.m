@@ -95,9 +95,9 @@
     [self.view addSubview:button];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (BOOL)shouldAutorotate
 {
-    return YES;
+    return NO;
 }
 
 -(void)whatState{

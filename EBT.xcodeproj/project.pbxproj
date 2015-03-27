@@ -10,6 +10,11 @@
 		3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F370A1AC4946800438F6A /* CallingViewController.m */; };
 		3A1F371E1AC502CB00438F6A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */; };
 		3A1F37221AC50F2C00438F6A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F37211AC50F2C00438F6A /* Accounts.framework */; };
+		3A1F372D1AC5DEA100438F6A /* avatar_medium@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1F37291AC5DEA100438F6A /* avatar_medium@2x.png */; };
+		3A1F372E1AC5DEA100438F6A /* conversation_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1F372A1AC5DEA100438F6A /* conversation_new@2x.png */; };
+		3A1F372F1AC5DEA100438F6A /* conversation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1F372B1AC5DEA100438F6A /* conversation@2x.png */; };
+		3A1F37301AC5DEA100438F6A /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1F372C1AC5DEA100438F6A /* phone@2x.png */; };
+		3A1F37331AC5DF5800438F6A /* ConnectionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F37321AC5DF5800438F6A /* ConnectionsCell.m */; };
 		3A85CF971ABA52B200932A1A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF961ABA52B200932A1A /* TabBarViewController.m */; };
 		3A85CF9D1ABA543900932A1A /* ConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */; };
 		3A85CFA01ABA56C200932A1A /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */; };
@@ -34,8 +39,6 @@
 		3A86EDE21ABBE4F1007C1B77 /* Tool1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86EDE01ABBE4F1007C1B77 /* Tool1ViewController.m */; };
 		3A86EDE31ABBE4F1007C1B77 /* Tool1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86EDE11ABBE4F1007C1B77 /* Tool1ViewController.xib */; };
 		3A86EE0F1AC256A7007C1B77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A86EE0E1AC256A7007C1B77 /* Images.xcassets */; };
-		3AAA30591AC3D51B00FE7C28 /* phoneuser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AAA30571AC3D51B00FE7C28 /* phoneuser@2x.png */; };
-		3AAA305A1AC3D51B00FE7C28 /* messageuser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AAA30581AC3D51B00FE7C28 /* messageuser@2x.png */; };
 		821AFE4D9C17B5B4F45305D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5439B961E8262151094AA15 /* libPods.a */; };
 		9120BD6817ABD34C005CF602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6717ABD34C005CF602 /* UIKit.framework */; };
 		9120BD6A17ABD34C005CF602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6917ABD34C005CF602 /* Foundation.framework */; };
@@ -216,6 +219,12 @@
 		3A1F370A1AC4946800438F6A /* CallingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallingViewController.m; sourceTree = "<group>"; };
 		3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		3A1F37211AC50F2C00438F6A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accounts.framework; sourceTree = DEVELOPER_DIR; };
+		3A1F37291AC5DEA100438F6A /* avatar_medium@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar_medium@2x.png"; sourceTree = "<group>"; };
+		3A1F372A1AC5DEA100438F6A /* conversation_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "conversation_new@2x.png"; sourceTree = "<group>"; };
+		3A1F372B1AC5DEA100438F6A /* conversation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "conversation@2x.png"; sourceTree = "<group>"; };
+		3A1F372C1AC5DEA100438F6A /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
+		3A1F37311AC5DF5800438F6A /* ConnectionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionsCell.h; path = EBT/ConnectionsCell.h; sourceTree = "<group>"; };
+		3A1F37321AC5DF5800438F6A /* ConnectionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectionsCell.m; path = EBT/ConnectionsCell.m; sourceTree = "<group>"; };
 		3A85CF951ABA52B200932A1A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		3A85CF961ABA52B200932A1A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		3A85CF9B1ABA543900932A1A /* ConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionsViewController.h; path = EBT/ConnectionsViewController.h; sourceTree = "<group>"; };
@@ -248,8 +257,6 @@
 		3A86EDE01ABBE4F1007C1B77 /* Tool1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tool1ViewController.m; path = EBT/Tool1ViewController.m; sourceTree = "<group>"; };
 		3A86EDE11ABBE4F1007C1B77 /* Tool1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Tool1ViewController.xib; path = EBT/Tool1ViewController.xib; sourceTree = "<group>"; };
 		3A86EE0E1AC256A7007C1B77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = images/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		3AAA30571AC3D51B00FE7C28 /* phoneuser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phoneuser@2x.png"; sourceTree = "<group>"; };
-		3AAA30581AC3D51B00FE7C28 /* messageuser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageuser@2x.png"; sourceTree = "<group>"; };
 		4BDA184B260E8D0CAF648352 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6F519FE3CB459CACE2DCA141 /* Pods.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.appstore.xcconfig; path = "Pods/Target Support Files/Pods/Pods.appstore.xcconfig"; sourceTree = "<group>"; };
 		9120BD6417ABD34C005CF602 /* EBT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -745,8 +752,10 @@
 		91AF5CF517CE0C10009FE460 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				3AAA30571AC3D51B00FE7C28 /* phoneuser@2x.png */,
-				3AAA30581AC3D51B00FE7C28 /* messageuser@2x.png */,
+				3A1F37291AC5DEA100438F6A /* avatar_medium@2x.png */,
+				3A1F372A1AC5DEA100438F6A /* conversation_new@2x.png */,
+				3A1F372B1AC5DEA100438F6A /* conversation@2x.png */,
+				3A1F372C1AC5DEA100438F6A /* phone@2x.png */,
 				3A86EDD21ABBC3C2007C1B77 /* checked.png */,
 				3A86EDD01ABBC3B7007C1B77 /* checked@2x.png */,
 				3A86EDCC1ABBC3A8007C1B77 /* unchecked@2x.png */,
@@ -878,6 +887,8 @@
 				916422DB17B3CEBC0084C4E8 /* GroupViewController.m */,
 				3A85CF9B1ABA543900932A1A /* ConnectionsViewController.h */,
 				3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */,
+				3A1F37311AC5DF5800438F6A /* ConnectionsCell.h */,
+				3A1F37321AC5DF5800438F6A /* ConnectionsCell.m */,
 				3A85CF9E1ABA56C200932A1A /* CoursesViewController.h */,
 				3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */,
 				3A85CFA11ABA579200932A1A /* MessagesViewController.h */,
@@ -1079,11 +1090,9 @@
 				91AF5D5D17CE0C10009FE460 /* continuebutton.png in Resources */,
 				91AF5D5E17CE0C10009FE460 /* k1.png in Resources */,
 				91AF5D5F17CE0C10009FE460 /* k10.png in Resources */,
-				3AAA305A1AC3D51B00FE7C28 /* messageuser@2x.png in Resources */,
 				3A86EDCD1ABBC3A8007C1B77 /* unchecked@2x.png in Resources */,
 				91AF5D6017CE0C10009FE460 /* k2.png in Resources */,
 				91AF5D6117CE0C10009FE460 /* k3.png in Resources */,
-				3AAA30591AC3D51B00FE7C28 /* phoneuser@2x.png in Resources */,
 				91AF5D6217CE0C10009FE460 /* k4.png in Resources */,
 				91AF5D6317CE0C10009FE460 /* k5.png in Resources */,
 				3A85CFBE1ABA688600932A1A /* tab_state@2x.png in Resources */,
@@ -1106,11 +1115,13 @@
 				91AF5D7317CE0C10009FE460 /* heartwhite.png in Resources */,
 				3A86EDDB1ABBCA6A007C1B77 /* Tool2ViewController.xib in Resources */,
 				91AF5D8117CE0C10009FE460 /* input-field-ross.png in Resources */,
+				3A1F372D1AC5DEA100438F6A /* avatar_medium@2x.png in Resources */,
 				91AF5D8217CE0C10009FE460 /* input-field-ross@2x.png in Resources */,
 				91AF5D8317CE0C10009FE460 /* joycircle.png in Resources */,
 				91AF5D8417CE0C10009FE460 /* logo.png in Resources */,
 				91AF5D8517CE0C10009FE460 /* memberface.png in Resources */,
 				91AF5D8617CE0C10009FE460 /* messageicon.png in Resources */,
+				3A1F37301AC5DEA100438F6A /* phone@2x.png in Resources */,
 				3A85CFAF1ABA666C00932A1A /* tab_connections.png in Resources */,
 				91AF5D8717CE0C10009FE460 /* messageicon@2x.png in Resources */,
 				91AF5D8817CE0C10009FE460 /* navbar.png in Resources */,
@@ -1126,6 +1137,7 @@
 				91AF5D9217CE0C10009FE460 /* sendmessage.png in Resources */,
 				91AF5D9317CE0C10009FE460 /* sendmessage@2x.png in Resources */,
 				91AF5D9417CE0C10009FE460 /* signinbutton.png in Resources */,
+				3A1F372F1AC5DEA100438F6A /* conversation@2x.png in Resources */,
 				91AF5D9517CE0C10009FE460 /* splitline.png in Resources */,
 				3A86EE0F1AC256A7007C1B77 /* Images.xcassets in Resources */,
 				91AF5D9617CE0C10009FE460 /* timeline.png in Resources */,
@@ -1143,6 +1155,7 @@
 				91AF5DA117CE0C10009FE460 /* 3-5.jpg in Resources */,
 				91AF5DA217CE0C10009FE460 /* 4-5.jpg in Resources */,
 				91AF5DA317CE0C10009FE460 /* 5-5.jpg in Resources */,
+				3A1F372E1AC5DEA100438F6A /* conversation_new@2x.png in Resources */,
 				91AF5DA417CE0C10009FE460 /* 6-5.jpg in Resources */,
 				91AF5DA517CE0C10009FE460 /* whatstate.png in Resources */,
 				91AF5DA617CE0C10009FE460 /* yellowbadge.png in Resources */,
@@ -1203,6 +1216,7 @@
 				9120BDFB17B09958005CF602 /* BaseRequestViewController.m in Sources */,
 				9120BDFC17B09958005CF602 /* MyURLConnection.m in Sources */,
 				9120BDFD17B09958005CF602 /* Reachability.m in Sources */,
+				3A1F37331AC5DF5800438F6A /* ConnectionsCell.m in Sources */,
 				9120BDFE17B09958005CF602 /* UIImageTool.m in Sources */,
 				3A85CFA31ABA579200932A1A /* MessagesViewController.m in Sources */,
 				9120BDFF17B09958005CF602 /* UIView+FirstResponder.m in Sources */,

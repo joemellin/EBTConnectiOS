@@ -11,7 +11,7 @@
 #import "MessageViewController.h"
 #import "CallingViewController.h"
 #import <UIImageView+AFNetworking.h>
-
+#import "ConnectionsCell.h"
 @interface ConnectionsViewController ()
 
 @end
@@ -36,32 +36,15 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *MyIdentifier = @"MyIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    static NSString *MyIdentifier = @"ConnectionsCell";
+    ConnectionsCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] ;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UIButton * message = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIButton * call = [UIButton buttonWithType:UIButtonTypeCustom];
-        [message setImage:[UIImage imageNamed:@"messageuser"] forState:UIControlStateNormal];
-        [call setImage:[UIImage imageNamed:@"phoneuser"] forState:UIControlStateNormal];
-        
-        call.frame = CGRectMake(kScreenBounds.size.width - 40, 29, 30, 30);
-        call.tag = indexPath.row;
-        message.frame = CGRectMake(call.frame.origin.x - 40, 29, 30, 30);
-        message.tag = indexPath.row;
-        [call addTarget:self action:@selector(callSelected:) forControlEvents:UIControlEventTouchUpInside];
-        [message addTarget:self action:@selector(messageSelected:) forControlEvents:UIControlEventTouchUpInside];
-        [cell addSubview:message];
-        [cell addSubview:call];
+        cell = [[ConnectionsCell alloc] initWithDelegate:self];
+        [cell initCell];
     }
     
     NSDictionary* item = self.displayList[[indexPath row]];
-
-    cell.textLabel.text = item[kName];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:item[kImageURL]] placeholderImage:[UIImage imageNamed:@"tab_state"]];
-    cell.imageView.layer.cornerRadius = 35;
-    [cell.imageView setClipsToBounds:YES];
+    [cell fillCell:item forRow:indexPath.row];
     
     return cell;
 }
