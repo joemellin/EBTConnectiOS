@@ -15,6 +15,7 @@
 @interface MemberViewController () {
     UIImagePickerController *_imagePickerController;
     UIButton *_profileImage;
+    UIImageView *_headerImage;
 }
 @end
 
@@ -44,12 +45,12 @@
 }
 
 -(void)setupUI{
-    if (contentView) {
+    if(contentView) {
         [contentView removeFromSuperview];
     }
-    contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)];
+    contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, kScreenBounds.size.width, kScreenBounds.size.height-20)];
     contentView.scrollEnabled = YES;
-    
+    NSLog(@"FRAME %f %f %f %f", contentView.frame.origin.x, contentView.frame.origin.y, contentView.frame.size.width, contentView.frame.size.height);
     self.navigationItem.hidesBackButton = YES;
     UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = CGRectMake(20, 10, 0, 0);
@@ -70,19 +71,19 @@
     [contentView addSubview:whiteView];
 
     
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 15, 0, 0)];
-    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"k%@",self.currentItem[kCourseID]] ];
-    [self setViewFrame:imageView];
-    imageView.tag = 0 + kBaseTag;
+    _headerImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 15, 0, 0)];
+    _headerImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"k%@",self.currentItem[kCourseID]] ];
+    [self setViewFrame:_headerImage];
+    _headerImage.tag = 0 + kBaseTag;
     
-    [contentView addSubview:imageView];
+    [contentView addSubview:_headerImage];
     
     _profileImage = [UIButton buttonWithType:UIButtonTypeCustom];
     _profileImage.frame = CGRectMake(103, 23.5, 113, 113);
     _profileImage.tag = 100;
     _profileImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [_profileImage setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:self.currentItem[kImageURL]]];
-    _profileImage.layer.cornerRadius = imageView.frame.size.width/2;
+    _profileImage.layer.cornerRadius = _profileImage.frame.size.width/2;
     _profileImage.clipsToBounds = YES;
     if(_isMe) {
         [_profileImage addTarget:self action:@selector(updateImage) forControlEvents:UIControlEventTouchUpInside];
@@ -102,10 +103,10 @@
     [contentView addSubview:label];
     
     float lastY = 180;
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, lastY, 0, 0)];
-    imageView.image = [UIImage imageNamed:@"profileline"];
-    [self setViewFrame:imageView];
-    [contentView addSubview:imageView];
+    UIImageView *profileLine = [[UIImageView alloc] initWithFrame:CGRectMake(0, lastY, 0, 0)];
+    profileLine.image = [UIImage imageNamed:@"profileline"];
+    [self setViewFrame:profileLine];
+    [contentView addSubview:profileLine];
     
     
     if (self.isMe) {
@@ -122,9 +123,9 @@
         [button addTarget:self action:@selector(showNotifications) forControlEvents:UIControlEventTouchUpInside];
         [contentView addSubview:button];
     } else {
-        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(160, lastY, 0.5, 40)];
-        imageView.image = [UIImage imageNamed:@"profileline2"];
-        [contentView addSubview:imageView];
+        profileLine = [[UIImageView alloc] initWithFrame:CGRectMake(160, lastY, 0.5, 40)];
+        profileLine.image = [UIImage imageNamed:@"profileline2"];
+        [contentView addSubview:profileLine];
         
         int messageCount = [self.currentItem[k_new_message_count] intValue];
         //messageCount = 3;
@@ -175,13 +176,13 @@
    
     
     
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, lastY+40, 0, 0)];
-    imageView.image = [UIImage imageNamed:@"profileline"];
-    [self setViewFrame:imageView];
+    profileLine = [[UIImageView alloc] initWithFrame:CGRectMake(0, lastY+40, 0, 0)];
+    profileLine.image = [UIImage imageNamed:@"profileline"];
+    [self setViewFrame:profileLine];
     
-    [contentView addSubview:imageView];
+    [contentView addSubview:profileLine];
     
-    lastY = imageView.frame.origin.y + imageView.frame.size.height + 20;
+    lastY = profileLine.frame.origin.y + profileLine.frame.size.height + 20;
     
     [self addTimelineToParentView:contentView fromY:lastY];
         
@@ -604,7 +605,7 @@
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if(buttonIndex == 0) {
                              [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera];
-                         } else {
+                         } else if(buttonIndex == 1){
                              [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
                          }
                          NSLog(@"Chose %@", [actionSheet buttonTitleAtIndex:buttonIndex]);

@@ -71,7 +71,6 @@
 		9164228117B1F0A80084C4E8 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9164227F17B1F0A80084C4E8 /* WelcomeViewController.m */; };
 		9164228217B1F0A80084C4E8 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9164228017B1F0A80084C4E8 /* WelcomeViewController.xib */; };
 		916422DD17B3CEBD0084C4E8 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 916422DB17B3CEBC0084C4E8 /* GroupViewController.m */; };
-		916422DE17B3CEBD0084C4E8 /* GroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916422DC17B3CEBD0084C4E8 /* GroupViewController.xib */; };
 		9168EFE117C256BD0002786E /* JSBubbleMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168EFA817C256BD0002786E /* JSBubbleMessageCell.m */; };
 		9168EFE217C256BD0002786E /* JSBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168EFAA17C256BD0002786E /* JSBubbleView.m */; };
 		9168EFE317C256BD0002786E /* JSDismissiveTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168EFAC17C256BD0002786E /* JSDismissiveTextView.m */; };
@@ -116,10 +115,8 @@
 		9168F00A17C256BD0002786E /* UIImage+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168EFDD17C256BD0002786E /* UIImage+JSMessagesView.m */; };
 		9168F00B17C256BD0002786E /* UIView+AnimationOptionsForCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168EFDF17C256BD0002786E /* UIView+AnimationOptionsForCurve.m */; };
 		9168F00D17C256E10002786E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9168F00C17C256E10002786E /* AudioToolbox.framework */; };
-		9168F01117C257E20002786E /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9168F00E17C257E20002786E /* MessageViewController.xib */; };
 		9168F01217C257E20002786E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168F00F17C257E20002786E /* MessageViewController.m */; };
 		91AF5CF317CDF0D8009FE460 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AF5CF117CDF0D8009FE460 /* NotificationViewController.m */; };
-		91AF5CF417CDF0D8009FE460 /* NotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5CF217CDF0D8009FE460 /* NotificationViewController.xib */; };
 		91AF5D5217CE0C10009FE460 /* 2fields.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5CF617CE0C10009FE460 /* 2fields.png */; };
 		91AF5D5317CE0C10009FE460 /* bell.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5CF717CE0C10009FE460 /* bell.png */; };
 		91AF5D5417CE0C10009FE460 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5CF817CE0C10009FE460 /* bg.png */; };
@@ -211,9 +208,7 @@
 		91DBDE4A17BB984A0030EDF5 /* Tool5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBDE4817BB98490030EDF5 /* Tool5ViewController.m */; };
 		91DBDE4B17BB984A0030EDF5 /* Tool5ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBDE4917BB984A0030EDF5 /* Tool5ViewController.xib */; };
 		91DBDFF617BD101A0030EDF5 /* ProviderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBDFF417BD101A0030EDF5 /* ProviderViewController.m */; };
-		91DBDFF717BD101A0030EDF5 /* ProviderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBDFF517BD101A0030EDF5 /* ProviderViewController.xib */; };
 		91DBDFFB17BD102E0030EDF5 /* MemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBDFF917BD102E0030EDF5 /* MemberViewController.m */; };
-		91DBDFFC17BD102E0030EDF5 /* MemberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBDFFA17BD102E0030EDF5 /* MemberViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -306,7 +301,6 @@
 		9164228017B1F0A80084C4E8 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		916422DA17B3CEB90084C4E8 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupViewController.h; path = EBT/GroupViewController.h; sourceTree = "<group>"; };
 		916422DB17B3CEBC0084C4E8 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupViewController.m; path = EBT/GroupViewController.m; sourceTree = "<group>"; };
-		916422DC17B3CEBD0084C4E8 /* GroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupViewController.xib; path = EBT/GroupViewController.xib; sourceTree = "<group>"; };
 		9168EFA717C256BD0002786E /* JSBubbleMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBubbleMessageCell.h; sourceTree = "<group>"; };
 		9168EFA817C256BD0002786E /* JSBubbleMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBubbleMessageCell.m; sourceTree = "<group>"; };
 		9168EFA917C256BD0002786E /* JSBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBubbleView.h; sourceTree = "<group>"; };
@@ -362,12 +356,10 @@
 		9168EFDE17C256BD0002786E /* UIView+AnimationOptionsForCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationOptionsForCurve.h"; sourceTree = "<group>"; };
 		9168EFDF17C256BD0002786E /* UIView+AnimationOptionsForCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationOptionsForCurve.m"; sourceTree = "<group>"; };
 		9168F00C17C256E10002786E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		9168F00E17C257E20002786E /* MessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageViewController.xib; sourceTree = "<group>"; };
 		9168F00F17C257E20002786E /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		9168F01017C257E20002786E /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		91AF5CF017CDF0D8009FE460 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		91AF5CF117CDF0D8009FE460 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
-		91AF5CF217CDF0D8009FE460 /* NotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationViewController.xib; sourceTree = "<group>"; };
 		91AF5CF617CE0C10009FE460 /* 2fields.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2fields.png; sourceTree = "<group>"; };
 		91AF5CF717CE0C10009FE460 /* bell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bell.png; sourceTree = "<group>"; };
 		91AF5CF817CE0C10009FE460 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
@@ -470,10 +462,8 @@
 		91DBDE4917BB984A0030EDF5 /* Tool5ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Tool5ViewController.xib; path = EBT/Tool5ViewController.xib; sourceTree = "<group>"; };
 		91DBDFF317BD101A0030EDF5 /* ProviderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderViewController.h; sourceTree = "<group>"; };
 		91DBDFF417BD101A0030EDF5 /* ProviderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProviderViewController.m; sourceTree = "<group>"; };
-		91DBDFF517BD101A0030EDF5 /* ProviderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProviderViewController.xib; sourceTree = "<group>"; };
 		91DBDFF817BD102E0030EDF5 /* MemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberViewController.h; sourceTree = "<group>"; };
 		91DBDFF917BD102E0030EDF5 /* MemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberViewController.m; sourceTree = "<group>"; };
-		91DBDFFA17BD102E0030EDF5 /* MemberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberViewController.xib; sourceTree = "<group>"; };
 		A4CBA74A33A6CA204FA8F501 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E5439B961E8262151094AA15 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB31D17673C593E2BB288AE /* Pods.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.adhoc.xcconfig; path = "Pods/Target Support Files/Pods/Pods.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -886,7 +876,6 @@
 				91DBDFF217BD0FEC0030EDF5 /* Profile */,
 				916422DA17B3CEB90084C4E8 /* GroupViewController.h */,
 				916422DB17B3CEBC0084C4E8 /* GroupViewController.m */,
-				916422DC17B3CEBD0084C4E8 /* GroupViewController.xib */,
 				3A85CF9B1ABA543900932A1A /* ConnectionsViewController.h */,
 				3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */,
 				3A85CF9E1ABA56C200932A1A /* CoursesViewController.h */,
@@ -947,16 +936,12 @@
 			children = (
 				9168F01017C257E20002786E /* MessageViewController.h */,
 				9168F00F17C257E20002786E /* MessageViewController.m */,
-				9168F00E17C257E20002786E /* MessageViewController.xib */,
 				91DBDFF317BD101A0030EDF5 /* ProviderViewController.h */,
 				91DBDFF417BD101A0030EDF5 /* ProviderViewController.m */,
-				91DBDFF517BD101A0030EDF5 /* ProviderViewController.xib */,
 				91DBDFF817BD102E0030EDF5 /* MemberViewController.h */,
 				91DBDFF917BD102E0030EDF5 /* MemberViewController.m */,
 				91AF5CF017CDF0D8009FE460 /* NotificationViewController.h */,
 				91AF5CF117CDF0D8009FE460 /* NotificationViewController.m */,
-				91AF5CF217CDF0D8009FE460 /* NotificationViewController.xib */,
-				91DBDFFA17BD102E0030EDF5 /* MemberViewController.xib */,
 			);
 			name = Profile;
 			path = EBT;
@@ -1036,7 +1021,6 @@
 				91D1BAE817B0A12D008A9CAF /* LoginViewController.xib in Resources */,
 				9164228217B1F0A80084C4E8 /* WelcomeViewController.xib in Resources */,
 				3A85CFB21ABA666C00932A1A /* tab_courses@2x.png in Resources */,
-				916422DE17B3CEBD0084C4E8 /* GroupViewController.xib in Resources */,
 				91DBDCD117BA5C2E0030EDF5 /* SelectStateViewController.xib in Resources */,
 				91DBDD1217BA63000030EDF5 /* StateDetailViewController.xib in Resources */,
 				91DBDD9417BB56620030EDF5 /* AcceptStateViewController.xib in Resources */,
@@ -1044,8 +1028,6 @@
 				3A85CFB41ABA666C00932A1A /* tab_messages@2x.png in Resources */,
 				91DBDE4617BB929E0030EDF5 /* Tool4ViewController.xib in Resources */,
 				91DBDE4B17BB984A0030EDF5 /* Tool5ViewController.xib in Resources */,
-				91DBDFF717BD101A0030EDF5 /* ProviderViewController.xib in Resources */,
-				91DBDFFC17BD102E0030EDF5 /* MemberViewController.xib in Resources */,
 				9168EFE817C256BD0002786E /* bubble-default-incoming-green.png in Resources */,
 				9168EFE917C256BD0002786E /* bubble-default-incoming-green@2x.png in Resources */,
 				9168EFEA17C256BD0002786E /* bubble-default-incoming-selected.png in Resources */,
@@ -1079,10 +1061,8 @@
 				9168F00517C256BD0002786E /* send@2x.png in Resources */,
 				9168F00617C256BD0002786E /* messageReceived.aiff in Resources */,
 				9168F00717C256BD0002786E /* messageSent.aiff in Resources */,
-				9168F01117C257E20002786E /* MessageViewController.xib in Resources */,
 				9149780217C5DB1D00407FC2 /* member.json in Resources */,
 				9149780317C5DB1D00407FC2 /* message.json in Resources */,
-				91AF5CF417CDF0D8009FE460 /* NotificationViewController.xib in Resources */,
 				91AF5D5217CE0C10009FE460 /* 2fields.png in Resources */,
 				91AF5D5317CE0C10009FE460 /* bell.png in Resources */,
 				91AF5D5417CE0C10009FE460 /* bg.png in Resources */,

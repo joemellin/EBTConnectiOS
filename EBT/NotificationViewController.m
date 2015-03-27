@@ -8,6 +8,8 @@
 
 #import "NotificationViewController.h"
 #import "MemberViewController.h"
+#import <UIImageView+AFNetworking.h>
+
 @interface NotificationViewController ()
 
 @end
@@ -83,7 +85,7 @@
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, 15, 40, 40)];
     imageView.tag = kBaseTag + [indexPath row];
     NSDictionary* item = self.displayList[[indexPath row]];
-    imageView.image = [self getImageFromUrlString:item[@"supporter_image_url"] tag:imageView.tag];
+    [imageView setImageWithURL:[NSURL URLWithString:item[@"supporter_image_url"]]];
     imageView.layer.cornerRadius = imageView.frame.size.width/2;
     imageView.layer.borderColor = [kDarkGrayTextColor CGColor];
     imageView.layer.borderWidth = 0.5;

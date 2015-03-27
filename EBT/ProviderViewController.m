@@ -8,7 +8,7 @@
 
 #import "ProviderViewController.h"
 #import "MessageViewController.h"
-
+#import <UIImageView+AFNetworking.h>
 @interface ProviderViewController ()
 
 @end
@@ -27,7 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [self requestUserInfo];
 
     // Do any additional setup after loading the view from its nib.
@@ -47,7 +46,7 @@
     //[self addLogoutButtonToView:self.view];
 
 
-    UIView* contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)];
+    UIView* contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, kScreenBounds.size.width, kScreenBounds.size.height-20)];
     [self.view insertSubview:contentView atIndex:0];
 
     
@@ -60,7 +59,7 @@
     
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(104, 18, 113, 113)];
     imageView.tag = 100;
-    imageView.image = [self getImageFromUrlString:self.currentItem[kImageURL] tag:imageView.tag];
+    [imageView setImageWithURL:[NSURL URLWithString:self.currentItem[kImageURL]]];
     imageView.layer.cornerRadius = imageView.frame.size.width/2;
     imageView.clipsToBounds = YES;
     

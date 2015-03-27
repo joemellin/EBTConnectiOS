@@ -31,11 +31,7 @@
     downloadConn = nil;
     self.preferredContentSize = kScreenBounds.size;
 
-    float delta = 20;
-    if (needsNavBar) {
-        delta += 44;
-    }
-	loadingLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, kScreenBounds.size.width,  kScreenBounds.size.height-delta)];
+	loadingLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, kScreenBounds.size.width,  kScreenBounds.size.height)];
     
 	loadingLabel.text =  _(@"Loading...");
 	loadingLabel.textAlignment = NSTextAlignmentCenter;
@@ -632,14 +628,17 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     if (needsNavBar) {
         [self.navigationController setNavigationBarHidden:NO animated:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
     }
     else{
         [self.navigationController setNavigationBarHidden:YES animated:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+
 
     }
-    [super viewWillAppear:animated];
 }
 
 -(void)loadingViewHanlder:(int)context{
