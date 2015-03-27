@@ -2,12 +2,15 @@ PODS:
   - Bolts (1.1.4)
   - Parse (1.7.0):
     - Bolts (~> 1.1)
+  - YTVimeoExtractor (0.1.0)
 
 DEPENDENCIES:
   - Parse
+  - YTVimeoExtractor
 
 SPEC CHECKSUMS:
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
   Parse: 3c2d4e6ade7b59d31c0bc8106340c6b81b31bc0f
+  YTVimeoExtractor: 19fca16bcd798c56fbecead59f7e73c21bb94a83
 
 COCOAPODS: 0.36.0

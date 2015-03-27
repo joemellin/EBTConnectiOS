@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F370A1AC4946800438F6A /* CallingViewController.m */; };
+		3A1F371E1AC502CB00438F6A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */; };
 		3A85CF971ABA52B200932A1A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF961ABA52B200932A1A /* TabBarViewController.m */; };
 		3A85CF9D1ABA543900932A1A /* ConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */; };
 		3A85CFA01ABA56C200932A1A /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */; };
@@ -218,6 +219,7 @@
 /* Begin PBXFileReference section */
 		3A1F37091AC4946800438F6A /* CallingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallingViewController.h; sourceTree = "<group>"; };
 		3A1F370A1AC4946800438F6A /* CallingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallingViewController.m; sourceTree = "<group>"; };
+		3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		3A85CF951ABA52B200932A1A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		3A85CF961ABA52B200932A1A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		3A85CF9B1ABA543900932A1A /* ConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionsViewController.h; path = EBT/ConnectionsViewController.h; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				9143609917E540B0004C18A3 /* Security.framework in Frameworks */,
 				9143609A17E540B0004C18A3 /* CoreTelephony.framework in Frameworks */,
 				9143609C17E540B0004C18A3 /* MessageUI.framework in Frameworks */,
+				3A1F371E1AC502CB00438F6A /* MediaPlayer.framework in Frameworks */,
 				821AFE4D9C17B5B4F45305D1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,6 +560,7 @@
 		9120BD6617ABD34C005CF602 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */,
 				9143608717E540B0004C18A3 /* MapKit.framework */,
 				9143608817E540B0004C18A3 /* CoreLocation.framework */,
 				9143608917E540B0004C18A3 /* libz.dylib */,
@@ -1348,7 +1352,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EBT/EBT-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1371,7 +1378,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EBT/EBT-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1420,7 +1430,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EBT/EBT-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1468,7 +1481,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EBT/EBT-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";

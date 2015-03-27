@@ -53,7 +53,7 @@
     [self.view addSubview:imageView];
     UITextField* field = [[UITextField alloc] initWithFrame:CGRectMake(20, 3, 225, 44)];
     nameField = field;
-    field.placeholder = @"Username";
+    field.placeholder = @"Email Address";
     field.font = [UIFont boldSystemFontOfSize:14];
     field.delegate = self;
     field.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -72,6 +72,14 @@
     field.autocorrectionType = UITextAutocorrectionTypeNo;
     [imageView addSubview:field];
     
+    UIButton *forgotPassword = [UIButton buttonWithType:UIButtonTypeCustom];
+    [forgotPassword setTitle:@"Forgot password?" forState:UIControlStateNormal];
+    forgotPassword.titleLabel.font = [UIFont systemFontOfSize:14];
+    [forgotPassword setTitleColor:kLightBlueColor forState:UIControlStateNormal];
+    [forgotPassword addTarget:self action:@selector(forgotPassword) forControlEvents:UIControlEventTouchUpInside];
+    forgotPassword.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [forgotPassword setFrame:CGRectMake(40, 140, 225, 20)];
+    [self.view addSubview:forgotPassword];
     
     float lastY = 140;
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -107,6 +115,10 @@
     
   
     
+}
+
+-(void) forgotPassword {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kForgotPasswordURL]];
 }
 
 -(void)logout{
@@ -253,11 +265,6 @@
     [self requestAuth];
 
 
-}
-
-
--(void)forgotPassword{
-    
 }
 
 - (void)didReceiveMemoryWarning

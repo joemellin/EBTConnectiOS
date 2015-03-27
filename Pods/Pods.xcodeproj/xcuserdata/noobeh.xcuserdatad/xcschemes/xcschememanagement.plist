@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-YTVimeoExtractor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>38346E4476367FB43A5BDD92</key>
+		<key>3F229C44F36D2CE9D3368521</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6CAA045183C98D9A3CF12FA</key>
+		<key>9B749170332935F921B72FB0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A35D7564EA64DB4462BB23C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -18,3 +18,9 @@
 #define COCOAPODS_VERSION_MINOR_Parse 7
 #define COCOAPODS_VERSION_PATCH_Parse 0
 
+// YTVimeoExtractor
+#define COCOAPODS_POD_AVAILABLE_YTVimeoExtractor
+#define COCOAPODS_VERSION_MAJOR_YTVimeoExtractor 0
+#define COCOAPODS_VERSION_MINOR_YTVimeoExtractor 1
+#define COCOAPODS_VERSION_PATCH_YTVimeoExtractor 0
+

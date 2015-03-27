@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B749170332935F921B72FB0"
-               BuildableName = "libPods.a"
-               BlueprintName = "Pods"
+               BlueprintIdentifier = "3F229C44F36D2CE9D3368521"
+               BuildableName = "libPods-YTVimeoExtractor.a"
+               BlueprintName = "Pods-YTVimeoExtractor"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

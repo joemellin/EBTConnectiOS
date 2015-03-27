@@ -8,6 +8,7 @@
 #define kSessionToken @"kSessionToken"
 #define kBaseURL @"https://www.ebtconnect.net/api/v1/"
 #define kWebsiteURL @"http://www.ebtconnect.net/"
+#define kForgotPasswordURL @"http://www.ebtconnect.net/users/password/new"
 #define kUserInfoDict @"kUserInfoDict"
 #define kGroup @"group"
 #define kID @"id"
@@ -15,6 +16,7 @@
 #define kImageURL @"image_url"
 #define kMembers @"members"
 #define kName @"name"
+#define kUrl @"url"
 #define kBaseTag 1000
 #define kBaseTag2 2000
 #define kSelectedFeelings @"kSelectedFeelings"
