@@ -15,6 +15,7 @@
 #import "LoginViewController.h"
 
 #import "TabBarViewController.h"
+#import "CustomNavigationController.h"
 #import <Parse/Parse.h>
 
 @implementation EBTAppDelegate
@@ -55,7 +56,7 @@
     
     UIViewController* vc = [[OpeningViewController alloc] initWithNibName:@"OpeningViewController" bundle:nil];
 //    vc = [[TabBarViewController alloc] init];
-    UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    CustomNavigationController* nvc = [[CustomNavigationController alloc] initWithRootViewController:vc];
     nvc.navigationBarHidden = YES;
 
     self.window.rootViewController = nvc;

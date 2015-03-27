@@ -15,6 +15,7 @@
 		3A1F372F1AC5DEA100438F6A /* conversation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1F372B1AC5DEA100438F6A /* conversation@2x.png */; };
 		3A1F37301AC5DEA100438F6A /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1F372C1AC5DEA100438F6A /* phone@2x.png */; };
 		3A1F37331AC5DF5800438F6A /* ConnectionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F37321AC5DF5800438F6A /* ConnectionsCell.m */; };
+		3A1F37361AC5E8B600438F6A /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F37351AC5E8B600438F6A /* CustomNavigationController.m */; };
 		3A85CF971ABA52B200932A1A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF961ABA52B200932A1A /* TabBarViewController.m */; };
 		3A85CF9D1ABA543900932A1A /* ConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */; };
 		3A85CFA01ABA56C200932A1A /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */; };
@@ -55,7 +56,6 @@
 		9120BE0017B09958005CF602 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BDF817B09958005CF602 /* Utils.m */; };
 		9120BE0117B09958005CF602 /* WimAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BDFA17B09958005CF602 /* WimAdditions.m */; };
 		9120BE0517B09A75005CF602 /* OpeningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BE0317B09A75005CF602 /* OpeningViewController.m */; };
-		9120BE0617B09A75005CF602 /* OpeningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9120BE0417B09A75005CF602 /* OpeningViewController.xib */; };
 		9131B15417D63CA3003E0F58 /* logoutbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9131B15317D63CA3003E0F58 /* logoutbutton.png */; };
 		9143608617E54077004C18A3 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9143608517E54077004C18A3 /* AirshipConfig.plist */; };
 		9143609217E540B0004C18A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9143608717E540B0004C18A3 /* MapKit.framework */; };
@@ -72,7 +72,6 @@
 		9149780317C5DB1D00407FC2 /* message.json in Resources */ = {isa = PBXBuildFile; fileRef = 9149780117C5DB1D00407FC2 /* message.json */; };
 		9149789917C7027800407FC2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9149789817C7027800407FC2 /* QuartzCore.framework */; };
 		9164228117B1F0A80084C4E8 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9164227F17B1F0A80084C4E8 /* WelcomeViewController.m */; };
-		9164228217B1F0A80084C4E8 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9164228017B1F0A80084C4E8 /* WelcomeViewController.xib */; };
 		916422DD17B3CEBD0084C4E8 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 916422DB17B3CEBC0084C4E8 /* GroupViewController.m */; };
 		9168EFE117C256BD0002786E /* JSBubbleMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168EFA817C256BD0002786E /* JSBubbleMessageCell.m */; };
 		9168EFE217C256BD0002786E /* JSBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168EFAA17C256BD0002786E /* JSBubbleView.m */; };
@@ -196,13 +195,9 @@
 		91AF5DA917CE0C10009FE460 /* yellowstick.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D5117CE0C10009FE460 /* yellowstick.png */; };
 		91D1BAE217B0A024008A9CAF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D1BAE117B0A024008A9CAF /* SystemConfiguration.framework */; };
 		91D1BAE717B0A12D008A9CAF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D1BAE517B0A12D008A9CAF /* LoginViewController.m */; };
-		91D1BAE817B0A12D008A9CAF /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D1BAE617B0A12D008A9CAF /* LoginViewController.xib */; };
 		91DBDCD017BA5C2E0030EDF5 /* SelectStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBDCCE17BA5C2E0030EDF5 /* SelectStateViewController.m */; };
-		91DBDCD117BA5C2E0030EDF5 /* SelectStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBDCCF17BA5C2E0030EDF5 /* SelectStateViewController.xib */; };
 		91DBDD1117BA63000030EDF5 /* StateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBDD0F17BA62FF0030EDF5 /* StateDetailViewController.m */; };
-		91DBDD1217BA63000030EDF5 /* StateDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBDD1017BA62FF0030EDF5 /* StateDetailViewController.xib */; };
 		91DBDD9317BB56620030EDF5 /* AcceptStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBDD9117BB56620030EDF5 /* AcceptStateViewController.m */; };
-		91DBDD9417BB56620030EDF5 /* AcceptStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBDD9217BB56620030EDF5 /* AcceptStateViewController.xib */; };
 		91DBDDDD17BB6C0F0030EDF5 /* BaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBDDDC17BB6C0F0030EDF5 /* BaseListViewController.m */; };
 		91DBDE4017BB7C670030EDF5 /* Tool3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBDE3E17BB7C670030EDF5 /* Tool3ViewController.m */; };
 		91DBDE4117BB7C670030EDF5 /* Tool3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBDE3F17BB7C670030EDF5 /* Tool3ViewController.xib */; };
@@ -225,6 +220,8 @@
 		3A1F372C1AC5DEA100438F6A /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
 		3A1F37311AC5DF5800438F6A /* ConnectionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionsCell.h; path = EBT/ConnectionsCell.h; sourceTree = "<group>"; };
 		3A1F37321AC5DF5800438F6A /* ConnectionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectionsCell.m; path = EBT/ConnectionsCell.m; sourceTree = "<group>"; };
+		3A1F37341AC5E8B600438F6A /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
+		3A1F37351AC5E8B600438F6A /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
 		3A85CF951ABA52B200932A1A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		3A85CF961ABA52B200932A1A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		3A85CF9B1ABA543900932A1A /* ConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionsViewController.h; path = EBT/ConnectionsViewController.h; sourceTree = "<group>"; };
@@ -287,7 +284,6 @@
 		9120BDFA17B09958005CF602 /* WimAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WimAdditions.m; sourceTree = "<group>"; };
 		9120BE0217B09A75005CF602 /* OpeningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpeningViewController.h; sourceTree = "<group>"; };
 		9120BE0317B09A75005CF602 /* OpeningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpeningViewController.m; sourceTree = "<group>"; };
-		9120BE0417B09A75005CF602 /* OpeningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpeningViewController.xib; sourceTree = "<group>"; };
 		9131B15317D63CA3003E0F58 /* logoutbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoutbutton.png; sourceTree = "<group>"; };
 		9143608517E54077004C18A3 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		9143608717E540B0004C18A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -305,7 +301,6 @@
 		9149789817C7027800407FC2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9164227E17B1F0A80084C4E8 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		9164227F17B1F0A80084C4E8 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
-		9164228017B1F0A80084C4E8 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		916422DA17B3CEB90084C4E8 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupViewController.h; path = EBT/GroupViewController.h; sourceTree = "<group>"; };
 		916422DB17B3CEBC0084C4E8 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupViewController.m; path = EBT/GroupViewController.m; sourceTree = "<group>"; };
 		9168EFA717C256BD0002786E /* JSBubbleMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBubbleMessageCell.h; sourceTree = "<group>"; };
@@ -444,18 +439,14 @@
 		91D1BAE117B0A024008A9CAF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		91D1BAE417B0A12D008A9CAF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		91D1BAE517B0A12D008A9CAF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		91D1BAE617B0A12D008A9CAF /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		91D1BAFB17B0A60E008A9CAF /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		91D1BAFC17B0A721008A9CAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		91DBDCCD17BA5C2E0030EDF5 /* SelectStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectStateViewController.h; path = EBT/SelectStateViewController.h; sourceTree = "<group>"; };
 		91DBDCCE17BA5C2E0030EDF5 /* SelectStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectStateViewController.m; path = EBT/SelectStateViewController.m; sourceTree = "<group>"; };
-		91DBDCCF17BA5C2E0030EDF5 /* SelectStateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectStateViewController.xib; path = EBT/SelectStateViewController.xib; sourceTree = "<group>"; };
 		91DBDD0E17BA62FF0030EDF5 /* StateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StateDetailViewController.h; path = EBT/StateDetailViewController.h; sourceTree = "<group>"; };
 		91DBDD0F17BA62FF0030EDF5 /* StateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StateDetailViewController.m; path = EBT/StateDetailViewController.m; sourceTree = "<group>"; };
-		91DBDD1017BA62FF0030EDF5 /* StateDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StateDetailViewController.xib; path = EBT/StateDetailViewController.xib; sourceTree = "<group>"; };
 		91DBDD9017BB56620030EDF5 /* AcceptStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcceptStateViewController.h; path = EBT/AcceptStateViewController.h; sourceTree = "<group>"; };
 		91DBDD9117BB56620030EDF5 /* AcceptStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AcceptStateViewController.m; path = EBT/AcceptStateViewController.m; sourceTree = "<group>"; };
-		91DBDD9217BB56620030EDF5 /* AcceptStateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AcceptStateViewController.xib; path = EBT/AcceptStateViewController.xib; sourceTree = "<group>"; };
 		91DBDDDB17BB6C0F0030EDF5 /* BaseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseListViewController.h; sourceTree = "<group>"; };
 		91DBDDDC17BB6C0F0030EDF5 /* BaseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseListViewController.m; sourceTree = "<group>"; };
 		91DBDE3D17BB7C670030EDF5 /* Tool3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tool3ViewController.h; path = EBT/Tool3ViewController.h; sourceTree = "<group>"; };
@@ -593,6 +584,8 @@
 				91DBDCCB17BA5BFD0030EDF5 /* Group */,
 				91D1BAE317B0A03D008A9CAF /* Opening */,
 				9120BD6E17ABD34C005CF602 /* Supporting Files */,
+				3A1F37341AC5E8B600438F6A /* CustomNavigationController.h */,
+				3A1F37351AC5E8B600438F6A /* CustomNavigationController.m */,
 			);
 			path = EBT;
 			sourceTree = "<group>";
@@ -872,9 +865,6 @@
 				91D1BAE517B0A12D008A9CAF /* LoginViewController.m */,
 				9164227E17B1F0A80084C4E8 /* WelcomeViewController.h */,
 				9164227F17B1F0A80084C4E8 /* WelcomeViewController.m */,
-				9164228017B1F0A80084C4E8 /* WelcomeViewController.xib */,
-				91D1BAE617B0A12D008A9CAF /* LoginViewController.xib */,
-				9120BE0417B09A75005CF602 /* OpeningViewController.xib */,
 			);
 			name = Opening;
 			sourceTree = "<group>";
@@ -910,9 +900,6 @@
 				91DBDD0F17BA62FF0030EDF5 /* StateDetailViewController.m */,
 				91DBDD9017BB56620030EDF5 /* AcceptStateViewController.h */,
 				91DBDD9117BB56620030EDF5 /* AcceptStateViewController.m */,
-				91DBDD9217BB56620030EDF5 /* AcceptStateViewController.xib */,
-				91DBDD1017BA62FF0030EDF5 /* StateDetailViewController.xib */,
-				91DBDCCF17BA5C2E0030EDF5 /* SelectStateViewController.xib */,
 			);
 			name = States;
 			path = ..;
@@ -1028,13 +1015,7 @@
 				9120BD7217ABD34C005CF602 /* InfoPlist.strings in Resources */,
 				9120BD8417ABD34C005CF602 /* EBTViewController.xib in Resources */,
 				3A86EDE31ABBE4F1007C1B77 /* Tool1ViewController.xib in Resources */,
-				9120BE0617B09A75005CF602 /* OpeningViewController.xib in Resources */,
-				91D1BAE817B0A12D008A9CAF /* LoginViewController.xib in Resources */,
-				9164228217B1F0A80084C4E8 /* WelcomeViewController.xib in Resources */,
 				3A85CFB21ABA666C00932A1A /* tab_courses@2x.png in Resources */,
-				91DBDCD117BA5C2E0030EDF5 /* SelectStateViewController.xib in Resources */,
-				91DBDD1217BA63000030EDF5 /* StateDetailViewController.xib in Resources */,
-				91DBDD9417BB56620030EDF5 /* AcceptStateViewController.xib in Resources */,
 				91DBDE4117BB7C670030EDF5 /* Tool3ViewController.xib in Resources */,
 				3A85CFB41ABA666C00932A1A /* tab_messages@2x.png in Resources */,
 				91DBDE4617BB929E0030EDF5 /* Tool4ViewController.xib in Resources */,
@@ -1227,6 +1208,7 @@
 				91D1BAE717B0A12D008A9CAF /* LoginViewController.m in Sources */,
 				9164228117B1F0A80084C4E8 /* WelcomeViewController.m in Sources */,
 				916422DD17B3CEBD0084C4E8 /* GroupViewController.m in Sources */,
+				3A1F37361AC5E8B600438F6A /* CustomNavigationController.m in Sources */,
 				91DBDCD017BA5C2E0030EDF5 /* SelectStateViewController.m in Sources */,
 				91DBDD1117BA63000030EDF5 /* StateDetailViewController.m in Sources */,
 				3A85CF9D1ABA543900932A1A /* ConnectionsViewController.m in Sources */,

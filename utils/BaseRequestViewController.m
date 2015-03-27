@@ -79,10 +79,6 @@
     [self addLeftBackButton];
 }
 
--(BOOL) shouldAutorotate {
-    return NO;
-}
-
 -(void)setNavTitle:(NSString*)title{
     UILabel* label;
     label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 0, 250, 42)];

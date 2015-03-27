@@ -30,8 +30,6 @@
     myTableView.dataSource = self;
 	myTableView.delegate = self;
 	myTableView.backgroundColor = [UIColor clearColor];
-//	myTableView.separatorColor = [UIColor clearColor]
-    myTableView.scrollEnabled = NO;
 	// Do any additional setup after loading the view.
 }
 

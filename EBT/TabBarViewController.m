@@ -95,15 +95,11 @@
     [self.view addSubview:button];
 }
 
-- (BOOL)shouldAutorotate
-{
-    return NO;
-}
-
 -(void)whatState{
     [Utils removeSettingForKey:kInitialState];
     [Utils removeSettingForKey:kCheckinID];
     [Utils showSubViewWithName:@"SelectStateViewController" withDelegate:self];
     
 }
+
 @end
