@@ -14,6 +14,7 @@
     UIButton *_call;
     UIButton *_message;
     UIImageView *_image;
+    UILabel *_text;
 }
 
 @end
@@ -51,15 +52,18 @@
     [_image setClipsToBounds:YES];
     [self addSubview:_image];
     
-    [self setIndentationWidth:40];
-    self.textLabel.font = [UIFont systemFontOfSize:17];
-    self.textLabel.textColor = [UIColor blackColor];
+    
+    _text = [[UILabel alloc] init];
+    _text.font = [UIFont boldSystemFontOfSize:20];
+    _text.textColor = [UIColor blackColor];
+    _text.frame = CGRectMake(90, 0, _message.frame.origin.x - 100, 88);
+    [self addSubview:_text];
 }
 
 -(void) fillCell:(NSDictionary*) item forRow:(int) row {
     _call.tag = row;
     _message.tag = row;
-    self.textLabel.text = item[kName];
+    _text.text = item[kName];
     [_image setImageWithURL:[NSURL URLWithString:item[kImageURL]] placeholderImage:[UIImage imageNamed:@"avatar_medium"]];
     
     if([item[@"new_message_count"] intValue] == 0) {

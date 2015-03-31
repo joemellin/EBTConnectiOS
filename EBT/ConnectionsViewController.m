@@ -43,7 +43,7 @@
         cell = [[ConnectionsCell alloc] initWithDelegate:self];
         [cell initCell];
     }
-    
+
     NSDictionary* item = self.displayList[[indexPath row]];
     [cell fillCell:item forRow:(int)indexPath.row];
     return cell;
