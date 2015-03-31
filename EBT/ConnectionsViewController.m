@@ -27,6 +27,7 @@
     // Do any additional setup after loading the view from its nib.
     [Utils appDelegate].connectionsController = self;
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -44,7 +45,7 @@
     }
     
     NSDictionary* item = self.displayList[[indexPath row]];
-    [cell fillCell:item forRow:indexPath.row];
+    [cell fillCell:item forRow:(int)indexPath.row];
     return cell;
 }
 
@@ -64,12 +65,14 @@
     NSDictionary *item = self.displayList[sender.tag];
     [self requestCommunityCall:[item[kID] intValue]];
     CallingViewController *callingVC = [[CallingViewController alloc] init];
+    callingVC.hidesBottomBarWhenPushed = YES;
     callingVC.name = item[kName];
     [self.navigationController pushViewController:callingVC animated:YES];
 }
 
 -(void) messageSelected:(UIButton*) sender {
     MessagingViewController *messageVC = [[MessagingViewController alloc] init];
+    messageVC.hidesBottomBarWhenPushed = YES;
     messageVC.currentItem = self.displayList[sender.tag];
     [self.navigationController pushViewController:messageVC animated:YES];
 }
@@ -113,7 +116,7 @@
 -(void)requestSucceededResultHandler:(id)context result:(NSString*)result{
     NSLog(@"result:%@",result);
     
-    
+    [self hideLoadingView];
     
     if ([context intValue] == 1) {
         NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];

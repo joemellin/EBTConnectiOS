@@ -82,24 +82,11 @@
 }
 
 -(void)setNavTitle:(NSString*)title{
-//    UILabel* label;
-//    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 0, 250, 42)];
-//    hintBarLabel = label;
-//    label.numberOfLines = 1;
-//    label.textColor = kGrayTextColor;
-//    label.text =  title;
-//    label.backgroundColor= [UIColor clearColor];
-//    label.font = [UIFont boldSystemFontOfSize:16];
-//    label.layer.shadowColor = [[UIColor blackColor] CGColor];
-//    label.layer.shadowOffset = CGSizeMake(1.0f, 0.0f);
-//    //label.layer.shadowOpacity = 1.0f;
-//    //label.layer.shadowRadius = 1.0f;
-//    label.textAlignment = NSTextAlignmentCenter;
-//    self.navigationItem.titleView = label;
-    
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: kGrayTextColor};
     self.navigationItem.title = title;
+    self.navigationItem.hidesBackButton = YES;
 }
+
 -(void)addLeftBackButton{
     
     self.navigationItem.hidesBackButton = YES;
@@ -147,7 +134,7 @@
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         [[[Utils appDelegate] tabBarViewController] setSelectedIndex:1];
-        [self.navigationController popToViewController:[Utils appDelegate].tabBarViewController animated:YES];
+        [[[[[Utils appDelegate] tabBarViewController] viewControllers] objectAtIndex:1] popToRootViewControllerAnimated:YES];
     }
 }
 

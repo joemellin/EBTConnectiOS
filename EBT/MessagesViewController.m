@@ -18,10 +18,12 @@
 {
     needsNavBar = YES;
     [self setupTableView];
-    [super viewDidLoad];
-    [self setNavTitle:@"Notifications"];
-    
+    [self setNavTitle:@"Messages"];
+    self.navigationItem.leftBarButtonItem = nil;
+    myTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     // Do any additional setup after loading the view from its nib.
+    [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

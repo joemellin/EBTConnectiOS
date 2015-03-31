@@ -8,7 +8,7 @@
 
 #import "BaseListViewController.h"
 
-@interface BaseListViewController ()
+@interface BaseListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 

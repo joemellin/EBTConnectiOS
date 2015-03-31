@@ -55,7 +55,6 @@
     [Utils removeSettingForKey:kLoginBackTapped];
     
     UIViewController* vc = [[OpeningViewController alloc] init];
-//    vc = [[TabBarViewController alloc] init];
     CustomNavigationController* nvc = [[CustomNavigationController alloc] initWithRootViewController:vc];
     nvc.navigationBarHidden = YES;
 

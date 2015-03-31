@@ -8,7 +8,5 @@
 
 
 @interface TabBarViewController : UITabBarController
-{
-}
-
+@property (nonatomic, strong) UIButton *centerButton;
 @end

@@ -19,12 +19,11 @@
 {
     needsNavBar = YES;
     [self setupTableView];
-    [super viewDidLoad];
     [self setNavTitle:@"Courses"];
-    
     self.displayList = @[@{@"name":@"Privacy Policy", @"url":@"https://vimeo.com/115316692"}
                             ];
-    
+    [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = nil;
     // Do any additional setup after loading the view from its nib.
 }
 
