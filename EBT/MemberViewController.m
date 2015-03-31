@@ -21,11 +21,11 @@
 
 @implementation MemberViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        // Customization
     }
     return self;
 }
@@ -228,7 +228,7 @@
 
 -(void)showSupporter:(UIButton*)button{
     NSDictionary* item = self.displayList[button.tag];
-    MemberViewController* vc = [[MemberViewController alloc] initWithNibName:@"MemberViewController" bundle:nil];
+    MemberViewController* vc = [[MemberViewController alloc] init];
     NSDictionary* dict = [Utils setting:kUserInfoDict];
     vc.isMe = [dict[kID] isEqualToNumber:item[kID]] ;
     vc.imageCacheDict = self.imageCacheDict;
@@ -502,7 +502,7 @@
 }
 
 -(void)showNotifications{
-    NotificationViewController* vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+    NotificationViewController* vc = [[NotificationViewController alloc] init];
     vc.displayList = [self.currentItem objectForKey:kSupporters];
     vc.imageCacheDict = self.imageCacheDict;
     [self.navigationController pushViewController:vc animated:YES];

@@ -14,11 +14,11 @@
 
 @implementation LoginViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        // Customization
     }
     return self;
 }
@@ -204,21 +204,18 @@
 }
 
 -(void)serverErrorHandler{
-    [self back];
+
 }
 
-
--(void)back{
-    [Utils setSettingForKey:kLoginBackTapped withValue:@"1"];
-    [super back];
-}
+//-(void)back{
+//    [Utils setSettingForKey:kLoginBackTapped withValue:@"1"];
+//    [super back];
+//}
 
 
 
 -(void)requestSucceededResultHandler:(id)context result:(NSString*)result{
     NSLog(@"result:%@",result);
-    
-    
     
 	if ([context intValue] == 1) {
         NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
@@ -242,12 +239,7 @@
                 return;
             }
             
-            if (![[Utils setting:kWelcomeShowed] boolValue]) {
-                [Utils showSubViewWithName:@"WelcomeViewController" withDelegate:self];
-            } else {
-                [Utils showSubViewWithName:@"TabBarViewController" withDelegate:self];
-            }
-
+            [Utils showSubViewWithName:@"TabBarViewController" withDelegate:self];
         }
 
 	}

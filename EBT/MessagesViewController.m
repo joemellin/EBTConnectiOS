@@ -72,7 +72,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary* item = self.displayList[[indexPath row]];
     
-    MemberViewController* vc = [[MemberViewController alloc] initWithNibName:@"MemberViewController" bundle:nil];
+    MemberViewController* vc = [[MemberViewController alloc] init];
     vc.isMe = NO ;
     vc.imageCacheDict = self.imageCacheDict;
     vc.currentItem = item;

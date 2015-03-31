@@ -12,6 +12,7 @@
 #import "CallingViewController.h"
 #import <UIImageView+AFNetworking.h>
 #import "ConnectionsCell.h"
+#import "MessagingViewController.h"
 @interface ConnectionsViewController ()
 
 @end
@@ -22,11 +23,11 @@
 {
     needsNavBar = YES;
     [self setupTableView];
-    [super viewDidLoad];
-    myTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self setNavTitle:@"Your Connections"];
+    myTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     // Do any additional setup after loading the view from its nib.
     [Utils appDelegate].connectionsController = self;
+    [super viewDidLoad];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -45,14 +46,13 @@
     
     NSDictionary* item = self.displayList[[indexPath row]];
     [cell fillCell:item forRow:indexPath.row];
-    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary* item = self.displayList[[indexPath row]];
     
-    MemberViewController* vc = [[MemberViewController alloc] initWithNibName:@"MemberViewController" bundle:nil];
+    MemberViewController* vc = [[MemberViewController alloc] init];
     vc.imageCacheDict = self.imageCacheDict;
     vc.currentItem = item;
     
@@ -70,7 +70,7 @@
 }
 
 -(void) messageSelected:(UIButton*) sender {
-    MessageViewController *messageVC = [[MessageViewController alloc] init];
+    MessagingViewController *messageVC = [[MessagingViewController alloc] init];
     messageVC.currentItem = self.displayList[sender.tag];
     [self.navigationController pushViewController:messageVC animated:YES];
 }
@@ -96,7 +96,7 @@
 
 -(void) requestCommunityCall:(int) calledId {
     NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                 [Utils setting:kSessionToken ],@"auth_token",
+                                 [Utils setting:kSessionToken],@"auth_token",
                                  [NSNumber numberWithInteger:calledId], @"called_id",
                                  nil];
     NSString* urlStr = [NSString stringWithFormat:@"%@community_connections",kBaseURL];

@@ -48,13 +48,13 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[EBTViewController alloc] initWithNibName:@"EBTViewController" bundle:nil];
+    self.viewController = [[EBTViewController alloc] init];
     //test data
     //[Utils removeSettingForKey:kLoginInfoDict];
     
     [Utils removeSettingForKey:kLoginBackTapped];
     
-    UIViewController* vc = [[OpeningViewController alloc] initWithNibName:@"OpeningViewController" bundle:nil];
+    UIViewController* vc = [[OpeningViewController alloc] init];
 //    vc = [[TabBarViewController alloc] init];
     CustomNavigationController* nvc = [[CustomNavigationController alloc] initWithRootViewController:vc];
     nvc.navigationBarHidden = YES;

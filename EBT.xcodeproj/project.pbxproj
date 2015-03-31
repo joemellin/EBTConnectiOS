@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0370D71ACA2EAB00EAED52 /* MessagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0370D61ACA2EAB00EAED52 /* MessagingViewController.m */; };
+		3A0370DA1ACA304C00EAED52 /* MessagingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0370D91ACA304C00EAED52 /* MessagingData.m */; };
+		3A0370DD1ACA3BCE00EAED52 /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0370DC1ACA3BCE00EAED52 /* HTTPRequestManager.m */; };
 		3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F370A1AC4946800438F6A /* CallingViewController.m */; };
 		3A1F371E1AC502CB00438F6A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */; };
 		3A1F37221AC50F2C00438F6A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F37211AC50F2C00438F6A /* Accounts.framework */; };
@@ -205,6 +208,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0370D51ACA2EAB00EAED52 /* MessagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagingViewController.h; sourceTree = "<group>"; };
+		3A0370D61ACA2EAB00EAED52 /* MessagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagingViewController.m; sourceTree = "<group>"; };
+		3A0370D81ACA304C00EAED52 /* MessagingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagingData.h; sourceTree = "<group>"; };
+		3A0370D91ACA304C00EAED52 /* MessagingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagingData.m; sourceTree = "<group>"; };
+		3A0370DB1ACA3BCE00EAED52 /* HTTPRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequestManager.h; path = EBT/HTTPRequestManager.h; sourceTree = SOURCE_ROOT; };
+		3A0370DC1ACA3BCE00EAED52 /* HTTPRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPRequestManager.m; path = EBT/HTTPRequestManager.m; sourceTree = SOURCE_ROOT; };
 		3A1F37091AC4946800438F6A /* CallingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallingViewController.h; sourceTree = "<group>"; };
 		3A1F370A1AC4946800438F6A /* CallingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallingViewController.m; sourceTree = "<group>"; };
 		3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
@@ -597,6 +606,8 @@
 		9120BDEC17B09958005CF602 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				3A0370DB1ACA3BCE00EAED52 /* HTTPRequestManager.h */,
+				3A0370DC1ACA3BCE00EAED52 /* HTTPRequestManager.m */,
 				91D1BAFB17B0A60E008A9CAF /* constants.h */,
 				9120BDED17B09958005CF602 /* BaseRequestViewController.h */,
 				9120BDEE17B09958005CF602 /* BaseRequestViewController.m */,
@@ -925,6 +936,10 @@
 				91DBDFF917BD102E0030EDF5 /* MemberViewController.m */,
 				91AF5CF017CDF0D8009FE460 /* NotificationViewController.h */,
 				91AF5CF117CDF0D8009FE460 /* NotificationViewController.m */,
+				3A0370D51ACA2EAB00EAED52 /* MessagingViewController.h */,
+				3A0370D61ACA2EAB00EAED52 /* MessagingViewController.m */,
+				3A0370D81ACA304C00EAED52 /* MessagingData.h */,
+				3A0370D91ACA304C00EAED52 /* MessagingData.m */,
 			);
 			name = Profile;
 			path = EBT;
@@ -1171,6 +1186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9120BD7417ABD34C005CF602 /* main.m in Sources */,
+				3A0370D71ACA2EAB00EAED52 /* MessagingViewController.m in Sources */,
 				9120BD7817ABD34C005CF602 /* EBTAppDelegate.m in Sources */,
 				9120BD8117ABD34C005CF602 /* EBTViewController.m in Sources */,
 				3A86EDDE1ABBDEF0007C1B77 /* BaseToolViewController.m in Sources */,
@@ -1187,6 +1203,7 @@
 				3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */,
 				91D1BAE717B0A12D008A9CAF /* LoginViewController.m in Sources */,
 				9164228117B1F0A80084C4E8 /* WelcomeViewController.m in Sources */,
+				3A0370DA1ACA304C00EAED52 /* MessagingData.m in Sources */,
 				916422DD17B3CEBD0084C4E8 /* GroupViewController.m in Sources */,
 				3A1F37361AC5E8B600438F6A /* CustomNavigationController.m in Sources */,
 				91DBDCD017BA5C2E0030EDF5 /* SelectStateViewController.m in Sources */,
@@ -1213,6 +1230,7 @@
 				9168F00917C256BD0002786E /* UIColor+JSMessagesView.m in Sources */,
 				9168F00A17C256BD0002786E /* UIImage+JSMessagesView.m in Sources */,
 				9168F00B17C256BD0002786E /* UIView+AnimationOptionsForCurve.m in Sources */,
+				3A0370DD1ACA3BCE00EAED52 /* HTTPRequestManager.m in Sources */,
 				9168F01217C257E20002786E /* MessageViewController.m in Sources */,
 				91AF5CF317CDF0D8009FE460 /* NotificationViewController.m in Sources */,
 				3A86EDD61ABBC7F7007C1B77 /* CheckMarkButton.m in Sources */,
@@ -1304,6 +1322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1330,6 +1349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1382,6 +1402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1433,6 +1454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (

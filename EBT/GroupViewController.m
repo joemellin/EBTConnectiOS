@@ -15,14 +15,15 @@
 
 @implementation GroupViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        // Customization
     }
     return self;
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [self loadImages];
@@ -292,7 +293,7 @@
 
     NSMutableDictionary* dict;
     if (button.tag == 0) {
-        ProviderViewController* vc = [[ProviderViewController alloc] initWithNibName:@"ProviderViewController" bundle:nil];
+        ProviderViewController* vc = [[ProviderViewController alloc] init];
         dict = [self.currentItem objectForKey:kProvider];
         vc.currentItem = dict;
         vc.imageCacheDict = self.imageCacheDict;
@@ -303,7 +304,7 @@
 
     }
     else if (button.tag == 10) {
-        MemberViewController* vc = [[MemberViewController alloc] initWithNibName:@"MemberViewController" bundle:nil];
+        MemberViewController* vc = [[MemberViewController alloc] init];
         vc.isMe = YES ;
         vc.imageCacheDict = self.imageCacheDict;
         if (isCoachingGroup) {
@@ -330,7 +331,7 @@
             return;
         }
         
-        MemberViewController* vc = [[MemberViewController alloc] initWithNibName:@"MemberViewController" bundle:nil];
+        MemberViewController* vc = [[MemberViewController alloc] init];
         vc.isMe = NO ;
         vc.imageCacheDict = self.imageCacheDict;
         dict = otherMembers[button.tag-1];

@@ -16,11 +16,11 @@
 
 @implementation NotificationViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        // Customization
     }
     return self;
 }
@@ -124,7 +124,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary* item = self.displayList[[indexPath row]];
 
-    MemberViewController* vc = [[MemberViewController alloc] initWithNibName:@"MemberViewController" bundle:nil];
+    MemberViewController* vc = [[MemberViewController alloc] init];
     vc.isMe = NO ;
     vc.imageCacheDict = self.imageCacheDict;
     vc.currentItem = item;

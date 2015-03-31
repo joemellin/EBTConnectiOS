@@ -21,6 +21,9 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Bolts (1.1.4)
+  - JSQMessagesViewController (7.0.0):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - Parse (1.7.0):
     - Bolts (~> 1.1)
   - UIActionSheet+Blocks (0.8.1)
@@ -28,6 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - JSQMessagesViewController
   - Parse
   - UIActionSheet+Blocks (from `https://github.com/ryanmaxwell/UIActionSheet-Blocks`)
   - YTVimeoExtractor
@@ -43,9 +47,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
-  Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
+  Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
+  JSQMessagesViewController: 9fd7e9ac96e9fc91f2deca86928e2cc916aeebaa
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Parse: 3c2d4e6ade7b59d31c0bc8106340c6b81b31bc0f
   UIActionSheet+Blocks: 00a3d034b755f1f8e41cdfcf1b33adc1d8b0d9a4
-  YTVimeoExtractor: 19fca16bcd798c56fbecead59f7e73c21bb94a83
+  YTVimeoExtractor: 4d133a68951cc50c920111a22c6e104f0ff71fd0
 
 COCOAPODS: 0.36.0

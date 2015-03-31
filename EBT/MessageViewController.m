@@ -16,14 +16,15 @@
 @implementation MessageViewController
 @synthesize imageCacheDict;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        // Customization
     }
     return self;
 }
+
 
 
 #pragma mark - Initialization
@@ -125,7 +126,7 @@
 }
 
 
--(IBAction)requestMessages{
+-(void)requestMessages{
 	NSString* urlStr = [NSString stringWithFormat:@"%@messages/?other_user_id=%@",kBaseURL, self.currentItem[kID] ];
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"%@",urlStr);
@@ -319,7 +320,7 @@
 - (void)buttonPressed:(UIButton*)sender
 {
     // Testing pushing/popping messages view
-    MessageViewController *vc = [[MessageViewController alloc] initWithNibName:nil bundle:nil];
+    MessageViewController *vc = [[MessageViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

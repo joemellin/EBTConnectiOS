@@ -14,11 +14,11 @@
 
 @implementation Tool5ViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        // Customization
     }
     return self;
 }
@@ -52,12 +52,12 @@
 
 -(void)next{
     if (self.currentIndex == self.titles.count - 1) {
-        SelectStateViewController* vc = [[SelectStateViewController alloc] initWithNibName:@"SelectStateViewController" bundle:nil];
+        SelectStateViewController* vc = [[SelectStateViewController alloc] init];
         vc.isRestartMode = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else{
-        Tool5ViewController* vc = [[Tool5ViewController alloc] initWithNibName:@"Tool5ViewController" bundle:nil];
+        Tool5ViewController* vc = [[Tool5ViewController alloc] init];
         vc.currentIndex = self.currentIndex + 1;
         [self.navigationController pushViewController:vc animated:YES];
     }

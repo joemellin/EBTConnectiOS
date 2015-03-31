@@ -149,14 +149,14 @@
 
 +(void)showSubViewWithNameNoAnimation:(NSString*)name withDelegate:(id)delegate {
 	Class klass = NSClassFromString(name);
-	id vc = [[klass alloc] initWithNibName:name bundle:nil];
+	id vc = [[klass alloc] init];
 	[[delegate navigationController] pushViewController:vc animated:NO];
 }
 
 
 +(void)showSubViewWithName:(NSString*)name withDelegate:(id)delegate{
 	Class klass = NSClassFromString(name);
-	id vc = [[klass alloc] initWithNibName:name bundle:nil];
+	id vc = [[klass alloc] init];
     if([name isEqualToString:@"TabBarViewController"]) {
         [[Utils appDelegate] setTabBarViewController:vc];
     }
@@ -165,7 +165,7 @@
 
 +(void)showModalSubViewWithName:(NSString*)name withDelegate:(id)delegate{
 	Class klass = NSClassFromString(name);
-	id vc = [[klass alloc] initWithNibName:name bundle:nil];
+	id vc = [[klass alloc] init];
     UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     nvc.navigationBar.barStyle = UIBarStyleBlack;
     [delegate presentModalViewController:nvc animated:YES];
@@ -173,7 +173,7 @@
 
 +(void)showModalSubViewWithNameNoAnimation:(NSString*)name withDelegate:(id)delegate{
 	Class klass = NSClassFromString(name);
-	id vc = [[klass alloc] initWithNibName:name bundle:nil];
+	id vc = [[klass alloc] init];
     UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     nvc.navigationBar.barStyle = UIBarStyleBlack;
     [delegate presentModalViewController:nvc animated:NO];

@@ -13,11 +13,11 @@
 
 @implementation Tool3ViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        // Customization
     }
     return self;
 }
@@ -74,12 +74,12 @@
 
 -(void)next{
     if (self.currentIndex == self.titles.count - 1) {
-        SelectStateViewController* vc = [[SelectStateViewController alloc] initWithNibName:@"SelectStateViewController" bundle:nil];
+        SelectStateViewController* vc = [[SelectStateViewController alloc] init];
         vc.isRestartMode = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else{
-        Tool3ViewController* vc = [[Tool3ViewController alloc] initWithNibName:@"Tool3ViewController" bundle:nil];
+        Tool3ViewController* vc = [[Tool3ViewController alloc] init];
         vc.currentIndex = self.currentIndex + 1;
         [self.navigationController pushViewController:vc animated:YES];
     }

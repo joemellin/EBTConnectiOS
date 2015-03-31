@@ -15,11 +15,11 @@
 
 @implementation SelectStateViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        _states = @[@"1 Feeling Great", @"2 Feeling Good", @"3 A Little Stressed", @"4 Definitely Stressed", @"5 Stressed Out"];
+         _states = @[@"1 Feeling Great", @"2 Feeling Good", @"3 A Little Stressed", @"4 Definitely Stressed", @"5 Stressed Out"];
     }
     return self;
 }
@@ -53,12 +53,12 @@
 -(void)setupTableView{
 	float offsetY = 0;
 	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, offsetY, kScreenBounds.size.width, kScreenBounds.size.height)
-											  style:UITableViewStylePlain];
+											  style:UITableViewStyleGrouped];
     myTableView.dataSource = self;
 	myTableView.delegate = self;
 	myTableView.backgroundColor = [UIColor clearColor];
-	myTableView.separatorColor = [UIColor clearColor];
     myTableView.scrollEnabled = NO;
+    myTableView.tableHeaderView = [[UIView alloc] init];
 	[self.view addSubview:myTableView];
 }
 
@@ -71,7 +71,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return 5;
+	return [_states count];
 }
 
 
@@ -92,12 +92,6 @@
     cell.textLabel.textColor = kDarkGrayTextColor;
     cell.textLabel.text = [_states objectAtIndex:indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 68, 0, 0)];
-    imageView.image = [UIImage imageNamed:@"splitline.png"];
-    [self setViewFrame:imageView];
-    [cell.contentView addSubview:imageView];
-    
-    
     
 	return cell;
 }
@@ -109,7 +103,7 @@
 
     }
     else{
-        StateDetailViewController* vc = [[StateDetailViewController alloc] initWithNibName:@"StateDetailViewController" bundle:nil];
+        StateDetailViewController* vc = [[StateDetailViewController alloc] init];
         vc.state = self.state;
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -153,7 +147,7 @@
             [Utils setSettingForKey:kInitialState withValue:[NSNumber numberWithInt:self.state]];
 
         }
-        StateDetailViewController* vc = [[StateDetailViewController alloc] initWithNibName:@"StateDetailViewController" bundle:nil];
+        StateDetailViewController* vc = [[StateDetailViewController alloc] init];
         vc.state = self.state;
         [self.navigationController pushViewController:vc animated:YES];
 	}

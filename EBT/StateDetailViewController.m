@@ -14,11 +14,11 @@
 
 @implementation StateDetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        // Customization
     }
     return self;
 }
@@ -96,7 +96,7 @@
 }
 
 -(void)acceptState{
-    AcceptStateViewController* vc = [[AcceptStateViewController alloc] initWithNibName:@"AcceptStateViewController" bundle:nil];
+    AcceptStateViewController* vc = [[AcceptStateViewController alloc] init];
     vc.isJoyMode = self.state == 0;
     vc.state = self.state;
     [self.navigationController pushViewController:vc animated:YES];

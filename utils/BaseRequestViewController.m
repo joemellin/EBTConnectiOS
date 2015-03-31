@@ -13,13 +13,14 @@
 
 @implementation BaseRequestViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-		// Initialization code
-	}
-	return self;
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Customization
+    }
+    return self;
 }
-
 /*
  Implement loadView if you want to create a view hierarchy programmatically
  - (void)loadView {
@@ -81,20 +82,23 @@
 }
 
 -(void)setNavTitle:(NSString*)title{
-    UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 0, 250, 42)];
-    hintBarLabel = label;
-    label.numberOfLines = 1;
-    label.textColor = kGrayTextColor;
-    label.text =  title;
-    label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:16];
-    label.layer.shadowColor = [[UIColor blackColor] CGColor];
-    label.layer.shadowOffset = CGSizeMake(1.0f, 0.0f);
-    //label.layer.shadowOpacity = 1.0f;
-    //label.layer.shadowRadius = 1.0f;
-    label.textAlignment = NSTextAlignmentCenter;
-    self.navigationItem.titleView = label;
+//    UILabel* label;
+//    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 0, 250, 42)];
+//    hintBarLabel = label;
+//    label.numberOfLines = 1;
+//    label.textColor = kGrayTextColor;
+//    label.text =  title;
+//    label.backgroundColor= [UIColor clearColor];
+//    label.font = [UIFont boldSystemFontOfSize:16];
+//    label.layer.shadowColor = [[UIColor blackColor] CGColor];
+//    label.layer.shadowOffset = CGSizeMake(1.0f, 0.0f);
+//    //label.layer.shadowOpacity = 1.0f;
+//    //label.layer.shadowRadius = 1.0f;
+//    label.textAlignment = NSTextAlignmentCenter;
+//    self.navigationItem.titleView = label;
+    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: kGrayTextColor};
+    self.navigationItem.title = title;
 }
 -(void)addLeftBackButton{
     

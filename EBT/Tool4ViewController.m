@@ -17,15 +17,14 @@
 
 @implementation Tool4ViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        // Customization
     }
     return self;
 }
-
 
 - (void)viewDidLoad
 {
@@ -120,7 +119,7 @@
 
 -(void)next{
     if (self.currentIndex == self.titles.count - 1) {
-        SelectStateViewController* vc = [[SelectStateViewController alloc] initWithNibName:@"SelectStateViewController" bundle:nil];
+        SelectStateViewController* vc = [[SelectStateViewController alloc] init];
         vc.isRestartMode = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -132,7 +131,7 @@
         dict[ _titles[self.currentIndex]] = myTextView.text;
         //[Utils setSettingForKey:kCycleToolNoteDict withValue:dict];
         
-        Tool4ViewController* vc = [[Tool4ViewController alloc] initWithNibName:@"Tool4ViewController" bundle:nil];
+        Tool4ViewController* vc = [[Tool4ViewController alloc] init];
         vc.currentIndex = self.currentIndex + 1;
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -156,6 +155,14 @@
         textView.textColor = [UIColor lightGrayColor]; //optional
     }
     [textView resignFirstResponder];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@"\n"]) {
+        // Find the next entry field
+        [textView resignFirstResponder];
+    }  
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning

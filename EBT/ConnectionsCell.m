@@ -20,10 +20,6 @@
 
 @implementation ConnectionsCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
@@ -54,6 +50,10 @@
     _image.layer.cornerRadius = 34;
     [_image setClipsToBounds:YES];
     [self addSubview:_image];
+    
+    [self setIndentationWidth:40];
+    self.textLabel.font = [UIFont systemFontOfSize:17];
+    self.textLabel.textColor = [UIColor blackColor];
 }
 
 -(void) fillCell:(NSDictionary*) item forRow:(int) row {
