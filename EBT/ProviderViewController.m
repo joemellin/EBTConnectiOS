@@ -7,7 +7,7 @@
 //
 
 #import "ProviderViewController.h"
-#import "MessageViewController.h"
+#import "MessagingViewController.h"
 #import <UIImageView+AFNetworking.h>
 @interface ProviderViewController ()
 
@@ -186,8 +186,7 @@
 }
 
 -(void)showMessage{
-    MessageViewController *vc = [MessageViewController new];
-    vc.imageCacheDict = self.imageCacheDict;
+    MessagingViewController *vc = [MessagingViewController new];
     vc.currentItem = [self.currentItem mutableCopy];
     [self.navigationController pushViewController:vc animated:YES];
     

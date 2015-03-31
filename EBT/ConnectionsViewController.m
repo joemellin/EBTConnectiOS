@@ -8,7 +8,6 @@
 
 #import "ConnectionsViewController.h"
 #import "MemberViewController.h"
-#import "MessageViewController.h"
 #import "CallingViewController.h"
 #import <UIImageView+AFNetworking.h>
 #import "ConnectionsCell.h"
