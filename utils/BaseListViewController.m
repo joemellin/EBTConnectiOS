@@ -38,7 +38,7 @@
 }
 
 -(void)setupTableView{
-	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)
+	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height-64)
 											  style:UITableViewStylePlain];
 	[self.view addSubview:myTableView];
 }
@@ -74,10 +74,6 @@
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = kDarkGrayTextColor;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 68, 0, 0)];
-    imageView.image = [UIImage imageNamed:@"splitline.png"];
-    [self setViewFrame:imageView];
-    [cell.contentView addSubview:imageView];
     
 	return cell;
 }

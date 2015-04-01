@@ -39,6 +39,11 @@
     _imagePickerController.delegate = self;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 -(void)showMessage{
     messageRead = YES;
     [self setupUI];
@@ -654,19 +659,25 @@
 }
 
 -(void) uploadImage:(NSString*) image {
-    NSString* urlStr = [NSString stringWithFormat:@"%@users/%@?auth_token=%@",kBaseURL, self.currentItem[kID], [Utils setting:kSessionToken]];
+    NSString* imagePostUrl = [NSString stringWithFormat:@"%@users/%@?auth_token=%@",kBaseURL, self.currentItem[kID], [Utils setting:kSessionToken]];
     
     [self showLoadingView];
-    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"auth_token": [Utils setting:kSessionToken ]};
     
-    //show loading indicator
-    [manager.httpOperation PATCH:urlStr parameters:@{@"auth_token": [Utils setting:kSessionToken ], @"image_data": image} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"PATCH" URLString:imagePostUrl parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:[image dataUsingEncoding:NSUTF8StringEncoding] name:@"image_data" fileName:@"image_data" mimeType:@"image/jpeg"];
+    } error:nil];
+    
+    AFHTTPRequestOperation *op = [manager HTTPRequestOperationWithRequest:request success: ^(AFHTTPRequestOperation *operation, id responseObject) {
         [self hideLoadingView];
         [self requestUserInfo];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self hideLoadingView];
         [Utils alertMessage:[error localizedDescription]];
     }];
+    op.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [[NSOperationQueue mainQueue] addOperation:op];
 }
 
 @end

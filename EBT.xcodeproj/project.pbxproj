@@ -11,6 +11,7 @@
 		3A0370DA1ACA304C00EAED52 /* MessagingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0370D91ACA304C00EAED52 /* MessagingData.m */; };
 		3A0370DD1ACA3BCE00EAED52 /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0370DC1ACA3BCE00EAED52 /* HTTPRequestManager.m */; };
 		3A0370DF1ACA5D2E00EAED52 /* MessagingViewController in Resources */ = {isa = PBXBuildFile; fileRef = 3A0370DE1ACA5D2E00EAED52 /* MessagingViewController */; };
+		3A0370EB1ACBD56C00EAED52 /* Courses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A0370EA1ACBD56C00EAED52 /* Courses.plist */; };
 		3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F370A1AC4946800438F6A /* CallingViewController.m */; };
 		3A1F371E1AC502CB00438F6A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */; };
 		3A1F37221AC50F2C00438F6A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F37211AC50F2C00438F6A /* Accounts.framework */; };
@@ -172,6 +173,7 @@
 		3A0370DB1ACA3BCE00EAED52 /* HTTPRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequestManager.h; path = EBT/HTTPRequestManager.h; sourceTree = SOURCE_ROOT; };
 		3A0370DC1ACA3BCE00EAED52 /* HTTPRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPRequestManager.m; path = EBT/HTTPRequestManager.m; sourceTree = SOURCE_ROOT; };
 		3A0370DE1ACA5D2E00EAED52 /* MessagingViewController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MessagingViewController; sourceTree = "<group>"; };
+		3A0370EA1ACBD56C00EAED52 /* Courses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Courses.plist; path = EBT/Courses.plist; sourceTree = "<group>"; };
 		3A1F37091AC4946800438F6A /* CallingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallingViewController.h; sourceTree = "<group>"; };
 		3A1F370A1AC4946800438F6A /* CallingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallingViewController.m; sourceTree = "<group>"; };
 		3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
@@ -685,6 +687,7 @@
 				3A85CFA21ABA579200932A1A /* MessagesViewController.m */,
 				3A1F37091AC4946800438F6A /* CallingViewController.h */,
 				3A1F370A1AC4946800438F6A /* CallingViewController.m */,
+				3A0370EA1ACBD56C00EAED52 /* Courses.plist */,
 			);
 			name = Group;
 			path = ..;
@@ -865,6 +868,7 @@
 				91AF5D8617CE0C10009FE460 /* messageicon.png in Resources */,
 				3A1F37301AC5DEA100438F6A /* phone@2x.png in Resources */,
 				3A85CFAF1ABA666C00932A1A /* tab_connections.png in Resources */,
+				3A0370EB1ACBD56C00EAED52 /* Courses.plist in Resources */,
 				91AF5D8717CE0C10009FE460 /* messageicon@2x.png in Resources */,
 				91AF5D8817CE0C10009FE460 /* navbar.png in Resources */,
 				91AF5D8917CE0C10009FE460 /* navbar@2x.png in Resources */,
