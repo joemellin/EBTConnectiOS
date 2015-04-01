@@ -20,8 +20,10 @@
     needsNavBar = YES;
     [self setupTableView];
     [self setNavTitle:@"Courses"];
-    self.displayList = @[@{@"name":@"Privacy Policy", @"url":@"https://vimeo.com/115316692"}
-                            ];
+    
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Courses" ofType:@"plist"];
+    self.displayList = [NSMutableArray arrayWithContentsOfFile:plistPath];
+
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = nil;
     // Do any additional setup after loading the view from its nib.

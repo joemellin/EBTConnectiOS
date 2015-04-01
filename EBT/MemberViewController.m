@@ -11,8 +11,9 @@
 #import <UIActionSheet+Blocks.h>
 #import <UIImageView+AFNetworking.h>
 #import <UIButton+AFNetworking.h>
+#import "HTTPRequestManager.h"
 
-@interface MemberViewController () {
+@interface MemberViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     UIImagePickerController *_imagePickerController;
     UIButton *_profileImage;
     UIImageView *_headerImage;
@@ -655,24 +656,17 @@
 -(void) uploadImage:(NSString*) image {
     NSString* urlStr = [NSString stringWithFormat:@"%@users/%@?auth_token=%@",kBaseURL, self.currentItem[kID], [Utils setting:kSessionToken]];
     
-    
-    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"%@",urlStr);
-    
-    
-    MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
-                                                 succeededCallback:@selector(requestSucceeded:myURLConnection:)
-                                                    failedCallback:@selector(requestFailed:myURLConnection:)
-                                                           context:[NSNumber numberWithInt:2]];
-    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
-                          [NSString stringWithFormat:@"%@",self.currentItem[kID]],@"supported_user_id",
-                          [Utils setting:kSessionToken ],@"auth_token",
-                          image, @"image_data",
-                          nil];
-    
-    [myconn patch:dict];
-    
     [self showLoadingView];
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+    
+    //show loading indicator
+    [manager.httpOperation PATCH:urlStr parameters:@{@"auth_token": [Utils setting:kSessionToken ], @"image_data": image} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self hideLoadingView];
+        [self requestUserInfo];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self hideLoadingView];
+        [Utils alertMessage:[error localizedDescription]];
+    }];
 }
 
 @end

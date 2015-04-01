@@ -77,14 +77,15 @@
 // Create a custom UIButton and add it to the center of our tab bar
 -(void) addCenterButtonWithImage:(UIImage*)buttonImage highlightImage:(UIImage*)highlightImage
 {
-    self.centerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.centerButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
-    self.centerButton.frame = CGRectMake(kScreenBounds.size.width/2 - buttonImage.size.width/2, -20, buttonImage.size.width, buttonImage.size.height);
-    [self.centerButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [self.centerButton setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
-    
-    [self.centerButton addTarget:self action:@selector(whatState) forControlEvents:UIControlEventTouchUpInside];
-    [self.tabBar addSubview:self.centerButton];
+    if(!self.centerButton) {
+        self.centerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.centerButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
+        self.centerButton.frame = CGRectMake(kScreenBounds.size.width/2 - buttonImage.size.width/2, -20, buttonImage.size.width, buttonImage.size.height);
+        [self.centerButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [self.centerButton setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
+        [self.centerButton addTarget:self action:@selector(whatState) forControlEvents:UIControlEventTouchUpInside];
+        [self.tabBar addSubview:self.centerButton];
+    }
 }
 
 -(void)whatState{
