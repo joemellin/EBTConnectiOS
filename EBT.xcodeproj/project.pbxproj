@@ -12,6 +12,7 @@
 		3A0370DD1ACA3BCE00EAED52 /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0370DC1ACA3BCE00EAED52 /* HTTPRequestManager.m */; };
 		3A0370DF1ACA5D2E00EAED52 /* MessagingViewController in Resources */ = {isa = PBXBuildFile; fileRef = 3A0370DE1ACA5D2E00EAED52 /* MessagingViewController */; };
 		3A0370EB1ACBD56C00EAED52 /* Courses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A0370EA1ACBD56C00EAED52 /* Courses.plist */; };
+		3A0370EE1ACCEABF00EAED52 /* MessagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0370ED1ACCEABF00EAED52 /* MessagesCell.m */; };
 		3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F370A1AC4946800438F6A /* CallingViewController.m */; };
 		3A1F371E1AC502CB00438F6A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */; };
 		3A1F37221AC50F2C00438F6A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1F37211AC50F2C00438F6A /* Accounts.framework */; };
@@ -174,6 +175,8 @@
 		3A0370DC1ACA3BCE00EAED52 /* HTTPRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPRequestManager.m; path = EBT/HTTPRequestManager.m; sourceTree = SOURCE_ROOT; };
 		3A0370DE1ACA5D2E00EAED52 /* MessagingViewController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MessagingViewController; sourceTree = "<group>"; };
 		3A0370EA1ACBD56C00EAED52 /* Courses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Courses.plist; path = EBT/Courses.plist; sourceTree = "<group>"; };
+		3A0370EC1ACCEABF00EAED52 /* MessagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesCell.h; path = EBT/MessagesCell.h; sourceTree = "<group>"; };
+		3A0370ED1ACCEABF00EAED52 /* MessagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesCell.m; path = EBT/MessagesCell.m; sourceTree = "<group>"; };
 		3A1F37091AC4946800438F6A /* CallingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallingViewController.h; sourceTree = "<group>"; };
 		3A1F370A1AC4946800438F6A /* CallingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallingViewController.m; sourceTree = "<group>"; };
 		3A1F371D1AC502CB00438F6A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
@@ -681,6 +684,8 @@
 				3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */,
 				3A1F37311AC5DF5800438F6A /* ConnectionsCell.h */,
 				3A1F37321AC5DF5800438F6A /* ConnectionsCell.m */,
+				3A0370EC1ACCEABF00EAED52 /* MessagesCell.h */,
+				3A0370ED1ACCEABF00EAED52 /* MessagesCell.m */,
 				3A85CF9E1ABA56C200932A1A /* CoursesViewController.h */,
 				3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */,
 				3A85CFA11ABA579200932A1A /* MessagesViewController.h */,
@@ -971,6 +976,7 @@
 				9120BE0017B09958005CF602 /* Utils.m in Sources */,
 				9120BE0117B09958005CF602 /* WimAdditions.m in Sources */,
 				9120BE0517B09A75005CF602 /* OpeningViewController.m in Sources */,
+				3A0370EE1ACCEABF00EAED52 /* MessagesCell.m in Sources */,
 				3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */,
 				91D1BAE717B0A12D008A9CAF /* LoginViewController.m in Sources */,
 				9164228117B1F0A80084C4E8 /* WelcomeViewController.m in Sources */,

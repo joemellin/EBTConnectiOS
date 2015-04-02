@@ -8,6 +8,10 @@
 
 #import "MessagesViewController.h"
 #import "MemberViewController.h"
+#import "MessagesCell.h"
+#import "HTTPRequestManager.h"
+#import "MessagingViewController.h"
+
 @interface MessagesViewController ()
 
 @end
@@ -24,63 +28,37 @@
     // Do any additional setup after loading the view from its nib.
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = nil;
+    [self requestUserMessages];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self requestUserMessages];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *MyIdentifier = @"MyIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] ;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    float x = 13;
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, 15, 40, 40)];
-    imageView.tag = kBaseTag + [indexPath row];
+    static NSString *MyIdentifier = @"MessagesCell";
+    MessagesCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    if(!cell) {
+        cell = [[MessagesCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
+        [cell initCell];
+    }
+    
     NSDictionary* item = self.displayList[[indexPath row]];
-    imageView.image = [self getImageFromUrlString:item[@"supporter_image_url"] tag:imageView.tag];
-    imageView.layer.cornerRadius = imageView.frame.size.width/2;
-    imageView.layer.borderColor = [kDarkGrayTextColor CGColor];
-    imageView.layer.borderWidth = 0.5;
-    imageView.clipsToBounds = YES;
-    [cell.contentView addSubview:imageView];
-    
-    
-    x += 50;
-    UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(x , 10, 230, 25)];
-    label.numberOfLines = 1;
-    label.textColor = kGrayTextColor;
-    label.text = @"";
-    label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:14];
-    //label.textAlignment = UITextAlignmentCenter;
-    [cell.contentView addSubview:label];
-    
-    label = [[UILabel alloc] initWithFrame:CGRectMake(x , 35, 230, 25)];
-    label.numberOfLines = 1;
-    label.textColor = kDarkGrayTextColor;
-    label.text =  [NSString stringWithFormat:@"%@ supported your checkin.",item[kName]] ;
-    label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:14];
-    //label.textAlignment = UITextAlignmentCenter;
-    [cell.contentView addSubview:label];
-    
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 68, 0, 0)];
-    imageView.image = [UIImage imageNamed:@"splitline.png"];
-    [self setViewFrame:imageView];
-    [cell.contentView addSubview:imageView];
-    
+    [cell fillCell:item forRow:(int)indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary* item = self.displayList[[indexPath row]];
     
-    MemberViewController* vc = [[MemberViewController alloc] init];
-    vc.isMe = NO ;
-    vc.imageCacheDict = self.imageCacheDict;
-    vc.currentItem = item;
+    MessagingViewController *messageVC = [[MessagingViewController alloc] init];
+    messageVC.hidesBottomBarWhenPushed = YES;
     
-    [self.navigationController pushViewController:vc animated:YES];
-   	
+    NSDictionary *unmutableDict = self.displayList[indexPath.row][kSender];
+    NSMutableDictionary *dict = [unmutableDict mutableCopy];
+    [dict setObject:unmutableDict[kFname] forKey:@"name"];
+    messageVC.currentItem = dict;
+    [self.navigationController pushViewController:messageVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,17 +67,24 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) requestUserMessages:(int) calledId {
-    NSString* urlStr = [NSString stringWithFormat:@"%@user_messages/?auth_token=%@",kBaseURL, [Utils setting:kSessionToken]];
-    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"%@",urlStr);
+-(void) requestUserMessages {
+    NSString* urlStr = [NSString stringWithFormat:@"%@messages/",kBaseURL];
+
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
     
-    
-    MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
-                                                 succeededCallback:@selector(requestSucceeded:myURLConnection:)
-                                                    failedCallback:@selector(requestFailed:myURLConnection:)
-                                                           context:[NSNumber numberWithInt:1]];
-    [myconn get];
+    //show loading indicator
+
+    [manager.httpOperation GET:urlStr parameters:@{@"auth_token": [Utils setting:kSessionToken ]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+            [Utils alertMessage:[responseObject objectForKey:@"error"]];
+        } else {
+            self.displayList = responseObject;
+            [myTableView reloadData];
+        }
+        [self hideLoadingView];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Utils alertMessage:[error localizedDescription]];
+    }];
     [self showLoadingView];
 }
 
