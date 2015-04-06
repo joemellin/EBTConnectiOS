@@ -7,7 +7,7 @@
 #define kLightBlueColor [Utils colorWithRed:98 green:136 blue:196]
 #define kMessagingBackground [Utils colorWithRed:219 green:226 blue:237]
 #define kSessionToken @"kSessionToken"
-#define kBaseURL @"https://www.ebtconnect.net/api/v1/"
+#define kBaseURL @"http://www.ebtconnect.net/api/v1/"
 #define kWebsiteURL @"http://www.ebtconnect.net/"
 #define kForgotPasswordURL @"http://www.ebtconnect.net/users/password/new"
 #define kUserInfoDict @"kUserInfoDict"

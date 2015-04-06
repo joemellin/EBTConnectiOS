@@ -31,6 +31,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.navigationItem.hidesBackButton = YES;
     [self addCenterButtonWithImage:[UIImage imageNamed:@"tab_state"] highlightImage:[UIImage imageNamed:@"tab_state"]];
+    [[(UINavigationController*)self.selectedViewController topViewController] viewWillAppear:animated];
 }
 
 // Create a view controller and setup it's tab bar item with a title and image

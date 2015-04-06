@@ -636,9 +636,8 @@
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     UIImage *scaled = [self imageWithImage:image scaledToFillSize:CGSizeMake(1000, 1000)];
     [_profileImage setImage:scaled forState:UIControlStateNormal];
-    NSData *imageData = UIImagePNGRepresentation(scaled);
-    NSString *imageDataEncodedString = [imageData base64EncodedStringWithOptions:0];
-    [self uploadImage:imageDataEncodedString];
+    NSData *imageData = UIImageJPEGRepresentation(scaled, 1.0);
+    [self performSelector:@selector(uploadImage:) withObject:imageData];
 }
 
 - (UIImage *)imageWithImage:(UIImage *)image scaledToFillSize:(CGSize)size
@@ -658,26 +657,30 @@
     return newImage;
 }
 
--(void) uploadImage:(NSString*) image {
+-(void) uploadImage:(NSData*) image {
     NSString* imagePostUrl = [NSString stringWithFormat:@"%@users/%@?auth_token=%@",kBaseURL, self.currentItem[kID], [Utils setting:kSessionToken]];
     
-    [self showLoadingView];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"auth_token": [Utils setting:kSessionToken ]};
     
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"PATCH" URLString:imagePostUrl parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:[image dataUsingEncoding:NSUTF8StringEncoding] name:@"image_data" fileName:@"image_data" mimeType:@"image/jpeg"];
+    [self showLoadingView];
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+    [manager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
+    [manager setResponseSerializer:[AFJSONResponseSerializer serializer]];
+    
+    NSMutableURLRequest *request = [manager.requestSerializer multipartFormRequestWithMethod:@"PATCH" URLString:imagePostUrl parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:image
+                                    name:@"user[avatar]"
+                                fileName:@"avatar.jpeg" mimeType:@"image/jpeg"];
     } error:nil];
     
-    AFHTTPRequestOperation *op = [manager HTTPRequestOperationWithRequest:request success: ^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPRequestOperation *requestOperation = [manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self hideLoadingView];
-        [self requestUserInfo];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self hideLoadingView];
         [Utils alertMessage:[error localizedDescription]];
+        [self hideLoadingView];
     }];
-    op.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [[NSOperationQueue mainQueue] addOperation:op];
+    
+    // fire the request
+    [requestOperation start];
 }
 
 @end

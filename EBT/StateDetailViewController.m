@@ -71,7 +71,6 @@
 //    if (self.state != 0) {
     
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(40, 430, 0, 0);
         [button setTitle:@"ACCEPT STATE" forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont boldSystemFontOfSize:11];
 
@@ -80,6 +79,7 @@
         [button addTarget:self action:@selector(acceptState) forControlEvents:UIControlEventTouchUpInside];
         [self setViewFrame:button];
         [Utils applyiPhone4YDelta:yDelta forView:button];
+        button.frame = CGRectMake(50, kScreenBounds.size.height - 150, button.frame.size.width, button.frame.size.height);
         [self.view addSubview:button];
         
        button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -87,11 +87,11 @@
         button.titleLabel.font = [UIFont boldSystemFontOfSize:11];
 
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.frame = CGRectMake(180, 430, 0, 0);
         [button setBackgroundImage:[UIImage imageNamed:@"blueaccept2"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(useTool) forControlEvents:UIControlEventTouchUpInside];
         [self setViewFrame:button];
         [Utils applyiPhone4YDelta:yDelta forView:button];
+        button.frame = CGRectMake(kScreenBounds.size.width-button.frame.size.width-50, kScreenBounds.size.height - 150, button.frame.size.width, button.frame.size.height);
         [self.view addSubview:button];
 }
 

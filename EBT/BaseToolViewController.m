@@ -33,15 +33,14 @@
     if (self.currentIndex == self.titles.count - 1) {
         
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(40, kScreenBounds.size.height - 150, 0, 0);
         [button setTitle:@"SAY IT AGAIN" forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont boldSystemFontOfSize:11];
-        
         [button setTitleColor:kDarkGrayTextColor forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"greycontinue"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
         [self setViewFrame:button];
         [Utils applyiPhone4YDelta:yDelta forView:button];
+        button.frame = CGRectMake(50, kScreenBounds.size.height - 150, button.frame.size.width, button.frame.size.height);
         [self.view addSubview:button];
         
         button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -49,11 +48,11 @@
         button.titleLabel.font = [UIFont boldSystemFontOfSize:11];
         
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.frame = CGRectMake(180, kScreenBounds.size.height - 150, 0, 0);
         [button setBackgroundImage:[UIImage imageNamed:@"bluecontinue"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
         [self setViewFrame:button];
         [Utils applyiPhone4YDelta:yDelta forView:button];
+        button.frame = CGRectMake(kScreenBounds.size.width-button.frame.size.width-50, kScreenBounds.size.height - 150, button.frame.size.width, button.frame.size.height);
         [self.view addSubview:button];
         
     }

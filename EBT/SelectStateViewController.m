@@ -8,6 +8,8 @@
 
 #import "SelectStateViewController.h"
 #import "StateDetailViewController.h"
+#import "AcceptStateViewController.h"
+
 @interface SelectStateViewController () {
     NSArray *_states;
 }
@@ -97,10 +99,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.state = [indexPath row];
-    if (!self.isRestartMode) {
-        [self requestCheckIn];
-
+    self.state = (int)[indexPath row];
+    if (self.isRestartMode) {
+        AcceptStateViewController* vc = [[AcceptStateViewController alloc] init];
+        vc.isJoyMode = self.state == 0;
+        vc.state = self.state;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else{
         StateDetailViewController* vc = [[StateDetailViewController alloc] init];
@@ -108,53 +112,6 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
-
--(IBAction)requestCheckIn{
-    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                 [Utils setting:kSessionToken ],@"auth_token",
-                                 nil];
-    dict[@"initial_state"] = [NSString stringWithFormat:@"%d",self.state+1];
-        
-    
-	NSString* urlStr = [NSString stringWithFormat:@"%@checkins",kBaseURL];
-    
-    
-	urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"%@",urlStr);
-    
-	
-	MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
-												 succeededCallback:@selector(requestSucceeded:myURLConnection:)
-													failedCallback:@selector(requestFailed:myURLConnection:)
-														   context:[NSNumber numberWithInt:1]];
-    
-    
-    [myconn post:dict];
-    
-    [self showLoadingView];
-	
-}
-
-
--(void)requestSucceededResultHandler:(id)context result:(NSString*)result{
-    NSLog(@"result:%@",result);
-    
-    if ([context intValue] == 1) {
-        NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-        //[Utils alertMessage:dict[@"success"]];
-        if (dict[kCheckinID]) {
-            [Utils setSettingForKey:kCheckinID withValue:dict[kCheckinID]];
-            [Utils setSettingForKey:kInitialState withValue:[NSNumber numberWithInt:self.state]];
-
-        }
-        StateDetailViewController* vc = [[StateDetailViewController alloc] init];
-        vc.state = self.state;
-        [self.navigationController pushViewController:vc animated:YES];
-	}
-    
-    
-}
-
 
 - (void)didReceiveMemoryWarning
 {

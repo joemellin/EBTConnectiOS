@@ -35,10 +35,10 @@
                      @"Shoulders back... Assume Body at 1.",
                      @"Lovingly observe yourself.",
                      @"Connect with your sanctuary, the safe place within.",
-                     @"Feel a wave of compassion for yourself.",
-                     @"Feel a wave of compassion for others.",
-                     @"Feel a wave of compassion for all living beings.",
-                     @"Feel a surge of joy!",
+                     @"Feel a wave of compassion for yourself."
+//                     @"Feel a wave of compassion for others.",
+//                     @"Feel a wave of compassion for all living beings.",
+//                     @"Feel a surge of joy!",
                      ];
     
     // Do any additional setup after loading the view from its nib.
