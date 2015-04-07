@@ -62,12 +62,21 @@
 }
 
 -(void) loadAvatars {
-    JSQMessagesAvatarImage *meImage = [JSQMessagesAvatarImageFactory avatarImageWithUserInitials:@"ME"
-                                                                                  backgroundColor:[UIColor colorWithWhite:0.85f alpha:1.0f]
-                                                                                        textColor:[UIColor colorWithWhite:0.60f alpha:1.0f]
-                                                                                             font:[UIFont systemFontOfSize:14.0f]
-                                                                                        diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
-    JSQMessagesAvatarImage *otherUser = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"avatar_medium"]
+    
+    UIImage *myImage = [self imageForURL:[Utils setting:kUserInfoDict][kGroup][kImageURL]];
+    if(!myImage) {
+        myImage = [UIImage imageNamed:@"avatar_medium"];
+        [self cacheImageWithURL:[Utils setting:kUserInfoDict][kGroup][kImageURL]];
+    }
+    
+    UIImage *theirImage = [self imageForURL:_currentItem[kImageURL]];
+    if(!theirImage) {
+        theirImage = [UIImage imageNamed:@"avatar_medium"];
+        [self cacheImageWithURL:_currentItem[kImageURL]];
+    }
+    JSQMessagesAvatarImage *meImage = [JSQMessagesAvatarImageFactory avatarImageWithImage:myImage
+                                                                                 diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
+    JSQMessagesAvatarImage *otherUser = [JSQMessagesAvatarImageFactory avatarImageWithImage:theirImage
                                                                                    diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
     
     if([_currentItem[kImageURL] hasPrefix:@"http://"]) {
@@ -85,6 +94,29 @@
     
     self.avatars = @{ [[Utils setting:kUserInfoDict][kID] stringValue] : meImage,
                       [_currentItem[kID] stringValue] : otherUser};
+}
+
+-(void) cacheImageWithURL:(NSString*) url {
+    NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
+    requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[UIImageView sharedImageCache] cacheImage:responseObject forRequest:urlRequest];
+        [self loadAvatars];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"MessagesUpdated" object:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Image error: %@", error);
+    }];
+    [requestOperation start];
+}
+
+-(UIImage*) imageForURL:(NSString*) url {
+    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    UIImage *cachedImage = [[UIImageView sharedImageCache] cachedImageForRequest:request];
+    if (cachedImage) {
+        return cachedImage;
+    }
+    return nil;
 }
 
 -(void)requestMessages{

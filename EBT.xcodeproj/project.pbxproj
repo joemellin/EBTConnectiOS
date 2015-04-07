@@ -10,7 +10,6 @@
 		3A0370D71ACA2EAB00EAED52 /* MessagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0370D61ACA2EAB00EAED52 /* MessagingViewController.m */; };
 		3A0370DA1ACA304C00EAED52 /* MessagingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0370D91ACA304C00EAED52 /* MessagingData.m */; };
 		3A0370DD1ACA3BCE00EAED52 /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0370DC1ACA3BCE00EAED52 /* HTTPRequestManager.m */; };
-		3A0370DF1ACA5D2E00EAED52 /* MessagingViewController in Resources */ = {isa = PBXBuildFile; fileRef = 3A0370DE1ACA5D2E00EAED52 /* MessagingViewController */; };
 		3A0370EB1ACBD56C00EAED52 /* Courses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A0370EA1ACBD56C00EAED52 /* Courses.plist */; };
 		3A0370EE1ACCEABF00EAED52 /* MessagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0370ED1ACCEABF00EAED52 /* MessagesCell.m */; };
 		3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F370A1AC4946800438F6A /* CallingViewController.m */; };
@@ -173,7 +172,6 @@
 		3A0370D91ACA304C00EAED52 /* MessagingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagingData.m; sourceTree = "<group>"; };
 		3A0370DB1ACA3BCE00EAED52 /* HTTPRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequestManager.h; path = EBT/HTTPRequestManager.h; sourceTree = SOURCE_ROOT; };
 		3A0370DC1ACA3BCE00EAED52 /* HTTPRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPRequestManager.m; path = EBT/HTTPRequestManager.m; sourceTree = SOURCE_ROOT; };
-		3A0370DE1ACA5D2E00EAED52 /* MessagingViewController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MessagingViewController; sourceTree = "<group>"; };
 		3A0370EA1ACBD56C00EAED52 /* Courses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Courses.plist; path = EBT/Courses.plist; sourceTree = "<group>"; };
 		3A0370EC1ACCEABF00EAED52 /* MessagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesCell.h; path = EBT/MessagesCell.h; sourceTree = "<group>"; };
 		3A0370ED1ACCEABF00EAED52 /* MessagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesCell.m; path = EBT/MessagesCell.m; sourceTree = "<group>"; };
@@ -743,7 +741,6 @@
 				91AF5CF117CDF0D8009FE460 /* NotificationViewController.m */,
 				3A0370D51ACA2EAB00EAED52 /* MessagingViewController.h */,
 				3A0370D61ACA2EAB00EAED52 /* MessagingViewController.m */,
-				3A0370DE1ACA5D2E00EAED52 /* MessagingViewController */,
 				3A0370D81ACA304C00EAED52 /* MessagingData.h */,
 				3A0370D91ACA304C00EAED52 /* MessagingData.m */,
 			);
@@ -912,7 +909,6 @@
 				91AF5DA617CE0C10009FE460 /* yellowbadge.png in Resources */,
 				91AF5DA717CE0C10009FE460 /* yellowcircle.png in Resources */,
 				91AF5DA817CE0C10009FE460 /* yellowoval.png in Resources */,
-				3A0370DF1ACA5D2E00EAED52 /* MessagingViewController in Resources */,
 				91AF5DA917CE0C10009FE460 /* yellowstick.png in Resources */,
 				9131B15417D63CA3003E0F58 /* logoutbutton.png in Resources */,
 				3A85CFBD1ABA688600932A1A /* tab_state.png in Resources */,
