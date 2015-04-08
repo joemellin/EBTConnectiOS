@@ -9,8 +9,6 @@
 #import "Tool4ViewController.h"
 #import "SelectStateViewController.h"
 @interface Tool4ViewController () <UITextViewDelegate> {
-    NSArray *_titles;
-    NSArray *_details;
     NSArray *_placeHolders;
 }
 @end
@@ -31,7 +29,7 @@
     needsNavBar = YES;
     [self setNavTitle:@"Cycle Tool"];
     
-    _titles = @[
+    self.titles = @[
                  @"Just The Facts...",
                  @"I feel angry that...",
                  @"I feel sad that...",
@@ -39,9 +37,9 @@
                  @"I feel guilty that...",
                  @"What is my unreasonable expectation?",
                  @"What is my reasonable expectation?",
-                 @"Grind In the New Expectatin"
+                 @"Grind In the New Expectation"
                  ];
-    _details = @[
+    self.details = @[
                  @"The situation is...\nWhat I'm most stressed about is...",
                  @"Unlock the circuit with A+ anger.\nI feel angry that... I can't stand that... I hate it that...",
                  @"Switch the circuit by taking a deep breath.\nConnect with yourself and feel your sadness.\nI feel sad that...",
@@ -70,7 +68,7 @@
     title = [[UILabel alloc] init];
     title.numberOfLines = 0;
     title.textColor = kBlueTextColor;
-    title.text =  _titles[self.currentIndex]; ;
+    title.text =  self.titles[self.currentIndex]; ;
     title.backgroundColor= [UIColor clearColor];
     title.font = [UIFont systemFontOfSize:16];
     title.textAlignment = NSTextAlignmentCenter;
@@ -81,7 +79,7 @@
     description.numberOfLines = 0;
     description.textColor = kDarkGrayTextColor;
     description.textAlignment = NSTextAlignmentCenter;
-    description.text = _details[self.currentIndex];
+    description.text = self.details[self.currentIndex];
     [imageView addSubview:description];
     
     float titleHeight = [Utils heightWithText:title.text andFont:title.font andMaxWidth:kScreenBounds.size.width-20];
@@ -92,7 +90,7 @@
     float textViewStart = description.frame.origin.y+description.frame.size.height+10;
     imageView.frame = CGRectMake(0, 0, kScreenBounds.size.width, textViewStart);
 
-    if(self.currentIndex < _titles.count -1) {
+    if(self.currentIndex < self.titles.count -1) {
         UITextView* textView = [[UITextView alloc] initWithFrame:CGRectMake(10, textViewStart,
                                                                             kScreenBounds.size.width-20,
                                                                             kScreenBounds.size.height-textViewStart-150)];
@@ -101,8 +99,8 @@
         
         NSDictionary* dict;
         //NSDictionary* dict = [Utils setting:kCycleToolNoteDict];
-        if (dict[ _titles[self.currentIndex]]) {
-             textView.text = dict[ _titles[self.currentIndex]];
+        if (dict[ self.titles[self.currentIndex]]) {
+             textView.text = dict[ self.titles[self.currentIndex]];
         } else {
             textView.text = _placeHolders[self.currentIndex];
         }
@@ -128,7 +126,7 @@
         if (!dict) {
             dict = [NSMutableDictionary dictionaryWithCapacity:10];
         }
-        dict[ _titles[self.currentIndex]] = myTextView.text;
+        dict[ self.titles[self.currentIndex]] = myTextView.text;
         //[Utils setSettingForKey:kCycleToolNoteDict withValue:dict];
         
         Tool4ViewController* vc = [[Tool4ViewController alloc] init];

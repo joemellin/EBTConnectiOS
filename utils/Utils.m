@@ -607,10 +607,10 @@
 }
 
 +(float)heightWithText:(NSString*)text andFont:(UIFont*)font andMaxWidth:(float)maxWidth {
-    return [text boundingRectWithSize:CGSizeMake(maxWidth, kScreenBounds.size.height)
-                              options:NSLineBreakByWordWrapping | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+    return [text boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT)
+                              options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
                            attributes:@{NSFontAttributeName:font}
-                              context:nil].size.height;
+                              context:nil].size.height+30;//+20 bugfix
 }
 
 @end
