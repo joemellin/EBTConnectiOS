@@ -104,25 +104,7 @@
     
 }
 
--(void)useTool{
-    if (_state == 0) {
-        [Utils showSubViewWithName:@"Tool1ViewController" withDelegate:self];
-    }
-    else if (_state == 1) {
-        [Utils showSubViewWithName:@"Tool2ViewController" withDelegate:self];
-    }
-    else if (_state == 2) {
-        [Utils showSubViewWithName:@"Tool3ViewController" withDelegate:self];
-    }
-    else if (_state == 3) {
-        [Utils showSubViewWithName:@"Tool4ViewController" withDelegate:self];
-    }
-    else if (_state == 4) {
-        [Utils showSubViewWithName:@"Tool5ViewController" withDelegate:self];
-    }
-    
-    
-}
+
 
 - (void)didReceiveMemoryWarning
 {

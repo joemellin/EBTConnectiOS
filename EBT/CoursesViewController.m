@@ -40,6 +40,7 @@
     NSDictionary* item = self.displayList[[indexPath row]];
     
     cell.textLabel.text = item[kName];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:18];
     
     return cell;
 

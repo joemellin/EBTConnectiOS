@@ -16,7 +16,6 @@
 @interface MemberViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     UIImagePickerController *_imagePickerController;
     UIButton *_profileImage;
-    UIImageView *_headerImage;
 }
 @end
 
@@ -37,11 +36,12 @@
     // Do any additional setup after loading the view from its nib.
     _imagePickerController = [[UIImagePickerController alloc] init];
     _imagePickerController.delegate = self;
+    [self setNavTitle:@"Profile"];
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 -(void)showMessage{
@@ -58,12 +58,6 @@
     contentView.scrollEnabled = YES;
     NSLog(@"FRAME %f %f %f %f", contentView.frame.origin.x, contentView.frame.origin.y, contentView.frame.size.width, contentView.frame.size.height);
     self.navigationItem.hidesBackButton = YES;
-    UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    backButton.frame = CGRectMake(20, 10, 0, 0);
-	[backButton setBackgroundImage:[UIImage imageNamed:@"groupback"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(backToGroup) forControlEvents:UIControlEventTouchUpInside];
-	[self setViewFrame:backButton];
-    [contentView addSubview:backButton];
     
     if (self.isMe) {
         [self addLogoutButtonToView:contentView];
@@ -72,24 +66,12 @@
     
     [self.view insertSubview:contentView atIndex:0];
     
-    UIView* whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 90, kScreenBounds.size.width, 130)];
-    whiteView.backgroundColor = [UIColor whiteColor];
-    [contentView addSubview:whiteView];
-
-    
-    _headerImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 15, 0, 0)];
-    _headerImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"k%@",self.currentItem[kCourseID]] ];
-    [self setViewFrame:_headerImage];
-    _headerImage.tag = 0 + kBaseTag;
-    
-    [contentView addSubview:_headerImage];
-    
     _profileImage = [UIButton buttonWithType:UIButtonTypeCustom];
-    _profileImage.frame = CGRectMake(103, 23.5, 113, 113);
+    _profileImage.frame = CGRectMake(kScreenBounds.size.width/2.0-130/2.0, 23.5, 130, 130);
     _profileImage.tag = 100;
     _profileImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [_profileImage setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:self.currentItem[kImageURL]]];
-    _profileImage.layer.cornerRadius = _profileImage.frame.size.width/2;
+    _profileImage.layer.cornerRadius = 130/2;
     _profileImage.clipsToBounds = YES;
     if(_isMe) {
         [_profileImage addTarget:self action:@selector(updateImage) forControlEvents:UIControlEventTouchUpInside];
@@ -99,99 +81,25 @@
     
     UILabel* label;
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 145, kScreenBounds.size.width, 30)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 180, kScreenBounds.size.width, 30)];
     label.numberOfLines = 1;
     label.textColor = kDarkGrayTextColor;
     label.text =  self.currentItem[kName];
     label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:18];
+    label.font = [UIFont boldSystemFontOfSize:26];
     label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
-    
-    float lastY = 180;
-    UIImageView *profileLine = [[UIImageView alloc] initWithFrame:CGRectMake(0, lastY, 0, 0)];
-    profileLine.image = [UIImage imageNamed:@"profileline"];
-    [self setViewFrame:profileLine];
-    [contentView addSubview:profileLine];
-    
-    
-    if (self.isMe) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(100, lastY, 175, 40);
-        UIImage *image = [UIImage imageNamed:@"notificationicon"];
-        [button setImage:image forState:UIControlStateNormal];
-        button.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-        [button setTitle:@"Notifications" forState:UIControlStateNormal];
-        [button setTitleColor:kDarkGrayTextColor forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:15];
-        button.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
-        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [button addTarget:self action:@selector(showNotifications) forControlEvents:UIControlEventTouchUpInside];
-        [contentView addSubview:button];
-    } else {
-        profileLine = [[UIImageView alloc] initWithFrame:CGRectMake(160, lastY, 0.5, 40)];
-        profileLine.image = [UIImage imageNamed:@"profileline2"];
-        [contentView addSubview:profileLine];
-        
-        int messageCount = [self.currentItem[k_new_message_count] intValue];
-        //messageCount = 3;
-        if (messageCount > 0 && !messageRead) {
-            UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(175,lastY+8, 0, 0)];
-            imageView.image = [UIImage imageNamed:@"notificationcircle"];
-            [self setViewFrame:imageView];
-            [contentView addSubview:imageView ];
-            
-            UILabel* label = [[UILabel alloc] initWithFrame:imageView.frame];
-            label.numberOfLines = 1;
-            label.textColor = [UIColor whiteColor];
-            label.text =  [NSString stringWithFormat:@"%d",messageCount];
-            label.backgroundColor= [UIColor clearColor];
-            label.font = [UIFont systemFontOfSize:14];
-            label.textAlignment = NSTextAlignmentCenter;
-            [contentView addSubview:label];
 
-
-        }
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(200, lastY, 175, 40);
-        UIImage *image = [UIImage imageNamed:@"messageicon"];
-        [button setImage:image forState:UIControlStateNormal];
-        button.imageEdgeInsets = UIEdgeInsetsMake(2, 10, 0, 0);
-        [button setTitle:@"Message" forState:UIControlStateNormal];
-        [button setTitleColor:kDarkGrayTextColor forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:15];
-        button.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
-        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [button addTarget:self action:@selector(showMessage) forControlEvents:UIControlEventTouchUpInside];
-        [contentView addSubview:button];
-        
-        button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(40, lastY, 175, 40);
-        image = [UIImage imageNamed:@"heart"];
-        [button setImage:image forState:UIControlStateNormal];
-        button.imageEdgeInsets = UIEdgeInsetsMake(2, 10, 0, 0);
-        [button setTitle:@"Support" forState:UIControlStateNormal];
-        [button setTitleColor:kDarkGrayTextColor forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:15];
-        button.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
-        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [button addTarget:self action:@selector(support) forControlEvents:UIControlEventTouchUpInside];
-        [contentView addSubview:button];
-
-    }
-   
+    UILabel *info = [[UILabel alloc] init];
+    info.numberOfLines = 0;
+    info.textAlignment = NSTextAlignmentCenter;
     
+    info.text = [NSString stringWithFormat:@"Your Phone Number\n%@\n\nYour Dial in Information\n%@\n\nPassword\n%@", self.currentItem[kPhoneNumber], self.currentItem[kTwilioNumber], self.currentItem[kPin]];
+    [info sizeToFit];
+    info.frame = CGRectMake(kScreenBounds.size.width/2.0-info.frame.size.width/2.0, 200, info.frame.size.width, info.frame.size.height);
+    [contentView addSubview:info];
+//    [self addTimelineToParentView:contentView fromY:lastY];
     
-    profileLine = [[UIImageView alloc] initWithFrame:CGRectMake(0, lastY+40, 0, 0)];
-    profileLine.image = [UIImage imageNamed:@"profileline"];
-    [self setViewFrame:profileLine];
-    
-    [contentView addSubview:profileLine];
-    
-    lastY = profileLine.frame.origin.y + profileLine.frame.size.height + 20;
-    
-    [self addTimelineToParentView:contentView fromY:lastY];
-        
     
     
 }
@@ -539,52 +447,32 @@
     
     [self showLoadingView];
 	
+    //resoponse   [self requestUserInfo];
 }
 
 -(IBAction)requestUserInfo{
-    //test data
-    //[self requestSucceededResultHandler:@"1" result:@""];return;
-    
-    
-    NSDictionary* dict = [Utils setting:kUserInfoDict];
-    NSString* urlStr = [NSString stringWithFormat:@"%@users/%@?auth_token=%@",kBaseURL, self.currentItem[kID], [Utils setting:kSessionToken]];
-    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"%@",urlStr);
-    
-	
-	MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
-												 succeededCallback:@selector(requestSucceeded:myURLConnection:)
-													failedCallback:@selector(requestFailed:myURLConnection:)
-														   context:[NSNumber numberWithInt:1]];
-    [myconn get];
-    [self showLoadingView];
-	
-}
 
--(void)requestSucceededResultHandler:(id)context result:(NSString*)result{
-    NSLog(@"result:%@",result);
+    [self showLoadingView];
+    NSDictionary* params = [Utils setting:kUserInfoDict];
+    NSString* urlStr = [NSString stringWithFormat:@"%@users/%@?auth_token=%@",kBaseURL, self.currentItem[kID], [Utils setting:kSessionToken]];
     
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
     
-    
-	if ([context intValue] == 1) {
-        //test data
-        //result = [Utils stringFromFileNamed:@"member.json"];
-        NSDictionary* dict0 = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-        if (dict0) {
-            NSMutableDictionary* dict = [dict0 mutableCopy];
+    [manager.httpOperation GET:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+            [Utils alertMessage:[responseObject objectForKey:@"error"]];
+        } else {
+            NSMutableDictionary* dict = [responseObject mutableCopy];
             //dict[k_new_checkin_count] = currentItem[k_new_checkin_count];
             //dict[k_new_message_count] =  currentItem[k_new_message_count];
             self.currentItem = dict;
             [self setupUI];
+            [self hideLoadingView];
+
         }
-        
-	}
-    else if ([context intValue] == 2) {
-        //[Utils alertMessage:[NSString stringWithFormat:@"You have supported %@!",currentItem[kName] ]];
-        [self requestUserInfo];
-    }
-    
-    
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Utils alertMessage:[error localizedDescription]];
+    }];
 }
 
 -(void)loadingViewHanlder:(int)context{

@@ -21,6 +21,10 @@
 		3A1F37301AC5DEA100438F6A /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1F372C1AC5DEA100438F6A /* phone@2x.png */; };
 		3A1F37331AC5DF5800438F6A /* ConnectionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F37321AC5DF5800438F6A /* ConnectionsCell.m */; };
 		3A1F37361AC5E8B600438F6A /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F37351AC5E8B600438F6A /* CustomNavigationController.m */; };
+		3A6CD2471AD7871F007C4AC3 /* logoutButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6CD2461AD7871F007C4AC3 /* logoutButton.png */; };
+		3A6CD2491AD7AAD3007C4AC3 /* newMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6CD2481AD7AAD3007C4AC3 /* newMessage@2x.png */; };
+		3A6CD24D1AD7B6A3007C4AC3 /* phone2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6CD24C1AD7B6A3007C4AC3 /* phone2@2x.png */; };
+		3A6CD24F1AD7B925007C4AC3 /* grayPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6CD24E1AD7B925007C4AC3 /* grayPlus.png */; };
 		3A85CF971ABA52B200932A1A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF961ABA52B200932A1A /* TabBarViewController.m */; };
 		3A85CF9D1ABA543900932A1A /* ConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9C1ABA543900932A1A /* ConnectionsViewController.m */; };
 		3A85CFA01ABA56C200932A1A /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A85CF9F1ABA56C200932A1A /* CoursesViewController.m */; };
@@ -50,7 +54,6 @@
 		9120BD7417ABD34C005CF602 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BD7317ABD34C005CF602 /* main.m */; };
 		9120BD7817ABD34C005CF602 /* EBTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BD7717ABD34C005CF602 /* EBTAppDelegate.m */; };
 		9120BD8117ABD34C005CF602 /* EBTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BD8017ABD34C005CF602 /* EBTViewController.m */; };
-		9120BD8417ABD34C005CF602 /* EBTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9120BD8217ABD34C005CF602 /* EBTViewController.xib */; };
 		9120BDFB17B09958005CF602 /* BaseRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BDEE17B09958005CF602 /* BaseRequestViewController.m */; };
 		9120BDFC17B09958005CF602 /* MyURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BDF017B09958005CF602 /* MyURLConnection.m */; };
 		9120BDFD17B09958005CF602 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BDF217B09958005CF602 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -59,7 +62,6 @@
 		9120BE0017B09958005CF602 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BDF817B09958005CF602 /* Utils.m */; };
 		9120BE0117B09958005CF602 /* WimAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BDFA17B09958005CF602 /* WimAdditions.m */; };
 		9120BE0517B09A75005CF602 /* OpeningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9120BE0317B09A75005CF602 /* OpeningViewController.m */; };
-		9131B15417D63CA3003E0F58 /* logoutbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9131B15317D63CA3003E0F58 /* logoutbutton.png */; };
 		9143608617E54077004C18A3 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9143608517E54077004C18A3 /* AirshipConfig.plist */; };
 		9143609217E540B0004C18A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9143608717E540B0004C18A3 /* MapKit.framework */; };
 		9143609317E540B0004C18A3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9143608817E540B0004C18A3 /* CoreLocation.framework */; };
@@ -187,6 +189,10 @@
 		3A1F37321AC5DF5800438F6A /* ConnectionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectionsCell.m; path = EBT/ConnectionsCell.m; sourceTree = "<group>"; };
 		3A1F37341AC5E8B600438F6A /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
 		3A1F37351AC5E8B600438F6A /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
+		3A6CD2461AD7871F007C4AC3 /* logoutButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoutButton.png; sourceTree = "<group>"; };
+		3A6CD2481AD7AAD3007C4AC3 /* newMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newMessage@2x.png"; sourceTree = "<group>"; };
+		3A6CD24C1AD7B6A3007C4AC3 /* phone2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone2@2x.png"; sourceTree = "<group>"; };
+		3A6CD24E1AD7B925007C4AC3 /* grayPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayPlus.png; sourceTree = "<group>"; };
 		3A85CF951ABA52B200932A1A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		3A85CF961ABA52B200932A1A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		3A85CF9B1ABA543900932A1A /* ConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionsViewController.h; path = EBT/ConnectionsViewController.h; sourceTree = "<group>"; };
@@ -230,7 +236,6 @@
 		9120BD7717ABD34C005CF602 /* EBTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBTAppDelegate.m; sourceTree = "<group>"; };
 		9120BD7F17ABD34C005CF602 /* EBTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBTViewController.h; sourceTree = "<group>"; };
 		9120BD8017ABD34C005CF602 /* EBTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBTViewController.m; sourceTree = "<group>"; };
-		9120BD8317ABD34C005CF602 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EBTViewController.xib; sourceTree = "<group>"; };
 		9120BDED17B09958005CF602 /* BaseRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequestViewController.h; sourceTree = "<group>"; };
 		9120BDEE17B09958005CF602 /* BaseRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequestViewController.m; sourceTree = "<group>"; };
 		9120BDEF17B09958005CF602 /* MyURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyURLConnection.h; sourceTree = "<group>"; };
@@ -247,7 +252,6 @@
 		9120BDFA17B09958005CF602 /* WimAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WimAdditions.m; sourceTree = "<group>"; };
 		9120BE0217B09A75005CF602 /* OpeningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpeningViewController.h; sourceTree = "<group>"; };
 		9120BE0317B09A75005CF602 /* OpeningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpeningViewController.m; sourceTree = "<group>"; };
-		9131B15317D63CA3003E0F58 /* logoutbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoutbutton.png; sourceTree = "<group>"; };
 		9143608517E54077004C18A3 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		9143608717E540B0004C18A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9143608817E540B0004C18A3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -480,7 +484,6 @@
 				9120BD7717ABD34C005CF602 /* EBTAppDelegate.m */,
 				9120BD7F17ABD34C005CF602 /* EBTViewController.h */,
 				9120BD8017ABD34C005CF602 /* EBTViewController.m */,
-				9120BD8217ABD34C005CF602 /* EBTViewController.xib */,
 				3A85CF951ABA52B200932A1A /* TabBarViewController.h */,
 				3A85CF961ABA52B200932A1A /* TabBarViewController.m */,
 				91DBDCCC17BA5C040030EDF5 /* States */,
@@ -548,6 +551,10 @@
 		91AF5CF517CE0C10009FE460 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A6CD24C1AD7B6A3007C4AC3 /* phone2@2x.png */,
+				3A6CD2461AD7871F007C4AC3 /* logoutButton.png */,
+				3A6CD2481AD7AAD3007C4AC3 /* newMessage@2x.png */,
+				3A6CD24E1AD7B925007C4AC3 /* grayPlus.png */,
 				3A1F37291AC5DEA100438F6A /* avatar_medium@2x.png */,
 				3A1F372A1AC5DEA100438F6A /* conversation_new@2x.png */,
 				3A1F372B1AC5DEA100438F6A /* conversation@2x.png */,
@@ -556,7 +563,6 @@
 				3A86EDD01ABBC3B7007C1B77 /* checked@2x.png */,
 				3A86EDCC1ABBC3A8007C1B77 /* unchecked@2x.png */,
 				3A85CFA61ABA666C00932A1A /* tabs */,
-				9131B15317D63CA3003E0F58 /* logoutbutton.png */,
 				91AF5CF617CE0C10009FE460 /* 2fields.png */,
 				91AF5CF717CE0C10009FE460 /* bell.png */,
 				91AF5CF817CE0C10009FE460 /* bg.png */,
@@ -816,7 +822,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9120BD7217ABD34C005CF602 /* InfoPlist.strings in Resources */,
-				9120BD8417ABD34C005CF602 /* EBTViewController.xib in Resources */,
 				3A85CFB21ABA666C00932A1A /* tab_courses@2x.png in Resources */,
 				3A85CFB41ABA666C00932A1A /* tab_messages@2x.png in Resources */,
 				3A85CFB31ABA666C00932A1A /* tab_messages.png in Resources */,
@@ -827,6 +832,7 @@
 				91AF5D5417CE0C10009FE460 /* bg.png in Resources */,
 				91AF5D5517CE0C10009FE460 /* blueaccept.png in Resources */,
 				91AF5D5617CE0C10009FE460 /* blueaccept2.png in Resources */,
+				3A6CD2471AD7871F007C4AC3 /* logoutButton.png in Resources */,
 				3A85CFB51ABA666C00932A1A /* tab_profile.png in Resources */,
 				3A86EDD11ABBC3B7007C1B77 /* checked@2x.png in Resources */,
 				91AF5D5717CE0C10009FE460 /* bluebutton.png in Resources */,
@@ -841,9 +847,11 @@
 				3A86EDCD1ABBC3A8007C1B77 /* unchecked@2x.png in Resources */,
 				91AF5D6017CE0C10009FE460 /* k2.png in Resources */,
 				91AF5D6117CE0C10009FE460 /* k3.png in Resources */,
+				3A6CD24D1AD7B6A3007C4AC3 /* phone2@2x.png in Resources */,
 				91AF5D6217CE0C10009FE460 /* k4.png in Resources */,
 				91AF5D6317CE0C10009FE460 /* k5.png in Resources */,
 				3A85CFBE1ABA688600932A1A /* tab_state@2x.png in Resources */,
+				3A6CD2491AD7AAD3007C4AC3 /* newMessage@2x.png in Resources */,
 				91AF5D6417CE0C10009FE460 /* k6.png in Resources */,
 				91AF5D6517CE0C10009FE460 /* k7.png in Resources */,
 				91AF5D6617CE0C10009FE460 /* k9.png in Resources */,
@@ -898,6 +906,7 @@
 				91AF5D9C17CE0C10009FE460 /* 4.jpg in Resources */,
 				91AF5D9D17CE0C10009FE460 /* 5.jpg in Resources */,
 				91AF5D9E17CE0C10009FE460 /* 6.jpg in Resources */,
+				3A6CD24F1AD7B925007C4AC3 /* grayPlus.png in Resources */,
 				91AF5D9F17CE0C10009FE460 /* 1-5.jpg in Resources */,
 				91AF5DA017CE0C10009FE460 /* 2-5.jpg in Resources */,
 				91AF5DA117CE0C10009FE460 /* 3-5.jpg in Resources */,
@@ -910,7 +919,6 @@
 				91AF5DA717CE0C10009FE460 /* yellowcircle.png in Resources */,
 				91AF5DA817CE0C10009FE460 /* yellowoval.png in Resources */,
 				91AF5DA917CE0C10009FE460 /* yellowstick.png in Resources */,
-				9131B15417D63CA3003E0F58 /* logoutbutton.png in Resources */,
 				3A85CFBD1ABA688600932A1A /* tab_state.png in Resources */,
 				3A86EDD31ABBC3C2007C1B77 /* checked.png in Resources */,
 				9143608617E54077004C18A3 /* AirshipConfig.plist in Resources */,
@@ -1008,14 +1016,6 @@
 				9120BD7117ABD34C005CF602 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9120BD8217ABD34C005CF602 /* EBTViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9120BD8317ABD34C005CF602 /* en */,
-			);
-			name = EBTViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

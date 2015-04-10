@@ -7,7 +7,6 @@
 //
 
 #import "SelectStateViewController.h"
-#import "StateDetailViewController.h"
 #import "AcceptStateViewController.h"
 
 @interface SelectStateViewController () {
@@ -36,26 +35,13 @@
 
     }
     [self setupTableView];
-    
-    float y =410;
-    if (!kIsiPhone5) {
-        y = 370;
-    }
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(160-12, y, 0, 0)];
-    imageView.image = [UIImage imageNamed:@"bell"];
-    [self setViewFrame:imageView];
-    //[self.view addSubview:imageView];
-	
-	
-	
 }
 
 
 
 -(void)setupTableView{
-	float offsetY = 0;
-	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, offsetY, kScreenBounds.size.width, kScreenBounds.size.height)
-											  style:UITableViewStyleGrouped];
+	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)
+											  style:UITableViewStylePlain];
     myTableView.dataSource = self;
 	myTableView.delegate = self;
 	myTableView.backgroundColor = [UIColor clearColor];
@@ -79,7 +65,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 	
-	return 70;
+	return (kScreenBounds.size.height-120)/[_states count];
 }
 
 
@@ -90,7 +76,6 @@
 	cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] ;
 	//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.font = [UIFont boldSystemFontOfSize:25];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = kDarkGrayTextColor;
     cell.textLabel.text = [_states objectAtIndex:indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -107,9 +92,25 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
     else{
-        StateDetailViewController* vc = [[StateDetailViewController alloc] init];
-        vc.state = self.state;
-        [self.navigationController pushViewController:vc animated:YES];
+        [self useTool];
+    }
+}
+
+-(void)useTool {
+    if (_state == 0) {
+        [Utils showSubViewWithName:@"Tool1ViewController" withDelegate:self];
+    }
+    else if (_state == 1) {
+        [Utils showSubViewWithName:@"Tool2ViewController" withDelegate:self];
+    }
+    else if (_state == 2) {
+        [Utils showSubViewWithName:@"Tool3ViewController" withDelegate:self];
+    }
+    else if (_state == 3) {
+        [Utils showSubViewWithName:@"Tool4ViewController" withDelegate:self];
+    }
+    else if (_state == 4) {
+        [Utils showSubViewWithName:@"Tool5ViewController" withDelegate:self];
     }
 }
 
