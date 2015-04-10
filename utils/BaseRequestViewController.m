@@ -82,7 +82,6 @@
 }
 
 -(void)setNavTitle:(NSString*)title{
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: kGrayTextColor};
     self.navigationItem.title = title;
     self.navigationItem.hidesBackButton = YES;
 }
@@ -102,15 +101,11 @@
 
 
 -(void)addLogoutButtonToView:(UIView*)view{
-    
-    self.navigationItem.hidesBackButton = YES;
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(kScreenBounds.size.width-57-10, 10, 0, 0);
-	[button setBackgroundImage:[UIImage imageNamed:@"logoutbutton"] forState:UIControlStateNormal];
+    button.frame = CGRectMake(kScreenBounds.size.width-57-10, 10, 45, 35);
+	[button setBackgroundImage:[UIImage imageNamed:@"logoutButton"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
-	[self setViewFrame:button];
-    [view addSubview:button];
-    
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 -(void)logout{
@@ -150,12 +145,11 @@
     
 }
 
--(void)addRightArrowButton{
+-(void)addRightButtonWithImage:(UIImage*) image target:(id)target selector:(SEL) selector {
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 0, 0);
-	[button setBackgroundImage:[UIImage imageNamed:@"rightarrow"] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
-	[self setViewFrame:button];
+    button.frame = CGRectMake(0, 0, 45, 35);
+	[button setBackgroundImage:image forState:UIControlStateNormal];
+    [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:button];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];

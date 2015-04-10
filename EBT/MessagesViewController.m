@@ -11,6 +11,7 @@
 #import "MessagesCell.h"
 #import "HTTPRequestManager.h"
 #import "MessagingViewController.h"
+#import "TabBarViewController.h"
 
 @interface MessagesViewController ()
 
@@ -29,6 +30,7 @@
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = nil;
     [self requestUserMessages];
+    [self addRightButtonWithImage:[UIImage imageNamed:@"grayPlus"] target:self selector:@selector(showConnections)];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -48,6 +50,10 @@
     NSDictionary* item = self.displayList[[indexPath row]];
     [cell fillCell:item forRow:(int)indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 88;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -103,7 +109,9 @@
         }
         
     }
-    
-    
+}
+
+-(void) showConnections {
+    [[Utils appDelegate].tabBarViewController setSelectedIndex:1];
 }
 @end

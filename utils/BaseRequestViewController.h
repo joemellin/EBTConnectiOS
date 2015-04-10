@@ -83,7 +83,7 @@
 -(void)addTopLeftLogo;
 -(void)addLeftBackButton;
 -(void)addFullBackground;
--(void)addRightSettingButton;
+-(void)addRightButtonWithImage:(UIImage*) image target:(id)target selector:(SEL) selector;
 -(void)addDetailBackground;
 -(UIViewController<SplitDetailViewProtocol>*)getSplitDetailViewControllerFromClassName:(NSString*)name;
 -(void)addPlayerViewForVideoAtPath:(NSString*)path withFrame:(CGRect)frame;

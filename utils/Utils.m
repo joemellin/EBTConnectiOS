@@ -610,7 +610,7 @@
     return [text boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT)
                               options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
                            attributes:@{NSFontAttributeName:font}
-                              context:nil].size.height+30;//+20 bugfix
+                              context:nil].size.height;
 }
 
 @end

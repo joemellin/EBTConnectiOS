@@ -8,6 +8,8 @@
 
 #import "MessagingViewController.h"
 #import "MessagingData.h"
+#import "HTTPRequestManager.h"
+#import "CallingViewController.h"
 
 @interface MessagingViewController () {
     MessagingData *_messageData;
@@ -23,7 +25,6 @@
     self.senderDisplayName = @"Me";
     self.senderId = [[Utils setting:kUserInfoDict][kID] stringValue];
     // self.title = @"Messages";
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: kGrayTextColor};
     self.navigationItem.title = self.currentItem[kName];
     [self addBarButtons];
     [_spinner startAnimating];
@@ -42,7 +43,7 @@
 -(void)addBarButtons {
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 25, 25);
+    button.frame = CGRectMake(0, 0, 45, 35);
     [button setBackgroundImage:[UIImage imageNamed:@"graybackbutton"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     
@@ -51,7 +52,12 @@
     _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     _spinner.frame = button.frame;
     _spinner.hidesWhenStopped = YES;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_spinner];
+    
+    UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setImage:[UIImage imageNamed:@"phone2"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(callUser) forControlEvents:UIControlEventTouchUpInside];
+    rightButton.frame = CGRectMake(0, 0, 45, 35);
+    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:rightButton], [[UIBarButtonItem alloc] initWithCustomView:_spinner]];
 }
 
 -(void) back {
@@ -283,6 +289,34 @@
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapCellAtIndexPath:(NSIndexPath *)indexPath touchLocation:(CGPoint)touchLocation
 {
     NSLog(@"Tapped cell at %@!", NSStringFromCGPoint(touchLocation));
+}
+
+-(void) callUser {
+    [self callCommunity:[_currentItem[kID] intValue]];
+}
+
+-(void) callCommunity:(int) calledId {
+    NSString* urlStr = [NSString stringWithFormat:@"%@community_connections",kBaseURL];
+    
+    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 [Utils setting:kSessionToken],@"auth_token",
+                                 [NSNumber numberWithInteger:calledId], @"called_id",
+                                 nil];
+    
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+    
+    [manager.httpOperation POST:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+            [Utils alertMessage:[responseObject objectForKey:@"error"]];
+        } else {
+            CallingViewController *callingVC = [[CallingViewController alloc] init];
+            callingVC.hidesBottomBarWhenPushed = YES;
+            callingVC.name = _currentItem[kName];
+            [self.navigationController pushViewController:callingVC animated:YES];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Utils alertMessage:[error localizedDescription]];
+    }];
 }
 
 @end
