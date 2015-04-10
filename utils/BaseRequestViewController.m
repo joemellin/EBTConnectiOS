@@ -145,6 +145,17 @@
     
 }
 
+-(void) addLeftBackButtonHome {
+    self.navigationItem.hidesBackButton = YES;
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, 0, 0);
+    [button setBackgroundImage:[UIImage imageNamed:@"grayHome"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [self setViewFrame:button];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+}
+
 -(void)addRightButtonWithImage:(UIImage*) image target:(id)target selector:(SEL) selector {
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 45, 35);

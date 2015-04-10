@@ -11,7 +11,6 @@
 @interface SelectStateViewController : BaseRequestViewController{
    
 }
-@property BOOL isRestartMode;
 @property int state;
 
 @end

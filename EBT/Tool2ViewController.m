@@ -25,9 +25,9 @@
 - (void)viewDidLoad
 {
     needsNavBar = YES;
-    [self setNavTitle:@"Brain State 2"];
+    [self setNavTitle:@"Feeling Check"];
     
-    self.titles = @[@"How do I feel?", @"What do I need?", @"Do I need support?"];
+    self.titles = @[@"How do you feel?", @"What do you need?", @"Do you need support?"];
     self.details = @[@"Take a deep breakth and ask, \"How do I feel?\"\nPause and become aware of your strongest feelings.\n\n\nThe Basic Feelings\n\nAngry, Sad, Afraid, Guilty, Tired, Tense, Hungry, Full, Lonely and Sick\n\nGrateful, Happy, Secure, Proud, Rested, Relaxed, Satisfied, Loved, Loving and Healthy.",
                  @"Given how you feel, what do you really need?\n\nThe Basic Needs\nTo connect with myself(e.g., feel my feelings)\nTo connect with others (e.g., make a community connection)\nTo meet the logical need (e.g., I am tired. I need sleep.)",
                  @"What support do you need from others?\n\nThe Basic Support Needs\n\nTo listen to my feelings and needs\nTo share their feelings and needs\nTo help me in another way"];
@@ -56,20 +56,6 @@
     
     [super viewDidLoad];
 }
-
--(void)next{
-    if (self.currentIndex == self.titles.count - 1) {
-        SelectStateViewController* vc = [[SelectStateViewController alloc] init];
-        vc.isRestartMode = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else{
-        Tool2ViewController* vc = [[Tool2ViewController alloc] init];
-        vc.currentIndex = self.currentIndex + 1;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-}
-
 
 - (void)didReceiveMemoryWarning
 {

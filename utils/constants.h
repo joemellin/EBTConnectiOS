@@ -5,11 +5,12 @@
 #define kDarkGrayTextColor [Utils colorWithRed:89 green:89 blue:89]
 #define kBlueTextColor [Utils colorWithRed:39 green:137 blue:255]
 #define kLightBlueColor [Utils colorWithRed:98 green:136 blue:196]
+#define kOffWhite [Utils colorWithRed:254 green:253 blue:254]
 #define kMessagingBackground [Utils colorWithRed:219 green:226 blue:237]
 #define kSessionToken @"kSessionToken"
-#define kBaseURL @"http://www.ebtconnect.net/api/v1/"
-#define kWebsiteURL @"http://www.ebtconnect.net/"
-#define kForgotPasswordURL @"http://www.ebtconnect.net/users/password/new"
+#define kBaseURL @"https://www.ebtconnect.net/api/v1/"
+#define kWebsiteURL @"https://www.ebtconnect.net/"
+#define kForgotPasswordURL @"https://www.ebtconnect.net/users/password/new"
 #define kUserInfoDict @"kUserInfoDict"
 #define kGroup @"group"
 #define kID @"id"

@@ -8,6 +8,8 @@
 
 #import "Tool4ViewController.h"
 #import "SelectStateViewController.h"
+#import "AcceptStateViewController.h"
+
 @interface Tool4ViewController () <UITextViewDelegate> {
     NSArray *_placeHolders;
 }
@@ -113,15 +115,18 @@
     }
     
     [super viewDidLoad];
+    
+    [self addRightButtonWithImage:[UIImage imageNamed:@"bluearrow"] target:self selector:@selector(next)];
 }
 
--(void)next{
+-(void)next {
     if (self.currentIndex == self.titles.count - 1) {
-        SelectStateViewController* vc = [[SelectStateViewController alloc] init];
-        vc.isRestartMode = YES;
+        AcceptStateViewController* vc = [[AcceptStateViewController alloc] init];
+        int state = [[Utils setting:@"currentStateSetting"] intValue];
+        vc.isJoyMode = state == 0;
+        vc.state = state;
         [self.navigationController pushViewController:vc animated:YES];
-    }
-    else{
+    } else {
         NSMutableDictionary* dict = [[Utils setting:kCycleToolNoteDict] mutableCopy];
         if (!dict) {
             dict = [NSMutableDictionary dictionaryWithCapacity:10];

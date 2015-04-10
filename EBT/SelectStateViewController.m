@@ -20,7 +20,7 @@
 {
     self = [super init];
     if (self) {
-         _states = @[@"1 Feeling Great", @"2 Feeling Good", @"3 A Little Stressed", @"4 Definitely Stressed", @"5 Stressed Out"];
+         _states = @[@"1 Feeling Great!", @"2 Feeling Good", @"3 A Little Stressed", @"4 Definitely Stressed", @"5 Stressed Out!"];
     }
     return self;
 }
@@ -29,12 +29,9 @@
 {
     needsNavBar = YES;
     [super viewDidLoad];
-    [self setNavTitle:@"What is Your State?"];
-    if (self.isRestartMode) {
-        [self setNavTitle:@"What is Your State Now?"];
-
-    }
+    [self setNavTitle:@"How do you feel?"];
     [self setupTableView];
+    [self addLeftBackButtonHome];
 }
 
 
@@ -85,15 +82,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.state = (int)[indexPath row];
-    if (self.isRestartMode) {
-        AcceptStateViewController* vc = [[AcceptStateViewController alloc] init];
-        vc.isJoyMode = self.state == 0;
-        vc.state = self.state;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else{
-        [self useTool];
-    }
+    [self useTool];
 }
 
 -(void)useTool {
@@ -112,6 +101,7 @@
     else if (_state == 4) {
         [Utils showSubViewWithName:@"Tool5ViewController" withDelegate:self];
     }
+    [Utils setSettingForKey:@"currentStateSetting" withValue:[NSNumber numberWithInt:_state]];
 }
 
 - (void)didReceiveMemoryWarning

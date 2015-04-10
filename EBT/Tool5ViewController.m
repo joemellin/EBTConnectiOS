@@ -50,18 +50,6 @@
     [super viewDidLoad];
 }
 
--(void)next{
-    if (self.currentIndex == self.titles.count - 1) {
-        SelectStateViewController* vc = [[SelectStateViewController alloc] init];
-        vc.isRestartMode = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else{
-        Tool5ViewController* vc = [[Tool5ViewController alloc] init];
-        vc.currentIndex = self.currentIndex + 1;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

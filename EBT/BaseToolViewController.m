@@ -8,6 +8,8 @@
 
 #import "BaseToolViewController.h"
 #import "SelectStateViewController.h"
+#import "AcceptStateViewController.h"
+
 @interface BaseToolViewController ()
 
 @end
@@ -29,44 +31,43 @@
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = nil;
     
-    float yDelta = -50;
     if (self.currentIndex == self.titles.count - 1) {
         
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:@"SAY IT AGAIN" forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont boldSystemFontOfSize:11];
-        [button setTitleColor:kDarkGrayTextColor forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"greycontinue"] forState:UIControlStateNormal];
+        [button setTitle:@"Say it Again" forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        [button setTitleColor:kLightBlueColor forState:UIControlStateNormal];
+        [button setBackgroundColor:kOffWhite];
+        button.layer.cornerRadius = 10;
+        button.layer.borderColor = [kLightBlueColor CGColor];
+        button.layer.borderWidth = 1;
         [button addTarget:self action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
-        [self setViewFrame:button];
-        [Utils applyiPhone4YDelta:yDelta forView:button];
-        button.frame = CGRectMake(50, kScreenBounds.size.height - 150, button.frame.size.width, button.frame.size.height);
+        button.frame = CGRectMake(20, kScreenBounds.size.height - 138, (kScreenBounds.size.width-60)/2, 54);
         [self.view addSubview:button];
         
         button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:@"CONTINUE" forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont boldSystemFontOfSize:11];
-        
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"bluecontinue"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"whitehouse"] forState:UIControlStateNormal];
+        button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [button setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+        [button setBackgroundColor:kLightBlueColor];
+        button.layer.cornerRadius = 10;
         [button addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
-        [self setViewFrame:button];
-        [Utils applyiPhone4YDelta:yDelta forView:button];
-        button.frame = CGRectMake(kScreenBounds.size.width-button.frame.size.width-50, kScreenBounds.size.height - 150, button.frame.size.width, button.frame.size.height);
+        button.frame = CGRectMake(40 + (kScreenBounds.size.width-60)/2, kScreenBounds.size.height - 138, (kScreenBounds.size.width-60)/2, 54);
         [self.view addSubview:button];
         
     }
     else{
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(kScreenBounds.size.width/2-106/2, kScreenBounds.size.height - 150, 0, 0);
+        button.frame = CGRectMake(20, kScreenBounds.size.height-138, kScreenBounds.size.width-40, 54);
         button.titleLabel.font = [UIFont boldSystemFontOfSize:11];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"bluecontinue"] forState:UIControlStateNormal];
-        [button setTitle:@"CONTINUE" forState:UIControlStateNormal];
+        [button setBackgroundColor:kLightBlueColor];
+        button.layer.cornerRadius = 10;
+        [button.titleLabel setFont:[UIFont boldSystemFontOfSize:17]];
+        [button setTitle:@"Continue" forState:UIControlStateNormal];
         
         [button addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
-        [self setViewFrame:button];
-        [Utils applyiPhone4YDelta:yDelta forView:button];
         [self.view addSubview:button];
     }
 }
@@ -74,6 +75,20 @@
 -(void)restart{
     int index = [[self.navigationController viewControllers] count] - self.titles.count;
     [self.navigationController popToViewController:[self.navigationController viewControllers][index] animated:YES];
+}
+
+-(void)next {
+    if (self.currentIndex == self.titles.count - 1) {
+        AcceptStateViewController* vc = [[AcceptStateViewController alloc] init];
+        int state = [[Utils setting:@"currentStateSetting"] intValue];
+        vc.isJoyMode = state == 0;
+        vc.state = state;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        id vc = [[[self class] alloc] init];
+        [vc setCurrentIndex:self.currentIndex + 1];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning

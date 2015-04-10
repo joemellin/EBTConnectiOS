@@ -82,6 +82,7 @@
 -(void)addHintBarWithText:(NSString*)text;
 -(void)addTopLeftLogo;
 -(void)addLeftBackButton;
+-(void) addLeftBackButtonHome;
 -(void)addFullBackground;
 -(void)addRightButtonWithImage:(UIImage*) image target:(id)target selector:(SEL) selector;
 -(void)addDetailBackground;
