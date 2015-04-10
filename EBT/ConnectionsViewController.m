@@ -12,6 +12,8 @@
 #import <UIImageView+AFNetworking.h>
 #import "ConnectionsCell.h"
 #import "MessagingViewController.h"
+#import "HTTPRequestManager.h"
+
 @interface ConnectionsViewController ()
 
 @end
@@ -50,20 +52,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary* item = self.displayList[[indexPath row]];
-    
-    MemberViewController* vc = [[MemberViewController alloc] init];
-    vc.imageCacheDict = self.imageCacheDict;
-    vc.currentItem = item;
-    
-    [self.navigationController pushViewController:vc animated:YES];
    	
 }
 
 #pragma mark - functions for buttons on cell
 -(void) callSelected:(UIButton*) sender {
     NSDictionary *item = self.displayList[sender.tag];
-    [self requestCommunityCall:[item[kID] intValue]];
+    [self callCommunity:[item[kID] intValue] withName:item[kName]];
     CallingViewController *callingVC = [[CallingViewController alloc] init];
     callingVC.hidesBottomBarWhenPushed = YES;
     callingVC.name = item[kName];
@@ -81,10 +76,27 @@
 
 -(void)requestGroup{
     [self.navigationController setNavigationBarHidden:NO animated:NO];
-    NSDictionary* dict = [Utils setting:kUserInfoDict];
-    NSString* urlStr = [NSString stringWithFormat:@"%@groups/%@?auth_token=%@",kBaseURL, [[dict objectForKey:kGroup] objectForKey:kID], [Utils setting:kSessionToken]];
-    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"%@",urlStr);
+    [self showLoadingView];
+    
+    NSDictionary* params = [Utils setting:kUserInfoDict];
+    NSString* urlStr = [NSString stringWithFormat:@"%@groups/%@?auth_token=%@",kBaseURL, [[params objectForKey:kGroup] objectForKey:kID], [Utils setting:kSessionToken]];
+    
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+    
+    [manager.httpOperation GET:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+            [Utils alertMessage:[responseObject objectForKey:@"error"]];
+        } else {
+            [self hideLoadingView];
+            if (responseObject && responseObject[@"members"]) {
+                self.currentItem = [responseObject mutableCopy];
+                self.displayList = self.currentItem[@"members"];
+                [myTableView reloadData];
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Utils alertMessage:[error localizedDescription]];
+    }];
     
     
     MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
@@ -92,45 +104,33 @@
                                                     failedCallback:@selector(requestFailed:myURLConnection:)
                                                            context:[NSNumber numberWithInt:1]];
     [myconn get];
-    [self showLoadingView];
+
     
 }
 
--(void) requestCommunityCall:(int) calledId {
-    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                 [Utils setting:kSessionToken],@"auth_token",
-                                 [NSNumber numberWithInteger:calledId], @"called_id",
-                                 nil];
+-(void) callCommunity:(int) calledId withName:(NSString*)name {
     NSString* urlStr = [NSString stringWithFormat:@"%@community_connections",kBaseURL];
-    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"%@",urlStr);
     
+    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   [Utils setting:kSessionToken],@"auth_token",
+                                   [NSNumber numberWithInteger:calledId], @"called_id",
+                                   nil];
     
-    MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
-                                                 succeededCallback:@selector(requestSucceeded:myURLConnection:)
-                                                    failedCallback:@selector(requestFailed:myURLConnection:)
-                                                           context:[NSNumber numberWithInt:1]];
-    [myconn post:dict];
-}
-
--(void)requestSucceededResultHandler:(id)context result:(NSString*)result{
-    NSLog(@"result:%@",result);
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
     
-    [self hideLoadingView];
-    
-    if ([context intValue] == 1) {
-        NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-        if (dict && dict[@"members"]) {
-            self.currentItem = [dict mutableCopy];
-            self.displayList = self.currentItem[@"members"];
-            [myTableView reloadData];
+    [manager.httpOperation POST:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+            [Utils alertMessage:[responseObject objectForKey:@"error"]];
+        } else {
+            CallingViewController *callingVC = [[CallingViewController alloc] init];
+            callingVC.hidesBottomBarWhenPushed = YES;
+            callingVC.name = name;
+            [self.navigationController pushViewController:callingVC animated:YES];
         }
-        
-    }
-    
-    
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Utils alertMessage:[error localizedDescription]];
+    }];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
