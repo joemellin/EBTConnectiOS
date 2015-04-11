@@ -25,32 +25,41 @@
 - (void)viewDidLoad
 {
     needsNavBar = YES;
-    [self setNavTitle:@"Feeling Check"];
+    [self setNavTitle:@"Feelings Check"];
     
     self.titles = @[@"How do you feel?", @"What do you need?", @"Do you need support?"];
     self.details = @[@"Take a deep breakth and ask, \"How do I feel?\"\nPause and become aware of your strongest feelings.\n\n\nThe Basic Feelings\n\nAngry, Sad, Afraid, Guilty, Tired, Tense, Hungry, Full, Lonely and Sick\n\nGrateful, Happy, Secure, Proud, Rested, Relaxed, Satisfied, Loved, Loving and Healthy.",
                  @"Given how you feel, what do you really need?\n\nThe Basic Needs\nTo connect with myself(e.g., feel my feelings)\nTo connect with others (e.g., make a community connection)\nTo meet the logical need (e.g., I am tired. I need sleep.)",
                  @"What support do you need from others?\n\nThe Basic Support Needs\n\nTo listen to my feelings and needs\nTo share their feelings and needs\nTo help me in another way"];
-    
+//    
+//    UILabel* label;
+//    label = [[UILabel alloc] initWithFrame:CGRectMake(10 , 10, kScreenBounds.size.width-20, 44)];
+//    label.numberOfLines = 0;
+//    label.textColor = kDarkGrayTextColor;
+//    label.text =  self.titles[self.currentIndex];
+//    label.backgroundColor= [UIColor clearColor];
+//    label.font = [UIFont boldSystemFontOfSize:16];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    [self.view addSubview:label];
+//    
+//    NSString* text = self.details[self.currentIndex];
+//    UIFont* font = [UIFont systemFontOfSize:17];
+//    float h = [Utils heightWithText:text andFont:font andMaxWidth:kScreenBounds.size.width-20];
+//    label = [[UILabel alloc] initWithFrame:CGRectMake(10 , 50, kScreenBounds.size.width-20, h)];
+//    label.numberOfLines = 0;
+//    label.textColor = kDarkGrayTextColor;
+//    label.text =  text;
+//    label.backgroundColor= [UIColor clearColor];
+//    label.font = font;
+//    label.textAlignment = NSTextAlignmentCenter;
+//    [self.view addSubview:label];
     UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(10 , 10, kScreenBounds.size.width-20, 44)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 142, kScreenBounds.size.width, 150)];
     label.numberOfLines = 0;
     label.textColor = kDarkGrayTextColor;
     label.text =  self.titles[self.currentIndex];
     label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:16];
-    label.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:label];
-    
-    NSString* text = self.details[self.currentIndex];
-    UIFont* font = [UIFont systemFontOfSize:17];
-    float h = [Utils heightWithText:text andFont:font andMaxWidth:kScreenBounds.size.width-20];
-    label = [[UILabel alloc] initWithFrame:CGRectMake(10 , 50, kScreenBounds.size.width-20, h)];
-    label.numberOfLines = 0;
-    label.textColor = kDarkGrayTextColor;
-    label.text =  text;
-    label.backgroundColor= [UIColor clearColor];
-    label.font = font;
+    label.font = [UIFont boldSystemFontOfSize:22];
     label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     

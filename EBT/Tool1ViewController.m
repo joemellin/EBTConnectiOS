@@ -38,27 +38,25 @@
                      @"Feel a surge of joy!"
                      ];
     
-    // Do any additional setup after loading the view from its nib.
-    float delta = kiPhone5HeightDelta/2;
-    
     _message = [[UILabel alloc] init];
     _message.numberOfLines = 0;
-    _message.textColor = kBlueTextColor;
+    _message.textColor = kOffWhite;
+    _message.shadowColor = [UIColor blackColor];
+    _message.shadowOffset = CGSizeMake(0, 1);
+    _message.textAlignment = NSTextAlignmentCenter;
     _message.text =  self.titles[self.currentIndex];
     _message.backgroundColor= [UIColor clearColor];
-    _message.font = [UIFont boldSystemFontOfSize:18];
-    _message.textAlignment = NSTextAlignmentCenter;
-    [Utils applyiPhone4YDelta:-delta forView:_message];
-    [self.view addSubview:_message];
+    _message.font = [UIFont systemFontOfSize:50];
     
-    float height = [Utils heightWithText:_message.text andFont:_message.font andMaxWidth:kScreenBounds.size.width];
-    _message.frame = CGRectMake(0, 0, kScreenBounds.size.width, height);
+    float height = [Utils heightWithText:_message.text andFont:_message.font andMaxWidth:kScreenBounds.size.width-40]+30;
+    _message.frame = CGRectMake(20, (kScreenBounds.size.height-64)/2-height/2-60, kScreenBounds.size.width-40, height);
     
     _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"Tool1-%i", self.currentIndex]]];
     _imageView.contentMode = UIViewContentModeScaleAspectFill;
-    _imageView.frame = CGRectMake(0, height, kScreenBounds.size.width, kScreenBounds.size.height-height);
+    _imageView.frame = CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height);
     _imageView.clipsToBounds = YES;
     [self.view addSubview:_imageView];
+    [self.view addSubview:_message];
     
     [super viewDidLoad];
 }

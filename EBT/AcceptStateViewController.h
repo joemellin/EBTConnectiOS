@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "Utils.h"
 @interface AcceptStateViewController : BaseRequestViewController
-@property BOOL isJoyMode;
 @property int state;
 @end

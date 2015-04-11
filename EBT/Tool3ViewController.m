@@ -47,25 +47,34 @@
                  @"Feel secure - even a little bit secure, then express it.",
                  @"Express it. Notice a surge of release and joy."];
     
+//    UILabel* label;
+//    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 100, kScreenBounds.size.width, 44)];
+//    label.numberOfLines = 0;
+//    label.textColor = kDarkGrayTextColor;
+//    label.text =  self.titles[self.currentIndex];
+//    label.backgroundColor= [UIColor clearColor];
+//    label.font = [UIFont boldSystemFontOfSize:16];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    [self.view addSubview:label];
+//    
+//    NSString* text = self.details[self.currentIndex];
+//    UIFont* font = [UIFont systemFontOfSize:17];
+//    float h = [Utils heightWithText:text andFont:font andMaxWidth:kScreenBounds.size.width-20];
+//    label = [[UILabel alloc] initWithFrame:CGRectMake(10 , 150, kScreenBounds.size.width-20, h)];
+//    label.numberOfLines = 0;
+//    label.textColor = kDarkGrayTextColor;
+//    label.text =  text;
+//    label.backgroundColor= [UIColor clearColor];
+//    label.font = font;
+//    label.textAlignment = NSTextAlignmentCenter;
+//    [self.view addSubview:label];
     UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 100, kScreenBounds.size.width, 44)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 142, kScreenBounds.size.width, 150)];
     label.numberOfLines = 0;
     label.textColor = kDarkGrayTextColor;
     label.text =  self.titles[self.currentIndex];
     label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:16];
-    label.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:label];
-    
-    NSString* text = self.details[self.currentIndex];
-    UIFont* font = [UIFont systemFontOfSize:17];
-    float h = [Utils heightWithText:text andFont:font andMaxWidth:kScreenBounds.size.width-20];
-    label = [[UILabel alloc] initWithFrame:CGRectMake(10 , 150, kScreenBounds.size.width-20, h)];
-    label.numberOfLines = 0;
-    label.textColor = kDarkGrayTextColor;
-    label.text =  text;
-    label.backgroundColor= [UIColor clearColor];
-    label.font = font;
+    label.font = [UIFont boldSystemFontOfSize:22];
     label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     

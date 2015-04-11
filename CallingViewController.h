@@ -11,5 +11,6 @@
 
 @interface CallingViewController : BaseRequestViewController
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, assign) BOOL isGroupCall;
 -(void) hideCallingView;
 @end

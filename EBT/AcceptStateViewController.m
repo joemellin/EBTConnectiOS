@@ -27,19 +27,10 @@
 {
     [super viewDidLoad];
     
-    float offsetY = -20;
-    if (kIsiPhone5) {
-        offsetY = 15;
-    }
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, offsetY, 0, 0)];
-    imageView.image = [UIImage imageNamed:@"checkincircle"];
-    if (self.isJoyMode) {
-        imageView.image = [UIImage imageNamed:@"joycircle"];
-        
-    }
-    [self setViewFrame:imageView];
-    //imageView.center = CGPointMake(160, 150);
-    imageView.tag = 0 + kBaseTag;
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 50,kScreenBounds.size.width-80, kScreenBounds.size.width-80)];
+    imageView.image = [UIImage imageNamed:@"checkinicon"];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+
     [self.view addSubview:imageView];
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -48,19 +39,15 @@
     [self.view addSubview:button];
     
     UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 150-22, kScreenBounds.size.width, 44)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 100+kScreenBounds.size.width-80, kScreenBounds.size.width, 160)];
     label.numberOfLines = 0;
-    label.textColor = [UIColor whiteColor];
-    label.text =  @"Checkin +1";
-    if (self.isJoyMode) {
-        label.text =  @"Joy Point +1";
+    label.textColor = kLightBlueColor;
+    label.text =  @"YOU\nCHECKED\nIN!";
 
-    }
     label.backgroundColor= [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:16];
+    label.font = [UIFont boldSystemFontOfSize:30];
     label.textAlignment = NSTextAlignmentCenter;
-    //[self.view addSubview:label];
-    // Do any additional setup after loading the view from its nib.
+    [self.view addSubview:label];
     
     [self requestCheckIn];
     

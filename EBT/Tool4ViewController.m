@@ -59,7 +59,7 @@
                       @"I feel guilty that...",
                       @"My unreasonable expectation is...",
                       @"My reasonable expectation is...",
-                      
+                      @"Repeat your reasonable expectation 10+ times..."
                       ];
     UIImageView* imageView = [[UIImageView alloc] init];
     imageView.image = [[UIImage imageNamed:@"describebar"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
@@ -72,27 +72,19 @@
     title.textColor = kBlueTextColor;
     title.text =  self.titles[self.currentIndex]; ;
     title.backgroundColor= [UIColor clearColor];
-    title.font = [UIFont systemFontOfSize:16];
+    title.font = [UIFont boldSystemFontOfSize:19];
     title.textAlignment = NSTextAlignmentCenter;
     [imageView addSubview:title];
     [self.view addSubview:imageView];
     
-    UILabel *description = [[UILabel alloc] init];
-    description.numberOfLines = 0;
-    description.textColor = kDarkGrayTextColor;
-    description.textAlignment = NSTextAlignmentCenter;
-    description.text = self.details[self.currentIndex];
-    [imageView addSubview:description];
     
     float titleHeight = [Utils heightWithText:title.text andFont:title.font andMaxWidth:kScreenBounds.size.width-20];
-    float descriptionHeight = [Utils heightWithText:description.text andFont:description.font andMaxWidth:kScreenBounds.size.width-20];
-    
+   
     title.frame = CGRectMake(10, 10, kScreenBounds.size.width-20, titleHeight);
-    description.frame = CGRectMake(10, 10+titleHeight, kScreenBounds.size.width-20, descriptionHeight);
-    float textViewStart = description.frame.origin.y+description.frame.size.height+10;
+    float textViewStart = titleHeight+20;
     imageView.frame = CGRectMake(0, 0, kScreenBounds.size.width, textViewStart);
 
-    if(self.currentIndex < self.titles.count -1) {
+    if(self.currentIndex < self.titles.count) {
         UITextView* textView = [[UITextView alloc] initWithFrame:CGRectMake(10, textViewStart,
                                                                             kScreenBounds.size.width-20,
                                                                             kScreenBounds.size.height-textViewStart-150)];
@@ -106,11 +98,10 @@
         } else {
             textView.text = _placeHolders[self.currentIndex];
         }
-        textView.font = [UIFont systemFontOfSize:15];
+        textView.font = [UIFont systemFontOfSize:17];
         textView.textColor = [UIColor lightGrayColor]; //optional
         textView.backgroundColor = [UIColor clearColor];
         [self.view addSubview:textView];
-        [textView becomeFirstResponder];
         myTextView = textView;
     }
     
@@ -123,7 +114,6 @@
     if (self.currentIndex == self.titles.count - 1) {
         AcceptStateViewController* vc = [[AcceptStateViewController alloc] init];
         int state = [[Utils setting:@"currentStateSetting"] intValue];
-        vc.isJoyMode = state == 0;
         vc.state = state;
         [self.navigationController pushViewController:vc animated:YES];
     } else {

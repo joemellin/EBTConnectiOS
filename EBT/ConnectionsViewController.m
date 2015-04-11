@@ -13,6 +13,7 @@
 #import "ConnectionsCell.h"
 #import "MessagingViewController.h"
 #import "HTTPRequestManager.h"
+#import "GroupCellTableViewCell.h"
 
 @interface ConnectionsViewController ()
 
@@ -38,17 +39,29 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *MyIdentifier = @"ConnectionsCell";
-    ConnectionsCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-    if(!cell) {
-        cell = [[ConnectionsCell alloc] initWithDelegate:self];
-        [cell initCell];
-    }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.displayList count]+1;
+}
 
-    NSDictionary* item = self.displayList[[indexPath row]];
-    [cell fillCell:item forRow:(int)indexPath.row];
-    return cell;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row == 0) {
+        GroupCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell"];
+        if(!cell) {
+            cell = [[GroupCellTableViewCell alloc] initWithDelegate:self];
+            [cell initCell];
+        }
+        return cell;
+    } else {
+        ConnectionsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConnectionsCell"];
+        if(!cell) {
+            cell = [[ConnectionsCell alloc] initWithDelegate:self];
+            [cell initCell];
+        }
+
+        NSDictionary* item = self.displayList[indexPath.row-1];
+        [cell fillCell:item forRow:(int)indexPath.row-1];
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -97,15 +110,6 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Utils alertMessage:[error localizedDescription]];
     }];
-    
-    
-    MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
-                                                 succeededCallback:@selector(requestSucceeded:myURLConnection:)
-                                                    failedCallback:@selector(requestFailed:myURLConnection:)
-                                                           context:[NSNumber numberWithInt:1]];
-    [myconn get];
-
-    
 }
 
 -(void) callCommunity:(int) calledId withName:(NSString*)name {
@@ -125,6 +129,25 @@
             CallingViewController *callingVC = [[CallingViewController alloc] init];
             callingVC.hidesBottomBarWhenPushed = YES;
             callingVC.name = name;
+            [self.navigationController pushViewController:callingVC animated:YES];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Utils alertMessage:[error localizedDescription]];
+    }];
+}
+
+-(void) conferenceCall {
+    
+    NSString* urlStr = [NSString stringWithFormat:@"%@telegroup_calls?auth_token=%@",kBaseURL, [Utils setting:kSessionToken]];
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+    
+    [manager.httpOperation POST:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+            [Utils alertMessage:[responseObject objectForKey:@"error"]];
+        } else {
+            CallingViewController *callingVC = [[CallingViewController alloc] init];
+            callingVC.hidesBottomBarWhenPushed = YES;
+            callingVC.isGroupCall = YES;
             [self.navigationController pushViewController:callingVC animated:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

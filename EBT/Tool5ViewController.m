@@ -35,7 +35,6 @@
                          ];
     
     // Do any additional setup after loading the view from its nib.
-    float delta = kiPhone5HeightDelta/2;
     UILabel* label;
     label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 142, kScreenBounds.size.width, 150)];
     label.numberOfLines = 0;
@@ -44,7 +43,6 @@
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:22];
     label.textAlignment = NSTextAlignmentCenter;
-    [Utils applyiPhone4YDelta:-delta forView:label];
     [self.view addSubview:label];
     
     [super viewDidLoad];

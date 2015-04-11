@@ -67,11 +67,11 @@
     [self.view insertSubview:contentView atIndex:0];
     
     _profileImage = [UIButton buttonWithType:UIButtonTypeCustom];
-    _profileImage.frame = CGRectMake(kScreenBounds.size.width/2.0-130/2.0, 23.5, 130, 130);
+    _profileImage.frame = CGRectMake(kScreenBounds.size.width/2.0-130/2.0, 30, 130, 130);
     _profileImage.tag = 100;
-    _profileImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [_profileImage setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:self.currentItem[kImageURL]]];
-    _profileImage.layer.cornerRadius = 130/2;
+    _profileImage.layer.cornerRadius = _profileImage.frame.size.height/2;
+    _profileImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
     _profileImage.clipsToBounds = YES;
     if(_isMe) {
         [_profileImage addTarget:self action:@selector(updateImage) forControlEvents:UIControlEventTouchUpInside];
@@ -81,7 +81,7 @@
     
     UILabel* label;
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 180, kScreenBounds.size.width, 30)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 190, kScreenBounds.size.width, 30)];
     label.numberOfLines = 1;
     label.textColor = kDarkGrayTextColor;
     label.text =  self.currentItem[kName];
@@ -96,7 +96,7 @@
     
     info.text = [NSString stringWithFormat:@"Your Phone Number\n%@\n\nYour Dial in Information\n%@\n\nPassword\n%@", self.currentItem[kPhoneNumber], self.currentItem[kTwilioNumber], self.currentItem[kPin]];
     [info sizeToFit];
-    info.frame = CGRectMake(kScreenBounds.size.width/2.0-info.frame.size.width/2.0, 200, info.frame.size.width, info.frame.size.height);
+    info.frame = CGRectMake(kScreenBounds.size.width/2.0-info.frame.size.width/2.0, 230, info.frame.size.width, info.frame.size.height);
     [contentView addSubview:info];
 //    [self addTimelineToParentView:contentView fromY:lastY];
     

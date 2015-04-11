@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Utils.h"
-#import "BaseToolViewController.h"
+#import "BaseRequestViewController.h"
 
-@interface Tool4ViewController : BaseToolViewController {
+@interface Tool4ViewController : BaseRequestViewController {
     UITextView* myTextView;
 }
-
+@property int currentIndex;
+@property (nonatomic,strong) NSArray *titles;
+@property (nonatomic,strong) NSArray *details;
 @end

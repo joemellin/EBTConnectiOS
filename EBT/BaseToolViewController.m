@@ -81,7 +81,6 @@
     if (self.currentIndex == self.titles.count - 1) {
         AcceptStateViewController* vc = [[AcceptStateViewController alloc] init];
         int state = [[Utils setting:@"currentStateSetting"] intValue];
-        vc.isJoyMode = state == 0;
         vc.state = state;
         [self.navigationController pushViewController:vc animated:YES];
     } else {

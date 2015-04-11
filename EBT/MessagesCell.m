@@ -39,14 +39,14 @@
     _text = [[UILabel alloc] init];
     _text.font = [UIFont boldSystemFontOfSize:21];
     _text.textColor = [UIColor blackColor];
-    _text.frame = CGRectMake(90, 10, kScreenBounds.size.width - 100, 20);
+    _text.frame = CGRectMake(90, 10, kScreenBounds.size.width - 120, 20);
     [self addSubview:_text];
     
     _detailText = [[UILabel alloc] init];
     _detailText.numberOfLines = 2;
     _detailText.font = [UIFont systemFontOfSize:17];
-    _detailText.textColor = [UIColor blackColor];
-    _detailText.frame = CGRectMake(90, 40, kScreenBounds.size.width - 100, 38);
+    _detailText.textColor = klightGrayTextColor;
+    _detailText.frame = CGRectMake(90, 40, kScreenBounds.size.width - 120, 38);
     [self addSubview:_detailText];
     
     _newMessage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"newMessage"]];

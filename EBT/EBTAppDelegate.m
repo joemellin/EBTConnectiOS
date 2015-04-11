@@ -10,7 +10,6 @@
 
 #import "EBTViewController.h"
 #import "OpeningViewController.h"
-#import "GroupViewController.h"
 #import "Tool2S2ViewController.h"
 #import "LoginViewController.h"
 
@@ -43,7 +42,7 @@
     }
     
     [[UINavigationBar appearance] setTranslucent:NO];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:71/255.0f green:138/255.0f blue:198/255.0f alpha:1.0], NSFontAttributeName: [UIFont boldSystemFontOfSize:18]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:71/255.0f green:138/255.0f blue:198/255.0f alpha:1.0], NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:245/255.0f green:245/255.0f blue:245/255.0f alpha:1.0]];
     
     
