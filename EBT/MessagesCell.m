@@ -59,7 +59,7 @@
     _text.text = item[kSender][kFname];
     _detailText.text = item[kContent];
     float height = [Utils heightWithText:item[kContent] andFont:_detailText.font andMaxWidth:_detailText.frame.size.width];
-    float top = (self.frame.size.height - height - 25)/2;
+    float top = (88 - height - 25)/2;
     _text.frame = CGRectMake(_text.frame.origin.x, top, _text.frame.size.width, _text.frame.size.height);
     _detailText.frame = CGRectMake(_detailText.frame.origin.x, top+25, kScreenBounds.size.width-100, height);
     

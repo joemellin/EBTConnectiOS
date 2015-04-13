@@ -15,7 +15,7 @@
 
 @interface MemberViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     UIImagePickerController *_imagePickerController;
-    UIButton *_profileImage;
+    UIImageView *_profileImage;
 }
 @end
 
@@ -54,7 +54,7 @@
     if(contentView) {
         [contentView removeFromSuperview];
     }
-    contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, kScreenBounds.size.width, kScreenBounds.size.height-20)];
+    contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height)];
     contentView.scrollEnabled = YES;
     NSLog(@"FRAME %f %f %f %f", contentView.frame.origin.x, contentView.frame.origin.y, contentView.frame.size.width, contentView.frame.size.height);
     self.navigationItem.hidesBackButton = YES;
@@ -66,29 +66,40 @@
     
     [self.view insertSubview:contentView atIndex:0];
     
-    _profileImage = [UIButton buttonWithType:UIButtonTypeCustom];
-    _profileImage.frame = CGRectMake(kScreenBounds.size.width/2.0-130/2.0, 30, 130, 130);
+    _profileImage = [[UIImageView alloc] init];
+    _profileImage.frame = CGRectMake(20, 20, 130, 130);
     _profileImage.tag = 100;
-    [_profileImage setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:self.currentItem[kImageURL]]];
+    [_profileImage setImageWithURL:[NSURL URLWithString:self.currentItem[kImageURL]]];
     _profileImage.layer.cornerRadius = _profileImage.frame.size.height/2;
-    _profileImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    _profileImage.contentMode = UIViewContentModeScaleAspectFill;
     _profileImage.clipsToBounds = YES;
-    if(_isMe) {
-        [_profileImage addTarget:self action:@selector(updateImage) forControlEvents:UIControlEventTouchUpInside];
-    }
     
     [contentView addSubview:_profileImage];
     
     UILabel* label;
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0 , 190, kScreenBounds.size.width, 30)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(170 , 50, kScreenBounds.size.width-170, 30)];
     label.numberOfLines = 1;
     label.textColor = kDarkGrayTextColor;
     label.text =  self.currentItem[kName];
     label.backgroundColor= [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:26];
-    label.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:label];
+    
+    
+    UIButton* updateProfile = [UIButton buttonWithType:UIButtonTypeCustom];
+    [updateProfile setTitle:@"Update Photo" forState:UIControlStateNormal];
+    [updateProfile setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    updateProfile.layer.borderColor = [[UIColor blackColor] CGColor];
+    updateProfile.layer.borderWidth = 1;
+    if(_isMe) {
+        [updateProfile addTarget:self action:@selector(updateImage) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    updateProfile.frame = CGRectMake(170, 90, kScreenBounds.size.width-190, 40);
+    
+    [contentView addSubview:updateProfile];
+    
 
     UILabel *info = [[UILabel alloc] init];
     info.numberOfLines = 0;
@@ -523,7 +534,7 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     UIImage *scaled = [self imageWithImage:image scaledToFillSize:CGSizeMake(1000, 1000)];
-    [_profileImage setImage:scaled forState:UIControlStateNormal];
+    [_profileImage setImage:scaled];
     NSData *imageData = UIImageJPEGRepresentation(scaled, 1.0);
     [self performSelector:@selector(uploadImage:) withObject:imageData];
 }
