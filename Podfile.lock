@@ -42,7 +42,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   UIActionSheet+Blocks:
-    :commit: 51317b52a25baf3df14538a8d243de03481e3e0b
+    :commit: ceda80534d913f51a795a12542de92ab0c9e0cc6
     :git: https://github.com/ryanmaxwell/UIActionSheet-Blocks
 
 SPEC CHECKSUMS:

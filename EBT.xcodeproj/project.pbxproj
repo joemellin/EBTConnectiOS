@@ -54,6 +54,7 @@
 		3A86EDDE1ABBDEF0007C1B77 /* BaseToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86EDDD1ABBDEF0007C1B77 /* BaseToolViewController.m */; };
 		3A86EDE21ABBE4F1007C1B77 /* Tool1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86EDE01ABBE4F1007C1B77 /* Tool1ViewController.m */; };
 		3A86EE0F1AC256A7007C1B77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A86EE0E1AC256A7007C1B77 /* Images.xcassets */; };
+		3AC735281ADC396B0087695C /* whitecheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC735271ADC396B0087695C /* whitecheck.png */; };
 		821AFE4D9C17B5B4F45305D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5439B961E8262151094AA15 /* libPods.a */; };
 		9120BD6817ABD34C005CF602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6717ABD34C005CF602 /* UIKit.framework */; };
 		9120BD6A17ABD34C005CF602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6917ABD34C005CF602 /* Foundation.framework */; };
@@ -236,6 +237,7 @@
 		3A86EDDF1ABBE4F1007C1B77 /* Tool1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tool1ViewController.h; path = EBT/Tool1ViewController.h; sourceTree = "<group>"; };
 		3A86EDE01ABBE4F1007C1B77 /* Tool1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tool1ViewController.m; path = EBT/Tool1ViewController.m; sourceTree = "<group>"; };
 		3A86EE0E1AC256A7007C1B77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = images/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		3AC735271ADC396B0087695C /* whitecheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitecheck.png; sourceTree = "<group>"; };
 		4BDA184B260E8D0CAF648352 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6F519FE3CB459CACE2DCA141 /* Pods.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.appstore.xcconfig; path = "Pods/Target Support Files/Pods/Pods.appstore.xcconfig"; sourceTree = "<group>"; };
 		9120BD6417ABD34C005CF602 /* EBT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -561,6 +563,7 @@
 		91AF5CF517CE0C10009FE460 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3AC735271ADC396B0087695C /* whitecheck.png */,
 				3A13C3871AD8A3DC00F7A0C1 /* phoneGroup.png */,
 				3A13C3851AD8A3D600F7A0C1 /* groupIcon.png */,
 				3A13C3831AD8840700F7A0C1 /* checkinicon.png */,
@@ -886,6 +889,7 @@
 				91AF5D7217CE0C10009FE460 /* heart@2x.png in Resources */,
 				91AF5D7317CE0C10009FE460 /* heartwhite.png in Resources */,
 				3A13C37F1AD8776800F7A0C1 /* bluearrow.png in Resources */,
+				3AC735281ADC396B0087695C /* whitecheck.png in Resources */,
 				91AF5D8117CE0C10009FE460 /* input-field-ross.png in Resources */,
 				3A1F372D1AC5DEA100438F6A /* avatar_medium@2x.png in Resources */,
 				91AF5D8217CE0C10009FE460 /* input-field-ross@2x.png in Resources */,

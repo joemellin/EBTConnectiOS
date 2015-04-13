@@ -70,6 +70,12 @@
         [button addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
     }
+    
+    [self addLeftBackButtonHome];
+}
+
+-(void) back {
+    [self.navigationController popToViewController:[Utils appDelegate].tabBarViewController animated:YES];
 }
 
 -(void)restart{

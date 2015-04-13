@@ -24,11 +24,11 @@
     needsNavBar = YES;
     [self setupTableView];
     [self setNavTitle:@"Messages"];
-    self.navigationItem.leftBarButtonItem = nil;
     myTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     // Do any additional setup after loading the view from its nib.
     [super viewDidLoad];
-     
+    
+    self.navigationItem.leftBarButtonItem = nil;
     [self requestUserMessages];
     [self addRightButtonWithImage:[UIImage imageNamed:@"grayPlus"] target:self selector:@selector(showConnections)];
 }

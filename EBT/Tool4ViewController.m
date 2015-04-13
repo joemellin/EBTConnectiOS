@@ -108,6 +108,11 @@
     [super viewDidLoad];
     
     [self addRightButtonWithImage:[UIImage imageNamed:@"bluearrow"] target:self selector:@selector(next)];
+    [self addLeftBackButtonHome];
+}
+
+-(void) back {
+    [self.navigationController popToViewController:[Utils appDelegate].tabBarViewController animated:YES];
 }
 
 -(void)next {
