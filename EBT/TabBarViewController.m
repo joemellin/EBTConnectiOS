@@ -20,11 +20,11 @@
   [super viewDidLoad];
 
   self.viewControllers = [NSArray arrayWithObjects:
-                            [self viewControllerWithTab:0 image:[UIImage imageNamed:@"tab_messages"]],
-                            [self viewControllerWithTab:1 image:[UIImage imageNamed:@"tab_connections"]],
-                            [self viewControllerWithTab:2 image:nil],
-                            [self viewControllerWithTab:3 image:[UIImage imageNamed:@"tab_courses"]],
-                            [self viewControllerWithTab:4 image:[UIImage imageNamed:@"tab_profile"]], nil];
+                            [self viewControllerWithTab:0 image:[UIImage imageNamed:@"message_grey"] selectedImage:[UIImage imageNamed:@"message_blue"]],
+                            [self viewControllerWithTab:1 image:[UIImage imageNamed:@"connections_grey"] selectedImage:[UIImage imageNamed:@"connections_blue"]],
+                            [self viewControllerWithTab:2 image:nil selectedImage:nil],
+                            [self viewControllerWithTab:3 image:[UIImage imageNamed:@"camera_grey"] selectedImage:[UIImage imageNamed:@"camera_blue"]],
+                            [self viewControllerWithTab:4 image:[UIImage imageNamed:@"profile_grey"] selectedImage:[UIImage imageNamed:@"profile_grey"]], nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -35,7 +35,7 @@
 }
 
 // Create a view controller and setup it's tab bar item with a title and image
--(UIViewController*) viewControllerWithTab:(int) tabIndex image:(UIImage*)image
+-(UIViewController*) viewControllerWithTab:(int) tabIndex image:(UIImage*)image selectedImage:(UIImage*) selectedImage
 {
     id navController;
     NSString* title;
@@ -71,7 +71,7 @@
             break;
     }
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:navController];
-    [nav setTabBarItem:[[UITabBarItem alloc] initWithTitle:title image:image tag:0]];
+    [nav setTabBarItem:[[UITabBarItem alloc] initWithTitle:title image:image selectedImage:selectedImage]];
     return nav;
 }
 

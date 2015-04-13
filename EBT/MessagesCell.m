@@ -45,7 +45,6 @@
     _detailText = [[UILabel alloc] init];
     _detailText.numberOfLines = 2;
     _detailText.font = [UIFont systemFontOfSize:17];
-    _detailText.textColor = klightGrayTextColor;
     _detailText.frame = CGRectMake(90, 40, kScreenBounds.size.width - 120, 38);
     [self addSubview:_detailText];
     
@@ -67,9 +66,11 @@
     [_image setImageWithURL:[NSURL URLWithString:item[kSender][kImageURL]] placeholderImage:[UIImage imageNamed:@"avatar_medium"]];
     
     if(item[kRead]) {
+        _detailText.textColor = klightGrayTextColor;
         _newMessage.hidden = YES;
     } else {
-        _newMessage.hidden = NO; 
+        _newMessage.hidden = NO;
+        _detailText.textColor = kDarkGrayMessaging;
     }
 }
 

@@ -262,4 +262,5 @@
  */
 - (void)scrollToBottomAnimated:(BOOL)animated;
 
+- (void)jsq_setToolbarBottomLayoutGuideConstant:(CGFloat)constant;
 @end

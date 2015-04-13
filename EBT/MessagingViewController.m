@@ -10,6 +10,8 @@
 #import "MessagingData.h"
 #import "HTTPRequestManager.h"
 #import "CallingViewController.h"
+#import <JSQMessagesViewController/JSQMessagesKeyboardController.h>
+#import <JSQMessagesViewController/JSQMessagesViewController.h>
 
 @interface MessagingViewController () {
     MessagingData *_messageData;
@@ -318,5 +320,15 @@
         [Utils alertMessage:[error localizedDescription]];
     }];
 }
+
+//- (void)keyboardController:(JSQMessagesKeyboardController *)keyboardController keyboardDidChangeFrame:(CGRect)keyboardFrame
+//{
+//    CGRect intersectionRect = CGRectIntersection(self.view.frame, keyboardFrame);
+//    //    CGFloat heightFromBottom = CGRectGetHeight(self.collectionView.frame) - CGRectGetMinY(keyboardFrame);
+//    
+//    CGFloat heightFromBottom = MAX(0.0f, intersectionRect.size.height);
+//    
+//    [self jsq_setToolbarBottomLayoutGuideConstant:heightFromBottom];
+//}
 
 @end

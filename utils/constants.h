@@ -8,6 +8,7 @@
 #define kOffWhite [Utils colorWithRed:254 green:253 blue:254]
 #define klightGrayTextColor [Utils colorWithRed:190 green:190 blue:190]
 #define kMessagingBackground [Utils colorWithRed:219 green:226 blue:237]
+#define kDarkGrayMessaging [Utils colorWithRed:102 green:102 blue:102];
 #define kSessionToken @"kSessionToken"
 #define kBaseURL @"https://www.ebtconnect.net/api/v1/"
 #define kWebsiteURL @"https://www.ebtconnect.net/"

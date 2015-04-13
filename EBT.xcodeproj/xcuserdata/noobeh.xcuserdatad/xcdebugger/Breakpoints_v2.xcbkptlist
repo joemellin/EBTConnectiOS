@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
             endingLineNumber = "51"
-            landmarkName = "-viewControllerWithTab:image:"
+            landmarkName = "-viewControllerWithTab:image:selectedImage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
             endingLineNumber = "49"
-            landmarkName = "-viewControllerWithTab:image:"
+            landmarkName = "-viewControllerWithTab:image:selectedImage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -287,7 +287,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "-viewControllerWithTab:image:"
+            landmarkName = "-viewControllerWithTab:image:selectedImage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
