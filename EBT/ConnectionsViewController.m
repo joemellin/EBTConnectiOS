@@ -125,14 +125,9 @@
     [manager.httpOperation POST:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
             [Utils alertMessage:[responseObject objectForKey:@"error"]];
-        } else {
-            CallingViewController *callingVC = [[CallingViewController alloc] init];
-            callingVC.hidesBottomBarWhenPushed = YES;
-            callingVC.name = name;
-            [self.navigationController pushViewController:callingVC animated:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Utils alertMessage:[error localizedDescription]];
+//        [Utils alertMessage:[error localizedDescription]];
     }];
 }
 
@@ -144,14 +139,9 @@
     [manager.httpOperation POST:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
             [Utils alertMessage:[responseObject objectForKey:@"error"]];
-        } else {
-            CallingViewController *callingVC = [[CallingViewController alloc] init];
-            callingVC.hidesBottomBarWhenPushed = YES;
-            callingVC.isGroupCall = YES;
-            [self.navigationController pushViewController:callingVC animated:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Utils alertMessage:[error localizedDescription]];
+//        [Utils alertMessage:[error localizedDescription]];
     }];
 }
 
