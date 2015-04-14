@@ -8,12 +8,14 @@
 
 #import "MessagesCell.h"
 #import <UIImageView+AFNetworking.h>
+#import <JSQMessagesTimestampFormatter.h>
 
 @interface MessagesCell () {
     id _delegate;
     UILabel *_detailText;
     UIImageView *_image;
     UILabel *_text;
+    UILabel *_dateLabel;
     UIImageView *_newMessage;
 }
 
@@ -42,6 +44,11 @@
     _text.frame = CGRectMake(90, 10, kScreenBounds.size.width - 120, 20);
     [self addSubview:_text];
     
+    _dateLabel = [[UILabel alloc] init];
+    _dateLabel.font = [UIFont systemFontOfSize:16];
+    _dateLabel.frame = CGRectMake(kScreenBounds.size.width-50, 10, 50, 20);
+    [self addSubview:_dateLabel];
+    
     _detailText = [[UILabel alloc] init];
     _detailText.numberOfLines = 2;
     _detailText.font = [UIFont systemFontOfSize:17];
@@ -62,6 +69,11 @@
     float top = (88 - height - 25)/2;
     _text.frame = CGRectMake(_text.frame.origin.x, top, _text.frame.size.width, _text.frame.size.height);
     _detailText.frame = CGRectMake(_detailText.frame.origin.x, top+25, kScreenBounds.size.width-100, height);
+    NSDate *date = [Utils dateFromISOString:item[kSentOn]];
+    _dateLabel.attributedText = [[JSQMessagesTimestampFormatter sharedFormatter] attributedTimestampForDate:date];
+    float size = [Utils widthWithText:_dateLabel.text andFont:_dateLabel.font andMaxWidth:kScreenBounds.size.width];
+    _dateLabel.frame = CGRectMake(kScreenBounds.size.width-size-20, _text.frame.origin.y, size, 20);
+    _dateLabel.textColor = kGrayTextColor;
     
     [_image setImageWithURL:[NSURL URLWithString:item[kSender][kImageURL]] placeholderImage:[UIImage imageNamed:@"avatar_medium"]];
     

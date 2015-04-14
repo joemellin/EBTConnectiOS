@@ -145,7 +145,7 @@
     for(NSDictionary* message in messagesReversed) {
         JSQMessage * jsqMessage = [[JSQMessage alloc] initWithSenderId:[message[kSender][kID] stringValue]
                                                      senderDisplayName:message[kSender][kFname]
-                                                                  date:[NSDate distantPast]
+                                                                  date:[Utils dateFromISOString:message[kSentOn]]
                                                                   text:message[kContent]];
         [self.messages addObject:jsqMessage];
     }
