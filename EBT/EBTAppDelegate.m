@@ -16,6 +16,7 @@
 #import "TabBarViewController.h"
 #import "CustomNavigationController.h"
 #import <Parse/Parse.h>
+#import "HTTPRequestManager.h"
 
 @implementation EBTAppDelegate
 
@@ -76,6 +77,18 @@
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackground];
     
+    NSString* urlStr = [NSString stringWithFormat:@"%@devices?auth_token=%@",kBaseURL, [Utils setting:kSessionToken]];
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+    
+    NSDictionary *params = @{@"device_token":token, @"installation_id": currentInstallation.installationId};
+    
+    [manager.httpOperation POST:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+            [Utils alertMessage:[responseObject objectForKey:@"error"]];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Utils alertMessage:[error localizedDescription]];
+    }];
 //    [self registerPushNotificationOnSTServer];
 }
 
