@@ -619,4 +619,11 @@
                            attributes:@{NSFontAttributeName:font}
                               context:nil].size.width;
 }
+
++(float)heightWithText:(NSString*)text andFont:(UIFont*)font andMaxWidth:(float)maxWidth andMaxHeight:(float) maxHeight {
+    return [text boundingRectWithSize:CGSizeMake(maxWidth, maxHeight)
+                              options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+                           attributes:@{NSFontAttributeName:font}
+                              context:nil].size.height;
+}
 @end

@@ -108,5 +108,6 @@
 +(void)applyiPhone4Frame:(CGRect)frame forView:(UIView*)view;
 +(void)applyYDelta:(float)yDelta forView:(UIView*)view;
 +(float)heightWithText:(NSString*)text andFont:(UIFont*)font andMaxWidth:(float)maxWidth;
++(float)heightWithText:(NSString*)text andFont:(UIFont*)font andMaxWidth:(float)maxWidth andMaxHeight:(float) maxHeight;
 +(float)widthWithText:(NSString*)text andFont:(UIFont*)font andMaxWidth:(float)maxWidth;
 @end

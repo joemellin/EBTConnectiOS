@@ -55,8 +55,8 @@
     [self addSubview:description];
     
     UIButton *conferenceButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [conferenceButton setImage:[UIImage imageNamed:@"phoneGroup"] forState:UIControlStateNormal];
-    conferenceButton.frame = CGRectMake(kScreenBounds.size.width-110, 25, 100, 37);
+    [conferenceButton setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateNormal];
+    conferenceButton.frame = CGRectMake(kScreenBounds.size.width-55, 25, 45, 35);
     [conferenceButton addTarget:_delegate action:@selector(conferenceCall) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:conferenceButton];
 }
