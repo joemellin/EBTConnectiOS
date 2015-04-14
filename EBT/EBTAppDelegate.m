@@ -46,6 +46,8 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:71/255.0f green:138/255.0f blue:198/255.0f alpha:1.0], NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:245/255.0f green:245/255.0f blue:245/255.0f alpha:1.0]];
     
+    [[UITabBar appearance] setShadowImage:[UIImage imageNamed:@"transparentShadow.png"]];
+    [[UITabBar appearance] setBackgroundImage:[[UIImage imageNamed:@"tabbarbackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 0, 0, 0)]];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -90,6 +92,11 @@
         [Utils alertMessage:[error localizedDescription]];
     }];
 //    [self registerPushNotificationOnSTServer];
+}
+
+- (void)application:(UIApplication *)application
+didReceiveLocalNotification:(UILocalNotification *)notification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateMessageScreens" object:nil];
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error

@@ -30,7 +30,8 @@
 -(void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.navigationItem.hidesBackButton = YES;
-    [self addCenterButtonWithImage:[UIImage imageNamed:@"tab_state"] highlightImage:[UIImage imageNamed:@"tab_state"]];
+    [self addCenterButtonWithImage:[[UIImage imageNamed:@"tab_state"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                    highlightImage:[[UIImage imageNamed:@"tab_state"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [[(UINavigationController*)self.selectedViewController topViewController] viewWillAppear:animated];
 }
 
@@ -42,7 +43,7 @@
     switch (tabIndex) {
         case 0: {
             navController = [[MessagesViewController alloc] init];
-            title = @"Messagses";
+            title = @"Messages";
             break;
         }
         case 1: {

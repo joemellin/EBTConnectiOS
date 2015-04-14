@@ -89,8 +89,8 @@
     
     UIButton* updateProfile = [UIButton buttonWithType:UIButtonTypeCustom];
     [updateProfile setTitle:@"Update Photo" forState:UIControlStateNormal];
-    [updateProfile setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    updateProfile.layer.borderColor = [[UIColor blackColor] CGColor];
+    [updateProfile setTitleColor:kDarkGrayTextColor forState:UIControlStateNormal];
+    updateProfile.layer.borderColor = [kDarkGrayTextColor CGColor];
     updateProfile.layer.borderWidth = 1;
     if(_isMe) {
         [updateProfile addTarget:self action:@selector(updateImage) forControlEvents:UIControlEventTouchUpInside];

@@ -31,12 +31,18 @@
     self.navigationItem.leftBarButtonItem = nil;
     [self requestUserMessages];
     [self addRightButtonWithImage:[UIImage imageNamed:@"grayPlus"] target:self selector:@selector(showConnections)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshScreen) name:@"UpdateMessageScreens" object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self requestUserMessages];
+}
+
+-(void) refreshScreen {
+    [myTableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -72,7 +72,7 @@
     NSDate *date = [Utils dateFromISOString:item[kSentOn]];
     _dateLabel.attributedText = [[JSQMessagesTimestampFormatter sharedFormatter] attributedTimestampForDate:date];
     float size = [Utils widthWithText:_dateLabel.text andFont:_dateLabel.font andMaxWidth:kScreenBounds.size.width];
-    _dateLabel.frame = CGRectMake(kScreenBounds.size.width-size-20, _text.frame.origin.y-10, size, 20);
+    _dateLabel.frame = CGRectMake(kScreenBounds.size.width-size-10, 12, size, 20);
     _dateLabel.textColor = kGrayTextColor;
     
     [_image setImageWithURL:[NSURL URLWithString:item[kSender][kImageURL]] placeholderImage:[UIImage imageNamed:@"avatar_medium"]];

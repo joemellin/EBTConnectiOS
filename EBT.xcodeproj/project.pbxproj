@@ -63,6 +63,8 @@
 		3AC7353E1ADC523D0087695C /* profile_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC735361ADC523D0087695C /* profile_grey@2x.png */; };
 		3AC7353F1ADC523D0087695C /* connections_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC735371ADC523D0087695C /* connections_grey@2x.png */; };
 		3AC735401ADC523D0087695C /* connections_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC735381ADC523D0087695C /* connections_blue@2x.png */; };
+		3AC735421ADD86AE0087695C /* tabbarbackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC735411ADD86AE0087695C /* tabbarbackground@2x.png */; };
+		3AC735441ADD88870087695C /* transparentShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC735431ADD88870087695C /* transparentShadow.png */; };
 		821AFE4D9C17B5B4F45305D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5439B961E8262151094AA15 /* libPods.a */; };
 		9120BD6817ABD34C005CF602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6717ABD34C005CF602 /* UIKit.framework */; };
 		9120BD6A17ABD34C005CF602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6917ABD34C005CF602 /* Foundation.framework */; };
@@ -254,6 +256,8 @@
 		3AC735361ADC523D0087695C /* profile_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile_grey@2x.png"; path = "images/profile_grey@2x.png"; sourceTree = SOURCE_ROOT; };
 		3AC735371ADC523D0087695C /* connections_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "connections_grey@2x.png"; path = "images/connections_grey@2x.png"; sourceTree = SOURCE_ROOT; };
 		3AC735381ADC523D0087695C /* connections_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "connections_blue@2x.png"; path = "images/connections_blue@2x.png"; sourceTree = SOURCE_ROOT; };
+		3AC735411ADD86AE0087695C /* tabbarbackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbarbackground@2x.png"; path = "tabs/tabbarbackground@2x.png"; sourceTree = "<group>"; };
+		3AC735431ADD88870087695C /* transparentShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = transparentShadow.png; path = tabs/transparentShadow.png; sourceTree = "<group>"; };
 		4BDA184B260E8D0CAF648352 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6F519FE3CB459CACE2DCA141 /* Pods.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.appstore.xcconfig; path = "Pods/Target Support Files/Pods/Pods.appstore.xcconfig"; sourceTree = "<group>"; };
 		9120BD6417ABD34C005CF602 /* EBT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -579,6 +583,8 @@
 		91AF5CF517CE0C10009FE460 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3AC735431ADD88870087695C /* transparentShadow.png */,
+				3AC735411ADD86AE0087695C /* tabbarbackground@2x.png */,
 				3AC735311ADC523D0087695C /* message_blue@2x.png */,
 				3AC735321ADC523D0087695C /* message_grey@2x.png */,
 				3AC735331ADC523D0087695C /* camera_blue@2x.png */,
@@ -933,6 +939,7 @@
 				91AF5D8717CE0C10009FE460 /* messageicon@2x.png in Resources */,
 				91AF5D8817CE0C10009FE460 /* navbar.png in Resources */,
 				91AF5D8917CE0C10009FE460 /* navbar@2x.png in Resources */,
+				3AC735441ADD88870087695C /* transparentShadow.png in Resources */,
 				91AF5D8A17CE0C10009FE460 /* newstatecircle.png in Resources */,
 				3AC735401ADC523D0087695C /* connections_blue@2x.png in Resources */,
 				91AF5D8B17CE0C10009FE460 /* notificationcircle.png in Resources */,
@@ -963,6 +970,7 @@
 				3A6CD24F1AD7B925007C4AC3 /* grayPlus.png in Resources */,
 				91AF5D9F17CE0C10009FE460 /* 1-5.jpg in Resources */,
 				3AC7353C1ADC523D0087695C /* camera_grey@2x.png in Resources */,
+				3AC735421ADD86AE0087695C /* tabbarbackground@2x.png in Resources */,
 				91AF5DA017CE0C10009FE460 /* 2-5.jpg in Resources */,
 				91AF5DA117CE0C10009FE460 /* 3-5.jpg in Resources */,
 				91AF5DA217CE0C10009FE460 /* 4-5.jpg in Resources */,

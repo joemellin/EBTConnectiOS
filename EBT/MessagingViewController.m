@@ -35,6 +35,7 @@
     self.inputToolbar.contentView.leftBarButtonItem = nil;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishReceivingMessage) name:@"MessagesUpdated" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshScreen) name:@"UpdateMessageScreens" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +72,10 @@
 - (void)sentToServer
 {
 //add message here
+}
+
+-(void) refreshScreen {
+    [super finishReceivingMessage];
 }
 
 -(void) finishReceivingMessage {

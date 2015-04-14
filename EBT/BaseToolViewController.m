@@ -47,7 +47,7 @@
         
         button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:@"whitehouse"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"whitecheck"] forState:UIControlStateNormal];
         button.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [button setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
         [button setBackgroundColor:kLightBlueColor];
@@ -71,11 +71,7 @@
         [self.view addSubview:button];
     }
     
-    [self addLeftBackButtonHome];
-}
-
--(void) back {
-    [self.navigationController popToViewController:[Utils appDelegate].tabBarViewController animated:YES];
+    [self addLeftBackButton];
 }
 
 -(void)restart{
