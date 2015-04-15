@@ -39,13 +39,11 @@
     [self addSubview:_title];
 }
 
--(void) fillCell:(NSDictionary *)item {
+-(void) fillCell:(NSDictionary *)item forRow:(int) row {
     _title.text = item[kName];
     float height = [Utils heightWithText:_title.text andFont:_title.font andMaxWidth:kScreenBounds.size.width - 108 andMaxHeight:60];
-    _title.frame = CGRectMake(98, 88/2 - height/2, kScreenBounds.size.width - 108, height);
-    NSString* videoID = [[item[kUrl] componentsSeparatedByString:@"/"] lastObject];
-    NSString *url = [NSString stringWithFormat:@"http://vimeo.com/api/rest/v2?format=json&method=vimeo.videos.getThumbnailUrls&video_id=%@", videoID];
-    [_imageView setImageWithURL:[NSURL URLWithString:url]];
+    _title.frame = CGRectMake(118, 88/2 - height/2, kScreenBounds.size.width - 128, height);
+    [_imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%i.jpg", row+1]]];
 }
 
 @end

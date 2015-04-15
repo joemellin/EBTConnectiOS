@@ -8,6 +8,7 @@
 
 #import "CoursesViewController.h"
 #import "YTVimeoExtractor.h"
+#import "CoursesCell.h"
 
 @interface CoursesViewController ()
 @property (nonatomic, strong) MPMoviePlayerViewController *playerViewController;
@@ -31,16 +32,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"MyIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    CoursesCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] ;
+        cell = [[CoursesCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] ;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell initCell];
     }
     
     NSDictionary* item = self.displayList[[indexPath row]];
-    
-    cell.textLabel.text = item[kName];
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:18];
+    [cell fillCell:item forRow:(int)indexPath.row];
     
     return cell;
 

@@ -10,5 +10,5 @@
 
 @interface CoursesCell : UITableViewCell
 -(void) initCell;
--(void) fillCell:(NSDictionary*) item;
+-(void) fillCell:(NSDictionary*) item forRow:(int) row;
 @end
