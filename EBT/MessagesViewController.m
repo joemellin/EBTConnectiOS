@@ -15,6 +15,7 @@
 
 @interface MessagesViewController () {
     NSDictionary *_providerInfo;
+    UIRefreshControl *_refreshControl;
 }
 
 @end
@@ -33,6 +34,13 @@
     self.navigationItem.leftBarButtonItem = nil;
     [self requestUserMessages];
     [self addRightButtonWithImage:[UIImage imageNamed:@"grayPlus"] target:self selector:@selector(showConnections)];
+    
+    
+    [super viewDidLoad];
+    _refreshControl = [[UIRefreshControl alloc]init];
+    [myTableView addSubview:_refreshControl];
+    [_refreshControl addTarget:self action:@selector(requestUserMessages) forControlEvents:UIControlEventValueChanged];
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshScreen) name:@"UpdateMessageScreens" object:nil];
 }
@@ -96,6 +104,8 @@
 }
 
 -(void) requestUserMessages {
+    [self requestProvider];
+    
     NSString* urlStr = [NSString stringWithFormat:@"%@messages/",kBaseURL];
 
     HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
