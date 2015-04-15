@@ -48,7 +48,7 @@
     
     [[UITabBar appearance] setShadowImage:[UIImage imageNamed:@"transparentShadow.png"]];
     [[UITabBar appearance] setBackgroundImage:[[UIImage imageNamed:@"tabbarbackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 0, 0, 0)]];
-    
+    [[UITabBar appearance] setSelectedImageTintColor:kBlueTabColor];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[EBTViewController alloc] init];
