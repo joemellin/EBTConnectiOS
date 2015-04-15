@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Utils.h"
 #import "BaseRequestViewController.h"
+#import "UIPlaceHolderTextView.h"
 
 @interface Tool4ViewController : BaseRequestViewController {
-    UITextView* myTextView;
+    UIPlaceHolderTextView* myTextView;
 }
 @property int currentIndex;
 @property (nonatomic,strong) NSArray *titles;

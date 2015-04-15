@@ -85,19 +85,19 @@
     imageView.frame = CGRectMake(0, 0, kScreenBounds.size.width, textViewStart);
 
     if(self.currentIndex < self.titles.count) {
-        UITextView* textView = [[UITextView alloc] initWithFrame:CGRectMake(10, textViewStart,
+        UIPlaceHolderTextView* textView = [[UIPlaceHolderTextView alloc] initWithFrame:CGRectMake(10, textViewStart,
                                                                             kScreenBounds.size.width-20,
                                                                             kScreenBounds.size.height-textViewStart-150)];
         textView.delegate = self;
-        textView.text = kCyclePlaceholderText;
+//        textView.text = kCyclePlaceholderText;
+        textView.placeholder = _placeHolders[self.currentIndex];
         
         NSDictionary* dict;
         //NSDictionary* dict = [Utils setting:kCycleToolNoteDict];
         if (dict[ self.titles[self.currentIndex]]) {
              textView.text = dict[ self.titles[self.currentIndex]];
-        } else {
-            textView.text = _placeHolders[self.currentIndex];
         }
+        
         textView.font = [UIFont systemFontOfSize:17];
         textView.textColor = [UIColor lightGrayColor]; //optional
         textView.backgroundColor = [UIColor clearColor];
@@ -108,7 +108,7 @@
     [super viewDidLoad];
     
     [self addRightButtonWithImage:[UIImage imageNamed:@"bluearrow"] target:self selector:@selector(next)];
-    [self addLeftBackButtonHome];
+    [self addLeftBackButton];
 }
 
 -(void) back {
@@ -139,10 +139,10 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    if ([textView.text isEqualToString:_placeHolders[self.currentIndex]]) {
-        textView.text = @"";
-        textView.textColor = kDarkGrayTextColor; //optional
-    }
+//    if ([textView.text isEqualToString:_placeHolders[self.currentIndex]]) {
+//        textView.text = @"";
+//        textView.textColor = kDarkGrayTextColor; //optional
+//    }
     [textView becomeFirstResponder];
 }
 
@@ -156,6 +156,12 @@
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+//    if ([textView.text isEqualToString:_placeHolders[self.currentIndex]]) {
+//        textView.text = text;
+//    }
+//    if([text isEqualToString:@""]) {
+//        textView.text = _placeHolders[self.currentIndex];
+//    }
     if ([text isEqualToString:@"\n"]) {
         // Find the next entry field
         [textView resignFirstResponder];

@@ -123,7 +123,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Utils alertMessage:[error localizedDescription]];
     }];
-    [self showLoadingView];
+//    [self showLoadingView];
 }
 
 -(void) requestProvider {
@@ -144,7 +144,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Utils alertMessage:[error localizedDescription]];
     }];
-    [self showLoadingView];
+//    [self showLoadingView];
 }
 
 -(void)requestSucceededResultHandler:(id)context result:(NSString*)result{

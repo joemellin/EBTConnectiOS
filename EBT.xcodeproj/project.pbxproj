@@ -67,6 +67,7 @@
 		3AC735441ADD88870087695C /* transparentShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC735431ADD88870087695C /* transparentShadow.png */; };
 		3ADB6DF11ADDF93A00233496 /* ProviderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB6DF01ADDF93A00233496 /* ProviderCell.m */; };
 		3ADB6DF41ADE00DA00233496 /* CoursesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB6DF31ADE00DA00233496 /* CoursesCell.m */; };
+		3AFE9EF31ADE92A6003D6544 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFE9EF21ADE92A6003D6544 /* UIPlaceHolderTextView.m */; };
 		821AFE4D9C17B5B4F45305D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5439B961E8262151094AA15 /* libPods.a */; };
 		9120BD6817ABD34C005CF602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6717ABD34C005CF602 /* UIKit.framework */; };
 		9120BD6A17ABD34C005CF602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6917ABD34C005CF602 /* Foundation.framework */; };
@@ -264,6 +265,8 @@
 		3ADB6DF01ADDF93A00233496 /* ProviderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProviderCell.m; path = EBT/ProviderCell.m; sourceTree = "<group>"; };
 		3ADB6DF21ADE00DA00233496 /* CoursesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoursesCell.h; path = EBT/CoursesCell.h; sourceTree = "<group>"; };
 		3ADB6DF31ADE00DA00233496 /* CoursesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoursesCell.m; path = EBT/CoursesCell.m; sourceTree = "<group>"; };
+		3AFE9EF11ADE92A6003D6544 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		3AFE9EF21ADE92A6003D6544 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		4BDA184B260E8D0CAF648352 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6F519FE3CB459CACE2DCA141 /* Pods.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.appstore.xcconfig; path = "Pods/Target Support Files/Pods/Pods.appstore.xcconfig"; sourceTree = "<group>"; };
 		9120BD6417ABD34C005CF602 /* EBT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -572,6 +575,8 @@
 				91DBDDDC17BB6C0F0030EDF5 /* BaseListViewController.m */,
 				3A86EDD41ABBC7F7007C1B77 /* CheckMarkButton.h */,
 				3A86EDD51ABBC7F7007C1B77 /* CheckMarkButton.m */,
+				3AFE9EF11ADE92A6003D6544 /* UIPlaceHolderTextView.h */,
+				3AFE9EF21ADE92A6003D6544 /* UIPlaceHolderTextView.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -1042,6 +1047,7 @@
 				3A0370D71ACA2EAB00EAED52 /* MessagingViewController.m in Sources */,
 				9120BD7817ABD34C005CF602 /* EBTAppDelegate.m in Sources */,
 				9120BD8117ABD34C005CF602 /* EBTViewController.m in Sources */,
+				3AFE9EF31ADE92A6003D6544 /* UIPlaceHolderTextView.m in Sources */,
 				3A86EDDE1ABBDEF0007C1B77 /* BaseToolViewController.m in Sources */,
 				9120BDFB17B09958005CF602 /* BaseRequestViewController.m in Sources */,
 				9120BDFC17B09958005CF602 /* MyURLConnection.m in Sources */,
