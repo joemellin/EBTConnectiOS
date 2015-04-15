@@ -34,9 +34,7 @@
     self.navigationItem.leftBarButtonItem = nil;
     [self requestUserMessages];
     [self addRightButtonWithImage:[UIImage imageNamed:@"grayPlus"] target:self selector:@selector(showConnections)];
-    
-    
-    [super viewDidLoad];
+
     _refreshControl = [[UIRefreshControl alloc]init];
     [myTableView addSubview:_refreshControl];
     [_refreshControl addTarget:self action:@selector(requestUserMessages) forControlEvents:UIControlEventValueChanged];
@@ -56,7 +54,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.displayList count]+1;
+    if(_providerInfo) {
+        return [self.displayList count] + 1;
+    }
+    return [self.displayList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -123,7 +124,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Utils alertMessage:[error localizedDescription]];
     }];
-//    [self showLoadingView];
+    [self showLoadingView];
 }
 
 -(void) requestProvider {
@@ -144,7 +145,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Utils alertMessage:[error localizedDescription]];
     }];
-//    [self showLoadingView];
+    [self showLoadingView];
 }
 
 -(void)requestSucceededResultHandler:(id)context result:(NSString*)result{

@@ -39,7 +39,7 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self requestGroup];
-    [self requestProvider];
+//    [self requestProvider];
 }
 
 
@@ -127,6 +127,7 @@
             if (responseObject && responseObject[@"members"]) {
                 self.currentItem = [responseObject mutableCopy];
                 self.displayList = self.currentItem[@"members"];
+                _providerInfo = self.currentItem[@"provider"];
                 [myTableView reloadData];
             }
         }
