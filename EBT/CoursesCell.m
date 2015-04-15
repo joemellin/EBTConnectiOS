@@ -7,8 +7,11 @@
 //
 
 #import "CoursesCell.h"
+#import <UIImageView+AFNetworking.h>
+
 @interface CoursesCell () {
     UILabel *_title;
+    UIImageView *_imageView;
 }
 @end
 
@@ -26,9 +29,9 @@
 }
 
 -(void) initCell {
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 88, 88)];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self addSubview:imageView];
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 88, 88)];
+    _imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self addSubview:_imageView];
     
     _title = [[UILabel alloc] init];
     _title.numberOfLines = 2;
@@ -40,6 +43,9 @@
     _title.text = item[kName];
     float height = [Utils heightWithText:_title.text andFont:_title.font andMaxWidth:kScreenBounds.size.width - 108 andMaxHeight:60];
     _title.frame = CGRectMake(98, 88/2 - height/2, kScreenBounds.size.width - 108, height);
+    NSString* videoID = [[item[kUrl] componentsSeparatedByString:@"/"] lastObject];
+    NSString *url = [NSString stringWithFormat:@"http://vimeo.com/api/rest/v2?format=json&method=vimeo.videos.getThumbnailUrls&video_id=%@", videoID];
+    [_imageView setImageWithURL:[NSURL URLWithString:url]];
 }
 
 @end
