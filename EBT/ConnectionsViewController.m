@@ -14,8 +14,11 @@
 #import "MessagingViewController.h"
 #import "HTTPRequestManager.h"
 #import "GroupCellTableViewCell.h"
+#import "ProviderCell.h"
 
-@interface ConnectionsViewController ()
+@interface ConnectionsViewController () {
+    NSDictionary *_providerInfo;
+}
 
 @end
 
@@ -36,10 +39,14 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self requestGroup];
+    [self requestProvider];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(_providerInfo != nil) {
+        return [self.displayList count] +2;
+    }
     return [self.displayList count]+1;
 }
 
@@ -51,6 +58,14 @@
             [cell initCell];
         }
         return cell;
+    } else if(indexPath.row == 1 && _providerInfo != nil) {
+        ProviderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProviderCell"];
+        if(!cell) {
+            cell = [[ProviderCell alloc] initWithDelegate:self];
+            [cell initCell];
+        }
+        [cell fillCell:_providerInfo forRow:(int)indexPath.row];
+        return cell;
     } else {
         ConnectionsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConnectionsCell"];
         if(!cell) {
@@ -58,6 +73,10 @@
             [cell initCell];
         }
 
+        NSUInteger row = indexPath.row -1;
+        if(_providerInfo != nil) {
+            row = indexPath.row - 2;
+        }
         NSDictionary* item = self.displayList[indexPath.row-1];
         [cell fillCell:item forRow:(int)indexPath.row-1];
         return cell;
@@ -81,7 +100,11 @@
 -(void) messageSelected:(UIButton*) sender {
     MessagingViewController *messageVC = [[MessagingViewController alloc] init];
     messageVC.hidesBottomBarWhenPushed = YES;
-    messageVC.currentItem = self.displayList[sender.tag];
+    if(_providerInfo != nil && sender.tag == 1) {
+        messageVC.currentItem = _providerInfo;
+    } else {
+        messageVC.currentItem = self.displayList[sender.tag];
+    }
     [self.navigationController pushViewController:messageVC animated:YES];
 }
 
@@ -104,6 +127,28 @@
             if (responseObject && responseObject[@"members"]) {
                 self.currentItem = [responseObject mutableCopy];
                 self.displayList = self.currentItem[@"members"];
+                [myTableView reloadData];
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Utils alertMessage:[error localizedDescription]];
+    }];
+}
+
+-(void)requestProvider {
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    
+    NSDictionary* params = [Utils setting:kUserInfoDict];
+    NSString* urlStr = [NSString stringWithFormat:@"%@groups/%@/show_provider?auth_token=%@",kBaseURL, [[params objectForKey:kGroup] objectForKey:kID], [Utils setting:kSessionToken]];
+    
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+    
+    [manager.httpOperation GET:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+            [Utils alertMessage:[responseObject objectForKey:@"error"]];
+        } else {
+            if (responseObject && responseObject[@"members"]) {
+                _providerInfo = responseObject;
                 [myTableView reloadData];
             }
         }

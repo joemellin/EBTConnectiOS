@@ -49,7 +49,7 @@
     
     UILabel *description = [[UILabel alloc] init];
     description.font = [UIFont systemFontOfSize:17];
-    description.textColor = [UIColor blackColor];
+    description.textColor = kDarkGrayTextColor;
     description.text = @"Conference line";
     description.frame = CGRectMake(90, 40, kScreenBounds.size.width - 120, 38);
     [self addSubview:description];

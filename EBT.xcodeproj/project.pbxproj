@@ -65,6 +65,8 @@
 		3AC735401ADC523D0087695C /* connections_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC735381ADC523D0087695C /* connections_blue@2x.png */; };
 		3AC735421ADD86AE0087695C /* tabbarbackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC735411ADD86AE0087695C /* tabbarbackground@2x.png */; };
 		3AC735441ADD88870087695C /* transparentShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC735431ADD88870087695C /* transparentShadow.png */; };
+		3ADB6DF11ADDF93A00233496 /* ProviderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB6DF01ADDF93A00233496 /* ProviderCell.m */; };
+		3ADB6DF41ADE00DA00233496 /* CoursesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB6DF31ADE00DA00233496 /* CoursesCell.m */; };
 		821AFE4D9C17B5B4F45305D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5439B961E8262151094AA15 /* libPods.a */; };
 		9120BD6817ABD34C005CF602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6717ABD34C005CF602 /* UIKit.framework */; };
 		9120BD6A17ABD34C005CF602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120BD6917ABD34C005CF602 /* Foundation.framework */; };
@@ -258,6 +260,10 @@
 		3AC735381ADC523D0087695C /* connections_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "connections_blue@2x.png"; path = "images/connections_blue@2x.png"; sourceTree = SOURCE_ROOT; };
 		3AC735411ADD86AE0087695C /* tabbarbackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbarbackground@2x.png"; path = "tabs/tabbarbackground@2x.png"; sourceTree = "<group>"; };
 		3AC735431ADD88870087695C /* transparentShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = transparentShadow.png; path = tabs/transparentShadow.png; sourceTree = "<group>"; };
+		3ADB6DEF1ADDF93A00233496 /* ProviderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProviderCell.h; path = EBT/ProviderCell.h; sourceTree = "<group>"; };
+		3ADB6DF01ADDF93A00233496 /* ProviderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProviderCell.m; path = EBT/ProviderCell.m; sourceTree = "<group>"; };
+		3ADB6DF21ADE00DA00233496 /* CoursesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoursesCell.h; path = EBT/CoursesCell.h; sourceTree = "<group>"; };
+		3ADB6DF31ADE00DA00233496 /* CoursesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoursesCell.m; path = EBT/CoursesCell.m; sourceTree = "<group>"; };
 		4BDA184B260E8D0CAF648352 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6F519FE3CB459CACE2DCA141 /* Pods.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.appstore.xcconfig; path = "Pods/Target Support Files/Pods/Pods.appstore.xcconfig"; sourceTree = "<group>"; };
 		9120BD6417ABD34C005CF602 /* EBT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -745,6 +751,10 @@
 				3A0370EA1ACBD56C00EAED52 /* Courses.plist */,
 				3A13C3891AD8A79900F7A0C1 /* GroupCellTableViewCell.h */,
 				3A13C38A1AD8A79900F7A0C1 /* GroupCellTableViewCell.m */,
+				3ADB6DEF1ADDF93A00233496 /* ProviderCell.h */,
+				3ADB6DF01ADDF93A00233496 /* ProviderCell.m */,
+				3ADB6DF21ADE00DA00233496 /* CoursesCell.h */,
+				3ADB6DF31ADE00DA00233496 /* CoursesCell.m */,
 			);
 			name = Group;
 			path = ..;
@@ -1046,6 +1056,7 @@
 				3A0370EE1ACCEABF00EAED52 /* MessagesCell.m in Sources */,
 				3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */,
 				91D1BAE717B0A12D008A9CAF /* LoginViewController.m in Sources */,
+				3ADB6DF11ADDF93A00233496 /* ProviderCell.m in Sources */,
 				9164228117B1F0A80084C4E8 /* WelcomeViewController.m in Sources */,
 				3A0370DA1ACA304C00EAED52 /* MessagingData.m in Sources */,
 				3A1F37361AC5E8B600438F6A /* CustomNavigationController.m in Sources */,
@@ -1055,6 +1066,7 @@
 				3A86EDDA1ABBCA6A007C1B77 /* Tool2ViewController.m in Sources */,
 				91DBDDDD17BB6C0F0030EDF5 /* BaseListViewController.m in Sources */,
 				91DBDE4017BB7C670030EDF5 /* Tool3ViewController.m in Sources */,
+				3ADB6DF41ADE00DA00233496 /* CoursesCell.m in Sources */,
 				3A13C38B1AD8A79900F7A0C1 /* GroupCellTableViewCell.m in Sources */,
 				91DBDE4517BB929E0030EDF5 /* Tool4ViewController.m in Sources */,
 				91DBDE4A17BB984A0030EDF5 /* Tool5ViewController.m in Sources */,

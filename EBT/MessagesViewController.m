@@ -13,7 +13,9 @@
 #import "MessagingViewController.h"
 #import "TabBarViewController.h"
 
-@interface MessagesViewController ()
+@interface MessagesViewController () {
+    NSDictionary *_providerInfo;
+}
 
 @end
 
@@ -45,6 +47,10 @@
     [myTableView reloadData];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.displayList count]+1;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"MessagesCell";
     MessagesCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
@@ -53,8 +59,17 @@
         [cell initCell];
     }
     
-    NSDictionary* item = self.displayList[[indexPath row]];
+    NSUInteger row = indexPath.row;
+    if(_providerInfo != nil && row == 0) {
+        [cell fillCell:_providerInfo forRow:0];
+        return cell; // return for provider cell
+    } else if(_providerInfo != nil) {
+        row -= 1;
+    }
+    
+    NSDictionary* item = self.displayList[row];
     [cell fillCell:item forRow:(int)indexPath.row];
+
     return cell;
 }
 
@@ -92,6 +107,27 @@
             [Utils alertMessage:[responseObject objectForKey:@"error"]];
         } else {
             self.displayList = responseObject;
+            [myTableView reloadData];
+        }
+        [self hideLoadingView];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Utils alertMessage:[error localizedDescription]];
+    }];
+    [self showLoadingView];
+}
+
+-(void) requestProvider {
+    NSString* urlStr = [NSString stringWithFormat:@"%@messages/provider",kBaseURL];
+    
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+    
+    //show loading indicator
+    
+    [manager.httpOperation GET:urlStr parameters:@{@"auth_token": [Utils setting:kSessionToken ]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+            [Utils alertMessage:[responseObject objectForKey:@"error"]];
+        } else {
+            _providerInfo = responseObject;
             [myTableView reloadData];
         }
         [self hideLoadingView];
