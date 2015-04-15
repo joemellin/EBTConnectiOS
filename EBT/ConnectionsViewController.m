@@ -77,8 +77,8 @@
         if(_providerInfo != nil) {
             row = indexPath.row - 2;
         }
-        NSDictionary* item = self.displayList[indexPath.row-1];
-        [cell fillCell:item forRow:(int)indexPath.row-1];
+        NSDictionary* item = self.displayList[row];
+        [cell fillCell:item forRow:(int)row];
         return cell;
     }
 }
