@@ -92,10 +92,16 @@
     MessagingViewController *messageVC = [[MessagingViewController alloc] init];
     messageVC.hidesBottomBarWhenPushed = YES;
     
-    NSDictionary *unmutableDict = self.displayList[indexPath.row][kSender];
-    NSMutableDictionary *dict = [unmutableDict mutableCopy];
-    [dict setObject:unmutableDict[kFname] forKey:@"name"];
-    messageVC.currentItem = dict;
+    NSMutableDictionary *dictionary;
+    if(_providerInfo != nil && indexPath.row == 0) {
+        dictionary = [_providerInfo mutableCopy];
+    } else {
+        dictionary = [self.displayList[indexPath.row][kSender] mutableCopy];
+        
+    }
+    [dictionary setObject:dictionary[kFname] forKey:@"name"];
+    messageVC.currentItem = dictionary;
+        
     [self.navigationController pushViewController:messageVC animated:YES];
 }
 
