@@ -138,7 +138,9 @@
         if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
             [Utils alertMessage:[responseObject objectForKey:@"error"]];
         } else {
-            _providerInfo = responseObject;
+            if([responseObject count]) {
+                _providerInfo = responseObject;
+            }
             [myTableView reloadData];
         }
         [self hideLoadingView];
