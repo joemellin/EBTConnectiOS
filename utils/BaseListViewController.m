@@ -38,7 +38,7 @@
 }
 
 -(void)setupTableView{
-	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height-130)
+	myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenBounds.size.width, kScreenBounds.size.height-110)
 											  style:UITableViewStylePlain];
 	[self.view addSubview:myTableView];
 }

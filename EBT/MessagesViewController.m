@@ -47,6 +47,7 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self requestUserMessages];
+    [self showLoadingView];
 }
 
 -(void) refreshScreen {
@@ -119,12 +120,12 @@
         } else {
             self.displayList = responseObject;
             [myTableView reloadData];
+            [_refreshControl endRefreshing];
         }
         [self hideLoadingView];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Utils alertMessage:[error localizedDescription]];
     }];
-    [self showLoadingView];
 }
 
 -(void) requestProvider {
@@ -147,7 +148,6 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Utils alertMessage:[error localizedDescription]];
     }];
-    [self showLoadingView];
 }
 
 -(void)requestSucceededResultHandler:(id)context result:(NSString*)result{

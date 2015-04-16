@@ -211,18 +211,6 @@
 		91AF5D9617CE0C10009FE460 /* timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D3C17CE0C10009FE460 /* timeline.png */; };
 		91AF5D9717CE0C10009FE460 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D3D17CE0C10009FE460 /* unchecked.png */; };
 		91AF5D9817CE0C10009FE460 /* verticalarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D3E17CE0C10009FE460 /* verticalarrow.png */; };
-		91AF5D9917CE0C10009FE460 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4017CE0C10009FE460 /* 1.jpg */; };
-		91AF5D9A17CE0C10009FE460 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4117CE0C10009FE460 /* 2.jpg */; };
-		91AF5D9B17CE0C10009FE460 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4217CE0C10009FE460 /* 3.jpg */; };
-		91AF5D9C17CE0C10009FE460 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4317CE0C10009FE460 /* 4.jpg */; };
-		91AF5D9D17CE0C10009FE460 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4417CE0C10009FE460 /* 5.jpg */; };
-		91AF5D9E17CE0C10009FE460 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4517CE0C10009FE460 /* 6.jpg */; };
-		91AF5D9F17CE0C10009FE460 /* 1-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4717CE0C10009FE460 /* 1-5.jpg */; };
-		91AF5DA017CE0C10009FE460 /* 2-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4817CE0C10009FE460 /* 2-5.jpg */; };
-		91AF5DA117CE0C10009FE460 /* 3-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4917CE0C10009FE460 /* 3-5.jpg */; };
-		91AF5DA217CE0C10009FE460 /* 4-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4A17CE0C10009FE460 /* 4-5.jpg */; };
-		91AF5DA317CE0C10009FE460 /* 5-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4B17CE0C10009FE460 /* 5-5.jpg */; };
-		91AF5DA417CE0C10009FE460 /* 6-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4C17CE0C10009FE460 /* 6-5.jpg */; };
 		91AF5DA517CE0C10009FE460 /* whatstate.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4D17CE0C10009FE460 /* whatstate.png */; };
 		91AF5DA617CE0C10009FE460 /* yellowbadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4E17CE0C10009FE460 /* yellowbadge.png */; };
 		91AF5DA717CE0C10009FE460 /* yellowcircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AF5D4F17CE0C10009FE460 /* yellowcircle.png */; };
@@ -480,18 +468,6 @@
 		91AF5D3C17CE0C10009FE460 /* timeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline.png; sourceTree = "<group>"; };
 		91AF5D3D17CE0C10009FE460 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
 		91AF5D3E17CE0C10009FE460 /* verticalarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verticalarrow.png; sourceTree = "<group>"; };
-		91AF5D4017CE0C10009FE460 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		91AF5D4117CE0C10009FE460 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		91AF5D4217CE0C10009FE460 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		91AF5D4317CE0C10009FE460 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
-		91AF5D4417CE0C10009FE460 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
-		91AF5D4517CE0C10009FE460 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
-		91AF5D4717CE0C10009FE460 /* 1-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-5.jpg"; sourceTree = "<group>"; };
-		91AF5D4817CE0C10009FE460 /* 2-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-5.jpg"; sourceTree = "<group>"; };
-		91AF5D4917CE0C10009FE460 /* 3-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-5.jpg"; sourceTree = "<group>"; };
-		91AF5D4A17CE0C10009FE460 /* 4-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-5.jpg"; sourceTree = "<group>"; };
-		91AF5D4B17CE0C10009FE460 /* 5-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "5-5.jpg"; sourceTree = "<group>"; };
-		91AF5D4C17CE0C10009FE460 /* 6-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "6-5.jpg"; sourceTree = "<group>"; };
 		91AF5D4D17CE0C10009FE460 /* whatstate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whatstate.png; sourceTree = "<group>"; };
 		91AF5D4E17CE0C10009FE460 /* yellowbadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowbadge.png; sourceTree = "<group>"; };
 		91AF5D4F17CE0C10009FE460 /* yellowcircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowcircle.png; sourceTree = "<group>"; };
@@ -841,8 +817,6 @@
 				91AF5D3C17CE0C10009FE460 /* timeline.png */,
 				91AF5D3D17CE0C10009FE460 /* unchecked.png */,
 				91AF5D3E17CE0C10009FE460 /* verticalarrow.png */,
-				91AF5D3F17CE0C10009FE460 /* Welcome iPhone 4 */,
-				91AF5D4617CE0C10009FE460 /* Welcomes iPhone 5 */,
 				91AF5D4D17CE0C10009FE460 /* whatstate.png */,
 				91AF5D4E17CE0C10009FE460 /* yellowbadge.png */,
 				91AF5D4F17CE0C10009FE460 /* yellowcircle.png */,
@@ -866,32 +840,6 @@
 				91AF5D0B17CE0C10009FE460 /* k9.png */,
 			);
 			path = "Course w Words";
-			sourceTree = "<group>";
-		};
-		91AF5D3F17CE0C10009FE460 /* Welcome iPhone 4 */ = {
-			isa = PBXGroup;
-			children = (
-				91AF5D4017CE0C10009FE460 /* 1.jpg */,
-				91AF5D4117CE0C10009FE460 /* 2.jpg */,
-				91AF5D4217CE0C10009FE460 /* 3.jpg */,
-				91AF5D4317CE0C10009FE460 /* 4.jpg */,
-				91AF5D4417CE0C10009FE460 /* 5.jpg */,
-				91AF5D4517CE0C10009FE460 /* 6.jpg */,
-			);
-			path = "Welcome iPhone 4";
-			sourceTree = "<group>";
-		};
-		91AF5D4617CE0C10009FE460 /* Welcomes iPhone 5 */ = {
-			isa = PBXGroup;
-			children = (
-				91AF5D4717CE0C10009FE460 /* 1-5.jpg */,
-				91AF5D4817CE0C10009FE460 /* 2-5.jpg */,
-				91AF5D4917CE0C10009FE460 /* 3-5.jpg */,
-				91AF5D4A17CE0C10009FE460 /* 4-5.jpg */,
-				91AF5D4B17CE0C10009FE460 /* 5-5.jpg */,
-				91AF5D4C17CE0C10009FE460 /* 6-5.jpg */,
-			);
-			path = "Welcomes iPhone 5";
 			sourceTree = "<group>";
 		};
 		91D1BAE317B0A03D008A9CAF /* Opening */ = {
@@ -1186,32 +1134,20 @@
 				3A85CFB61ABA666C00932A1A /* tab_profile@2x.png in Resources */,
 				3A942EC11ADEB647006D9284 /* 10.jpg.png in Resources */,
 				91AF5D9817CE0C10009FE460 /* verticalarrow.png in Resources */,
-				91AF5D9917CE0C10009FE460 /* 1.jpg in Resources */,
 				3A942EEE1ADEB647006D9284 /* 51.jpg.png in Resources */,
 				3A942ED11ADEB647006D9284 /* 25.jpg.png in Resources */,
-				91AF5D9A17CE0C10009FE460 /* 2.jpg in Resources */,
-				91AF5D9B17CE0C10009FE460 /* 3.jpg in Resources */,
 				3A942EF41ADEB647006D9284 /* 8.jpg.png in Resources */,
-				91AF5D9C17CE0C10009FE460 /* 4.jpg in Resources */,
 				3A13C3841AD8840700F7A0C1 /* checkinicon.png in Resources */,
 				3A942EC81ADEB647006D9284 /* 17.jpg.png in Resources */,
-				91AF5D9D17CE0C10009FE460 /* 5.jpg in Resources */,
-				91AF5D9E17CE0C10009FE460 /* 6.jpg in Resources */,
 				3A942ED71ADEB647006D9284 /* 30.jpg.png in Resources */,
 				3A942ECF1ADEB647006D9284 /* 23.jpg.png in Resources */,
 				3A6CD24F1AD7B925007C4AC3 /* grayPlus.png in Resources */,
 				3A942EED1ADEB647006D9284 /* 50.jpg.png in Resources */,
-				91AF5D9F17CE0C10009FE460 /* 1-5.jpg in Resources */,
 				3AC7353C1ADC523D0087695C /* camera_grey@2x.png in Resources */,
 				3A942EC41ADEB647006D9284 /* 13.jpg.png in Resources */,
 				3AC735421ADD86AE0087695C /* tabbarbackground@2x.png in Resources */,
-				91AF5DA017CE0C10009FE460 /* 2-5.jpg in Resources */,
-				91AF5DA117CE0C10009FE460 /* 3-5.jpg in Resources */,
-				91AF5DA217CE0C10009FE460 /* 4-5.jpg in Resources */,
 				3A942ED61ADEB647006D9284 /* 3.jpg.png in Resources */,
-				91AF5DA317CE0C10009FE460 /* 5-5.jpg in Resources */,
 				3A1F372E1AC5DEA100438F6A /* conversation_new@2x.png in Resources */,
-				91AF5DA417CE0C10009FE460 /* 6-5.jpg in Resources */,
 				91AF5DA517CE0C10009FE460 /* whatstate.png in Resources */,
 				91AF5DA617CE0C10009FE460 /* yellowbadge.png in Resources */,
 				91AF5DA717CE0C10009FE460 /* yellowcircle.png in Resources */,

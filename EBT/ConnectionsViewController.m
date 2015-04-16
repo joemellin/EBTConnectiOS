@@ -189,6 +189,11 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        [Utils alertMessage:[error localizedDescription]];
     }];
+    
+    CallingViewController *callingVC = [[CallingViewController alloc] init];
+    callingVC.hidesBottomBarWhenPushed = YES;
+    callingVC.isGroupCall = YES;
+    [self.navigationController pushViewController:callingVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
