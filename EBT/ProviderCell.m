@@ -55,7 +55,7 @@
     UILabel *description = [[UILabel alloc] init];
     description.font = [UIFont systemFontOfSize:17];
     description.textColor = kDarkGrayTextColor;
-    description.text = @"EBT Provider";
+    description.text = @"EBT Coach";
     description.frame = CGRectMake(90, 40, kScreenBounds.size.width - 120, 38);
     [self addSubview:description];
 }

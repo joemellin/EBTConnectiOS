@@ -94,12 +94,13 @@
     
     NSMutableDictionary *dictionary;
     if(_providerInfo != nil && indexPath.row == 0) {
-        dictionary = [_providerInfo mutableCopy];
+        dictionary = [[_providerInfo mutableCopy][kSender] mutableCopy];
+        [dictionary setObject:dictionary[kFname] forKey:@"name"];
     } else {
         dictionary = [self.displayList[indexPath.row][kSender] mutableCopy];
-        
+        [dictionary setObject:dictionary[kFname] forKey:@"name"];
     }
-    [dictionary setObject:dictionary[kFname] forKey:@"name"];
+
     messageVC.currentItem = dictionary;
         
     [self.navigationController pushViewController:messageVC animated:YES];
