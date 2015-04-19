@@ -36,6 +36,16 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishReceivingMessage) name:@"MessagesUpdated" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshScreen) name:@"UpdateMessageScreens" object:nil];
+    [self viewWillAppear:YES];
+    [self viewDidAppear:YES];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -31,21 +31,16 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - JSQMessagesViewController (from `https://github.com/jessesquires/JSQMessagesViewController`)
+  - JSQMessagesViewController
   - Parse
   - UIActionSheet+Blocks (from `https://github.com/ryanmaxwell/UIActionSheet-Blocks`)
   - YTVimeoExtractor
 
 EXTERNAL SOURCES:
-  JSQMessagesViewController:
-    :git: https://github.com/jessesquires/JSQMessagesViewController
   UIActionSheet+Blocks:
     :git: https://github.com/ryanmaxwell/UIActionSheet-Blocks
 
 CHECKOUT OPTIONS:
-  JSQMessagesViewController:
-    :commit: ab831aaf67a86dfbacace12eb9e1d802e1fdabce
-    :git: https://github.com/jessesquires/JSQMessagesViewController
   UIActionSheet+Blocks:
     :commit: ceda80534d913f51a795a12542de92ab0c9e0cc6
     :git: https://github.com/ryanmaxwell/UIActionSheet-Blocks
