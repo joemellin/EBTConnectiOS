@@ -97,7 +97,7 @@
         dictionary = [[_providerInfo mutableCopy][kSender] mutableCopy];
         [dictionary setObject:dictionary[kFname] forKey:@"name"];
     } else {
-        dictionary = [self.displayList[indexPath.row][kSender] mutableCopy];
+        dictionary = [self.displayList[indexPath.row-1][kSender] mutableCopy];
         [dictionary setObject:dictionary[kFname] forKey:@"name"];
     }
 
