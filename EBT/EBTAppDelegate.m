@@ -79,10 +79,17 @@
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackground];
     
+    [Utils setSettingForKey:@"notification_token" withValue:self.deviceTokenFromApple];
+    [Utils setSettingForKey:@"installation_id" withValue:currentInstallation.installationId];
+    
+    [self sendNotificationToken];
+}
+
+-(void) sendNotificationToken {
     NSString* urlStr = [NSString stringWithFormat:@"%@devices?auth_token=%@",kBaseURL, [Utils setting:kSessionToken]];
     HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
     
-    NSDictionary *params = @{@"device_token":token, @"installation_id": currentInstallation.installationId};
+    NSDictionary *params = @{@"device_token":[Utils setting:@"notification_token"], @"installation_id": [Utils setting:@"installation_id"]};
     
     [manager.httpOperation POST:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
@@ -91,7 +98,6 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Utils alertMessage:[error localizedDescription]];
     }];
-//    [self registerPushNotificationOnSTServer];
 }
 
 - (void)application:(UIApplication *)application

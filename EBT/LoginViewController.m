@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "HTTPRequestManager.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 
@@ -176,79 +177,53 @@
     }
     
     NSString* urlStr = [NSString stringWithFormat:@"%@tokens",kBaseURL];
-
-	urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"%@",urlStr);
     
-	
-	MyURLConnection* myconn = [[MyURLConnection alloc] initWithURL:urlStr target:self
-												 succeededCallback:@selector(requestSucceeded:myURLConnection:)
-													failedCallback:@selector(requestFailed:myURLConnection:)
-														   context:[NSNumber numberWithInt:1]];
-    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
                           nameField.text ,@"email",
                           passwordField.text,@"password",
                           nil];
     
-    [myconn post:dict];
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
     
-    // NSString* json = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:dict options:nil error:nil ] encoding:NSUTF8StringEncoding];
-    
-    // [myconn postRawJSONString:json];
+    [manager.httpOperation POST:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+            [Utils alertMessage:[responseObject objectForKey:@"error"]];
+        }
+        
+        NSString* token = [responseObject objectForKey:@"auth_token"];
+        [Utils setSettingForKey:kSessionToken withValue:token];
+        [Utils setSettingForKey:kUserInfoDict withValue:responseObject];
+        NSDictionary* loginDict = @{kUsername:nameField.text,kPassword:passwordField.text};
+        [Utils setSettingForKey:kLoginInfoDict withValue:loginDict];
+        
+        
+        if (![responseObject[@"active_subscription"] boolValue]) {
+            //[Utils alertMessage:@"Visit ebtgroups.com to enroll by tapping \"NEW TO EBT\"."];
+            //[self back];
+            [self setupLogoutUI];
+            return;
+        }
+        
+        if (![[responseObject objectForKey:kGroup] objectForKey:kID]) {
+            [self setupLogoutUI];
+            return;
+        }
+        
+        
+        [[Utils appDelegate] sendNotificationToken];
+        [Utils showSubViewWithName:@"TabBarViewController" withDelegate:self];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //        [Utils alertMessage:[error localizedDescription]];
+    }];
 	
     [self showLoadingView];
 	
 }
 
--(void)serverErrorHandler{
-
-}
-
-//-(void)back{
-//    [Utils setSettingForKey:kLoginBackTapped withValue:@"1"];
-//    [super back];
-//}
-
-
-
--(void)requestSucceededResultHandler:(id)context result:(NSString*)result{
-    NSLog(@"result:%@",result);
-    
-	if ([context intValue] == 1) {
-        NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-        if (dict) {
-            NSString* token = [dict objectForKey:@"auth_token"];
-            [Utils setSettingForKey:kSessionToken withValue:token];
-            [Utils setSettingForKey:kUserInfoDict withValue:dict];
-            NSDictionary* loginDict = @{kUsername:nameField.text,kPassword:passwordField.text};
-            [Utils setSettingForKey:kLoginInfoDict withValue:loginDict];
-            
-
-            if (![dict[@"active_subscription"] boolValue]) {
-                //[Utils alertMessage:@"Visit ebtgroups.com to enroll by tapping \"NEW TO EBT\"."];
-                //[self back];
-                [self setupLogoutUI];
-                return;
-            }
-            
-            if (![[dict objectForKey:kGroup] objectForKey:kID]) {
-                [self setupLogoutUI];
-                return;
-            }
-            
-            [Utils showSubViewWithName:@"TabBarViewController" withDelegate:self];
-        }
-
-	}
-    
-    
-}
-
 -(void)loadingViewHanlder:(int)context{
 	//[self hideLoadingView];
 }
-
-
 
 -(void)signin{
     [self requestAuth];
