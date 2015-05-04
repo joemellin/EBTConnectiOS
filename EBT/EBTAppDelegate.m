@@ -86,18 +86,20 @@
 }
 
 -(void) sendNotificationToken {
-    NSString* urlStr = [NSString stringWithFormat:@"%@devices?auth_token=%@",kBaseURL, [Utils setting:kSessionToken]];
-    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
-    
-    NSDictionary *params = @{@"device_token":[Utils setting:@"notification_token"], @"installation_id": [Utils setting:@"installation_id"]};
-    
-    [manager.httpOperation POST:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
-            [Utils alertMessage:[responseObject objectForKey:@"error"]];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Utils alertMessage:[error localizedDescription]];
-    }];
+    if([Utils setting:kSessionToken]) {
+        NSString* urlStr = [NSString stringWithFormat:@"%@devices?auth_token=%@",kBaseURL, [Utils setting:kSessionToken]];
+        HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+        
+        NSDictionary *params = @{@"device_token":[Utils setting:@"notification_token"], @"installation_id": [Utils setting:@"installation_id"]};
+        
+        [manager.httpOperation POST:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+                [Utils alertMessage:[responseObject objectForKey:@"error"]];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [Utils alertMessage:[error localizedDescription]];
+        }];
+    }
 }
 
 - (void)application:(UIApplication *)application

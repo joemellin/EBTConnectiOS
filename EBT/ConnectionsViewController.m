@@ -64,7 +64,7 @@
             cell = [[ProviderCell alloc] initWithDelegate:self];
             [cell initCell];
         }
-        [cell fillCell:_providerInfo forRow:(int)indexPath.row];
+        [cell fillCell:_providerInfo forRow:(int)-1];
         return cell;
     } else {
         ConnectionsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConnectionsCell"];
@@ -100,7 +100,7 @@
 -(void) messageSelected:(UIButton*) sender {
     MessagingViewController *messageVC = [[MessagingViewController alloc] init];
     messageVC.hidesBottomBarWhenPushed = YES;
-    if(_providerInfo != nil && sender.tag == 1) {
+    if(_providerInfo != nil && sender.tag == -1) {
         messageVC.currentItem = _providerInfo;
     } else {
         messageVC.currentItem = self.displayList[sender.tag];

@@ -112,7 +112,8 @@
 }
 
 -(void) back {
-    [self.navigationController popToViewController:[Utils appDelegate].tabBarViewController animated:YES];
+//    [self.navigationController popToViewController:[Utils appDelegate].tabBarViewController animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)next {
