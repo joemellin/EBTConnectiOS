@@ -129,9 +129,9 @@
             [Utils alertMessage:[responseObject objectForKey:@"error"]];
         }
         
-        if([responseObject count]) {
+//        if([responseObject count]) {
             [self processMessages:responseObject];
-        }
+//        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Utils alertMessage:[error localizedDescription]];
