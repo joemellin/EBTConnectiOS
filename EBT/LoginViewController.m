@@ -237,4 +237,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) showController {
+    [self.navigationController popToViewController:self animated:YES];
+}
+
 @end

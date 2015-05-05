@@ -10,6 +10,7 @@
 #import "Utils.h"
 #import "TabBarViewController.h"
 #import "ConnectionsViewController.h"
+#import "LoginViewController.h"
 
 @implementation BaseRequestViewController
 
@@ -84,6 +85,7 @@
 -(void)setNavTitle:(NSString*)title{
     self.navigationItem.title = title;
     self.navigationItem.hidesBackButton = YES;
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 -(void)addLeftBackButton{
@@ -118,8 +120,7 @@
         [Utils removeSettingForKey:kSessionToken];
         [Utils removeSettingForKey:kLoginInfoDict];
         [Utils setSettingForKey:kLoggedOut withValue:@"1"];
-        [self.navigationController popToViewController:[Utils appDelegate].loginViewController animated:YES];
-        
+        [[Utils appDelegate].loginViewController showController];
     }
 }
 

@@ -14,4 +14,6 @@
     UIView* logoutContentView;
 }
 
+-(void) showController;
+
 @end

@@ -21,7 +21,7 @@
 @property (strong, nonatomic)NSString* sessionID;
 @property (strong, nonatomic) EBTViewController *viewController;
 @property (strong, nonatomic) ConnectionsViewController *connectionsController;
-@property (strong, nonatomic) GroupViewController *loginViewController;
+@property (strong, nonatomic) LoginViewController *loginViewController;
 @property (strong, nonatomic) TabBarViewController *tabBarViewController;
 
 -(void) sendNotificationToken;

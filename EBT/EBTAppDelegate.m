@@ -42,7 +42,7 @@
         [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
     }
     
-    [[UINavigationBar appearance] setTranslucent:NO];
+    
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:71/255.0f green:138/255.0f blue:198/255.0f alpha:1.0], NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:245/255.0f green:245/255.0f blue:245/255.0f alpha:1.0]];
     
@@ -86,7 +86,7 @@
 }
 
 -(void) sendNotificationToken {
-    if([Utils setting:kSessionToken]) {
+    if([Utils setting:kSessionToken] && [Utils setting:@"notification_token"] && [Utils setting:@"installation_id"]) {
         NSString* urlStr = [NSString stringWithFormat:@"%@devices?auth_token=%@",kBaseURL, [Utils setting:kSessionToken]];
         HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
         
