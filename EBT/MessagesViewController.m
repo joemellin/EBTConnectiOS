@@ -96,6 +96,7 @@
     if(_providerInfo != nil && indexPath.row == 0) {
         dictionary = [[_providerInfo mutableCopy][kSender] mutableCopy];
         [dictionary setObject:dictionary[kFname] forKey:@"name"];
+        messageVC.isProvider = YES;
     } else {
         dictionary = [self.displayList[indexPath.row-1][kSender] mutableCopy];
         [dictionary setObject:dictionary[kFname] forKey:@"name"];

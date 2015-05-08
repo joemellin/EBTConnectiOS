@@ -15,8 +15,8 @@
     
     self.httpOperation.requestSerializer = [AFJSONRequestSerializer serializer];
     
-    [self.httpOperation.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [self.httpOperation.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+//    [self.httpOperation.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    [self.httpOperation.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     return self;
 }

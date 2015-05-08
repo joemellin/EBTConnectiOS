@@ -10,4 +10,5 @@
 
 @interface MessagingViewController : JSQMessagesViewController
 @property (nonatomic, strong) NSDictionary *currentItem;
+@property (nonatomic, assign) BOOL isProvider;
 @end

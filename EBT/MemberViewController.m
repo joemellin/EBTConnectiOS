@@ -12,10 +12,13 @@
 #import <UIImageView+AFNetworking.h>
 #import <UIButton+AFNetworking.h>
 #import "HTTPRequestManager.h"
+#import "TJSpinner.h"
 
 @interface MemberViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     UIImagePickerController *_imagePickerController;
     UIImageView *_profileImage;
+    TJSpinner *_profileImageLoad;
+    UIImage *_scaledImage;
 }
 @end
 
@@ -38,6 +41,13 @@
     _imagePickerController.delegate = self;
     [self setNavTitle:@"Profile"];
     self.navigationItem.leftBarButtonItem = nil;
+    _profileImageLoad = [[TJSpinner alloc] initWithSpinnerType:@"TJCircularSpinner"];
+    _profileImageLoad.hidesWhenStopped = YES;
+    _profileImageLoad.radius = 20;
+    _profileImageLoad.pathColor = [UIColor whiteColor];
+    _profileImageLoad.fillColor = kBlueTabColor;
+    _profileImageLoad.thickness = 12;
+    _profileImageLoad.frame = CGRectMake(53, 53, _profileImageLoad.frame.size.width, _profileImageLoad.frame.size.height);
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -75,6 +85,7 @@
     _profileImage.clipsToBounds = YES;
     
     [contentView addSubview:_profileImage];
+    [contentView addSubview:_profileImageLoad];
     
     UILabel* label;
     
@@ -457,12 +468,13 @@
     [myconn post:dict];
     
     [self showLoadingView];
-	
-    //resoponse   [self requestUserInfo];
 }
 
 -(IBAction)requestUserInfo{
 
+    if([_profileImageLoad isAnimating]) {
+        return;
+    }
     [self showLoadingView];
     NSDictionary* params = [Utils setting:kUserInfoDict];
     NSString* urlStr = [NSString stringWithFormat:@"%@users/%@?auth_token=%@",kBaseURL, self.currentItem[kID], [Utils setting:kSessionToken]];
@@ -485,14 +497,6 @@
         [Utils alertMessage:[error localizedDescription]];
     }];
 }
-
--(void)loadingViewHanlder:(int)context{
-    if (context == 2) {
-        return;
-    }
-	[self hideLoadingView];
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -533,9 +537,9 @@
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    UIImage *scaled = [self imageWithImage:image scaledToFillSize:CGSizeMake(1000, 1000)];
-    [_profileImage setImage:scaled];
-    NSData *imageData = UIImageJPEGRepresentation(scaled, 1.0);
+    _scaledImage = [self imageWithImage:image scaledToFillSize:CGSizeMake(1000, 1000)];
+    
+    NSData *imageData = UIImageJPEGRepresentation(_scaledImage, 1.0);
     [self performSelector:@selector(uploadImage:) withObject:imageData];
 }
 
@@ -559,8 +563,7 @@
 -(void) uploadImage:(NSData*) image {
     NSString* imagePostUrl = [NSString stringWithFormat:@"%@users/%@?auth_token=%@",kBaseURL, self.currentItem[kID], [Utils setting:kSessionToken]];
     
-    
-    [self showLoadingView];
+    [_profileImageLoad startAnimating];
     HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
     [manager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
     [manager setResponseSerializer:[AFJSONResponseSerializer serializer]];
@@ -572,10 +575,11 @@
     } error:nil];
     
     AFHTTPRequestOperation *requestOperation = [manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self hideLoadingView];
+        [_profileImage setImage:_scaledImage];
+        [_profileImageLoad stopAnimating];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Utils alertMessage:[error localizedDescription]];
-        [self hideLoadingView];
+        [_profileImageLoad stopAnimating];
     }];
     
     // fire the request

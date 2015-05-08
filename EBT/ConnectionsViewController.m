@@ -102,6 +102,7 @@
     messageVC.hidesBottomBarWhenPushed = YES;
     if(_providerInfo != nil && sender.tag == -1) {
         messageVC.currentItem = _providerInfo;
+        messageVC.isProvider = YES;
     } else {
         messageVC.currentItem = self.displayList[sender.tag];
     }
@@ -167,6 +168,9 @@
                                    nil];
     
     HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+    manager.responseSerializer = [AFXMLParserResponseSerializer new];
+    [manager.requestSerializer setValue:@"text/xml" forHTTPHeaderField:@"Accept"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
     
     [manager.httpOperation POST:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {

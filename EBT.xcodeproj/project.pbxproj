@@ -28,6 +28,7 @@
 		3A1F37301AC5DEA100438F6A /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1F372C1AC5DEA100438F6A /* phone@2x.png */; };
 		3A1F37331AC5DF5800438F6A /* ConnectionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F37321AC5DF5800438F6A /* ConnectionsCell.m */; };
 		3A1F37361AC5E8B600438F6A /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F37351AC5E8B600438F6A /* CustomNavigationController.m */; };
+		3A5806021AFCB24F00F7A7B3 /* TJSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5806011AFCB24F00F7A7B3 /* TJSpinner.m */; };
 		3A6CD2471AD7871F007C4AC3 /* logoutButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6CD2461AD7871F007C4AC3 /* logoutButton.png */; };
 		3A6CD2491AD7AAD3007C4AC3 /* newMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6CD2481AD7AAD3007C4AC3 /* newMessage@2x.png */; };
 		3A6CD24D1AD7B6A3007C4AC3 /* phone2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6CD24C1AD7B6A3007C4AC3 /* phone2@2x.png */; };
@@ -258,6 +259,8 @@
 		3A1F37321AC5DF5800438F6A /* ConnectionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectionsCell.m; path = EBT/ConnectionsCell.m; sourceTree = "<group>"; };
 		3A1F37341AC5E8B600438F6A /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
 		3A1F37351AC5E8B600438F6A /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
+		3A5806001AFCB24F00F7A7B3 /* TJSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJSpinner.h; sourceTree = "<group>"; };
+		3A5806011AFCB24F00F7A7B3 /* TJSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJSpinner.m; sourceTree = "<group>"; };
 		3A6CD2461AD7871F007C4AC3 /* logoutButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoutButton.png; sourceTree = "<group>"; };
 		3A6CD2481AD7AAD3007C4AC3 /* newMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newMessage@2x.png"; sourceTree = "<group>"; };
 		3A6CD24C1AD7B6A3007C4AC3 /* phone2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone2@2x.png"; sourceTree = "<group>"; };
@@ -701,6 +704,8 @@
 		9120BDEC17B09958005CF602 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				3A5806001AFCB24F00F7A7B3 /* TJSpinner.h */,
+				3A5806011AFCB24F00F7A7B3 /* TJSpinner.m */,
 				3A0370DB1ACA3BCE00EAED52 /* HTTPRequestManager.h */,
 				3A0370DC1ACA3BCE00EAED52 /* HTTPRequestManager.m */,
 				91D1BAFB17B0A60E008A9CAF /* constants.h */,
@@ -1224,6 +1229,7 @@
 				3A0370EE1ACCEABF00EAED52 /* MessagesCell.m in Sources */,
 				3A1F370B1AC4946800438F6A /* CallingViewController.m in Sources */,
 				91D1BAE717B0A12D008A9CAF /* LoginViewController.m in Sources */,
+				3A5806021AFCB24F00F7A7B3 /* TJSpinner.m in Sources */,
 				3ADB6DF11ADDF93A00233496 /* ProviderCell.m in Sources */,
 				9164228117B1F0A80084C4E8 /* WelcomeViewController.m in Sources */,
 				3A0370DA1ACA304C00EAED52 /* MessagingData.m in Sources */,

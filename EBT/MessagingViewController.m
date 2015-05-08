@@ -70,7 +70,11 @@
     [rightButton setImage:[UIImage imageNamed:@"phone2"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(callUser) forControlEvents:UIControlEventTouchUpInside];
     rightButton.frame = CGRectMake(0, 0, 45, 35);
-    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:rightButton], [[UIBarButtonItem alloc] initWithCustomView:_spinner]];
+    if(self.isProvider) {
+        self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:_spinner]];
+    } else {
+        self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:rightButton], [[UIBarButtonItem alloc] initWithCustomView:_spinner]];
+    }
 }
 
 -(void) back {
@@ -310,6 +314,10 @@
 
 -(void) callUser {
     [self callCommunity:[_currentItem[kID] intValue]];
+    CallingViewController *callingVC = [[CallingViewController alloc] init];
+    callingVC.hidesBottomBarWhenPushed = YES;
+    callingVC.name = _currentItem[kName];
+    [self.navigationController pushViewController:callingVC animated:YES];
 }
 
 -(void) callCommunity:(int) calledId {
@@ -325,14 +333,9 @@
     [manager.httpOperation POST:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
             [Utils alertMessage:[responseObject objectForKey:@"error"]];
-        } else {
-            CallingViewController *callingVC = [[CallingViewController alloc] init];
-            callingVC.hidesBottomBarWhenPushed = YES;
-            callingVC.name = _currentItem[kName];
-            [self.navigationController pushViewController:callingVC animated:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Utils alertMessage:[error localizedDescription]];
+//        [Utils alertMessage:[error localizedDescription]];
     }];
 }
 

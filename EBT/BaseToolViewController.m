@@ -9,6 +9,7 @@
 #import "BaseToolViewController.h"
 #import "SelectStateViewController.h"
 #import "AcceptStateViewController.h"
+#import "Tool1ViewController.h"
 
 @interface BaseToolViewController ()
 
@@ -88,7 +89,11 @@
     } else {
         id vc = [[[self class] alloc] init];
         [vc setCurrentIndex:self.currentIndex + 1];
-        [self.navigationController pushViewController:vc animated:YES];
+        if([vc isKindOfClass:[Tool1ViewController class]]) {
+            [self.navigationController pushViewController:vc animated:NO];
+        } else {
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 

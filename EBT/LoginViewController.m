@@ -57,6 +57,7 @@
     field.placeholder = @"Email Address";
     field.font = [UIFont boldSystemFontOfSize:14];
     field.delegate = self;
+    field.clearButtonMode = UITextFieldViewModeWhileEditing;
     field.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
     field.autocapitalizationType = UITextAutocapitalizationTypeNone;
     field.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -66,6 +67,7 @@
     field.secureTextEntry = YES;
     passwordField = field;
     field.delegate = self;
+    field.clearButtonMode = UITextFieldViewModeWhileEditing;
     field.placeholder = @"Password";
     field.font = [UIFont boldSystemFontOfSize:13];
     field.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -214,7 +216,9 @@
         [Utils showSubViewWithName:@"TabBarViewController" withDelegate:self];
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //        [Utils alertMessage:[error localizedDescription]];
+        [Utils alertMessage:@"The username or password is incorrect"];
+        [self hideLoadingView];
+//        [Utils alertMessage:[error localizedDescription]];
     }];
 	
     [self showLoadingView];

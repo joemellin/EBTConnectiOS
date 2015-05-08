@@ -41,10 +41,10 @@
     
     if(_isGroupCall) {
         nameLabel.text = [NSString stringWithFormat:@"Calling Your Group"];
-        instructions.text = @"1) Phone will ring\n\n2) When you answer you will join the group conference line.";
+        instructions.text = @"1) Your phone will ring\n\n2) When you answer you will join the group conference line.";
     } else {
         nameLabel.text = [NSString stringWithFormat:@"Calling %@", self.name];
-        instructions.text = @"1) Phone will ring\n\n2) When you answer you will be connected to your group member";
+        instructions.text = @"1) Your Phone will ring\n\n2) When you answer you will be connected to your group member";
     }
     
     nameLabel.font = [UIFont boldSystemFontOfSize:40];
