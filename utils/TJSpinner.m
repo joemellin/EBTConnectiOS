@@ -354,7 +354,7 @@ NSString *const kTJSpinnerTypeBeachBall = @"TJBeachBallSpinner";
     CGPoint centerPoint = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(context, self.strokeWidth);
-    float dash[4];
+    CGFloat dash[4];
 
     for (int i=0; i<self.numberOfStrokes; i++) 
     {
