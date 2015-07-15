@@ -25,7 +25,7 @@
 - (void)viewDidLoad
 {
     needsNavBar = YES;
-    [self setNavTitle:@"Feelings Check"];
+    [self setNavTitle:@"Feelings Tool"];
     
     self.titles = @[@"How do you feel?", @"What do you need?", @"Do you need support?"];
     self.details = @[@"Take a deep breakth and ask, \"How do I feel?\"\nPause and become aware of your strongest feelings.\n\n\nThe Basic Feelings\n\nAngry, Sad, Afraid, Guilty, Tired, Tense, Hungry, Full, Lonely and Sick\n\nGrateful, Happy, Secure, Proud, Rested, Relaxed, Satisfied, Loved, Loving and Healthy.",

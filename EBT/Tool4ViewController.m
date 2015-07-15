@@ -39,7 +39,7 @@
                  @"I feel guilty that...",
                  @"What is my unreasonable expectation?",
                  @"What is my reasonable expectation?",
-                 @"Grind In the New Expectation"
+                 @"Spiral Up!"
                  ];
     self.details = @[
                  @"The situation is...\nWhat I'm most stressed about is...",
@@ -57,9 +57,9 @@
                       @"I feel sad that...",
                       @"I feel afraid that...",
                       @"I feel guilty that...",
-                      @"My unreasonable expectation is...",
+                      @"Of course I would do that, because my unreasonable expectation is...",
                       @"My reasonable expectation is...",
-                      @"Repeat your reasonable expectation 10+ times..."
+                      @"Create lasting change:   3 Slow   3+ Ramp Up    3+ Joy"
                       ];
     UIImageView* imageView = [[UIImageView alloc] init];
     imageView.image = [[UIImage imageNamed:@"describebar"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];

@@ -28,14 +28,14 @@
 - (void)viewDidLoad
 {
     needsNavBar = YES;
-    [self setNavTitle:@"Sanctuary"];
+    [self setNavTitle:@"Compassion Tool"];
     
     self.titles = @[
                      @"Take a deep breath...",
                      @"Feel compassion for yourself...",
                      @"Feel compassion for others...",
                      @"Feel compassion for all living beings...",
-                     @"Feel a surge of joy!"
+                     @"Celebrate a moment at 1!"
                      ];
     
     _message = [[UILabel alloc] init];

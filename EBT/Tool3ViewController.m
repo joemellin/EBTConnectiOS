@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad
 {
-    [self setNavTitle:@"Emotional Housecleaning"];
+    [self setNavTitle:@"Flow Tool"];
     
     self.titles = @[
                  @"I feel angry that...",

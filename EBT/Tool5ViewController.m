@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     needsNavBar = YES;
-    [self setNavTitle:@"Damage Control"];
+    [self setNavTitle:@"Damage Control Tool"];
     
     self.titles = @[
                          @"Do Not Judge",

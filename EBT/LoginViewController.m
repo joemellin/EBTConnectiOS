@@ -46,13 +46,14 @@
     if (self.navigationController.viewControllers.count == 1) {
         self.navigationItem.leftBarButtonItem = nil;
     }
-    
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 25, 0, 0)];
-    imageView.image = [UIImage imageNamed:@"2fields"];
+
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"2fields"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 40, 0, 40) resizingMode:UIImageResizingModeStretch]];
     imageView.userInteractionEnabled = YES;
-    [self setViewFrame:imageView];
+    imageView.frame = CGRectMake(20,20, kScreenBounds.size.width-40, imageView.frame.size.height);
     [self.view addSubview:imageView];
-    UITextField* field = [[UITextField alloc] initWithFrame:CGRectMake(20, 3, 225, 44)];
+    
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    UITextField* field = [[UITextField alloc] initWithFrame:CGRectMake(20, 3, imageView.frame.size.width-40, 44)];
     nameField = field;
     field.placeholder = @"Email Address";
     field.font = [UIFont boldSystemFontOfSize:14];
@@ -61,9 +62,10 @@
     field.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
     field.autocapitalizationType = UITextAutocapitalizationTypeNone;
     field.autocorrectionType = UITextAutocorrectionTypeNo;
+    field.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [imageView addSubview:field];
     
-    field = [[UITextField alloc] initWithFrame:CGRectMake(20, 53, 225, 44)];
+    field = [[UITextField alloc] initWithFrame:CGRectMake(20, 53, imageView.frame.size.width-40, 44)];
     field.secureTextEntry = YES;
     passwordField = field;
     field.delegate = self;
@@ -73,6 +75,7 @@
     field.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
     field.autocapitalizationType = UITextAutocapitalizationTypeNone;
     field.autocorrectionType = UITextAutocorrectionTypeNo;
+    field.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [imageView addSubview:field];
     
     UIButton *forgotPassword = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -86,10 +89,9 @@
     
     float lastY = 140;
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(200, lastY, 0, 0);
+    button.frame = CGRectMake(kScreenBounds.size.width-130, lastY, 90, 35);
 	[button setBackgroundImage:[UIImage imageNamed:@"signinbutton"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(signin) forControlEvents:UIControlEventTouchUpInside];
-	[self setViewFrame:button];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
 
     [button setTitle:@"SIGN IN" forState:UIControlStateNormal];
@@ -141,7 +143,7 @@
     logoutContentView = contentView;
     
     UILabel* label;
-    label = [[UILabel alloc] initWithFrame:CGRectMake(40 , 60, 240, 100)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(40 , 60, kScreenBounds.size.width-80, 100)];
     label.numberOfLines = 0;
     label.textColor = kGrayTextColor;
     label.text =  @"You do not currently\nhave an active\nMembership.";

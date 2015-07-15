@@ -29,7 +29,7 @@
 {
     needsNavBar = YES;
     [super viewDidLoad];
-    [self setNavTitle:@"How do you feel?"];
+    [self setNavTitle:@"What number are you?"];
     [self setupTableView];
     [self addLeftBackButtonHome];
 }
