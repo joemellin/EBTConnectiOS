@@ -34,16 +34,16 @@
     [self addSubview:_imageView];
     
     _title = [[UILabel alloc] init];
-    _title.numberOfLines = 2;
+    _title.numberOfLines = 3;
     _title.font = [UIFont boldSystemFontOfSize:18];
     [self addSubview:_title];
 }
 
 -(void) fillCell:(NSDictionary *)item forRow:(int) row {
     _title.text = item[kName];
-    float height = [Utils heightWithText:_title.text andFont:_title.font andMaxWidth:kScreenBounds.size.width - 108 andMaxHeight:60];
-    _title.frame = CGRectMake(118, 88/2 - height/2, kScreenBounds.size.width - 128, height);
-    [_imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%i.jpg", row+1]]];
+    float height = [Utils heightWithText:_title.text andFont:_title.font andMaxWidth:kScreenBounds.size.width - 108 andMaxHeight:80];
+    _title.frame = CGRectMake(98, 88/2 - height/2, kScreenBounds.size.width - 108, height);
+    [_imageView setImageWithURL:[NSURL URLWithString:item[@"thumbnail_url"]]];
 }
 
 @end

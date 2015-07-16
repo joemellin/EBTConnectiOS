@@ -9,6 +9,7 @@
 #import "CoursesViewController.h"
 #import "YTVimeoExtractor.h"
 #import "CoursesCell.h"
+#import "HTTPRequestManager.h"
 
 @interface CoursesViewController ()
 @property (nonatomic, strong) MPMoviePlayerViewController *playerViewController;
@@ -22,8 +23,7 @@
     [self setupTableView];
     [self setNavTitle:@"Courses"];
     
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Courses" ofType:@"plist"];
-    self.displayList = [NSMutableArray arrayWithContentsOfFile:plistPath];
+    [self getCourses];
 
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = nil;
@@ -49,7 +49,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self showLoadingView];
     NSDictionary* item = self.displayList[[indexPath row]];
-    [YTVimeoExtractor fetchVideoURLFromURL:item[kUrl]
+    [YTVimeoExtractor fetchVideoURLFromURL:item[@"vimeo_src"]
                                    quality:YTVimeoVideoQualityHigh
                          completionHandler:^(NSURL *videoURL, NSError *error, YTVimeoVideoQuality quality) {
                              [self hideLoadingView];
@@ -70,6 +70,26 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) getCourses {
+    NSString* urlStr = [NSString stringWithFormat:@"%@media",kBaseURL];
+    
+    HTTPRequestManager *manager = [[HTTPRequestManager alloc] init];
+    
+    //show loading indicator
+    
+    [manager.httpOperation GET:urlStr parameters:@{@"auth_token": [Utils setting:kSessionToken ]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"error"]) {
+            [Utils alertMessage:[responseObject objectForKey:@"error"]];
+        } else {
+            self.displayList = responseObject[@"media"];
+            [myTableView reloadData];
+        }
+        [self hideLoadingView];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Utils alertMessage:[error localizedDescription]];
+    }];
 }
 
 @end
