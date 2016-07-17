@@ -17,11 +17,14 @@
 #import "CustomNavigationController.h"
 #import <Parse/Parse.h>
 #import "HTTPRequestManager.h"
+#import <BuddyBuildSDK/BuddyBuildSDK.h>
 
 @implementation EBTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [BuddyBuildSDK setup];
+    
     [Parse setApplicationId:@"zeL64do78roAYYMmsOA7HRWzb8eSXNHDV0txV0Kh" clientKey:@"0G2x6pQFjNd32HXCJl793jAp7gNgyGyKBYi90sQt"];
     
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
